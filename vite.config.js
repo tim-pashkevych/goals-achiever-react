@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import svgr from 'vite-plugin-svgr';
+import 'dotenv/config';
+
+const { BASENAME = '/' } = process.env;
 
 export default defineConfig({
   plugins: [react(), svgr()],
@@ -12,5 +15,5 @@ export default defineConfig({
       assets: '/src/assets',
     },
   },
-  base: '/',
+  base: BASENAME,
 });
