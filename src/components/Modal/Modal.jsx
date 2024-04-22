@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ModalButton, ModalWindow, Wrapper } from './Modal.styled';
+import {
+  SModalButton_button,
+  SModalWindow_div,
+  SWrapper_div,
+} from './Modal.styled';
 
 const modalRoot = document.querySelector('#rootModal');
 
@@ -34,9 +38,9 @@ export const Modal = ({
   };
 
   return createPortal(
-    <Wrapper onClick={handleClick}>
-      <ModalWindow padding={padding}>
-        <ModalButton onClick={toggleModal}>
+    <SWrapper_div onClick={handleClick}>
+      <SModalWindow_div padding={padding}>
+        <SModalButton_button onClick={toggleModal}>
           <svg
             width="9"
             height="9"
@@ -57,10 +61,10 @@ export const Modal = ({
               stroke-linejoin="round"
             />
           </svg>
-        </ModalButton>
+        </SModalButton_button>
         {children}
-      </ModalWindow>
-    </Wrapper>,
+      </SModalWindow_div>
+    </SWrapper_div>,
     modalRoot
   );
 };

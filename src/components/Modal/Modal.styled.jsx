@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const SWrapper_div = styled.div`
   height: 100vh;
   width: 100vw;
   position: absolute;
@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   background-color: rgba(190, 219, 176, 0.089);
 `;
 
-export const ModalWindow = styled.div`
+export const SModalWindow_div = styled.div`
   position: relative;
   width: auto;
   height: auto;
@@ -21,7 +21,7 @@ export const ModalWindow = styled.div`
   border-radius: 8px;
   padding: ${(props) => props.padding};
 `;
-export const ModalButton = styled.button`
+export const SModalButton_button = styled.button`
   border-radius: 9px;
   background-color: inherit;
   display: flex;
