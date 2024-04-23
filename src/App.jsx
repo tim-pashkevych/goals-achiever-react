@@ -2,6 +2,10 @@ import { lazy, useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
+import './styles/variables.css';
+import 'modern-normalize/modern-normalize.css';
+import { GlobalStyle } from './styles/GlobalStyle.js';
+
 import { theme } from './styles/theme';
 import { Layout, ThemeContext } from './components';
 
@@ -12,6 +16,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme[color]}>
+      <GlobalStyle />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<WelcomePage />} />
