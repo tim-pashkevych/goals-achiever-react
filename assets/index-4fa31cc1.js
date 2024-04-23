@@ -278,34 +278,38 @@ to {
   gap: 4px;
   align-items: center;
   justify-content: center;
-  padding: 2.5px 0;
   stroke: ${({theme:e})=>e.themeSwitcher};
   fill: ${({theme:e})=>e.panelBackground};
-`,_k=Z.div`
+`,_k=Z.p`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
   color: ${({theme:e})=>e.themeSwitcher};
 
-  text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-`,uy=Object.freeze({dark:{background:"#1F1F1F",secondBackground:"#121212",panelBackground:"#161616",secondaryColor:"#BEDBB0",text:"rgb(22, 22, 22)",textOne:"#FFFFFF",textTwo:"rgba(255, 255, 255, 0.8)",textThree:"rgba(255, 255, 255, 0.5)",textFour:"rgba(255, 255, 255, 0.1)",themeSwitcher:"rgba(255, 255, 255, 0.8)",themeSwitsherAccent:"#bedbb0",themeSwitsherPopUp:"rgba(255, 255, 255, 0.5)",themeSwitsherPopUpBorder:"#bedbb0",themeSwitsherPopUpBackground:"#151515",themeSwitsherPopUpBoxshadow:"rgba(17, 17, 17, 0.1)"},light:{background:"#f6f6f7",secondBackground:"#fff",panelBackground:"#fcfcfc",secondaryColor:"#BEDBB0",text:"rgb(22, 22, 22)",textOne:"#161616",textTwo:"rgba(22, 22, 22, 0.8)",textThree:"rgba(22, 22, 22, 0.7)",textFour:"rgba(22, 22, 22, 0.5)",textFive:"rgba(22, 22, 22, 0.1)",themeSwitcher:"rgba(22, 22, 22, 0.8)",themeSwitsherAccent:"#bedbb0",themeSwitsherPopUp:"#161616",themeSwitsherPopUpBorder:"#bedbb0",themeSwitsherPopUpBackground:"#fcfcfc",themeSwitsherPopUpBoxshadow:"rgba(17, 17, 17, 0.1)"},violet:{background:"#ecedfd",secondBackground:"#5255BC",panelBackground:"#fff",secondaryColor:"#B8BCFD",thirdColor:"rgba(236, 237, 253, 0.5)",text:"rgb(22, 22, 22)",textOne:"#FFFFFF",textTwo:"rgba(255, 255, 255, 0.8)",textThree:"rgba(255, 255, 255, 0.5)",textFour:"rgba(255, 255, 255, 0.1)",blackText:"#161616",blackTextTwo:"rgba(22, 22, 22, 0.8)",blackTextThree:"rgba(22, 22, 22, 0.7)",themeSwitcher:"rgba(22, 22, 22, 0.8)",themeSwitsherAccent:"#5255bc",themeSwitsherPopUp:"#161616",themeSwitsherPopUpBorder:"#ecedfd",themeSwitsherPopUpBackground:"#fcfcfc",themeSwitsherPopUpBoxshadow:"rgba(17, 17, 17, 0.1)"}}),ay=Object.keys(uy),fc=T.createContext(),Ck=({children:e})=>{const[t,n]=T.useState(ay[0]);return j.jsx(fc.Provider,{value:{theme:t,setTheme:n},children:e})},Pk=Z.ul`
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+`,uy=Object.freeze({light:{background:"#f6f6f7",secondBackground:"#fff",panelBackground:"#fcfcfc",secondaryColor:"#BEDBB0",text:"rgb(22, 22, 22)",textOne:"#161616",textTwo:"rgba(22, 22, 22, 0.8)",textThree:"rgba(22, 22, 22, 0.7)",textFour:"rgba(22, 22, 22, 0.5)",textFive:"rgba(22, 22, 22, 0.1)",themeSwitcher:"rgba(22, 22, 22, 0.8)",themeSwitsherAccent:"#bedbb0",themeSwitsherPopUp:"#161616",themeSwitsherPopUpBorder:"#bedbb0",themeSwitsherPopUpBackground:"#fcfcfc",themeSwitsherPopUpBoxshadow:"rgba(17, 17, 17, 0.1)"},dark:{background:"#1F1F1F",secondBackground:"#121212",panelBackground:"#161616",secondaryColor:"#BEDBB0",text:"rgb(22, 22, 22)",textOne:"#FFFFFF",textTwo:"rgba(255, 255, 255, 0.8)",textThree:"rgba(255, 255, 255, 0.5)",textFour:"rgba(255, 255, 255, 0.1)",themeSwitcher:"rgba(255, 255, 255, 0.8)",themeSwitsherAccent:"#bedbb0",themeSwitsherPopUp:"rgba(255, 255, 255, 0.5)",themeSwitsherPopUpBorder:"#bedbb0",themeSwitsherPopUpBackground:"#151515",themeSwitsherPopUpBoxshadow:"rgba(17, 17, 17, 0.1)"},violet:{background:"#ecedfd",secondBackground:"#5255BC",panelBackground:"#fff",secondaryColor:"#B8BCFD",thirdColor:"rgba(236, 237, 253, 0.5)",text:"rgb(22, 22, 22)",textOne:"#FFFFFF",textTwo:"rgba(255, 255, 255, 0.8)",textThree:"rgba(255, 255, 255, 0.5)",textFour:"rgba(255, 255, 255, 0.1)",blackText:"#161616",blackTextTwo:"rgba(22, 22, 22, 0.8)",blackTextThree:"rgba(22, 22, 22, 0.7)",themeSwitcher:"rgba(22, 22, 22, 0.8)",themeSwitsherAccent:"#5255bc",themeSwitsherPopUp:"#161616",themeSwitsherPopUpBorder:"#ecedfd",themeSwitsherPopUpBackground:"#fcfcfc",themeSwitsherPopUpBoxshadow:"rgba(17, 17, 17, 0.1)"}}),ay=Object.keys(uy),fc=T.createContext(),Ck=({children:e})=>{const[t,n]=T.useState(ay[0]);return j.jsx(fc.Provider,{value:{theme:t,setTheme:n},children:e})},Pk=Z.ul`
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
   top: 25px;
   left: 0;
-  width: 100px;
+  width: 200px;
   padding: 18px;
   border: 1px solid ${({theme:e})=>e.themeSwitsherPopUpBorder};
   border-radius: 8px;
   width: 100px;
-  height: 107px;
 
   box-shadow: 0 4px 16px 0 ${({theme:e})=>e.themeSwitsherPopUpBoxshadow};
   background: ${({theme:e})=>e.themeSwitsherPopUpBackground};
 `,Ok=Z.li`
+  text-transform: capitalize;
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.02em;
   color: ${({theme:e})=>e.themeSwitsherPopUp};
+  cursor: pointer;
 `,Rk=()=>{const{setTheme:e}=T.useContext(fc),t=n=>{e(n)};return j.jsx(Pk,{children:ay.map(n=>j.jsx(Ok,{onClick:()=>t(n),children:n},n))})},Tk=()=>{const[e,t]=T.useState(!1),n=()=>{t(!e)};return j.jsx(j.Fragment,{children:j.jsxs(xk,{onClick:n,children:[j.jsx(_k,{children:"Theme"}),!e&&j.jsx(xd,{id:"chevron-down",size:16}),e&&j.jsx(xd,{id:"chevron-up",size:16}),e&&j.jsx(Rk,{})]})})},Nk=Z.header`
   background-color: ${({theme:e})=>e.panelBackground};
   padding: 18px 24px;
@@ -329,7 +333,7 @@ to {
 
   /* Reset Start */
   h1,
-  h2,
+  h2, 
   h3,
   h4,
   h5,
@@ -405,4 +409,4 @@ to {
     box-sizing: inherit;
   }
   /* Reset End */
-`,Mk=T.lazy(()=>Ik(()=>import("./WelcomePage-e62d077f.js"),[]));function Uk(){const{theme:e}=T.useContext(fc);return j.jsxs(rk,{theme:uy[e],children:[j.jsx(Fk,{}),j.jsx(_v,{children:j.jsx(vu,{path:"/",element:j.jsx(ck,{}),children:j.jsx(vu,{index:!0,element:j.jsx(Mk,{})})})})]})}const{BASENAME:Bk="/"}={BASE_URL:"/goals-achiever-react",MODE:"production",DEV:!1,PROD:!0,SSR:!1};xs.createRoot(document.getElementById("root")).render(j.jsx(Ck,{children:j.jsx(Ov,{basename:Bk,children:j.jsx(Vv,{store:zm,children:j.jsx(Qh,{loading:null,persistor:iE,children:j.jsx(Uk,{})})})})}));export{xd as I,j,Z as u};
+`,Mk=T.lazy(()=>Ik(()=>import("./WelcomePage-c4230e8a.js"),[]));function Uk(){const{theme:e}=T.useContext(fc);return j.jsxs(rk,{theme:uy[e],children:[j.jsx(Fk,{}),j.jsx(_v,{children:j.jsx(vu,{path:"/",element:j.jsx(ck,{}),children:j.jsx(vu,{index:!0,element:j.jsx(Mk,{})})})})]})}const{BASENAME:Bk="/"}={BASE_URL:"/goals-achiever-react",MODE:"production",DEV:!1,PROD:!0,SSR:!1};xs.createRoot(document.getElementById("root")).render(j.jsx(Ck,{children:j.jsx(Ov,{basename:Bk,children:j.jsx(Vv,{store:zm,children:j.jsx(Qh,{loading:null,persistor:iE,children:j.jsx(Uk,{})})})})}));export{xd as I,j,Z as u};
