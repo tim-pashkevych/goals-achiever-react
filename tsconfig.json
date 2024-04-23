@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true, //Allows to import .ts files like "import sum from './sum.ts'", can be used only with noEmit: true and some bundler(like Vite for example) for compiling
+    "resolveJsonModule": true, //Allows to import json into your files like "import data from './data.json'"
+    "isolatedModules": true,
+    "noEmit": true, //This option tells 'tsc' to not compile TypesCript into JavaScript (because Vite(or another bundler) will do this instead)
+    "jsx": "react-jsx",
+
+    "allowJs": true, // Allow JavaScript files to be a part of your program.
+    "checkJs": true, //When checkJs is enabled then errors are reported in JavaScript files.
+
+    /* Linting */
+    "strict": true, //Turns on strict TypeScript types checks
+    "noUnusedLocals": true, //Detects unused local variables and shows error
+    "noUnusedParameters": true, //Detects unused function parameters and shows error
+    "noFallthroughCasesInSwitch": true, //Detects possible falls in switch case constructions
+    "exactOptionalPropertyTypes": true, //Let's say there is a type: type colorThemeOverride = 'dark' | 'light';
+    //Without this flag enabled, there are three values which you can set colorThemeOverride to be: 'dark', 'light' and undefined
+    "noImplicitReturns": true, //When enabled, TypeScript will check all code paths in a function to ensure they return a value.
+    "forceConsistentCasingInFileNames": true //Ensure that casing is correct in imports.
+  },
+  "include": ["src", "@types"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
+
+
+//You can see the full documentation on https://www.typescriptlang.org/tsconfig
