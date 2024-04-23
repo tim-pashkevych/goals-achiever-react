@@ -9,6 +9,13 @@ export const theme = Object.freeze({
     textTwo: 'rgba(255, 255, 255, 0.8)',
     textThree: 'rgba(255, 255, 255, 0.5)',
     textFour: 'rgba(255, 255, 255, 0.1)',
+
+    themeSwitcher: 'rgba(255, 255, 255, 0.8)',
+    themeSwitsherAccent: '#bedbb0',
+    themeSwitsherPopUp: 'rgba(255, 255, 255, 0.5)',
+    themeSwitsherPopUpBorder: '#bedbb0',
+    themeSwitsherPopUpBackground: '#151515',
+    themeSwitsherPopUpBoxshadow: 'rgba(17, 17, 17, 0.1)',
   },
 
   light: {
@@ -22,6 +29,13 @@ export const theme = Object.freeze({
     textThree: 'rgba(22, 22, 22, 0.7)',
     textFour: 'rgba(22, 22, 22, 0.5)',
     textFive: 'rgba(22, 22, 22, 0.1)',
+
+    themeSwitcher: 'rgba(22, 22, 22, 0.8)',
+    themeSwitsherAccent: '#bedbb0',
+    themeSwitsherPopUp: '#161616',
+    themeSwitsherPopUpBorder: '#bedbb0',
+    themeSwitsherPopUpBackground: '#fcfcfc',
+    themeSwitsherPopUpBoxshadow: 'rgba(17, 17, 17, 0.1)',
   },
 
   violet: {
@@ -38,5 +52,12 @@ export const theme = Object.freeze({
     blackText: '#161616',
     blackTextTwo: 'rgba(22, 22, 22, 0.8)',
     blackTextThree: 'rgba(22, 22, 22, 0.7)',
+
+    themeSwitcher: 'rgba(22, 22, 22, 0.8)',
+    themeSwitsherAccent: '#5255bc',
+    themeSwitsherPopUp: '#161616',
+    themeSwitsherPopUpBorder: '#ecedfd',
+    themeSwitsherPopUpBackground: '#fcfcfc',
+    themeSwitsherPopUpBoxshadow: 'rgba(17, 17, 17, 0.1)',
   },
 });

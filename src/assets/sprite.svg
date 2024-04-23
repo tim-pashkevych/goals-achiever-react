@@ -73,5 +73,8 @@
     <symbol id="icon-chevron-down" viewBox="0 0 30 32">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.824" d="m7.529 12.235 7.529 7.529 7.529-7.529"/>
     </symbol>
+    <symbol id="icon-chevron-up" viewBox="0 0 34 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.3684" d="M9.383 16.842l7.699-6.737 7.699 6.737"></path>
+    </symbol>
   </defs>
 </svg>
