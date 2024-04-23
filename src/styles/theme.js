@@ -1,6 +1,6 @@
 export const theme = Object.freeze({
   dark: {
-    backGround: '#1F1F1F',
+    background: '#1F1F1F',
     secondBackground: '#121212',
     panelBackground: '#161616',
     secondaryColor: '#BEDBB0',
@@ -11,7 +11,7 @@ export const theme = Object.freeze({
   },
 
   light: {
-    backGround: '#f6f6f7',
+    background: '#f6f6f7',
     secondBackground: '#fff',
     panelBackground: '#fcfcfc',
     secondaryColor: '#BEDBB0',
@@ -24,7 +24,7 @@ export const theme = Object.freeze({
   },
 
   violet: {
-    backGround: '#ecedfd',
+    background: '#ecedfd',
     secondBackground: '#5255BC',
     panelBackground: '#fff',
     secondaryColor: '#B8BCFD',
