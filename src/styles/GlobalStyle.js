@@ -84,6 +84,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-style: normal;
+    background-color: ${({ theme }) => theme.background}
   }
 
   *,

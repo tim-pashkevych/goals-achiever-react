@@ -2,16 +2,19 @@ import { useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { theme } from './styles/theme';
-import { ThemeContext } from './components';
+import { Header, ThemeContext } from './components';
+import { GlobalStyle } from './styles/GlobalStyle';
 
 function App() {
   const { theme: color } = useContext(ThemeContext);
-  console.log(color);
-  console.log(theme);
   return (
-    <ThemeProvider theme={theme[color]}>
-      <h1>Welcome to TaskPro</h1>
-    </ThemeProvider>
+    <>
+      <ThemeProvider theme={theme[color]}>
+        <GlobalStyle />
+        <Header />
+        <h1>Welcome to TaskPro</h1>
+      </ThemeProvider>
+    </>
   );
 }
 
