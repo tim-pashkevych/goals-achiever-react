@@ -1,5 +1,8 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
+
+import { Icon } from '../Icon/Icon';
+
 import {
   SModalButton_button,
   SModalWindow_div,
@@ -41,26 +44,7 @@ export const Modal = ({
     <SWrapper_div onClick={handleClick}>
       <SModalWindow_div padding={padding}>
         <SModalButton_button onClick={toggleModal}>
-          <svg
-            width="9"
-            height="9"
-            viewBox="0 0 12 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10.5 1.5L1.5 10.5"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M1.5 1.5L10.5 10.5"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+          <Icon id={'close'} size={9} />
         </SModalButton_button>
         {children}
       </SModalWindow_div>
