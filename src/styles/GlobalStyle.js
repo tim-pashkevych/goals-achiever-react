@@ -1,26 +1,29 @@
 import { createGlobalStyle } from 'styled-components';
+import Regular from '../assets/fonts/Poppins-Regular.ttf';
+import Medium from '../assets/fonts/Poppins-Medium.ttf';
+import SemiBold from '../assets/fonts/Poppins-SemiBold.ttf';
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     font-weight: 400;
-    src: url('./assets/fonts/Poppins-Regular.ttf') format('.ttf');
+    src: url(${Regular}), format('.ttf');
   }
 
   @font-face {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     font-weight: 500;
-    src: url('./assets/fonts/Poppins-Medium.ttf') format('.ttf');
+    src: url(${Medium}), format('.ttf');
   }
   @font-face {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     font-weight: 600;
-    src: url('./assets/fonts/Poppins-SemiBold.ttf') format('.ttf');
+    src: url(${SemiBold}), format('.ttf');
   }
 
   /* Reset Start */
   h1,
-  h2,
+  h2, 
   h3,
   h4,
   h5,
