@@ -1,21 +1,25 @@
 import { createGlobalStyle } from 'styled-components';
 
+import poppinsReqular from '../../public/fonts/Poppins-Regular.ttf';
+import poppinsMedium from '../../public/fonts/Poppins-Medium.ttf';
+import poppinsSemiBold from '../../public/fonts/Poppins-SemiBold.ttf';
+
 export const GlobalStyle = createGlobalStyle`
   @font-face {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     font-weight: 400;
-    src: url('/public/fonts/Poppins-Regular.ttf') format('.ttf');
+    src: local("Poppins"), url(${poppinsReqular}) format('truetype');
   }
 
   @font-face {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     font-weight: 500;
-    src: url('/public/fonts/Poppins-Medium.ttf') format('.ttf');
+    src: local("Poppins"), url(${poppinsMedium}) format('truetype');
   }
   @font-face {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     font-weight: 600;
-    src: url('/public/fonts/Poppins-SemiBold.ttf') format('.ttf');
+    src: local("Poppins"), url(${poppinsSemiBold}) format('truetype');
   }
 
   /* Reset Start */
@@ -84,6 +88,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-style: normal;
+    font-size: 14px;
+    line-height: 1.29;
   }
 
   *,
