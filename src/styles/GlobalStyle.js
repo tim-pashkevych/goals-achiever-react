@@ -4,18 +4,18 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    src: url('./assets/fonts/Poppins-Regular.ttf') format('.ttf');
+    src: url('/public/fonts/Poppins-Regular.ttf') format('.ttf');
   }
 
   @font-face {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    src: url('./assets/fonts/Poppins-Medium.ttf') format('.ttf');
+    src: url('/public/fonts/Poppins-Medium.ttf') format('.ttf');
   }
   @font-face {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    src: url('./assets/fonts/Poppins-SemiBold.ttf') format('.ttf');
+    src: url('/public/fonts/Poppins-SemiBold.ttf') format('.ttf');
   }
 
   /* Reset Start */
