@@ -24,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
 
   /* Reset Start */
   h1,
-  h2,
+  h2, 
   h3,
   h4,
   h5,

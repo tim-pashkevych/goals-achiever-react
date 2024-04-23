@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Icon } from '../../Icon/Icon';
 
-import { STitle_div, SWrapper_div } from './ThemeSwitsher.styled';
+import { STitle_p, SWrapper_div } from './ThemeSwitsher.styled';
 import { ThemePopUp } from './ThemePopUp/ThemePopUp';
 export const ThemeSwitcher = () => {
   const [isOpenPopUp, setIsOpenPopUp] = useState(false);
@@ -14,7 +14,7 @@ export const ThemeSwitcher = () => {
   return (
     <>
       <SWrapper_div onClick={clickOnWrapper}>
-        <STitle_div>Theme</STitle_div>
+        <STitle_p>Theme</STitle_p>
         {!isOpenPopUp && <Icon id={'chevron-down'} size={16} />}
         {isOpenPopUp && <Icon id={'chevron-up'} size={16} />}
 
