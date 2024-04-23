@@ -7,6 +7,7 @@ import { store, persistor } from './redux/index.js';
 import { ThemeProvider } from './components/index.js';
 import App from './App.jsx';
 
+import './styles/variables.css';
 import 'modern-normalize/modern-normalize.css';
 import { GlobalStyle } from './styles/GlobalStyle.js';
 
