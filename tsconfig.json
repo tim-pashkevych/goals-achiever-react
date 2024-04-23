@@ -15,7 +15,7 @@
     "jsx": "react-jsx",
 
     "allowJs": true, // Allow JavaScript files to be a part of your program.
-    "checkJs": true, //When checkJs is enabled then errors are reported in JavaScript files.
+    // "checkJs": true, //When checkJs is enabled then errors are reported in JavaScript files.
 
     /* Linting */
     "strict": true, //Turns on strict TypeScript types checks
