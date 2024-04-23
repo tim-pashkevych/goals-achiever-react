@@ -1,16 +1,22 @@
-import { useContext } from 'react';
+import { lazy, useContext } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import { theme } from './styles/theme';
-import { ThemeContext } from './components';
+import { Layout, ThemeContext } from './components';
+
+const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 
 function App() {
   const { theme: color } = useContext(ThemeContext);
-  console.log(color);
-  console.log(theme);
+
   return (
     <ThemeProvider theme={theme[color]}>
-      <h1>Welcome to TaskPro</h1>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<WelcomePage />} />
+        </Route>
+      </Routes>
     </ThemeProvider>
   );
 }
