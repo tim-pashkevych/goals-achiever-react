@@ -92,6 +92,4 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
   /* Reset End */
-
-  @import './variables.css';
 `;
