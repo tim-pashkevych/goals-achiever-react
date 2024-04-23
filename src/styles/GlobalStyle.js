@@ -1,6 +1,24 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    src: url('./assets/fonts/Poppins-Regular.ttf') format('.ttf');
+  }
+
+  @font-face {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    src: url('./assets/fonts/Poppins-Medium.ttf') format('.ttf');
+  }
+  @font-face {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    src: url('./assets/fonts/Poppins-SemiBold.ttf') format('.ttf');
+  }
+
+  /* Reset Start */
   h1,
   h2,
   h3,
@@ -11,11 +29,22 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  p:last-child {
+    margin-bottom: 0;
+  }
+
   ul,
   ol {
-    list-style: none;
-    padding-left: 0;
     margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
   }
 
   button {
@@ -28,38 +57,41 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
   }
 
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  html,
+  body {
+    height: 100%;
   }
-  
 
-html {
-  box-sizing: border-box;
-}
+  #root {
+    display: flex;
+    flex-direction: column;
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
+    flex: 1;
+  }
 
-body {
-  margin: 0;
-  font-family:'Roboto', sans-serif,  'Segoe UI', -apple-system, BlinkMacSystemFont,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-  color: #212121;
-  background-color: #fff;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  main {
+    flex: 1;
+  }
 
-}
+  body {
+    display: flex;
+    flex-direction: column;
 
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  /* Reset End */
+
+  @import './variables.css';
 `;
-

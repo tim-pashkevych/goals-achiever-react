@@ -8,7 +8,7 @@ import { ThemeProvider } from './components/index.js';
 import App from './App.jsx';
 
 import 'modern-normalize/modern-normalize.css';
-import './index.css';
+import { GlobalStyle } from './styles/GlobalStyle.js';
 
 const { BASENAME = '/' } = import.meta.env;
 
@@ -21,5 +21,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         </PersistGate>
       </Provider>
     </BrowserRouter>
+    <GlobalStyle />
   </ThemeProvider>
 );
