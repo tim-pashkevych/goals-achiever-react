@@ -5,7 +5,7 @@ export const getBoardBackgroundImage = (
   device: Device,
   retina: boolean
 ) => {
-  return `./images/boards/${device}/${imageIndex + 1}-${device}${
+  return `../assets/images/boards/${device}/${imageIndex + 1}-${device}${
     retina ? '@2x' : ''
   }.png`;
 };
