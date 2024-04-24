@@ -137,8 +137,8 @@ const slice = createSlice({
     selectBoards: (state) => state.boards,
     selectIsBoardLoading: (state) => state.isLoading,
     selectActiveBoard: (state) => state.activeBoard,
-    // selectColumns: (state) =>
-    //   state.activeBoard ? state.activeBoard.columns : [],
+    selectColumns: (state) =>
+      state.activeBoard ? state.activeBoard.columns : [],
   },
 });
 
@@ -148,5 +148,5 @@ export const {
   selectBoards,
   selectIsBoardLoading,
   selectActiveBoard,
-  // selectColumns,
+  selectColumns,
 } = slice.selectors;
