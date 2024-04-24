@@ -97,10 +97,6 @@ export const GlobalStyle = createGlobalStyle`
     letter-spacing: -0.02em;
   }
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
+  
   /* Reset End */
 `;
