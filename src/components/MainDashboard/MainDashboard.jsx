@@ -1,6 +1,6 @@
 // example:  <Icon id="plus" size={100} color="black" />;
 
-import { useModal } from '../../hooks/useModal';
+import { useModal } from '../../hooks/modal/useModal';
 import { Icon } from '../Icon/Icon';
 import { Modal } from '../Modal/Modal';
 import { Filters } from './Filters/Filters';
