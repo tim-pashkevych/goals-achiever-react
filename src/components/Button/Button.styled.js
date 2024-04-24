@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 
 export const buttonSizes = {
-  small: { height: '36px', width: '40px' },
-  medium: { height: '49px', width: '100%' },
-  large: { height: '56px', width: '100%' },
+  small: { height: '36px', width: '40px', iconSize: 20, borderRadius: '8px' },
+  medium: { height: '49px', width: '100%', iconSize: 14, borderRadius: '8px' },
+  large: { height: '56px', width: '100%', iconSize: 14, borderRadius: '8px' },
+  editProfile: {
+    height: '24px',
+    width: '24px',
+    iconSize: 10,
+    borderRadius: '6px',
+  },
 };
 
 export const SButton = styled.button`
@@ -12,16 +18,18 @@ export const SButton = styled.button`
   justify-content: center;
   align-items: center;
 
+  color: ${(props) => props.theme.buttonTextColor};
+
   gap: 8px;
 
-  background-color: #bedbb0;
+  background-color: ${(props) => props.theme.secondaryColor};
 
   width: 100%;
   height: 49px;
 
   border: none;
 
-  border-radius: 8px;
+  border-radius: ${(props) => buttonSizes[props.size].borderRadius};
 
   font-size: 14px;
   letter-spacing: -2%;
@@ -32,7 +40,8 @@ export const SButton = styled.button`
   &:hover,
   &:active,
   &:focus {
-    background-color: #9dc888;
+    background-color: ${(props) => props.theme.secondaryColorHover};
+
     outline: none;
   }
 

@@ -50,6 +50,9 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 100%;
     height: auto;
   }
+  svg {
+    display: block;
+  }
 
   button {
     padding: 0;
