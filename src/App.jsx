@@ -30,7 +30,7 @@ function App() {
           <Route index element={<WelcomePage />} />
           <Route path="/auth/:id" element={<AuthPage />} />
           <Route path="/home" element={<HomePage />}>
-            <Route path="/:boardName" element={<ScreensPage />} />
+            <Route path="/home/:boardName" element={<ScreensPage />} />
           </Route>
 
           <Route path="/auth/dbord" element={<MainDashboard />} />
