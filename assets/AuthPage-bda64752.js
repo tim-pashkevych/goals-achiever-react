@@ -1,4 +1,4 @@
-import{u as o,j as e,a as l,N as n,B as t}from"./index-4d1b5e0e.js";const a=o.div`
+import{u as o,j as e,a as l,N as n}from"./index-515b4ea9.js";import{B as t}from"./Button-b21486b6.js";const a=o.div`
   height: 100vh;
 
   display: flex;
@@ -79,4 +79,4 @@ import{u as o,j as e,a as l,N as n,B as t}from"./index-4d1b5e0e.js";const a=o.di
   &:focus {
     border-color: ${({theme:r})=>r.secondaryColorHover};
   }
-`,g=()=>e.jsx("div",{children:e.jsxs(x,{action:"",children:[e.jsx(s,{type:"email",placeholder:"Enter your email"}),e.jsx(s,{type:"password",placeholder:"Create a password"})]})}),u=()=>{const{id:r}=l();return e.jsx(a,{children:e.jsxs(d,{children:[e.jsx("nav",{children:e.jsxs("ul",{children:[e.jsx("li",{children:e.jsx(n,{to:"/auth/register",children:"Register"})}),e.jsx("li",{children:e.jsx(n,{to:"/auth/login",children:"Login"})})]})}),r==="register"&&e.jsx(p,{}),r==="login"&&e.jsx(g,{}),r==="register"&&e.jsx(t,{title:"Register Now",icon:!1}),r==="login"&&e.jsx(t,{title:"Log In Now",icon:!1})]})})};export{u as default};
+`,g=()=>e.jsx("div",{children:e.jsxs(x,{action:"",children:[e.jsx(s,{type:"email",placeholder:"Enter your email"}),e.jsx(s,{type:"password",placeholder:"Create a password"})]})}),m=()=>{const{id:r}=l();return e.jsx(a,{children:e.jsxs(d,{children:[e.jsx("nav",{children:e.jsxs("ul",{children:[e.jsx("li",{children:e.jsx(n,{to:"/auth/register",children:"Register"})}),e.jsx("li",{children:e.jsx(n,{to:"/auth/login",children:"Login"})})]})}),r==="register"&&e.jsx(p,{}),r==="login"&&e.jsx(g,{}),r==="register"&&e.jsx(t,{title:"Register Now",icon:!1}),r==="login"&&e.jsx(t,{title:"Log In Now",icon:!1})]})})};export{m as default};
