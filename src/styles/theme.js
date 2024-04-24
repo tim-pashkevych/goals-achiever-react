@@ -17,6 +17,8 @@ export const theme = Object.freeze({
 
     mainDashbordBackground: '#f6f6f7',
     mainDashbordText: 'rgba(22, 22, 22, 0.7))',
+    mainDashbordButton: '#FFFFFF',
+    mainDashbordButtonIconBackground: '#161616',
 
     filterOutline: 'rgba(22, 22, 22, 0.1)',
     filterPriority: 'rgba(22, 22, 22, 0.5)',
@@ -60,6 +62,9 @@ export const theme = Object.freeze({
     themeAccent: '#bedbb0',
     mainDashbordBackground: '#1F1F1F',
     mainDashbordText: 'rgba(255, 255, 255, 0.5)',
+    mainDashbordButton: '#121212',
+    mainDashbordButtonIconBackground: '#FFFFFF',
+
     filterOutline: 'rgba(255, 255, 255, 0.1)',
     filterPriority: 'rgba(255, 255, 255, 0.5)',
     modalBorder: 'rgba(190, 219, 176, 0.5)',
@@ -99,6 +104,9 @@ export const theme = Object.freeze({
     themeAccent: '#5255bc',
     mainDashbordBackground: '#ecedfd',
     mainDashbordText: 'rgba(22, 22, 22, 0.7)',
+    mainDashbordButton: '#FFFFFF',
+    mainDashbordButtonIconBackground: '#5255BC',
+
     filterOutline: 'rgba(22, 22, 22, 0.1)',
     filterPriority: 'rgba(22, 22, 22, 0.5)',
     modalBorder: '#ecedfd',
