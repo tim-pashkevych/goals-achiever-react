@@ -5,7 +5,7 @@ const NotFoundPage = () => {
     <SContainer>
       <h1>404</h1>
       <h2>Not found</h2>
-      <SLinkButton href="/" aria-label="Navigate to Home page">
+      <SLinkButton to="/" aria-label="Navigate to Home page">
         Home page
       </SLinkButton>
     </SContainer>
