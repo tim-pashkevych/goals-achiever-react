@@ -8,3 +8,4 @@ export * from './Button/Button.jsx';
 export * from './Header/ThemeSwitcher/ThemeSwitcher.jsx';
 export * from './ThemeContext/ThemeContext.jsx';
 export * from './Header/Header.jsx';
+export * from './Sidebar/Sidebar.jsx';
