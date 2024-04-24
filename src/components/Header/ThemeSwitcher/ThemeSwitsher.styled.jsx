@@ -13,8 +13,8 @@ export const SWrapper_div = styled.div`
   cursor: pointer;
   &:hover,
   &focus {
-    color: ${({ theme }) => theme.themeSwitsherAccent};
-    stroke: ${({ theme }) => theme.themeSwitsherAccent};
+    color: ${({ theme }) => theme.themeAccent};
+    stroke: ${({ theme }) => theme.themeAccent};
   }
 `;
 

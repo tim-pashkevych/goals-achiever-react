@@ -39,6 +39,6 @@ export const SModalButton_button = styled.button`
   &:focus {
     outline: none;
     border: none;
-    stroke: ${({ theme }) => theme.themeSwitsherAccent};
+    stroke: ${({ theme }) => theme.themeAccent};
   }
 `;
