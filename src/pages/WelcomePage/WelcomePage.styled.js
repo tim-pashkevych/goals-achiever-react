@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const SContainer = styled.div`
@@ -52,7 +53,7 @@ export const SContainer = styled.div`
   }
 `;
 
-export const SLinkButton = styled.a`
+export const SLinkButton = styled(Link)`
   width: 335px;
   color: white;
   text-align: center;

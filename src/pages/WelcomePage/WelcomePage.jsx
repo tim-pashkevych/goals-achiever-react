@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Icon, Image } from '../../components';
 import { SContainer, SLinkButton } from './WelcomePage.styled';
 
@@ -31,14 +32,14 @@ const WelcomePage = () => {
       </p>
       <ul>
         <li>
-          <SLinkButton href="auth/register" aria-label="Link to register">
+          <SLinkButton to="auth/register" aria-label="Link to register">
             Registration
           </SLinkButton>
         </li>
         <li>
-          <a href="auth/login" aria-label="Link to login">
+          <Link to="auth/login" aria-label="Link to login">
             Log in
-          </a>
+          </Link>
         </li>
       </ul>
     </SContainer>
