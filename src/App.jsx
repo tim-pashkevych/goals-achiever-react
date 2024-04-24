@@ -11,6 +11,11 @@ import { Layout, ThemeContext } from './components';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('pages/AuthPage/AuthPage.jsx'));
+const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
+const ScreensPage = lazy(() =>
+  import('./components/ScreensPage/ScreensPage.jsx')
+);
+
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 function App() {
@@ -23,6 +28,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<WelcomePage />} />
           <Route path="/auth/:id" element={<AuthPage />} />
+          <Route path=" /home" element={<HomePage />} />
+          <Route path=" /home/:boardName" element={<ScreensPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
