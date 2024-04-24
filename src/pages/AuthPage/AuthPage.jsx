@@ -1,10 +1,23 @@
-import { useParams } from 'react-router-dom';
-import { SContainer } from './AuthPage.styled';
+import { NavLink } from 'react-router-dom';
+import { SContainer, SFormWrapper } from './AuthPage.styled';
 
 const AuthPage = () => {
-  const { id } = useParams();
-
-  return <SContainer>{id}</SContainer>;
+  return (
+    <SContainer>
+      <SFormWrapper>
+        <nav>
+          <ul>
+            <li>
+              <NavLink to="/auth/register">Register</NavLink>
+            </li>
+            <li>
+              <NavLink to="/auth/login">Login</NavLink>
+            </li>
+          </ul>
+        </nav>
+      </SFormWrapper>
+    </SContainer>
+  );
 };
 
 export default AuthPage;
