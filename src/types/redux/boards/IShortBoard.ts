@@ -3,6 +3,8 @@ interface IShortBoard {
   title: string;
   icon: string;
   backgroundImage: string;
+  active: boolean;
+  createdAt: string;
 }
 
 export default IShortBoard;

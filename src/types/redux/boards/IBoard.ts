@@ -1,14 +1,18 @@
+import { Id } from '..';
+import Date from '../Date';
 import { IColumn } from '../columns';
 
 interface IBoard {
-  owner: string;
+  _id: Id;
+  owner: Id;
   columns: IColumn[];
+
   title: string;
   icon: string;
   backgroundImage: string;
-  _id: string;
-  createdAt: string;
-  updatedAt: string;
+
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export default IBoard;

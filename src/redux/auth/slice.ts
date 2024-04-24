@@ -14,13 +14,14 @@ const initialState: IUserState = {
     name: '',
     email: '',
     avatarURL: '',
+    theme: '',
   },
   isLoggedIn: false,
   isLoading: false,
 };
 
 const slice = createSlice({
-  name: 'user',
+  name: 'auth',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
