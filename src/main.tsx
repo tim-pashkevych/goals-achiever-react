@@ -7,11 +7,9 @@ import { store, persistor } from './redux/index.js';
 import { ThemeProvider } from './components/index.js';
 import App from './App.jsx';
 
-const { BASENAME = '/' } = import.meta.env;
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <ThemeProvider>
-    <BrowserRouter basename={BASENAME}>
+    <BrowserRouter basename="/goals-achiever-react">
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <App />
