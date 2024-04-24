@@ -1,4 +1,4 @@
-import{u as o,j as e,a as l,N as n,B as t}from"./index-37687818.js";const a=o.div`
+import{u as o,j as e,a as l,N as n,B as t}from"./index-4d1b5e0e.js";const a=o.div`
   height: 100vh;
 
   display: flex;
