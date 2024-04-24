@@ -16,10 +16,10 @@ export const SModalWindow_div = styled.div`
   position: relative;
   width: auto;
   height: auto;
-  background-color: #161616;
-  border: 1px solid rgba(190, 219, 176, 0.5);
+  background-color: ${({ theme }) => theme.background};
+  border: 1px solid ${({ theme }) => theme.modalBorder};
   border-radius: 8px;
-  padding: ${(props) => props.padding};
+  padding: ${({ $padding }) => $padding};
 `;
 export const SModalButton_button = styled.button`
   border-radius: 9px;
@@ -33,12 +33,12 @@ export const SModalButton_button = styled.button`
   right: 14px;
   border: none;
   outline: none;
-  stroke: #ffffff;
+  stroke: ${({ theme }) => theme.userProfile};
 
   &:hover,
   &:focus {
     outline: none;
     border: none;
-    stroke: #9dc888;
+    stroke: ${({ theme }) => theme.themeAccent};
   }
 `;

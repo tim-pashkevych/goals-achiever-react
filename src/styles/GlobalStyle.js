@@ -96,11 +96,5 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.29;
     letter-spacing: -0.02em;
   }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
   /* Reset End */
 `;

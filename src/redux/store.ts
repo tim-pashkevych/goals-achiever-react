@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { userReducer } from './user/slice';
+import { boardsReducer } from './boards/slice';
 //import your reducer here
 
 const persistConfig = {
@@ -26,6 +27,7 @@ const persistedUserReducer = persistReducer(persistConfig, userReducer);
 export const store = configureStore({
   reducer: {
     user: persistedUserReducer,
+    boards: boardsReducer,
     //and then add it here like
     //<reducer_name>(it should be the same as the value of the 'name' field in your slice file): <reducer_that_you_just_imported_above>
   },

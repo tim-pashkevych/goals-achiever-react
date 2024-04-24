@@ -1,4 +1,4 @@
 export * from './operations';
-export {
-  selectColumns
-} from './slice';
+// export {
+//   selectColumns
+// } from './slice';
