@@ -1,2 +1,4 @@
-// export * from './operations';
-//export { write here names of your selectors } from './slice';
+export * from './operations';
+// export {
+//   selectColumns
+// } from './slice';

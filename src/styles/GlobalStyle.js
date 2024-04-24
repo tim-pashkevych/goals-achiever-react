@@ -50,6 +50,9 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 100%;
     height: auto;
   }
+  svg {
+    display: block;
+  }
 
   button {
     padding: 0;
@@ -93,7 +96,5 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.29;
     letter-spacing: -0.02em;
   }
-
-  
   /* Reset End */
 `;
