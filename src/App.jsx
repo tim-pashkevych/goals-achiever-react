@@ -10,6 +10,7 @@ import { theme } from './styles/theme';
 import { Layout, ThemeContext } from './components';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
+const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 function App() {
   const { theme: color } = useContext(ThemeContext);
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<WelcomePage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </ThemeProvider>
