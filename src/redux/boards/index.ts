@@ -3,5 +3,5 @@ export {
   selectBoards,
   selectActiveBoard,
   selectIsBoardLoading,
-  selectColumns,
+  // selectColumns,
 } from './slice';
