@@ -10,7 +10,7 @@ const change = async (data) => {
   return result.data;
 };
 
-const remove = async (id) => {
+const deleteById = async (id) => {
   const result = await api.delete(`/columns/${id}`);
   return result.data;
 };
@@ -18,5 +18,5 @@ const remove = async (id) => {
 export default {
   create,
   change,
-  remove,
+  deleteById,
 };
