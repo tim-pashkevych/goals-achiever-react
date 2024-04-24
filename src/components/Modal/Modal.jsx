@@ -39,7 +39,7 @@ export const Modal = ({
 
   return createPortal(
     <SWrapper_div onClick={handleClick}>
-      <SModalWindow_div padding={padding}>
+      <SModalWindow_div $padding={padding}>
         <SModalButton_button onClick={toggleModal}>
           <Icon id={'close'} size={9} />
         </SModalButton_button>
