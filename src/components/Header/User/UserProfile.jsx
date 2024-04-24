@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useModal } from '../../../hooks/useModal';
+import { useModal } from '../../../hooks/modal/useModal';
 import { Icon } from '../../Icon/Icon';
 import { Modal } from '../../Modal/Modal';
 import { EditProfile } from './EditProfile/EditProfile';

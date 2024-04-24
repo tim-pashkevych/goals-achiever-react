@@ -11,8 +11,10 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { userReducer } from './user/slice';
-//import your reducer here
+import { userReducer } from './auth/slice';
+import { boardsReducer } from './boards/slice';
+import { ColumnsReducer } from './columns/slice';
+import { CardsReducer } from './cards/slice';
 
 const persistConfig = {
   key: 'root',
@@ -25,9 +27,10 @@ const persistedUserReducer = persistReducer(persistConfig, userReducer);
 
 export const store = configureStore({
   reducer: {
-    user: persistedUserReducer,
-    //and then add it here like
-    //<reducer_name>(it should be the same as the value of the 'name' field in your slice file): <reducer_that_you_just_imported_above>
+    auth: persistedUserReducer,
+    boards: boardsReducer,
+    colums: ColumnsReducer,
+    cards: CardsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
