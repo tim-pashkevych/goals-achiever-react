@@ -9,7 +9,7 @@ import {
   SWrapper_div,
   Span,
 } from './Filters.styled';
-import { priority } from '../../../constants';
+import { priority } from '../../constants';
 
 export const Filters = () => {
   const [active, setActive] = useState(null);

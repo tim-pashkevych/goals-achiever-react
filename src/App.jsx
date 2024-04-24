@@ -8,14 +8,11 @@ import { GlobalStyle } from './styles/GlobalStyle.js';
 
 import { theme } from './styles/theme';
 import { Layout, ThemeContext } from './components';
-import { MainDashboard } from './components/MainDashboard/MainDashboard.jsx';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('pages/AuthPage/AuthPage.jsx'));
 const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
-const ScreensPage = lazy(() =>
-  import('./components/ScreensPage/ScreensPage.jsx')
-);
+const ScreensPage = lazy(() => import('./pages/ScreensPage/ScreensPage.jsx'));
 
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
@@ -30,10 +27,9 @@ function App() {
           <Route index element={<WelcomePage />} />
           <Route path="/auth/:id" element={<AuthPage />} />
           <Route path="/home" element={<HomePage />}>
+            <Route index element={<ScreensPage />} />{' '}
             <Route path="/home/:boardName" element={<ScreensPage />} />
           </Route>
-
-          <Route path="/auth/dbord" element={<MainDashboard />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

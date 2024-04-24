@@ -1,5 +1,5 @@
 import { Header } from '../../components';
-import ScreensPage from '../../components/ScreensPage/ScreensPage';
+import ScreensPage from '../ScreensPage/ScreensPage';
 // import Sidebar from '../../components/Sidebar/Sidebar';
 import { SMainContainer, SWrapper } from './HomePage.Styled';
 
