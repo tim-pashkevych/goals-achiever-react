@@ -23,6 +23,12 @@ export const theme = Object.freeze({
 
     modalBorder: '#f6f6f7',
 
+    columnName: '#161616',
+    scrollBall: 'rgba(22, 22, 22, 0.1)',
+    scrollBackground: '#E8E8E8',
+    icon_Column: 'rgba(22, 22, 22, 0.5);',
+    icon_Column_Hover: 'rgba(22, 22, 22, 1);',
+
     themeSwitcher: 'rgba(22, 22, 22, 0.8)',
     themeSwitsherPopUp: '#161616',
     themeSwitsherPopUpBorder: '#bedbb0',
@@ -45,16 +51,17 @@ export const theme = Object.freeze({
     textTwo: 'rgba(255, 255, 255, 0.8)',
     textThree: 'rgba(255, 255, 255, 0.5)',
     textFour: 'rgba(255, 255, 255, 0.1)',
+    columnName: '#FFF',
+    scrollBall: 'RGB(18, 18, 18)',
+    scrollBackground: 'RGB(49, 49, 49)',
+    icon_Column: 'rgba(255, 255, 255, 0.5)',
+    icon_Column_Hover: 'rgba(255, 255, 255, 1)',
     buttonTextColor: '#161616',
-
     themeAccent: '#bedbb0',
-
     mainDashbordBackground: '#1F1F1F',
     mainDashbordText: 'rgba(255, 255, 255, 0.5)',
-
     filterOutline: 'rgba(255, 255, 255, 0.1)',
     filterPriority: 'rgba(255, 255, 255, 0.5)',
-
     modalBorder: 'rgba(190, 219, 176, 0.5)',
 
     themeSwitcher: 'rgba(255, 255, 255, 0.8)',
@@ -70,7 +77,7 @@ export const theme = Object.freeze({
 
   violet: {
     background: '#ecedfd',
-    secondBackground: '#B8BCFD',
+    secondBackground: '#fff',
     panelBackground: '#fff',
     secondaryColor: '#5255BC',
     secondaryColorHover: '#7B7EDE',
@@ -83,16 +90,17 @@ export const theme = Object.freeze({
     blackText: '#161616',
     blackTextTwo: 'rgba(22, 22, 22, 0.8)',
     blackTextThree: 'rgba(22, 22, 22, 0.7)',
+    columnName: '#161616',
+    scrollBall: '#B8BCFD',
+    scrollBackground: '#FFFFFF',
+    icon_Column: 'rgba(22, 22, 22, 0.5);',
+    icon_Column_Hover: 'rgba(22, 22, 22, 1);',
     buttonTextColor: '#FFFFFF',
-
     themeAccent: '#5255bc',
-
     mainDashbordBackground: '#ecedfd',
     mainDashbordText: 'rgba(22, 22, 22, 0.7)',
-
     filterOutline: 'rgba(22, 22, 22, 0.1)',
     filterPriority: 'rgba(22, 22, 22, 0.5)',
-
     modalBorder: '#ecedfd',
 
     themeSwitcher: 'rgba(22, 22, 22, 0.8)',
