@@ -1,4 +1,4 @@
-import{u as o,j as e,a as l,N as n}from"./index-515b4ea9.js";import{B as t}from"./Button-b21486b6.js";const a=o.div`
+import{u as o,j as e,a as l,N as n}from"./index-f124bcfb.js";import{B as t}from"./Button-1b111276.js";const a=o.div`
   height: 100vh;
 
   display: flex;
