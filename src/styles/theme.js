@@ -11,6 +11,12 @@ export const theme = Object.freeze({
     textFour: 'rgba(22, 22, 22, 0.5)',
     textFive: 'rgba(22, 22, 22, 0.1)',
 
+    columnName: '#161616',
+    scrollBall: 'rgba(22, 22, 22, 0.1)',
+    scrollBackground: '#E8E8E8',
+    icon_Column: 'rgba(22, 22, 22, 0.5);',
+    icon_Column_Hover: 'rgba(22, 22, 22, 1);',
+
     themeSwitcher: 'rgba(22, 22, 22, 0.8)',
     themeSwitsherAccent: '#bedbb0',
     themeSwitsherPopUp: '#161616',
@@ -29,6 +35,11 @@ export const theme = Object.freeze({
     textTwo: 'rgba(255, 255, 255, 0.8)',
     textThree: 'rgba(255, 255, 255, 0.5)',
     textFour: 'rgba(255, 255, 255, 0.1)',
+    columnName: '#FFF',
+    scrollBall: 'RGB(18, 18, 18)',
+    scrollBackground: 'RGB(49, 49, 49)',
+    icon_Column: 'rgba(255, 255, 255, 0.5)',
+    icon_Column_Hover: 'rgba(255, 255, 255, 1)',
 
     themeSwitcher: 'rgba(255, 255, 255, 0.8)',
     themeSwitsherAccent: '#bedbb0',
@@ -40,7 +51,8 @@ export const theme = Object.freeze({
 
   violet: {
     background: '#ecedfd',
-    secondBackground: '#5255BC',
+    secondBackground: '#fff',
+
     panelBackground: '#fff',
     secondaryColor: '#B8BCFD',
     thirdColor: 'rgba(236, 237, 253, 0.5)',
@@ -52,6 +64,11 @@ export const theme = Object.freeze({
     blackText: '#161616',
     blackTextTwo: 'rgba(22, 22, 22, 0.8)',
     blackTextThree: 'rgba(22, 22, 22, 0.7)',
+    columnName: '#161616',
+    scrollBall: '#B8BCFD',
+    scrollBackground: '#FFFFFF',
+    icon_Column: 'rgba(22, 22, 22, 0.5);',
+    icon_Column_Hover: 'rgba(22, 22, 22, 1);',
 
     themeSwitcher: 'rgba(22, 22, 22, 0.8)',
     themeSwitsherAccent: '#5255bc',
