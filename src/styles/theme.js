@@ -17,6 +17,9 @@ export const theme = Object.freeze({
     themeSwitsherPopUpBorder: '#bedbb0',
     themeSwitsherPopUpBackground: '#fcfcfc',
     themeSwitsherPopUpBoxshadow: 'rgba(17, 17, 17, 0.1)',
+    userProfile: '#161616',
+    userProfileIcon: '#FFFFFF',
+    userProfileIconBackground: '#F6F6F7',
   },
 
   dark: {
@@ -36,6 +39,9 @@ export const theme = Object.freeze({
     themeSwitsherPopUpBorder: '#bedbb0',
     themeSwitsherPopUpBackground: '#151515',
     themeSwitsherPopUpBoxshadow: 'rgba(17, 17, 17, 0.1)',
+    userProfile: '#fff',
+    userProfileIcon: '#151515',
+    userProfileIconBackground: '#1F1F1F',
   },
 
   violet: {
@@ -59,5 +65,8 @@ export const theme = Object.freeze({
     themeSwitsherPopUpBorder: '#ecedfd',
     themeSwitsherPopUpBackground: '#fcfcfc',
     themeSwitsherPopUpBoxshadow: 'rgba(17, 17, 17, 0.1)',
+    userProfile: '#161616',
+    userProfileIcon: '#FFFFFF',
+    userProfileIconBackground: '#ECEDFD',
   },
 });
