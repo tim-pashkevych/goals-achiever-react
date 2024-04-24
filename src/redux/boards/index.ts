@@ -1,7 +1,2 @@
 export * from './operations';
-export {
-  selectBoards,
-  selectActiveBoard,
-  selectIsBoardLoading,
-  // selectColumns,
-} from './slice';
+export { selectBoards, selectActiveBoard, selectIsBoardLoading } from './slice';

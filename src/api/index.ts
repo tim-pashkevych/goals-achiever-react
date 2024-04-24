@@ -1,7 +1,7 @@
 import users from './users/users';
-import columns from './users/columns';
-import cards from './cards/cards';
 import boards from './boards/boards';
+import columns from './columns/columns';
+import cards from './cards/cards';
 //import your api endpoint group here
 
 export default { users, cards, columns, boards }; //end then export it within this default object

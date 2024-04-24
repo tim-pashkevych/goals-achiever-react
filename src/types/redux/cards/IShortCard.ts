@@ -1,9 +1,7 @@
-import Date from '../Date';
-import Id from '../Id';
+import { Date, Id } from '..';
 
-interface ICard {
+interface IShortCard {
   _id: Id;
-  owner: Id;
   boardId: Id;
   columnId: Id;
 
@@ -13,7 +11,6 @@ interface ICard {
   deadline: Date;
 
   createdAt: Date;
-  updatedAt: Date;
 }
 
-export default ICard;
+export default IShortCard;

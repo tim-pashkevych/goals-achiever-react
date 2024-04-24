@@ -1,13 +1,14 @@
 import Date from '../Date';
-import Id from '../Id';
-import { ICard } from '../cards';
+import { ICard, Id } from '..';
 
 interface IColumn {
+  _id: Id;
+  owner: Id;
+  boardId: Id;
+
   title: string;
   cards: ICard[];
-  boardId: Id;
-  owner: Id;
-  _id: Id;
+
   createdAt: Date;
   updatedAt: Date;
 }
