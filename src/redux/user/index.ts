@@ -2,6 +2,6 @@ export * from './operations';
 export {
   selectToken,
   selectIsLoggedIn,
-  selectIsLoading,
+  selectIsUserLoading,
   selectUser,
 } from './slice';

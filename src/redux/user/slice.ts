@@ -9,14 +9,14 @@ import {
 import { IUserState } from '../../types';
 
 const initialState: IUserState = {
-  isLoading: false,
-  isLoggedIn: false,
   token: '',
   user: {
     name: '',
     email: '',
     avatarURL: '',
   },
+  isLoggedIn: false,
+  isLoading: false,
 };
 
 const slice = createSlice({
@@ -51,17 +51,32 @@ const slice = createSlice({
         (state) => {
           state.isLoading = true;
         }
+      )
+      .addMatcher(
+        isAnyOf(
+          registerThunk.rejected,
+          loginThunk.rejected,
+          logoutThunk.rejected,
+          updateUserAvatarThunk.rejected
+        ),
+        (state) => {
+          state.isLoading = false;
+        }
       );
   },
   selectors: {
     selectToken: (state) => state.isLoggedIn,
     selectIsLoggedIn: (state) => state.isLoggedIn,
-    selectIsLoading: (state) => state.isLoading,
+    selectIsUserLoading: (state) => state.isLoading,
     selectUser: (state) => state.user,
   },
 });
 
 export const userReducer = slice.reducer;
 
-export const { selectToken, selectIsLoggedIn, selectIsLoading, selectUser } =
-  slice.selectors;
+export const {
+  selectToken,
+  selectIsLoggedIn,
+  selectIsUserLoading,
+  selectUser,
+} = slice.selectors;
