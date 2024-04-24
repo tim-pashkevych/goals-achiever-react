@@ -13,6 +13,7 @@ export const theme = Object.freeze({
     textFive: 'rgba(22, 22, 22, 0.1)',
     buttonTextColor: '#161616',
 
+    modalBorder: '#f6f6f7',
     themeSwitcher: 'rgba(22, 22, 22, 0.8)',
     themeSwitsherAccent: '#bedbb0',
     themeSwitsherPopUp: '#161616',
@@ -37,6 +38,7 @@ export const theme = Object.freeze({
     textFour: 'rgba(255, 255, 255, 0.1)',
     buttonTextColor: '#161616',
 
+    modalBorder: 'rgba(190, 219, 176, 0.5)',
     themeSwitcher: 'rgba(255, 255, 255, 0.8)',
     themeSwitsherAccent: '#bedbb0',
     themeSwitsherPopUp: 'rgba(255, 255, 255, 0.5)',
@@ -65,6 +67,7 @@ export const theme = Object.freeze({
     blackTextThree: 'rgba(22, 22, 22, 0.7)',
     buttonTextColor: '#FFFFFF',
 
+    modalBorder: '#ecedfd',
     themeSwitcher: 'rgba(22, 22, 22, 0.8)',
     themeSwitsherAccent: '#5255bc',
     themeSwitsherPopUp: '#161616',
