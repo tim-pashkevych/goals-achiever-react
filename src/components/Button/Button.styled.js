@@ -12,9 +12,11 @@ export const SButton = styled.button`
   justify-content: center;
   align-items: center;
 
+  color: ${(props) => props.theme.buttonTextColor};
+
   gap: 8px;
 
-  background-color: #bedbb0;
+  background-color: ${(props) => props.theme.secondaryColor};
 
   width: 100%;
   height: 49px;
@@ -32,7 +34,8 @@ export const SButton = styled.button`
   &:hover,
   &:active,
   &:focus {
-    background-color: #9dc888;
+    background-color: ${(props) => props.theme.secondaryColorHover};
+
     outline: none;
   }
 

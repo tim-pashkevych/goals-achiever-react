@@ -4,10 +4,12 @@ export const theme = Object.freeze({
     secondBackground: '#121212',
     panelBackground: '#161616',
     secondaryColor: '#BEDBB0',
+    secondaryColorHover: '#9DC888',
     textOne: '#FFFFFF',
     textTwo: 'rgba(255, 255, 255, 0.8)',
     textThree: 'rgba(255, 255, 255, 0.5)',
     textFour: 'rgba(255, 255, 255, 0.1)',
+    buttonTextColor: '#161616',
   },
 
   light: {
@@ -15,19 +17,23 @@ export const theme = Object.freeze({
     secondBackground: '#fff',
     panelBackground: '#fcfcfc',
     secondaryColor: '#BEDBB0',
+    secondaryColorHover: '#9DC888',
+
     text: '#121212',
     textOne: '#161616',
     textTwo: 'rgba(22, 22, 22, 0.8)',
     textThree: 'rgba(22, 22, 22, 0.7)',
     textFour: 'rgba(22, 22, 22, 0.5)',
     textFive: 'rgba(22, 22, 22, 0.1)',
+    buttonTextColor: '#161616',
   },
 
   violet: {
     background: '#ecedfd',
-    secondBackground: '#5255BC',
+    secondBackground: '#B8BCFD',
     panelBackground: '#fff',
-    secondaryColor: '#B8BCFD',
+    secondaryColor: '#5255BC',
+    secondaryColorHover: '#7B7EDE',
     thirdColor: 'rgba(236, 237, 253, 0.5)',
     textOne: '#FFFFFF',
     textTwo: 'rgba(255, 255, 255, 0.8)',
@@ -36,5 +42,6 @@ export const theme = Object.freeze({
     blackText: '#161616',
     blackTextTwo: 'rgba(22, 22, 22, 0.8)',
     blackTextThree: 'rgba(22, 22, 22, 0.7)',
+    buttonTextColor: '#FFFFFF',
   },
 });
