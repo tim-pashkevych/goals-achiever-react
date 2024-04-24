@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { SContainer, SFormWrapper } from './AuthPage.styled';
+import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
+import { Button } from '../../components';
 
 const AuthPage = () => {
   return (
@@ -15,6 +17,8 @@ const AuthPage = () => {
             </li>
           </ul>
         </nav>
+        <RegisterForm />
+        <Button />
       </SFormWrapper>
     </SContainer>
   );
