@@ -1,11 +1,11 @@
-import{u as t,j as e}from"./index-1db78e96.js";const n=t.div`
+import{u as t,L as n,j as e}from"./index-ebadeba7.js";const i=t.div`
   height: 100vh;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`,i=t.a`
+`,o=t(n)`
   width: 335px;
   color: white;
   text-align: center;
@@ -17,4 +17,4 @@ import{u as t,j as e}from"./index-1db78e96.js";const n=t.div`
   @media only screen and (min-width: 768px) {
     width: 344px;
   }
-`,r=()=>e.jsxs(n,{children:[e.jsx("h1",{children:"404"}),e.jsx("h2",{children:"Not found"}),e.jsx(i,{href:"/","aria-label":"Navigate to Home page",children:"Home page"})]});export{r as default};
+`,a=()=>e.jsxs(i,{children:[e.jsx("h1",{children:"404"}),e.jsx("h2",{children:"Not found"}),e.jsx(o,{to:"/","aria-label":"Navigate to Home page",children:"Home page"})]});export{a as default};
