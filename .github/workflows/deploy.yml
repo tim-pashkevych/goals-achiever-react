@@ -4,7 +4,8 @@ on:
   push:
     branches: [main]
 env:
-  BASENAME: ${{secrets.BASENAME}}
+  VITE_BASE_NAME: ${{secrets.VITE_BASE_NAME}}
+  VITE_BASE_URL: ${{secrets.VITE_BASE_URL}}
 
 jobs:
   build-and-deploy:
