@@ -26,7 +26,7 @@ const resizeFile = (file) =>
     );
   });
 
-export const Card = () => {
+export const Card = ({ setAvatar }) => {
   const [avatarUrl, setAvatarUrl] = useState(
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTousHbMHE9y6ZaMX9GcxFGJRfxq8aWGYcIV_dPgWOwqQ&s'
   );
@@ -39,7 +39,7 @@ export const Card = () => {
   const handleInputChange = async (e) => {
     const reader = new FileReader();
     const file = e.target.files[0];
-
+    setAvatar(file);
     if (!file) return;
     const resizedFile = await resizeFile(file);
     reader.onload = (e) => {

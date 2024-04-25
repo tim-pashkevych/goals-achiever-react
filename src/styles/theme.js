@@ -41,6 +41,8 @@ export const theme = Object.freeze({
     userProfile: '#161616',
     userProfileIcon: '#FFFFFF',
     userProfileIconBackground: '#F6F6F7',
+
+    inputBorder: '#bedbb0',
   },
 
   dark: {
@@ -80,6 +82,8 @@ export const theme = Object.freeze({
     userProfile: '#fff',
     userProfileIcon: '#151515',
     userProfileIconBackground: '#1F1F1F',
+
+    inputBorder: '#bedbb0',
   },
 
   violet: {
@@ -123,5 +127,7 @@ export const theme = Object.freeze({
     userProfile: '#161616',
     userProfileIcon: '#FFFFFF',
     userProfileIconBackground: '#ECEDFD',
+
+    inputBorder: '#5255bc',
   },
 });

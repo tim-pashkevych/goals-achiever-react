@@ -1,11 +1,17 @@
-export const InputList = () => {
+import { SInputWrapper_dev, SInput_input } from './InputList.styled';
+
+export const InputList = ({ register, current }) => {
   return (
-    <div>
-      <input type="text" />
+    <SInputWrapper_dev>
+      <SInput_input {...register('name')} placeholder={current.name} />
 
-      <input type="email" />
+      <SInput_input {...register('email')} placeholder={current.email} />
 
-      <input type="password" />
-    </div>
+      <SInput_input
+        {...register('password')}
+        placeholder="password"
+        type={'password'}
+      />
+    </SInputWrapper_dev>
   );
 };

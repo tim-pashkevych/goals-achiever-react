@@ -15,6 +15,7 @@ export const SImageWrapper_div = styled.div`
   align-items: end;
   border-radius: 8px;
   overflow: hidden;
+  background-color: ${({ theme }) => theme.userProfileIconBackground};
   stroke: ${({ theme }) => theme.userProfileIcon};
   fill: ${({ theme }) => theme.userProfileIcon};
   background-color: ${({ theme }) => theme.mainDashbordBackground};
