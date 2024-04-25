@@ -7,6 +7,7 @@ import {
   moveCardByIdThunk,
 } from './operations';
 import { ICardsState, IShortCard } from '../../types';
+import { fetchUserThunk } from '..';
 
 const initialState: ICardsState = {
   items: [],
@@ -61,12 +62,17 @@ const slice = createSlice({
       .addCase(deleteCardByIdThunk.fulfilled, (state, { payload: id }) => {
         state.items = state.items.filter((card) => card._id !== id);
       })
+      .addCase(fetchUserThunk.fulfilled, (state, { payload: { result } }) => {
+        state.isLoading = false;
+        state.items = result.cards;
+      })
       .addMatcher(
         isAnyOf(
           createCardThunk.pending,
           updateCardByIdThunk.pending,
           deleteCardByIdThunk.pending,
-          moveCardByIdThunk.pending
+          moveCardByIdThunk.pending,
+          fetchUserThunk.pending
         ),
         (state) => {
           state.isLoading = true;
@@ -77,7 +83,8 @@ const slice = createSlice({
           createCardThunk.rejected,
           updateCardByIdThunk.rejected,
           deleteCardByIdThunk.rejected,
-          moveCardByIdThunk.rejected
+          moveCardByIdThunk.rejected,
+          fetchUserThunk.rejected
         ),
         (state) => {
           state.isLoading = false;
