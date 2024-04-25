@@ -9,6 +9,7 @@ const register = async (credentials: IUserCredentials) => {
 const login = async (credentials: IUserCredentials) => {
   const result = await api.post('/users/login', credentials);
   const { token } = result.data;
+  console.log('token1', token);
   setAxiosToken(token);
   return result.data;
 };
@@ -29,7 +30,9 @@ const avatar = async (image: FormData) => {
 
 const current = async () => {
   const result = await api.get('/users');
-  const { token } = result.data;
+
+  const { token } = result.data.result.user;
+
   setAxiosToken(token);
   return result.data;
 };
