@@ -24,6 +24,7 @@ export const theme = Object.freeze({
     filterPriority: 'rgba(22, 22, 22, 0.5)',
 
     modalBorder: '#f6f6f7',
+    modalBackground: '#FCFCFC',
 
     columnName: '#161616',
     scrollBall: 'rgba(22, 22, 22, 0.1)',
@@ -40,6 +41,8 @@ export const theme = Object.freeze({
     userProfile: '#161616',
     userProfileIcon: '#FFFFFF',
     userProfileIconBackground: '#F6F6F7',
+
+    inputBorder: '#bedbb0',
   },
 
   dark: {
@@ -68,6 +71,7 @@ export const theme = Object.freeze({
     filterOutline: 'rgba(255, 255, 255, 0.1)',
     filterPriority: 'rgba(255, 255, 255, 0.5)',
     modalBorder: 'rgba(190, 219, 176, 0.5)',
+    modalBackground: '#161616',
 
     themeSwitcher: 'rgba(255, 255, 255, 0.8)',
     themeSwitsherPopUp: 'rgba(255, 255, 255, 0.5)',
@@ -78,6 +82,8 @@ export const theme = Object.freeze({
     userProfile: '#fff',
     userProfileIcon: '#151515',
     userProfileIconBackground: '#1F1F1F',
+
+    inputBorder: '#bedbb0',
   },
 
   violet: {
@@ -110,6 +116,7 @@ export const theme = Object.freeze({
     filterOutline: 'rgba(22, 22, 22, 0.1)',
     filterPriority: 'rgba(22, 22, 22, 0.5)',
     modalBorder: '#ecedfd',
+    modalBackground: '#FCFCFC',
 
     themeSwitcher: 'rgba(22, 22, 22, 0.8)',
     themeSwitsherPopUp: '#161616',
@@ -120,5 +127,7 @@ export const theme = Object.freeze({
     userProfile: '#161616',
     userProfileIcon: '#FFFFFF',
     userProfileIconBackground: '#ECEDFD',
+
+    inputBorder: '#5255bc',
   },
 });

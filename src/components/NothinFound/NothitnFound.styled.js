@@ -10,11 +10,12 @@ export const SWrapper_div = styled.div`
 export const SNothingFoundP = styled.p`
   width: 486px;
   color: ${({ theme }) => theme.mainDashbordText};
-  text-align: center;
   font-weight: 400;
   font-size: 14px;
-  line-height: 1.28571;
+
+  line-height: 1.3;
   letter-spacing: -0.02em;
+  text-align: center;
 `;
 
 export const SAccentedLink = styled.a`

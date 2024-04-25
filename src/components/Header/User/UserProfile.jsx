@@ -24,7 +24,13 @@ export const UserProfile = () => {
       <STitle_p>username</STitle_p>
 
       <SImageWrapper_div>
-        <Icon id={'user'} size={32} />
+        {true && (
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTousHbMHE9y6ZaMX9GcxFGJRfxq8aWGYcIV_dPgWOwqQ&s"
+            alt="sadasd"
+          />
+        )}
+        {false && <Icon id={'user'} size={32} />}
       </SImageWrapper_div>
       {isOpenModal && (
         <Modal toggleModal={() => setIsOpenModal(false)}>

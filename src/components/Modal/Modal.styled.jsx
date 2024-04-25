@@ -9,14 +9,14 @@ export const SWrapper_div = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(190, 219, 176, 0.089);
+  background-color: rgba(22, 22, 22, 0.8);
 `;
 
 export const SModalWindow_div = styled.div`
   position: relative;
   width: auto;
   height: auto;
-  background-color: ${({ theme }) => theme.background};
+  background-color: ${({ theme }) => theme.modalBackground};
   border: 1px solid ${({ theme }) => theme.modalBorder};
   border-radius: 8px;
   padding: ${({ $padding }) => $padding};
