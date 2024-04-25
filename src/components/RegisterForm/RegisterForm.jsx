@@ -1,8 +1,27 @@
+import { useState } from 'react';
+
+import { useAppDispatch } from '../../hooks';
+import { registerThunk } from '../../redux';
+import { Button } from '..';
 import { SRegister_form, SRegister_input } from './RegisterForm.styled';
 
-export const RegisterForm = ({ handleChange }) => {
+export const RegisterForm = () => {
+  const dispatch = useAppDispatch();
+  const [formData, setFormData] = useState({});
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const data = {
+      email: formData.email,
+      password: formData.password,
+      name: formData.name,
+    };
+    dispatch(registerThunk(data));
   };
 
   return (
@@ -26,6 +45,7 @@ export const RegisterForm = ({ handleChange }) => {
           placeholder="Create a password"
           onChange={handleChange}
         />
+        <Button title="Register Now" icon={false} />
       </SRegister_form>
     </div>
   );
