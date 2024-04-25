@@ -57,6 +57,7 @@ export const GlobalStyle = createGlobalStyle`
   button {
     padding: 0;
     border: none;
+    outline: none;
     font: inherit;
     color: inherit;
     background-color: transparent;

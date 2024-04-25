@@ -6,7 +6,7 @@ import { EditProfile } from './EditProfile/EditProfile';
 import {
   SImageWrapper_div,
   STitle_p,
-  SWrapper_div,
+  SWrapper_button,
 } from './UserProfile.styled';
 
 export const UserProfile = () => {
@@ -14,13 +14,13 @@ export const UserProfile = () => {
   const wrapper = useRef();
 
   const handleOpenModal = (e) => {
-    const curentWrapper = e.target.closest('div');
+    const curentWrapper = e.target.closest('button');
     if (curentWrapper === wrapper.current) {
       setIsOpenModal();
     }
   };
   return (
-    <SWrapper_div onClick={handleOpenModal} ref={wrapper}>
+    <SWrapper_button onClick={handleOpenModal} ref={wrapper}>
       <STitle_p>username</STitle_p>
 
       <SImageWrapper_div>
@@ -37,6 +37,6 @@ export const UserProfile = () => {
           <EditProfile />
         </Modal>
       )}
-    </SWrapper_div>
+    </SWrapper_button>
   );
 };
