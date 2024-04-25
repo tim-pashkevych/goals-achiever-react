@@ -27,9 +27,17 @@ const avatar = async (image: FormData) => {
   return result.data.result;
 };
 
+const current = async () => {
+  const result = await api.get('/users');
+  const { token } = result.data;
+  setAxiosToken(token);
+  return result.data;
+};
+
 export default {
   register,
   login,
   logout,
   avatar,
+  current,
 };

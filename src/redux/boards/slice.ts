@@ -7,6 +7,7 @@ import {
   deleteBoardByIdThunk,
 } from './operations';
 import { IBoardsState, IShortBoard } from '../../types';
+import { fetchUserThunk } from '..';
 
 const initialState: IBoardsState = {
   items: [],
@@ -68,25 +69,17 @@ const slice = createSlice({
           index === 0 ? { ...board, active: true } : { ...board, active: false }
         );
       })
-      // .addCase(createColumnThunk.fulfilled, (state, payload) => {
-      //   state.activeBoard?.columns.push(payload);
-      // })
-      // .addCase(updateColumnByIdThunk.fulfilled, (state, payload) => {
-      //   state.activeBoard!.columns = state.activeBoard!.columns.map((column) =>
-      //     column._id === payload._id ? payload : column
-      //   );
-      // })
-      // .addCase(deleteColumnById, (state, payload) => {
-      //   state.activeBoard!.columns = state.activeBoard!.columns.filter(
-      //     (column) => column._id !== payload
-      //   );
-      // })
+      .addCase(fetchUserThunk.fulfilled, (state, { payload: { result } }) => {
+        state.isLoading = false;
+        state.items = result.boards;
+      })
       .addMatcher(
         isAnyOf(
           createBoardThunk.pending,
           getBoardByIdThunk.pending,
           updateBoardByIdThunk.pending,
-          deleteBoardByIdThunk.pending
+          deleteBoardByIdThunk.pending,
+          fetchUserThunk.pending
         ),
         (state) => {
           state.isLoading = true;
@@ -97,7 +90,8 @@ const slice = createSlice({
           createBoardThunk.rejected,
           getBoardByIdThunk.rejected,
           updateBoardByIdThunk.rejected,
-          deleteBoardByIdThunk.rejected
+          deleteBoardByIdThunk.rejected,
+          fetchUserThunk.rejected
         ),
         (state) => {
           state.isLoading = false;

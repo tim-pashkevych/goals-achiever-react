@@ -36,6 +36,8 @@ export const loginThunk = createAsyncThunk<
 >('POST /users/login', async (credentials, thunkAPI) => {
   try {
     const result = await api.users.login(credentials);
+    thunkAPI.dispatch(fetchUserThunk());
+
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -72,3 +74,17 @@ export const updateUserAvatarThunk = createAsyncThunk<
     }
   }
 });
+
+export const fetchUserThunk = createAsyncThunk(
+  'GET users',
+  async (_, thunkAPI) => {
+    try {
+      const result = await api.users.current();
+      return result;
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  }
+);
