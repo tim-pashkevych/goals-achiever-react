@@ -27,7 +27,18 @@ export const SListItem_li = styled.li`
   font-size: 14px;
   letter-spacing: -0.02em;
   color: ${({ theme }) => theme.themeSwitsherPopUp};
-  cursor: pointer;
+  &:active {
+    color: ${({ theme }) => theme.themeAccent};
+  }
+  @media screen and (min-width: 1440px) {
+    &:hover,
+    &focus {
+      color: ${({ theme }) => theme.themeAccent};
+    }
+  }
+`;
+
+export const SButton_button = styled.button`
   &:hover,
   &focus {
     color: ${({ theme }) => theme.themeAccent};

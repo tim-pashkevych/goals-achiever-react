@@ -8,7 +8,7 @@ import {
 } from '../../components';
 import { useModal } from '../../hooks';
 import {
-  SFilterWrapper_div,
+  SFilterWrapper_button,
   SFilter_p,
   SMainDashboard,
 } from './ScreensPage.Styled';
@@ -22,10 +22,10 @@ const ScreensPage = () => {
   };
   return (
     <SMainDashboard>
-      <SFilterWrapper_div onClick={() => setIsOpenModal()}>
+      <SFilterWrapper_button onClick={() => setIsOpenModal()}>
         <Icon id="filter" size={16} />
         <SFilter_p>Filters</SFilter_p>
-      </SFilterWrapper_div>
+      </SFilterWrapper_button>
       {!boardName && <NothinFound />}
       {boardName && <MainDashboard />}
       {isOpenModal && (

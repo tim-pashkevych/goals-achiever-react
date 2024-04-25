@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SWrapper_div = styled.div`
+export const SWrapper_button = styled.button`
   position: relative;
   display: inline-flex;
   margin-left: auto;
@@ -11,6 +11,7 @@ export const SWrapper_div = styled.div`
   fill: ${({ theme }) => theme.panelBackground};
   color: ${({ theme }) => theme.themeSwitcher};
   cursor: pointer;
+  outline: none;
   &:active {
     color: ${({ theme }) => theme.themeAccent};
     stroke: ${({ theme }) => theme.themeAccent};
