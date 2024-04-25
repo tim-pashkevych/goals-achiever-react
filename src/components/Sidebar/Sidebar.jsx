@@ -12,7 +12,6 @@ import {
   SpHelp,
   SpCreate,
   SpProject,
-  // SpNeon,
   SbuttonNeed,
   SDivLogOut,
   SDivNeed,
@@ -53,7 +52,7 @@ export const Sidebar = () => {
           <SUl>
             <SLi>
               <SDivLi>
-                <SIcon id="project" size={20} className="project" />
+                <SIcon id="project" size={18} className="project" />
                 <SpProject>Project office</SpProject>
               </SDivLi>
 
@@ -72,7 +71,7 @@ export const Sidebar = () => {
             </SLi>
             <SLi>
               <SDivLi>
-                <SIcon id="puzzle-piece" size={20} className="puzzle-piece" />
+                <SIcon id="puzzle-piece" size={18} className="puzzle-piece" />
                 <SpProject>Neon Light Project</SpProject>
               </SDivLi>
               <SDivButton>
@@ -105,8 +104,12 @@ export const Sidebar = () => {
           </SbuttonLogout>
         </SDivLogOut>
       </SDiv>
-      {isOpenModalAddBoard && <Modal></Modal>}
-      {isOpenModalEditBoard && <Modal></Modal>}
+      {isOpenModalAddBoard && (
+        <Modal toggleModal={toggleIsOpenModalAddBoard}></Modal>
+      )}
+      {isOpenModalEditBoard && (
+        <Modal toggleModal={toggleIsOpenModalEditBoard}></Modal>
+      )}
     </>
   );
 };
