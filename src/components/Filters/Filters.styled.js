@@ -36,14 +36,24 @@ export const SLabelTitle_p = styled.p`
   color: ${({ theme }) => theme.userProfile};
 `;
 
-export const SShowAll_p = styled.p`
+export const SShowAll_button = styled.button`
   font-weight: 400;
   font-size: 12px;
   letter-spacing: -0.02em;
   text-decoration: underline;
   text-decoration-skip-ink: none;
   color: ${({ theme }) => theme.themeSwitsherPopUp};
-  cursor: pointer;
+
+  &:active {
+    color: ${({ theme }) => theme.themeAccent};
+  }
+
+  @media only screen and (min-width: 1440px) {
+    &:hover,
+    &:focus {
+      color: ${({ theme }) => theme.themeAccent};
+    }
+  }
 `;
 
 export const SForm_ul = styled.ul`
@@ -53,23 +63,35 @@ export const SForm_ul = styled.ul`
 `;
 
 export const SItem_li = styled.li`
-  display: flex;
-  gap: 9px;
-  align-items: center;
-  text-transform: capitalize;
-
   font-weight: 400;
   font-size: 12px;
   letter-spacing: -0.02em;
   color: ${({ theme }) => theme.filterPriority};
 
-  cursor: pointer;
-
-  &.active {
+  & .active {
     font-weight: 400;
     font-size: 12px;
     letter-spacing: -0.02em;
     color: ${({ theme }) => theme.userProfile};
+  }
+`;
+
+export const SRadio_button = styled.button`
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  text-transform: capitalize;
+  &:active {
+    color: ${({ theme }) => theme.themeAccent};
+  }
+
+  @media only screen and (min-width: 768px) {
+  }
+  @media only screen and (min-width: 1440px) {
+    &:hover,
+    &:focus {
+      color: ${({ theme }) => theme.themeAccent};
+    }
   }
 `;
 

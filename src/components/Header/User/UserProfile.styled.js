@@ -1,18 +1,36 @@
 import styled from 'styled-components';
 
-export const SWrapper_div = styled.div`
+export const SWrapper_button = styled.button`
   display: flex;
   gap: 8px;
   align-items: center;
   fill: ${({ theme }) => theme.userProfileIcon};
   stroke: ${({ theme }) => theme.userProfileIcon};
+  color: ${({ theme }) => theme.userProfile};
+
+  &:active {
+    fill: ${({ theme }) => theme.themeAccent};
+    stroke: ${({ theme }) => theme.themeAccent};
+    color: ${({ theme }) => theme.themeAccent};
+  }
+
+  @media only screen and (min-width: 768px) {
+  }
+
+  @media only screen and (min-width: 1440px) {
+    &:hover,
+    &:focus {
+      fill: ${({ theme }) => theme.themeAccent};
+      stroke: ${({ theme }) => theme.themeAccent};
+      color: ${({ theme }) => theme.themeAccent};
+    }
+  }
 `;
 
 export const STitle_p = styled.p`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: ${({ theme }) => theme.userProfile};
   text-transform: capitalize;
 `;
 

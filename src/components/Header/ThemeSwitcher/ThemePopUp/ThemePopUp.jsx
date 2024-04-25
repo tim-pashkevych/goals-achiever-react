@@ -3,14 +3,14 @@ import { useContext, useEffect } from 'react';
 import { themes } from '../../../../constants/themes';
 import { ThemeContext } from '../../../ThemeContext/ThemeContext';
 
-import { SList_ul, SListItem_li } from './ThemePopUp.styled';
+import { SButton_button, SList_ul, SListItem_li } from './ThemePopUp.styled';
 
 export const ThemePopUp = ({ setIsOpenPopUp, boxRef }) => {
   const { setTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     const handleCloseList = (e) => {
-      if (e.target.closest('div') !== boxRef.current) {
+      if (e.target.closest('button') !== boxRef.current) {
         setIsOpenPopUp(false);
       }
     };
@@ -41,8 +41,8 @@ export const ThemePopUp = ({ setIsOpenPopUp, boxRef }) => {
   return (
     <SList_ul>
       {themes.map((el) => (
-        <SListItem_li key={el} onClick={() => click(el)}>
-          {el}
+        <SListItem_li key={el}>
+          <SButton_button onClick={() => click(el)}> {el}</SButton_button>
         </SListItem_li>
       ))}
     </SList_ul>
