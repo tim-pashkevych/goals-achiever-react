@@ -9,7 +9,7 @@ export const BoardList = () => {
   return (
     <SUl>
       {boards.map((board) => (
-        <BoardItem key={board._id} title={board.title} />
+        <BoardItem key={board._id} title={board.title} id={board._id} />
       ))}
     </SUl>
   );
