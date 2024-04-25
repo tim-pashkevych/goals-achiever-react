@@ -1,11 +1,5 @@
 import styled from 'styled-components';
 
-export const SMainDashboard = styled.div`
-  padding-left: 24px;
-  padding-top: 10px;
-  height: 100%;
-`;
-
 export const STitle_h3 = styled.h3`
   font-weight: 500;
   font-size: 18px;
@@ -22,7 +16,7 @@ export const SButton_button = styled.button`
   align-items: center;
 
   gap: 8px;
-  width: 334px;
+  width: 335px;
   height: 56px;
   background-color: ${({ theme }) => theme.mainDashbordButton};
 
@@ -34,6 +28,10 @@ export const SButton_button = styled.button`
   font-size: 14px;
   letter-spacing: -0.02em;
   color: ${({ theme }) => theme.userProfile};
+
+  @media only screen and (min-width: 768px) {
+    width: 334px;
+  }
 `;
 
 export const SIconWrapper_div = styled.div`

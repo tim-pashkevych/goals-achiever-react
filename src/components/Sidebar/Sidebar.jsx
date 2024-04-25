@@ -1,3 +1,4 @@
+import { BoardList } from '..';
 import { useAppDispatch, useModal } from '../../hooks';
 import { logoutThunk } from '../../redux';
 import { Modal } from '../Modal/Modal';
@@ -11,23 +12,16 @@ import {
   SbuttonCreate,
   SpHelp,
   SpCreate,
-  SpProject,
   // SpNeon,
   SbuttonNeed,
   SDivLogOut,
   SDivNeed,
-  SLi,
   SDivProject,
-  SbuttonProject,
-  SDivButton,
   SbuttonLogout,
-  SDivLi,
-  SUl,
 } from './Sidebar.styled';
 
 export const Sidebar = () => {
   const [isOpenModalAddBoard, toggleIsOpenModalAddBoard] = useModal();
-  const [isOpenModalEditBoard, toggleIsOpenModalEditBoard] = useModal();
   const dispatch = useAppDispatch();
 
   const handleLogout = () => {
@@ -50,41 +44,7 @@ export const Sidebar = () => {
         </SDivCreate>
 
         <SDivProject>
-          <SUl>
-            <SLi>
-              <SDivLi>
-                <SIcon id="project" size={20} className="project" />
-                <SpProject>Project office</SpProject>
-              </SDivLi>
-
-              <SDivButton>
-                <SbuttonProject
-                  type="button"
-                  onClick={toggleIsOpenModalEditBoard}
-                  aria-label="edit"
-                >
-                  <SIcon id="pencil" size={16} className="pencil" />
-                </SbuttonProject>
-                <SbuttonProject type="button" aria-label="delete">
-                  <SIcon id="trash" size={16} className="trash" />
-                </SbuttonProject>
-              </SDivButton>
-            </SLi>
-            <SLi>
-              <SDivLi>
-                <SIcon id="puzzle-piece" size={20} className="puzzle-piece" />
-                <SpProject>Neon Light Project</SpProject>
-              </SDivLi>
-              <SDivButton>
-                <SbuttonProject type="button" aria-label="edit">
-                  <SIcon id="pencil" size={16} className="pencil" />
-                </SbuttonProject>
-                <SbuttonProject type="button" aria-label="delete">
-                  <SIcon id="trash" size={16} className="trash" />
-                </SbuttonProject>
-              </SDivButton>
-            </SLi>
-          </SUl>
+          <BoardList />
         </SDivProject>
 
         <SDivNeed>
@@ -106,7 +66,6 @@ export const Sidebar = () => {
         </SDivLogOut>
       </SDiv>
       {isOpenModalAddBoard && <Modal></Modal>}
-      {isOpenModalEditBoard && <Modal></Modal>}
     </>
   );
 };

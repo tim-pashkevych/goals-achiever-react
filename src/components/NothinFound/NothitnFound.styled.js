@@ -8,14 +8,20 @@ export const SWrapper_div = styled.div`
 `;
 
 export const SNothingFoundP = styled.p`
-  width: 486px;
-  color: ${({ theme }) => theme.mainDashbordText};
+  width: 355px;
   font-weight: 400;
-  font-size: 14px;
-
+  font-size: 12px;
   line-height: 1.3;
   letter-spacing: -0.02em;
+
   text-align: center;
+  color: ${({ theme }) => theme.mainDashbordText};
+
+  @media only screen and (min-width: 768px) {
+    width: 486px;
+
+    font-size: 14px;
+  }
 `;
 
 export const SAccentedLink = styled.a`
