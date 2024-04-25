@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledIcon = styled.svg`
+export const SIcon = styled.svg`
   stroke: ${(props) => props.color};
+  fill: ${(props) => props.color};
 `;
