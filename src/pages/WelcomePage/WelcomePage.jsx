@@ -32,12 +32,12 @@ const WelcomePage = () => {
       </p>
       <ul>
         <li>
-          <SLinkButton to="auth/register" aria-label="Link to register">
+          <SLinkButton to="/auth/register" aria-label="Link to register">
             Registration
           </SLinkButton>
         </li>
         <li>
-          <Link to="auth/login" aria-label="Link to login">
+          <Link to="/auth/login" aria-label="Link to login">
             Log in
           </Link>
         </li>

@@ -1,16 +1,21 @@
-import { Header } from '../../components';
-import ScreensPage from '../ScreensPage/ScreensPage';
+import { Outlet } from 'react-router-dom';
+import { Header, Loader, Sidebar } from '../../components';
 // import Sidebar from '../../components/Sidebar/Sidebar';
 import { SMainContainer, SWrapper } from './HomePage.Styled';
+import { Suspense } from 'react';
 
 const HomePage = () => {
   return (
     <SMainContainer>
-      <div>SideBar</div>
+      <div>
+        <Sidebar />
+      </div>
 
       <SWrapper>
         <Header />
-        <ScreensPage />
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
       </SWrapper>
     </SMainContainer>
   );

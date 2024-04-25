@@ -6,6 +6,7 @@ import {
   deleteColumnByIdThunk,
 } from './operations';
 import { IColumnsState, IShortColumn } from '../../types';
+import { fetchUserThunk } from '..';
 
 const initialState: IColumnsState = {
   items: [],
@@ -46,11 +47,16 @@ const slice = createSlice({
       .addCase(deleteColumnByIdThunk.fulfilled, (state, { payload: id }) => {
         state.items = state.items.filter((column) => column._id !== id);
       })
+      .addCase(fetchUserThunk.fulfilled, (state, { payload: { result } }) => {
+        state.isLoading = false;
+        state.items = result.columns;
+      })
       .addMatcher(
         isAnyOf(
           createColumnThunk.pending,
           updateColumnByIdThunk.pending,
-          deleteColumnByIdThunk.pending
+          deleteColumnByIdThunk.pending,
+          fetchUserThunk.pending
         ),
         (state) => {
           state.isLoading = true;
@@ -60,7 +66,8 @@ const slice = createSlice({
         isAnyOf(
           createColumnThunk.rejected,
           updateColumnByIdThunk.rejected,
-          deleteColumnByIdThunk.rejected
+          deleteColumnByIdThunk.rejected,
+          fetchUserThunk.rejected
         ),
         (state) => {
           state.isLoading = false;
