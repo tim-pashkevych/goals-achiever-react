@@ -24,6 +24,7 @@ export const theme = Object.freeze({
     filterPriority: 'rgba(22, 22, 22, 0.5)',
 
     modalBorder: '#f6f6f7',
+    modalBackground: '#FCFCFC',
 
     columnName: '#161616',
     scrollBall: 'rgba(22, 22, 22, 0.1)',
@@ -68,6 +69,7 @@ export const theme = Object.freeze({
     filterOutline: 'rgba(255, 255, 255, 0.1)',
     filterPriority: 'rgba(255, 255, 255, 0.5)',
     modalBorder: 'rgba(190, 219, 176, 0.5)',
+    modalBackground: '#161616',
 
     themeSwitcher: 'rgba(255, 255, 255, 0.8)',
     themeSwitsherPopUp: 'rgba(255, 255, 255, 0.5)',
@@ -110,6 +112,7 @@ export const theme = Object.freeze({
     filterOutline: 'rgba(22, 22, 22, 0.1)',
     filterPriority: 'rgba(22, 22, 22, 0.5)',
     modalBorder: '#ecedfd',
+    modalBackground: '#FCFCFC',
 
     themeSwitcher: 'rgba(22, 22, 22, 0.8)',
     themeSwitsherPopUp: '#161616',

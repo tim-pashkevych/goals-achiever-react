@@ -17,5 +17,9 @@ export const STitle_p = styled.p`
 `;
 
 export const SImageWrapper_div = styled.div`
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  overflow: hidden;
   background-color: ${({ theme }) => theme.userProfileIconBackground};
 `;
