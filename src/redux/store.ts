@@ -29,7 +29,7 @@ export const store = configureStore({
   reducer: {
     auth: persistedUserReducer,
     boards: boardsReducer,
-    colums: ColumnsReducer,
+    columns: ColumnsReducer,
     cards: CardsReducer,
   },
   middleware: (getDefaultMiddleware) =>

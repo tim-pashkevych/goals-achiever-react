@@ -1,2 +1,2 @@
 export * from './operations';
-export { selectColumns } from './slice';
+export { selectColumns, selectIsColumnLoading } from './slice';
