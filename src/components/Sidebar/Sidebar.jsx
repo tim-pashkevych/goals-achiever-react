@@ -1,4 +1,4 @@
-import { BoardList } from '..';
+import { BoardForm, BoardList } from '..';
 import { useAppDispatch, useModal } from '../../hooks';
 import { logoutThunk } from '../../redux';
 import { Modal } from '../Modal/Modal';
@@ -21,7 +21,7 @@ import {
 } from './Sidebar.styled';
 
 export const Sidebar = () => {
-  const [isOpenModalAddBoard, toggleIsOpenModalAddBoard] = useModal();
+  const [isOpenModal, toggleModal] = useModal();
   const dispatch = useAppDispatch();
 
   const handleLogout = () => {
@@ -38,7 +38,7 @@ export const Sidebar = () => {
         <Sh2>My boards</Sh2>
         <SDivCreate>
           <SpCreate>Create a new board</SpCreate>
-          <SbuttonCreate type="button" onClick={toggleIsOpenModalAddBoard}>
+          <SbuttonCreate type="button" onClick={toggleModal}>
             <SIcon id="plus" size={20} className="plus" />
           </SbuttonCreate>
         </SDivCreate>
@@ -65,7 +65,11 @@ export const Sidebar = () => {
           </SbuttonLogout>
         </SDivLogOut>
       </SDiv>
-      {isOpenModalAddBoard && <Modal></Modal>}
+      {isOpenModal && (
+        <Modal toggleModal={toggleModal}>
+          <BoardForm />
+        </Modal>
+      )}
     </>
   );
 };
