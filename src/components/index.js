@@ -12,3 +12,5 @@ export * from './MainDashboard/MainDashboard.jsx';
 export * from './Filters/Filters.jsx';
 export * from './NothinFound/NothinFound.jsx';
 export * from './Sidebar/Sidebar.jsx';
+export * from './Board/BoardList/BoardList.jsx';
+export * from './Board/BoardItem/BoardItem.jsx';
