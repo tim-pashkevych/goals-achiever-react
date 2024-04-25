@@ -1,5 +1,5 @@
 import { lazy, useContext } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import './styles/variables.css';
@@ -8,7 +8,8 @@ import { GlobalStyle } from './styles/GlobalStyle.js';
 
 import { theme } from './styles/theme';
 import { Layout, ThemeContext } from './components';
-import { MainDashboard } from './components/MainDashboard/MainDashboard.jsx';
+import { PrivateRoute } from './routes/PrivateRoute.jsx';
+import { PublicRoute } from './routes/PublicRoute.jsx';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('pages/AuthPage/AuthPage.jsx'));
@@ -25,13 +26,48 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<WelcomePage />} />
-          <Route path="/auth/:id" element={<AuthPage />} />
+          <Route
+            index
+            element={
+              <PrivateRoute>
+                <Navigate to={'/home'} />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/welcome"
+            element={
+              <PublicRoute>
+                <WelcomePage />
+              </PublicRoute>
+            }
+          ></Route>
+          <Route
+            path="/auth/:id"
+            element={
+              <PublicRoute>
+                <AuthPage />
+              </PublicRoute>
+            }
+          />
           <Route path="/home" element={<HomePage />}>
-            <Route index element={<ScreensPage />} />{' '}
-            <Route path="/home/:boardName" element={<ScreensPage />} />
+            <Route
+              index
+              element={
+                <PrivateRoute>
+                  <ScreensPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/home/:boardName"
+              element={
+                <PrivateRoute>
+                  <ScreensPage />
+                </PrivateRoute>
+              }
+            />
           </Route>
-          <Route path="/auth/dbord" element={<MainDashboard />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
