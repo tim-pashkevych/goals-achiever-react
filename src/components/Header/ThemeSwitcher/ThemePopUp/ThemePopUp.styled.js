@@ -9,7 +9,7 @@ export const SList_ul = styled.ul`
 
   top: 25px;
   left: 0;
-  width: 200px;
+  width: 100px;
   padding: 18px;
   border: 1px solid ${({ theme }) => theme.themeSwitsherPopUpBorder};
   border-radius: 8px;

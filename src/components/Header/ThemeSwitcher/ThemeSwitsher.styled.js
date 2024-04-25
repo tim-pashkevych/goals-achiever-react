@@ -11,10 +11,17 @@ export const SWrapper_div = styled.div`
   fill: ${({ theme }) => theme.panelBackground};
   color: ${({ theme }) => theme.themeSwitcher};
   cursor: pointer;
-  &:hover,
-  &focus {
+  &:active {
     color: ${({ theme }) => theme.themeAccent};
     stroke: ${({ theme }) => theme.themeAccent};
+  }
+
+  @media only screen and (min-width: 1440px) {
+    &:hover,
+    &focus {
+      color: ${({ theme }) => theme.themeAccent};
+      stroke: ${({ theme }) => theme.themeAccent};
+    }
   }
 `;
 
