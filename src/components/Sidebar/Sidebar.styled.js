@@ -81,44 +81,6 @@ export const SDivProject = styled.div`
   margin-inline: -12px;
 `;
 
-export const SpProject = styled.p`
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: -0.02em;
-  color: #fff;
-  padding: 20px 0;
-  margin-bottom: 116px;
-`;
-
-export const SDivButton = styled.button`
-  display: flex;
-  align-items: flex-end;
-  gap: 8px;
-`;
-
-export const SbuttonProject = styled.button``;
-
-export const SUl = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-`;
-
-export const SLi = styled.li`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #1f1f1f;
-  padding: 0 8px 0 14px;
-`;
-
-export const SDivLi = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 4px;
-`;
-
 export const SDivCreate = styled.div`
   display: flex;
   align-items: center;
