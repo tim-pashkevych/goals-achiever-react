@@ -24,7 +24,7 @@ export const Filters = () => {
   const handleShowAll = () => {
     setActive(null);
   };
-  console.log(active);
+
   return (
     <SWrapper_div>
       <STitle_h3>Filters</STitle_h3>

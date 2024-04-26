@@ -39,7 +39,6 @@ const Card = ({
 
   const onDelete = () => {
     // dispatch(deleteCardById);
-    console.log({ _id, columnId, boardId });
   };
 
   const generateRandomColor = () => {

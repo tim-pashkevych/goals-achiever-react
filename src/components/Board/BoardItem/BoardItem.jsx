@@ -31,7 +31,7 @@ export const BoardItem = ({ id, title }) => {
       </SLi>
       {isOpenModal && (
         <Modal toggleModal={toggleModal}>
-          <BoardForm boardId={id} />
+          <BoardForm boardId={id} handleCloseModal={toggleModal} />
         </Modal>
       )}
     </>

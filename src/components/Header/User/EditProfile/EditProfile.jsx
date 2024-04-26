@@ -23,7 +23,6 @@ export const EditProfile = ({ handleCloseModal }) => {
   const onSubmit = (data) => {
     const { name, email, password } = data;
 
-    console.log('before');
     if (!name && !email && !password && !avatar) return;
 
     const formData = new FormData();
@@ -40,15 +39,12 @@ export const EditProfile = ({ handleCloseModal }) => {
       formData.append('avatar', avatar);
     }
     for (const key of formData.keys()) {
-      console.log(key);
     }
     dispatch(updateUserInfoThunk(formData))
       .unwrap()
       .then(() => {
-        console.log('hello');
         handleCloseModal();
       });
-    console.log('after');
   };
   return (
     <SForm_form onSubmit={handleSubmit(onSubmit)}>
