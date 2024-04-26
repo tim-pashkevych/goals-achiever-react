@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { Icon, Image, ThemeContext } from '../..';
+import { Button, Icon, Image, ThemeContext } from '../..';
 import { boardIcons, boardImgIcons } from '../../../constants';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -114,10 +114,12 @@ export const BoardForm = ({ boardId, handleCloseModal }) => {
           </SRadioContainer>
         </SFieldWrapp>
         <SButton>
-          <SImgContainer>
-            <img src="/svgs/plus.svg" alt="" width={14} height={14} />
-          </SImgContainer>
-          {board ? 'Edit' : 'Create'}
+          <Button
+            title={board ? 'Edit' : 'Create'}
+            icon={true}
+            size={'large'}
+            style={{ width: 3340 }}
+          />
         </SButton>
       </SForm>
     </SContainer>
