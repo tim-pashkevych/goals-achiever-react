@@ -1,7 +1,10 @@
 import styled from 'styled-components';
-import { ICardContainerProps, IPriorityValueProps } from '../../types';
 
-export const S_card_div = styled.div<ICardContainerProps>`
+interface ICardContainerProps {
+  $stickerColor: string;
+}
+
+export const card_div = styled.div<ICardContainerProps>`
   background-color: #121212; //?
 
   display: flex;
@@ -43,7 +46,7 @@ export const S_card_div = styled.div<ICardContainerProps>`
   }
 `;
 
-export const S_title_h4 = styled.h4`
+export const title_h4 = styled.h4`
   font-weight: 600;
   font-size: 14px;
   line-height: 1.5;
@@ -55,11 +58,21 @@ export const S_title_h4 = styled.h4`
   color: #ffffff; //?
 `;
 
-export const S_description_p = styled.p`
+export const description_p = styled.p`
   font-size: 12px;
   line-height: 1.33;
 
   max-width: 290px;
+  height: 38px;
+
+  //test
+  /* height: 48px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; // Number of lines to show
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis; */
+  //test
 
   margin-bottom: 28px;
 
@@ -82,18 +95,18 @@ export const S_description_p = styled.p`
   }
 `;
 
-export const S_bottomPartContainer_div = styled.div`
+export const bottomPartContainer_div = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: end;
 `;
 
-export const S_tagsList_ul = styled.ul`
+export const tagsList_ul = styled.ul`
   display: flex;
   column-gap: 14px;
 `;
 
-export const S_tagItem_li = styled.li`
+export const tagItem_li = styled.li`
   color: #ffffff; //?
 
   display: flex;
@@ -104,14 +117,18 @@ export const S_tagItem_li = styled.li`
   line-height: 1.5;
 `;
 
-export const S_tagLabel_h5 = styled.h5`
+export const tagLabel_h5 = styled.h5`
   color: rgba(255, 255, 255, 0.5); //?
 
   font-weight: 400;
   font-size: 8px;
 `;
 
-export const S_priorityValue_p = styled.p<IPriorityValueProps>`
+interface IPriorityValueProps {
+  $priorityColor: string;
+}
+
+export const priorityValue_p = styled.p<IPriorityValueProps>`
   padding-left: 14px;
   min-width: 35px;
 
@@ -134,29 +151,34 @@ export const S_priorityValue_p = styled.p<IPriorityValueProps>`
   }
 `;
 
-export const S_deadlineValue_p = styled.p`
+export const deadlineValue_p = styled.p`
   letter-spacing: -0.02em;
 `;
 
-export const S_bottomRightPartContainer_div = styled.div`
+export const bottomRightPartContainer_div = styled.div`
   display: flex;
   column-gap: 13px;
 `;
 
-export const S_actionButtonsList_ul = styled.ul`
+export const actionButtonsList_ul = styled.ul`
   display: flex;
   column-gap: 8px;
-
-  color: rgba(255, 255, 255, 0.5); //?
 `;
 
-export const S_actionItem_li = styled.li`
+export const actionItem_li = styled.li`
   width: 16px;
   height: 16px;
 `;
 
-export const S_actionButton_button = styled.button`
+export const actionButton_button = styled.button`
   display: flex;
 
   stroke: rgba(255, 255, 255, 0.5); //?
+
+  transition: stroke 250ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    stroke: rgba(255, 255, 255, 1); //?
+  }
 `;

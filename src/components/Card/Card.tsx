@@ -1,121 +1,111 @@
-import {
-  S_bottomPartContainer_div,
-  S_card_div,
-  S_deadlineValue_p,
-  S_description_p,
-  S_priorityValue_p,
-  S_title_h4,
-  S_tagsList_ul,
-  S_tagItem_li,
-  S_actionButtonsList_ul,
-  S_actionItem_li,
-  S_actionButton_button,
-  S_tagLabel_h5,
-  S_bottomRightPartContainer_div,
-} from './Card.styled';
-import icons from '../../assets/sprite.svg';
-// import { useAppDispatch } from '../../hooks';
+import icons from 'assets/sprite.svg';
+import { Modal, CardPopup } from '../../components';
+import { useModal, useAppDispatch } from '../../hooks';
+import { IUpdateCardRequestBody, Id, Priority } from '../../types';
+import { PriorityColor } from '../../constants';
+import { ActionType, IFormData } from '../CardPopup/types';
+
+import { CardStatusPopup } from './CardStatusPopup';
+
+import * as S from './Card.styled';
+import { deleteCardByIdThunk, updateCardByIdThunk } from '../../redux';
 
 interface ICardProps {
-  title: string;
-  description: string;
-  priority: string;
-  deadline: string;
-  _id: string;
-  columnId: string;
-  boardId: string;
+  title?: string;
+  description?: string;
+  priority?: Priority;
+  deadline?: string;
+  _id: Id;
+  columnId: Id;
+  boardId: Id;
 }
 
 const Card = ({
   title = 'The watch spot design',
   description = "Create a visually stunning and eye-catching watch dial design that embodies our brand's...",
   deadline = '12/05/2023',
-  priority = 'Low',
+  priority = Priority.Low,
   _id,
   columnId,
   boardId,
 }: ICardProps) => {
-  // const dispatch = useAppDispatch();
+  const [isOpenedModal, toggleModal] = useModal();
 
-  const onDelete = () => {
-    // dispatch(deleteCardById);
-    console.log({ _id, columnId, boardId });
+  const dispatch = useAppDispatch();
+
+  const handleOnEdit = (updatedCard: IFormData) => {
+    toggleModal(false);
+
+    const data: IUpdateCardRequestBody = {
+      ...updatedCard,
+      columnId,
+      boardId,
+    };
+
+    dispatch(updateCardByIdThunk({ id: _id, newCardBody: data }));
   };
 
-  const generateRandomColor = () => {
-    const red = Math.floor(Math.random() * 256)
-      .toString(16)
-      .padStart(2, '0');
-    const green = Math.floor(Math.random() * 256)
-      .toString(16)
-      .padStart(2, '0');
-    const blue = Math.floor(Math.random() * 256)
-      .toString(16)
-      .padStart(2, '0');
-
-    const color = '#' + red + green + blue;
-
-    return color;
+  const handleOnDelete = () => {
+    dispatch(deleteCardByIdThunk(_id));
   };
-
-  const randomColor = generateRandomColor();
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        inset: 0,
-      }}
-    >
-      <S_card_div $stickerColor={randomColor}>
-        <S_title_h4>{title}</S_title_h4>
-        <S_description_p>{description}</S_description_p>
-        <S_bottomPartContainer_div>
-          <S_tagsList_ul>
-            <S_tagItem_li>
-              <S_tagLabel_h5>Priority</S_tagLabel_h5>
-              <S_priorityValue_p $priorityColor={randomColor}>
+    <>
+      <S.card_div $stickerColor={PriorityColor[priority]}>
+        <S.title_h4>{title}</S.title_h4>
+        <S.description_p>{description}</S.description_p>
+        <S.bottomPartContainer_div>
+          <S.tagsList_ul>
+            <S.tagItem_li>
+              <S.tagLabel_h5>Priority</S.tagLabel_h5>
+              <S.priorityValue_p $priorityColor={PriorityColor[priority]}>
                 {priority}
-              </S_priorityValue_p>
-            </S_tagItem_li>
-            <S_tagItem_li>
-              <S_tagLabel_h5>Deadline</S_tagLabel_h5>
-              <S_deadlineValue_p>{deadline}</S_deadlineValue_p>
-            </S_tagItem_li>
-          </S_tagsList_ul>
-          <S_bottomRightPartContainer_div>
-            <svg width={16} height={16} stroke={generateRandomColor()}>
-              <use href={`${icons}#icon-bell`}></use>
-            </svg>
-            <S_actionButtonsList_ul>
-              <S_actionItem_li>
-                <S_actionButton_button>
-                  <svg width={16} height={16}>
-                    <use href={`${icons}#icon-normal`}></use>
-                  </svg>
-                </S_actionButton_button>
-              </S_actionItem_li>
-              <S_actionItem_li>
-                <S_actionButton_button>
+              </S.priorityValue_p>
+            </S.tagItem_li>
+            <S.tagItem_li>
+              <S.tagLabel_h5>Deadline</S.tagLabel_h5>
+              <S.deadlineValue_p>{deadline}</S.deadlineValue_p>
+            </S.tagItem_li>
+          </S.tagsList_ul>
+          <S.bottomRightPartContainer_div>
+            <S.actionButtonsList_ul>
+              <S.actionItem_li>
+                <CardStatusPopup />
+              </S.actionItem_li>
+              <S.actionItem_li>
+                <S.actionButton_button
+                  onClick={(event) => {
+                    event.currentTarget.blur();
+                    toggleModal(true);
+                  }}
+                >
                   <svg width={16} height={16}>
                     <use href={`${icons}#icon-pencil`}></use>
                   </svg>
-                </S_actionButton_button>
-              </S_actionItem_li>
-              <S_actionItem_li>
-                <S_actionButton_button onClick={() => onDelete()}>
+                </S.actionButton_button>
+              </S.actionItem_li>
+              <S.actionItem_li>
+                <S.actionButton_button
+                  onClick={(event) => {
+                    event.currentTarget.blur();
+                    handleOnDelete();
+                  }}
+                >
                   <svg width={16} height={16}>
                     <use href={`${icons}#icon-trash`}></use>
                   </svg>
-                </S_actionButton_button>
-              </S_actionItem_li>
-            </S_actionButtonsList_ul>
-          </S_bottomRightPartContainer_div>
-        </S_bottomPartContainer_div>
-      </S_card_div>
-    </div>
+                </S.actionButton_button>
+              </S.actionItem_li>
+            </S.actionButtonsList_ul>
+          </S.bottomRightPartContainer_div>
+        </S.bottomPartContainer_div>
+      </S.card_div>
+      {isOpenedModal && (
+        <Modal toggleModal={toggleModal} padding="0">
+          <CardPopup actionType={ActionType.Edit} onSave={handleOnEdit} />
+        </Modal>
+      )}
+    </>
   );
 };
 

@@ -15,3 +15,5 @@ export * from './Sidebar/Sidebar.jsx';
 export * from './Board/BoardForm/BoardForm.jsx';
 export * from './Board/BoardList/BoardList.jsx';
 export * from './Board/BoardItem/BoardItem.jsx';
+export { default as CardPopup } from './CardPopup/CardPopup';
+export { default as Card } from './Card/Card';
