@@ -10,8 +10,6 @@ import { selectRefreshToken } from '../../redux/auth/slice';
 export const Layout = () => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
   const rToken = useAppSelector(selectRefreshToken);
-
-  console.log(rToken);
   const dispatch = useAppDispatch();
 
   useEffect(() => {

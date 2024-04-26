@@ -1,8 +1,11 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { useForm } from 'react-hook-form';
 
 import { Icon, Image, ThemeContext } from '../..';
 import { boardIcons, boardImgIcons } from '../../../constants';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { editBoardSchema } from '../../../schemas/editBoardSchema';
 import {
   createBoardThunk,
   selectBoardById,
@@ -23,11 +26,23 @@ import {
   STitle,
 } from './BoardForm.styled';
 
-export const BoardForm = ({ boardId }) => {
+export const BoardForm = ({ boardId, handleCloseModal }) => {
   const { theme } = useContext(ThemeContext);
   const dispatch = useAppDispatch();
-  const [formData, setFormData] = useState({});
   const board = useAppSelector((state) => selectBoardById(state, boardId));
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(editBoardSchema),
+    defaultValues: {
+      title: board?.title,
+      icon: board?.icon,
+      backgroundImage: board?.backgroundImage,
+    },
+    mode: 'onChange',
+  });
   const boardImageIcons = boardImgIcons.filter((image) =>
     image.themes.includes(theme)
   );
@@ -36,49 +51,33 @@ export const BoardForm = ({ boardId }) => {
     height: 28,
   };
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const data = {
-      title: formData.title,
-      icon: formData.icon,
-      backgroundImage: formData.backgroundImage,
-    };
-
+  const onSubmit = (data) => {
     if (boardId) {
-      dispatch(updateBoardByIdThunk(boardId, data));
+      dispatch(updateBoardByIdThunk({ newBoardBody: data, id: boardId }))
+        .unwrap()
+        .then(() => {
+          handleCloseModal();
+        });
     } else {
-      dispatch(createBoardThunk(data));
+      dispatch(createBoardThunk(data))
+        .unwrap()
+        .then(() => {
+          handleCloseModal();
+        });
     }
   };
 
   return (
     <SContainer>
-      <SForm onSubmit={handleSubmit}>
+      <SForm onSubmit={handleSubmit(onSubmit)}>
         <STitle>{board ? 'Edit board' : 'New board'}</STitle>
-        <SInput
-          type="text"
-          name="title"
-          value={board?.title}
-          onChange={handleChange}
-          autoFocus={true}
-        />
+        <SInput type="text" autoFocus={true} {...register('title')} />
         <SFieldWrapp>
           <SPLabel>Icons</SPLabel>
           <SRadioContainer $gap={'3px'}>
             {boardIcons.map((iconId) => (
               <SLabel key={iconId}>
-                <SRadio
-                  type="radio"
-                  name="icon"
-                  value={iconId}
-                  onChange={handleChange}
-                  checked={board.icon === iconId}
-                />
+                <SRadio type="radio" {...register('icon')} value={iconId} />
                 <Icon
                   id={iconId}
                   size={24}
@@ -96,10 +95,8 @@ export const BoardForm = ({ boardId }) => {
               <SLabel key={image.key}>
                 <SRadio
                   type="radio"
-                  name="backgroundImage"
+                  {...register('backgroundImage')}
                   value={image.key}
-                  checked={board.backgroundImage === image.key}
-                  onChange={handleChange}
                 />
                 {
                   <Image
