@@ -18,6 +18,7 @@ export const createColumnThunk = createAsyncThunk<
 >('POST /columns', async (data, thunkAPI) => {
   try {
     const result = await api.columns.createColumn(data);
+    console.log('result', result);
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
