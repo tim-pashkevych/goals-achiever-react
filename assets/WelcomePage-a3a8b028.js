@@ -1,4 +1,4 @@
-import{u as e,L as n,j as t,I as a}from"./index-fd8fada5.js";import{I as r}from"./Image-c28abf53.js";const s=e.div`
+import{u as e,L as n,j as t,I as a}from"./index-d3f8a077.js";import{I as r}from"./Image-fb7b5be4.js";const s=e.div`
   height: 100vh;
   margin: 0 auto;
 

@@ -1176,7 +1176,7 @@ attempted value: ${s}
 
   outline: 0;
   outline-offset: 0;
-`,Ob=C.div`
+`;C.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1184,7 +1184,7 @@ attempted value: ${s}
   width: 28px;
   height: 28px;
   border-radius: 8px;
-`,Tb=C.button`
+`;const Ob=C.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1205,11 +1205,11 @@ attempted value: ${s}
   &:focus {
     background-color: #9dc888;
   }
-`,$b=C.ul`
+`,Tb=C.ul`
   display: flex;
   flex-direction: column;
   gap: 5px;
-`,Rb=C(bf)`
+`,$b=C(bf)`
   &.logo {
     border-radius: 8px;
     background-color: #1f1f1f;
@@ -1247,18 +1247,18 @@ attempted value: ${s}
     fill: none;
     opacity: 0.5;
   }
-`,Fb=C.p`
+`,Rb=C.p`
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
   color: ${({theme:e})=>e.textOne};
   padding: 20px 0;
   margin-bottom: 116px;
-`,Nb=C.div`
+`,Fb=C.div`
   display: flex;
   align-items: flex-end;
   gap: 8px;
-`,Ab=C.button``;C.ul`
+`,Nb=C.button``;C.ul`
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -1269,7 +1269,7 @@ attempted value: ${s}
   //   max-height: 416px;
   //   margin-inline: -24px;
   // }
-`;const jb=C.li`
+`;const Ab=C.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1291,7 +1291,7 @@ attempted value: ${s}
   @media (min-width: 768px) {
     padding: 0 24px;
   }
-`,Ib=C.div`
+`,jb=C.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1395,4 +1395,4 @@ attempted value: ${s}
   }
   
   /* Reset End */
-`,Pa=({children:e})=>{const t=Ts(yf),n=kn();return t?e:N.jsx(Gc,{state:{from:n},to:"/welcome"})},Qp=({children:e})=>{var r;const t=Ts(yf),n=kn();return t?N.jsx(Gc,{to:((r=n.state)==null?void 0:r.from)||"/"}):e},vC=O.lazy(()=>Gi(()=>import("./WelcomePage-1c986158.js"),["assets/WelcomePage-1c986158.js","assets/Image-c28abf53.js"])),wC=O.lazy(()=>Gi(()=>import("./AuthPage-32af3945.js"),["assets/AuthPage-32af3945.js","assets/Button-5f3f3f9f.js"])),xC=O.lazy(()=>Gi(()=>import("./HomePage-275092e8.js"),["assets/HomePage-275092e8.js","assets/useModal-ef9c9253.js","assets/Button-5f3f3f9f.js","assets/Image-c28abf53.js"])),Gp=O.lazy(()=>Gi(()=>import("./ScreensPage-7e9fc9d2.js"),["assets/ScreensPage-7e9fc9d2.js","assets/useModal-ef9c9253.js","assets/Button-5f3f3f9f.js"])),SC=O.lazy(()=>Gi(()=>import("./NotFoundPage-33a2eca2.js"),[]));function kC(){const{theme:e}=O.useContext(Uy);return N.jsxs(ME,{theme:My[e],children:[N.jsx(yC,{}),N.jsx(gw,{children:N.jsxs(Ot,{path:"/",element:N.jsx(qE,{}),children:[N.jsx(Ot,{index:!0,element:N.jsx(Pa,{children:N.jsx(Gc,{to:"/home"})})}),N.jsx(Ot,{path:"/welcome",element:N.jsx(Qp,{children:N.jsx(vC,{})})}),N.jsx(Ot,{path:"/auth/:id",element:N.jsx(Qp,{children:N.jsx(wC,{})})}),N.jsxs(Ot,{path:"/home",element:N.jsx(xC,{}),children:[N.jsx(Ot,{index:!0,element:N.jsx(Pa,{children:N.jsx(Gp,{})})}),N.jsx(Ot,{path:"/home/:boardName",element:N.jsx(Pa,{children:N.jsx(Gp,{})})})]}),N.jsx(Ot,{path:"*",element:N.jsx(SC,{})})]})})]})}Oa.createRoot(document.getElementById("root")).render(N.jsx(p_,{children:N.jsx(_w,{basename:"/goals-achiever-react",children:N.jsx(Zw,{store:my,children:N.jsx(Cg,{loading:null,persistor:Mk,children:N.jsx(kC,{})})})})}));export{gb as $,mP as A,gP as B,sa as C,kP as D,EP as E,_P as F,aP as G,uP as H,bf as I,ib as J,sb as K,bw as L,ZC as M,Ow as N,ob as O,lb as P,ab as Q,De as R,oP as S,Uy as T,cb as U,fb as V,db as W,ub as X,hb as Y,pb as Z,mb as _,GE as a,rb as a$,yb as a0,oa as a1,XC as a2,wb as a3,Eb as a4,_b as a5,Cb as a6,Sb as a7,kb as a8,xb as a9,MP as aA,l_ as aB,UP as aC,WP as aD,VP as aE,JC as aF,CP as aG,OP as aH,TP as aI,RP as aJ,PP as aK,bP as aL,$P as aM,QC as aN,GC as aO,HP as aP,KP as aQ,QP as aR,GP as aS,qP as aT,YP as aU,XP as aV,JP as aW,ZP as aX,eb as aY,tb as aZ,nb as a_,Pb as aa,bb as ab,Tb as ac,Ob as ad,vb as ae,ca as af,aa as ag,Nk as ah,$b as ai,jb as aj,Ib as ak,Rb as al,Fb as am,Nb as an,Ab as ao,o_ as ap,hw as aq,FP as ar,NP as as,AP as at,jP as au,IP as av,LP as aw,DP as ax,zP as ay,BP as az,ra as b,Ea as b0,eP as b1,tP as b2,_C as c,sP as d,lP as e,la as f,nP as g,rP as h,iP as i,N as j,Ts as k,ia as l,fP as m,dP as n,pP as o,hP as p,cP as q,O as r,VC as s,d_ as t,C as u,yP as v,vP as w,wP as x,xP as y,SP as z};
+`,Pa=({children:e})=>{const t=Ts(yf),n=kn();return t?e:N.jsx(Gc,{state:{from:n},to:"/welcome"})},Qp=({children:e})=>{var r;const t=Ts(yf),n=kn();return t?N.jsx(Gc,{to:((r=n.state)==null?void 0:r.from)||"/"}):e},vC=O.lazy(()=>Gi(()=>import("./WelcomePage-a3a8b028.js"),["assets/WelcomePage-a3a8b028.js","assets/Image-fb7b5be4.js"])),wC=O.lazy(()=>Gi(()=>import("./AuthPage-5418cb26.js"),["assets/AuthPage-5418cb26.js","assets/Button-0a93f06e.js"])),xC=O.lazy(()=>Gi(()=>import("./HomePage-f49fc4e2.js"),["assets/HomePage-f49fc4e2.js","assets/useModal-75ed4bc2.js","assets/Button-0a93f06e.js","assets/Image-fb7b5be4.js"])),Gp=O.lazy(()=>Gi(()=>import("./ScreensPage-b90b635a.js"),["assets/ScreensPage-b90b635a.js","assets/useModal-75ed4bc2.js","assets/Button-0a93f06e.js"])),SC=O.lazy(()=>Gi(()=>import("./NotFoundPage-b746291a.js"),[]));function kC(){const{theme:e}=O.useContext(Uy);return N.jsxs(ME,{theme:My[e],children:[N.jsx(yC,{}),N.jsx(gw,{children:N.jsxs(Ot,{path:"/",element:N.jsx(qE,{}),children:[N.jsx(Ot,{index:!0,element:N.jsx(Pa,{children:N.jsx(Gc,{to:"/home"})})}),N.jsx(Ot,{path:"/welcome",element:N.jsx(Qp,{children:N.jsx(vC,{})})}),N.jsx(Ot,{path:"/auth/:id",element:N.jsx(Qp,{children:N.jsx(wC,{})})}),N.jsxs(Ot,{path:"/home",element:N.jsx(xC,{}),children:[N.jsx(Ot,{index:!0,element:N.jsx(Pa,{children:N.jsx(Gp,{})})}),N.jsx(Ot,{path:"/home/:boardName",element:N.jsx(Pa,{children:N.jsx(Gp,{})})})]}),N.jsx(Ot,{path:"*",element:N.jsx(SC,{})})]})})]})}Oa.createRoot(document.getElementById("root")).render(N.jsx(p_,{children:N.jsx(_w,{basename:"/goals-achiever-react",children:N.jsx(Zw,{store:my,children:N.jsx(Cg,{loading:null,persistor:Mk,children:N.jsx(kC,{})})})})}));export{gb as $,mP as A,gP as B,sa as C,kP as D,EP as E,_P as F,aP as G,uP as H,bf as I,ib as J,sb as K,bw as L,ZC as M,Ow as N,ob as O,lb as P,ab as Q,De as R,oP as S,Uy as T,cb as U,fb as V,db as W,ub as X,hb as Y,pb as Z,mb as _,GE as a,Ea as a$,yb as a0,oa as a1,XC as a2,wb as a3,Eb as a4,_b as a5,Cb as a6,Sb as a7,kb as a8,xb as a9,l_ as aA,UP as aB,WP as aC,VP as aD,JC as aE,CP as aF,OP as aG,TP as aH,RP as aI,PP as aJ,bP as aK,$P as aL,QC as aM,GC as aN,HP as aO,KP as aP,QP as aQ,GP as aR,qP as aS,YP as aT,XP as aU,JP as aV,ZP as aW,eb as aX,tb as aY,nb as aZ,rb as a_,Pb as aa,bb as ab,Ob as ac,vb as ad,ca as ae,aa as af,Nk as ag,Tb as ah,Ab as ai,jb as aj,$b as ak,Rb as al,Fb as am,Nb as an,o_ as ao,hw as ap,FP as aq,NP as ar,AP as as,jP as at,IP as au,LP as av,DP as aw,zP as ax,BP as ay,MP as az,ra as b,eP as b0,tP as b1,_C as c,sP as d,lP as e,la as f,nP as g,rP as h,iP as i,N as j,Ts as k,ia as l,fP as m,dP as n,pP as o,hP as p,cP as q,O as r,VC as s,d_ as t,C as u,yP as v,vP as w,wP as x,xP as y,SP as z};
