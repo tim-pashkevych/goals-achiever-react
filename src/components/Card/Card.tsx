@@ -26,6 +26,9 @@ interface ICardProps {
   boardId: string;
 }
 
+// _id,
+// columnId,
+// boardId,
 const Card = ({
   title = 'The watch spot design',
   description = "Create a visually stunning and eye-catching watch dial design that embodies our brand's...",
