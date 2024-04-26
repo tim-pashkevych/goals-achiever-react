@@ -9,6 +9,11 @@ export const STitle_h3 = styled.h3`
   margin-bottom: 10px;
 `;
 
+export const SColumnWrapper = styled.div`
+  display: flex;
+  gap: 14px;
+`;
+
 export const SButton_button = styled.button`
   display: flex;
   flex-direction: row;

@@ -8,10 +8,10 @@ export const SColumnWrapper = styled.div`
 `;
 
 export const SCardWrapper = styled.div`
-  height: 478px;
+  max-height: 478px;
   overflow: hidden;
   @media (min-width: 768px) and (max-width: 1439px) {
-    height: 640px;
+    max-height: 640px;
   }
 `;
 export const SCardWrapperScroll = styled.div`
