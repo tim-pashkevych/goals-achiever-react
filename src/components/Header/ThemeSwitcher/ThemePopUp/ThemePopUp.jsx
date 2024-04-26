@@ -4,9 +4,13 @@ import { themes } from '../../../../constants/themes';
 import { ThemeContext } from '../../../ThemeContext/ThemeContext';
 
 import { SButton_button, SList_ul, SListItem_li } from './ThemePopUp.styled';
+import { useAppDispatch } from '../../../../hooks';
+import { updateUserTheme } from '../../../../redux';
 
 export const ThemePopUp = ({ setIsOpenPopUp, boxRef }) => {
   const { setTheme } = useContext(ThemeContext);
+
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const handleCloseList = (e) => {
@@ -34,7 +38,12 @@ export const ThemePopUp = ({ setIsOpenPopUp, boxRef }) => {
   }, [setIsOpenPopUp]);
 
   const click = (str) => {
-    setTheme(str);
+    dispatch(updateUserTheme({ theme: str }))
+      .unwrap()
+      .then((res) => {
+        setTheme(res);
+      });
+
     setIsOpenPopUp(false);
   };
 

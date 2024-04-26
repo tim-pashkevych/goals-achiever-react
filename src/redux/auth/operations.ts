@@ -8,6 +8,7 @@ import {
   ILoginThunkPayload,
   IUpdateAvatarThunkPayload,
   IRegisterUserRequestBody,
+  IRefreshCredentials,
 } from '../../types';
 
 interface IThunkAPI {
@@ -60,13 +61,13 @@ export const logoutThunk = createAsyncThunk(
   }
 );
 
-export const updateUserAvatarThunk = createAsyncThunk<
+export const updateUserInfoThunk = createAsyncThunk<
   IUpdateAvatarThunkPayload,
   FormData,
   IThunkAPI
->('PATCH /users/avatar', async (image, thunkAPI) => {
+>('PATCH /users', async (data, thunkAPI) => {
   try {
-    const result = await api.users.avatar(image);
+    const result = await api.users.info(data);
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -88,3 +89,34 @@ export const fetchUserThunk = createAsyncThunk(
     }
   }
 );
+
+export const updateUserTheme = createAsyncThunk(
+  'PATCH /users/theme',
+  async (data: object, thunkAPI) => {
+    try {
+      const result = await api.users.theme(data);
+      return result;
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  }
+);
+
+export const refreshThunk = createAsyncThunk<
+  ILoginThunkPayload,
+  IRefreshCredentials,
+  IThunkAPI
+>('POST /users/refresh', async (data, thunkAPI) => {
+  try {
+    const result = await api.users.refresh(data);
+    thunkAPI.dispatch(fetchUserThunk());
+
+    return result;
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+});

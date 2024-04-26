@@ -4,12 +4,15 @@ import {
   registerThunk,
   loginThunk,
   logoutThunk,
-  updateUserAvatarThunk,
+  updateUserInfoThunk,
+  updateUserTheme,
+  refreshThunk,
 } from './operations';
 import { IUserState } from '../../types';
 
 const initialState: IUserState = {
   token: '',
+  refreshToken: '',
   user: {
     name: '',
     email: '',
@@ -29,25 +32,46 @@ const slice = createSlice({
       .addCase(registerThunk.fulfilled, (state) => {
         state.isLoading = false;
       })
-      .addCase(loginThunk.fulfilled, (state, { payload: { token, user } }) => {
-        state.isLoading = false;
-        state.token = token;
-        state.user = user;
-        state.isLoggedIn = true;
-      })
-      .addCase(logoutThunk.fulfilled, () => initialState)
       .addCase(
-        updateUserAvatarThunk.fulfilled,
-        (state, { payload: { avatarURL } }) => {
-          state.user.avatarURL = avatarURL;
+        loginThunk.fulfilled,
+        (state, { payload: { token, user, refreshToken } }) => {
+          state.isLoading = false;
+          state.token = token;
+          state.user = user;
+          state.refreshToken = refreshToken;
+          state.isLoggedIn = true;
         }
       )
+      .addCase(
+        refreshThunk.fulfilled,
+        (state, { payload: { token, user, refreshToken } }) => {
+          state.isLoading = false;
+          state.token = token;
+          state.user = user;
+          state.refreshToken = refreshToken;
+          state.isLoggedIn = true;
+        }
+      )
+      .addCase(logoutThunk.fulfilled, () => initialState)
+      .addCase(
+        updateUserInfoThunk.fulfilled,
+        (state, { payload: { name, email, avatarURL } }) => {
+          state.user.avatarURL = avatarURL;
+          state.user.name = name;
+          state.user.email = email;
+        }
+      )
+      .addCase(updateUserTheme.fulfilled, (state, { payload }) => {
+        state.user.theme = payload;
+      })
       .addMatcher(
         isAnyOf(
           registerThunk.pending,
           loginThunk.pending,
           logoutThunk.pending,
-          updateUserAvatarThunk.pending
+          updateUserInfoThunk.pending,
+          updateUserTheme.pending,
+          refreshThunk.pending
         ),
         (state) => {
           state.isLoading = true;
@@ -58,7 +82,9 @@ const slice = createSlice({
           registerThunk.rejected,
           loginThunk.rejected,
           logoutThunk.rejected,
-          updateUserAvatarThunk.rejected
+          updateUserInfoThunk.rejected,
+          updateUserTheme.rejected,
+          refreshThunk.pending
         ),
         (state) => {
           state.isLoading = false;
@@ -67,9 +93,11 @@ const slice = createSlice({
   },
   selectors: {
     selectToken: (state) => state.isLoggedIn,
+    selectRefreshToken: (state) => state.refreshToken,
     selectIsLoggedIn: (state) => state.isLoggedIn,
     selectIsUserLoading: (state) => state.isLoading,
     selectUser: (state) => state.user,
+    selectTheme: (state) => state.user.theme,
   },
 });
 
@@ -80,4 +108,6 @@ export const {
   selectIsLoggedIn,
   selectIsUserLoading,
   selectUser,
+  selectTheme,
+  selectRefreshToken,
 } = slice.selectors;

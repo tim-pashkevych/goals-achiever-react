@@ -1,4 +1,4 @@
-import { IUserCredentials } from '../../types';
+import { IRefreshCredentials, IUserCredentials } from '../../types';
 import { api, setAxiosToken } from '../axios';
 
 const register = async (credentials: IUserCredentials) => {
@@ -19,8 +19,8 @@ const logout = async () => {
   setAxiosToken('');
 };
 
-const avatar = async (image: FormData) => {
-  const result = await api.patch('/users/avatar', image, {
+const info = async (data: FormData) => {
+  const result = await api.patch('/users', data, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
@@ -37,10 +37,25 @@ const current = async () => {
   return result.data;
 };
 
+const theme = async (data: object) => {
+  const result = await api.patch('/users/theme', data);
+  const { theme } = result.data.result;
+  return theme;
+};
+
+const refresh = async (credentials: IRefreshCredentials) => {
+  const result = await api.post('/users/refresh', credentials);
+  const { token } = result.data.result;
+
+  setAxiosToken(token);
+  return result.data.result;
+};
 export default {
   register,
   login,
   logout,
-  avatar,
+  info,
   current,
+  theme,
+  refresh,
 };

@@ -4,4 +4,5 @@ export {
   selectIsLoggedIn,
   selectIsUserLoading,
   selectUser,
+  selectTheme,
 } from './slice';

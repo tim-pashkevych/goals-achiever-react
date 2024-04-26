@@ -7,8 +7,8 @@ export const SList_ul = styled.ul`
   align-items: start;
   gap: 4px;
 
-  top: 25px;
-  left: 0;
+  top: 100%;
+  right: -15%;
   width: 100px;
   padding: 18px;
   border: 1px solid ${({ theme }) => theme.themeSwitsherPopUpBorder};
@@ -26,6 +26,8 @@ export const SListItem_li = styled.li`
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.02em;
+  width: 100%;
+
   color: ${({ theme }) => theme.themeSwitsherPopUp};
   &:active {
     color: ${({ theme }) => theme.themeAccent};
@@ -39,8 +41,12 @@ export const SListItem_li = styled.li`
 `;
 
 export const SButton_button = styled.button`
-  &:hover,
-  &focus {
-    color: ${({ theme }) => theme.themeAccent};
+  width: 100%;
+  text-align: start;
+  @media screen and (min-width: 1440px) {
+    &:hover,
+    &focus {
+      color: ${({ theme }) => theme.themeAccent};
+    }
   }
 `;
