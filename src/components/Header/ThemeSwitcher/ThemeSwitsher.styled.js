@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
-export const SWrapper_button = styled.button`
+export const SWrapper_div = styled.div`
   position: relative;
-  display: inline-flex;
   margin-left: auto;
+  display: inline-flex;
+`;
+export const SWrapper_button = styled.button`
+  display: flex;
   gap: 4px;
   align-items: center;
   justify-content: center;

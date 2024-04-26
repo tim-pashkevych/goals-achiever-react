@@ -5,6 +5,7 @@ import {
   loginThunk,
   logoutThunk,
   updateUserAvatarThunk,
+  updateUserTheme,
 } from './operations';
 import { IUserState } from '../../types';
 
@@ -42,12 +43,16 @@ const slice = createSlice({
           state.user.avatarURL = avatarURL;
         }
       )
+      .addCase(updateUserTheme.fulfilled, (state, { payload }) => {
+        state.user.theme = payload;
+      })
       .addMatcher(
         isAnyOf(
           registerThunk.pending,
           loginThunk.pending,
           logoutThunk.pending,
-          updateUserAvatarThunk.pending
+          updateUserAvatarThunk.pending,
+          updateUserTheme.pending
         ),
         (state) => {
           state.isLoading = true;
@@ -58,7 +63,8 @@ const slice = createSlice({
           registerThunk.rejected,
           loginThunk.rejected,
           logoutThunk.rejected,
-          updateUserAvatarThunk.rejected
+          updateUserAvatarThunk.rejected,
+          updateUserTheme.rejected
         ),
         (state) => {
           state.isLoading = false;
@@ -70,6 +76,7 @@ const slice = createSlice({
     selectIsLoggedIn: (state) => state.isLoggedIn,
     selectIsUserLoading: (state) => state.isLoading,
     selectUser: (state) => state.user,
+    selectTheme: (state) => state.user.theme,
   },
 });
 
@@ -80,4 +87,5 @@ export const {
   selectIsLoggedIn,
   selectIsUserLoading,
   selectUser,
+  selectTheme,
 } = slice.selectors;

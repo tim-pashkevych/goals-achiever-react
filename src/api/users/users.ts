@@ -37,10 +37,17 @@ const current = async () => {
   return result.data;
 };
 
+const theme = async (data: object) => {
+  const result = await api.patch('/users/theme', data);
+  const { theme } = result.data.result;
+  return theme;
+};
+
 export default {
   register,
   login,
   logout,
   avatar,
   current,
+  theme,
 };
