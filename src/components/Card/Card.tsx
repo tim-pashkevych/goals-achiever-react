@@ -31,9 +31,6 @@ const Card = ({
   description = "Create a visually stunning and eye-catching watch dial design that embodies our brand's...",
   deadline = '12/05/2023',
   priority = 'Low',
-  _id,
-  columnId,
-  boardId,
 }: ICardProps) => {
   // const dispatch = useAppDispatch();
 
