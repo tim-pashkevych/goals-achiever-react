@@ -12,11 +12,10 @@ import { Button } from '../Button/Button';
 import Icons from '../../assets/sprite.svg';
 import { useAppSelector } from '../../hooks';
 import Card from '../Card/Card';
+import { selectCardsByColumnId } from '../../redux/cards';
 
 export const Column = ({ title, id }) => {
-  const cards = useAppSelector((state) =>
-    state.cards.items.filter((card) => card.columnId === id)
-  );
+  const cards = useAppSelector((state) => selectCardsByColumnId(state, id));
 
   return (
     <SColumnWrapper>
@@ -40,7 +39,6 @@ export const Column = ({ title, id }) => {
 
       <SCardWrapper>
         <SCardWrapperScroll>
-          {/* HERE WE NEED RENDER CARDS */}
           {cards.map((card) => (
             <Card key={card._id} {...card} />
           ))}
