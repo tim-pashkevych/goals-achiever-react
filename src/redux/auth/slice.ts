@@ -6,11 +6,13 @@ import {
   logoutThunk,
   updateUserInfoThunk,
   updateUserTheme,
+  refreshThunk,
 } from './operations';
 import { IUserState } from '../../types';
 
 const initialState: IUserState = {
   token: '',
+  refreshToken: '',
   user: {
     name: '',
     email: '',
@@ -30,12 +32,26 @@ const slice = createSlice({
       .addCase(registerThunk.fulfilled, (state) => {
         state.isLoading = false;
       })
-      .addCase(loginThunk.fulfilled, (state, { payload: { token, user } }) => {
-        state.isLoading = false;
-        state.token = token;
-        state.user = user;
-        state.isLoggedIn = true;
-      })
+      .addCase(
+        loginThunk.fulfilled,
+        (state, { payload: { token, user, refreshToken } }) => {
+          state.isLoading = false;
+          state.token = token;
+          state.user = user;
+          state.refreshToken = refreshToken;
+          state.isLoggedIn = true;
+        }
+      )
+      .addCase(
+        refreshThunk.fulfilled,
+        (state, { payload: { token, user, refreshToken } }) => {
+          state.isLoading = false;
+          state.token = token;
+          state.user = user;
+          state.refreshToken = refreshToken;
+          state.isLoggedIn = true;
+        }
+      )
       .addCase(logoutThunk.fulfilled, () => initialState)
       .addCase(
         updateUserInfoThunk.fulfilled,
@@ -54,7 +70,8 @@ const slice = createSlice({
           loginThunk.pending,
           logoutThunk.pending,
           updateUserInfoThunk.pending,
-          updateUserTheme.pending
+          updateUserTheme.pending,
+          refreshThunk.pending
         ),
         (state) => {
           state.isLoading = true;
@@ -66,7 +83,8 @@ const slice = createSlice({
           loginThunk.rejected,
           logoutThunk.rejected,
           updateUserInfoThunk.rejected,
-          updateUserTheme.rejected
+          updateUserTheme.rejected,
+          refreshThunk.pending
         ),
         (state) => {
           state.isLoading = false;
@@ -75,6 +93,7 @@ const slice = createSlice({
   },
   selectors: {
     selectToken: (state) => state.isLoggedIn,
+    selectRefreshToken: (state) => state.refreshToken,
     selectIsLoggedIn: (state) => state.isLoggedIn,
     selectIsUserLoading: (state) => state.isLoading,
     selectUser: (state) => state.user,
@@ -90,4 +109,5 @@ export const {
   selectIsUserLoading,
   selectUser,
   selectTheme,
+  selectRefreshToken,
 } = slice.selectors;
