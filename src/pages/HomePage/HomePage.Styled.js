@@ -10,4 +10,23 @@ export const SWrapper = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+
+  @media screen and (min-width: 375px) {
+    width: 375px;
+    height: 812px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    height: 1024px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 100%;
+    height: 100vh;
+  }
+`;
+
+export const Sdiv = styled.div`
+  @media screen and (max-width: 1440px) {
+    display: none;
+  }
 `;
