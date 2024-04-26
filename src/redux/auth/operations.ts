@@ -24,7 +24,7 @@ export const registerThunk = createAsyncThunk<
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response?.data.message);
     }
   }
 });
