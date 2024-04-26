@@ -1,0 +1,1 @@
+import{aO as c,j as s,aP as u,aQ as p,I as e}from"./index-df8e4d26.js";const j=({title:o,icon:t=!0,size:i="medium",onClick:n,type:a="submit"})=>{const r=c[i].iconSize;return s.jsxs(u,{size:i,onClick:n,type:a,children:[o?t&&s.jsx(p,{children:s.jsx(e,{id:"plus",size:r,color:"white"})}):t&&s.jsx(e,{id:"plus",size:r,color:"black"}),o]})};export{j as B};
