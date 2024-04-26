@@ -1,11 +1,31 @@
-import images from '../../constants/images';
+import {
+  images,
+  boardBackgoundImgs,
+  boardImgIcons,
+} from '../../constants/images/';
 
-export const Image = ({ desktop, tablet, mobile, alt, pathKey, type }) => {
+export const Image = ({
+  desktop,
+  tablet,
+  mobile,
+  alt,
+  pathKey,
+  type,
+  imageCategory = 'images',
+}) => {
   const { width: desktopWidth, height: desktopHeight } = desktop;
   const { width: tabletWidth, height: tabletHeight } = tablet;
   const { width: mobileWidth, height: mobileHeight } = mobile;
 
-  const image = images.find((img) => img.key === pathKey);
+  let image = images.find((img) => img.key === pathKey);
+
+  if (imageCategory === 'images') {
+    image = images.find((img) => img.key === pathKey);
+  } else if (imageCategory === 'boardBackgroundImages') {
+    image = boardBackgoundImgs.find((img) => img.key === pathKey);
+  } else if (imageCategory === 'boardIcons') {
+    image = boardImgIcons.find((img) => img.key === pathKey);
+  }
 
   if (!image) return null;
 

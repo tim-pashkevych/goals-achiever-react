@@ -67,7 +67,7 @@ export const Sidebar = () => {
       </SDiv>
       {isOpenModal && (
         <Modal toggleModal={toggleModal}>
-          <BoardForm />
+          <BoardForm handleCloseModal={toggleModal} />
         </Modal>
       )}
     </>

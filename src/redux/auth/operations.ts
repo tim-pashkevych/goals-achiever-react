@@ -8,6 +8,7 @@ import {
   ILoginThunkPayload,
   IUpdateAvatarThunkPayload,
   IRegisterUserRequestBody,
+  IRefreshCredentials,
 } from '../../types';
 
 interface IThunkAPI {
@@ -102,3 +103,20 @@ export const updateUserTheme = createAsyncThunk(
     }
   }
 );
+
+export const refreshThunk = createAsyncThunk<
+  ILoginThunkPayload,
+  IRefreshCredentials,
+  IThunkAPI
+>('POST /users/refresh', async (data, thunkAPI) => {
+  try {
+    const result = await api.users.refresh(data);
+    thunkAPI.dispatch(fetchUserThunk());
+
+    return result;
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+});
