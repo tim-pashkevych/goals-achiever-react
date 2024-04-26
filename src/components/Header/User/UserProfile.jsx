@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+
 import { useModal } from '../../../hooks/modal/useModal';
 import { Icon } from '../../Icon/Icon';
 import { Modal } from '../../Modal/Modal';
@@ -8,8 +9,11 @@ import {
   STitle_p,
   SWrapper_button,
 } from './UserProfile.styled';
+import { selectUser } from '../../../redux';
+import { useAppSelector } from '../../../hooks';
 
 export const UserProfile = () => {
+  const { name, avatarURL } = useAppSelector(selectUser);
   const [isOpenModal, setIsOpenModal] = useModal();
   const wrapper = useRef();
 
@@ -19,22 +23,21 @@ export const UserProfile = () => {
       setIsOpenModal();
     }
   };
+
+  const handleCloseModal = () => {
+    setIsOpenModal(false);
+  };
   return (
     <SWrapper_button onClick={handleOpenModal} ref={wrapper}>
-      <STitle_p>username</STitle_p>
+      <STitle_p>{name}</STitle_p>
 
       <SImageWrapper_div>
-        {true && (
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTousHbMHE9y6ZaMX9GcxFGJRfxq8aWGYcIV_dPgWOwqQ&s"
-            alt="sadasd"
-          />
-        )}
+        {true && <img src={avatarURL} alt="avatar" />}
         {false && <Icon id={'user'} size={32} />}
       </SImageWrapper_div>
       {isOpenModal && (
-        <Modal toggleModal={() => setIsOpenModal(false)}>
-          <EditProfile />
+        <Modal toggleModal={handleCloseModal}>
+          <EditProfile handleCloseModal={handleCloseModal} />
         </Modal>
       )}
     </SWrapper_button>

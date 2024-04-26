@@ -20,8 +20,9 @@ export const SImageWrapper_div = styled.div`
   fill: ${({ theme }) => theme.userProfileIcon};
   background-color: ${({ theme }) => theme.mainDashbordBackground};
   & img {
-    height: 100%;
+    object-fit: cover;
     width: 100%;
+    height: 100%;
   }
 `;
 
