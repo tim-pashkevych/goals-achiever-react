@@ -9,6 +9,8 @@ import {
   SImageWrapper_div,
   SWrapper_div,
 } from './Card.styled';
+import { useAppSelector } from '../../../../../hooks';
+import { selectUser } from '../../../../../redux';
 
 const resizeFile = (file) =>
   new Promise((resolve) => {
@@ -27,9 +29,8 @@ const resizeFile = (file) =>
   });
 
 export const Card = ({ setAvatar }) => {
-  const [avatarUrl, setAvatarUrl] = useState(
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTousHbMHE9y6ZaMX9GcxFGJRfxq8aWGYcIV_dPgWOwqQ&s'
-  );
+  const { avatarURL } = useAppSelector(selectUser);
+  const [avatarUrl, setAvatarUrl] = useState(avatarURL);
   const inputFile = useRef(null);
 
   const handleRedirectClick = () => {

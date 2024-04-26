@@ -60,13 +60,13 @@ export const logoutThunk = createAsyncThunk(
   }
 );
 
-export const updateUserAvatarThunk = createAsyncThunk<
+export const updateUserInfoThunk = createAsyncThunk<
   IUpdateAvatarThunkPayload,
   FormData,
   IThunkAPI
->('PATCH /users/avatar', async (image, thunkAPI) => {
+>('PATCH /users', async (data, thunkAPI) => {
   try {
-    const result = await api.users.avatar(image);
+    const result = await api.users.info(data);
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {

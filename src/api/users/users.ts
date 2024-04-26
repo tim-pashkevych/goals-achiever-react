@@ -19,8 +19,8 @@ const logout = async () => {
   setAxiosToken('');
 };
 
-const avatar = async (image: FormData) => {
-  const result = await api.patch('/users/avatar', image, {
+const info = async (data: FormData) => {
+  const result = await api.patch('/users', data, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
@@ -47,7 +47,7 @@ export default {
   register,
   login,
   logout,
-  avatar,
+  info,
   current,
   theme,
 };

@@ -4,7 +4,7 @@ import {
   registerThunk,
   loginThunk,
   logoutThunk,
-  updateUserAvatarThunk,
+  updateUserInfoThunk,
   updateUserTheme,
 } from './operations';
 import { IUserState } from '../../types';
@@ -38,9 +38,11 @@ const slice = createSlice({
       })
       .addCase(logoutThunk.fulfilled, () => initialState)
       .addCase(
-        updateUserAvatarThunk.fulfilled,
-        (state, { payload: { avatarURL } }) => {
+        updateUserInfoThunk.fulfilled,
+        (state, { payload: { name, email, avatarURL } }) => {
           state.user.avatarURL = avatarURL;
+          state.user.name = name;
+          state.user.email = email;
         }
       )
       .addCase(updateUserTheme.fulfilled, (state, { payload }) => {
@@ -51,7 +53,7 @@ const slice = createSlice({
           registerThunk.pending,
           loginThunk.pending,
           logoutThunk.pending,
-          updateUserAvatarThunk.pending,
+          updateUserInfoThunk.pending,
           updateUserTheme.pending
         ),
         (state) => {
@@ -63,7 +65,7 @@ const slice = createSlice({
           registerThunk.rejected,
           loginThunk.rejected,
           logoutThunk.rejected,
-          updateUserAvatarThunk.rejected,
+          updateUserInfoThunk.rejected,
           updateUserTheme.rejected
         ),
         (state) => {

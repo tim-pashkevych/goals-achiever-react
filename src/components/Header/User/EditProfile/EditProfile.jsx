@@ -7,10 +7,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import { useState } from 'react';
 import { editProfileSchema } from '../../../../schemas/editProfileSchema';
+import { useAppDispatch, useAppSelector } from '../../../../hooks';
+import { selectUser, updateUserInfoThunk } from '../../../../redux';
 
-export const EditProfile = () => {
+export const EditProfile = ({ handleCloseModal }) => {
   const [avatar, setAvatar] = useState(null);
-  const curentValues = { name: 'bobobb', email: 'example@email.com' };
+  const curentValues = useAppSelector(selectUser);
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
@@ -19,8 +22,10 @@ export const EditProfile = () => {
 
   const onSubmit = (data) => {
     const { name, email, password } = data;
+
     console.log('before');
     if (!name && !email && !password && !avatar) return;
+
     const formData = new FormData();
     if (curentValues.name !== name && name) {
       formData.append('name', name);
@@ -37,6 +42,12 @@ export const EditProfile = () => {
     for (const key of formData.keys()) {
       console.log(key);
     }
+    dispatch(updateUserInfoThunk(formData))
+      .unwrap()
+      .then(() => {
+        console.log('hello');
+        handleCloseModal();
+      });
     console.log('after');
   };
   return (
