@@ -88,3 +88,17 @@ export const fetchUserThunk = createAsyncThunk(
     }
   }
 );
+
+export const updateUserTheme = createAsyncThunk(
+  'PATCH /users/theme',
+  async (data: object, thunkAPI) => {
+    try {
+      const result = await api.users.theme(data);
+      return result;
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  }
+);
