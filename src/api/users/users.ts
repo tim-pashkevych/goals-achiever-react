@@ -1,4 +1,4 @@
-import { IUserCredentials } from '../../types';
+import { IRefreshCredentials, IUserCredentials } from '../../types';
 import { api, setAxiosToken } from '../axios';
 
 const register = async (credentials: IUserCredentials) => {
@@ -43,6 +43,13 @@ const theme = async (data: object) => {
   return theme;
 };
 
+const refresh = async (credentials: IRefreshCredentials) => {
+  const result = await api.post('/users/refresh', credentials);
+  const { token } = result.data.result;
+
+  setAxiosToken(token);
+  return result.data.result;
+};
 export default {
   register,
   login,
@@ -50,4 +57,5 @@ export default {
   info,
   current,
   theme,
+  refresh,
 };
