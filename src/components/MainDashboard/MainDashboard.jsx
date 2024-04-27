@@ -1,8 +1,7 @@
 import { Icon } from '..';
-import { useAppSelector } from '../../hooks';
+import { useAppSelector, useModal } from '../../hooks';
 import { selectActiveBoard, selectColumns } from '../../redux';
 import { Column } from '../Column/Column';
-// import { SButton_button } from '../Header/Header.styled';
 
 import {
   SButton_button,
@@ -10,32 +9,45 @@ import {
   SIconWrapper_div,
   STitle_h3,
 } from './MainDashboard.styled';
+import { ColumnForm } from '../Column/ColumnForm/ColumnForm';
 
 export const MainDashboard = () => {
   const board = useAppSelector(selectActiveBoard);
+  console.log('boards', board);
+
   const columns = useAppSelector(selectColumns);
+
+  const [isOpenModal, toggleModal] = useModal();
 
   return (
     <>
       <STitle_h3>{board?.title}</STitle_h3>
 
       <SColumnWrapper>
-        {columns &&
+        {columns.length > 0 &&
           columns.map((column) => (
             <Column
               title={column.title}
               key={column._id}
-              id={column._id}
+              columnId={column._id}
               {...column}
             />
           ))}
-        <SButton_button>
+        <SButton_button onClick={toggleModal}>
           <SIconWrapper_div>
             <Icon id={'plus'} size={14} />
           </SIconWrapper_div>
           Add another column
         </SButton_button>
       </SColumnWrapper>
+      {isOpenModal && (
+        <ColumnForm
+          actionType={'add'}
+          toggleModal={toggleModal}
+          id={board?._id}
+          title={'Column title'}
+        />
+      )}
     </>
   );
 };

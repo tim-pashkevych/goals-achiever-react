@@ -8,11 +8,16 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
 import { editProfileSchema } from '../../../../schemas/editProfileSchema';
 import { useAppDispatch, useAppSelector } from '../../../../hooks';
-import { selectUser, updateUserInfoThunk } from '../../../../redux';
+import {
+  selectIsUserLoading,
+  selectUser,
+  updateUserInfoThunk,
+} from '../../../../redux';
 
 export const EditProfile = ({ handleCloseModal }) => {
   const [avatar, setAvatar] = useState(null);
   const curentValues = useAppSelector(selectUser);
+  const isLoading = useAppSelector(selectIsUserLoading);
   const dispatch = useAppDispatch();
   const {
     register,
@@ -23,7 +28,6 @@ export const EditProfile = ({ handleCloseModal }) => {
   const onSubmit = (data) => {
     const { name, email, password } = data;
 
-    console.log('before');
     if (!name && !email && !password && !avatar) return;
 
     const formData = new FormData();
@@ -39,23 +43,19 @@ export const EditProfile = ({ handleCloseModal }) => {
     if (avatar) {
       formData.append('avatar', avatar);
     }
-    for (const key of formData.keys()) {
-      console.log(key);
-    }
+
     dispatch(updateUserInfoThunk(formData))
       .unwrap()
       .then(() => {
-        console.log('hello');
         handleCloseModal();
       });
-    console.log('after');
   };
   return (
     <SForm_form onSubmit={handleSubmit(onSubmit)}>
       <STitle_h2>Edit profile</STitle_h2>
       <Card setAvatar={setAvatar} />
       <InputList register={register} errors={errors} current={curentValues} />
-      <Button title={'Send'} icon={false} />
+      <Button title={'Send'} icon={false} isLoading={isLoading} />
     </SForm_form>
   );
 };

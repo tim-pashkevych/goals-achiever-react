@@ -1,15 +1,12 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import { themes } from '../../../../constants/themes';
-import { ThemeContext } from '../../../ThemeContext/ThemeContext';
 
 import { SButton_button, SList_ul, SListItem_li } from './ThemePopUp.styled';
 import { useAppDispatch } from '../../../../hooks';
 import { updateUserTheme } from '../../../../redux';
 
-export const ThemePopUp = ({ setIsOpenPopUp, boxRef }) => {
-  const { setTheme } = useContext(ThemeContext);
-
+export const ThemePopUp = ({ setIsOpenPopUp, boxRef, setIsLoading }) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -38,13 +35,13 @@ export const ThemePopUp = ({ setIsOpenPopUp, boxRef }) => {
   }, [setIsOpenPopUp]);
 
   const click = (str) => {
+    setIsLoading(true);
     dispatch(updateUserTheme({ theme: str }))
       .unwrap()
-      .then((res) => {
-        setTheme(res);
+      .finally(() => {
+        setIsOpenPopUp(false);
+        setIsLoading(false);
       });
-
-    setIsOpenPopUp(false);
   };
 
   return (

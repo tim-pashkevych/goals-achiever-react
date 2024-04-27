@@ -29,6 +29,7 @@ export const SListItem_li = styled.li`
   width: 100%;
 
   color: ${({ theme }) => theme.themeSwitsherPopUp};
+  transition: var(--transition);
   &:active {
     color: ${({ theme }) => theme.themeAccent};
   }
@@ -43,6 +44,7 @@ export const SListItem_li = styled.li`
 export const SButton_button = styled.button`
   width: 100%;
   text-align: start;
+  transition: var(--transition);
   @media screen and (min-width: 1440px) {
     &:hover,
     &focus {
