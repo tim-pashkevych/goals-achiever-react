@@ -44,6 +44,18 @@ export const theme = Object.freeze({
     userProfileIconBackground: '#F6F6F7',
 
     inputBorder: '#bedbb0',
+    backgroundSidebar: '#fff',
+    logoFill: '#fff',
+    logoOut: '#bedbb0',
+    logoOutHover: '#9DC888',
+    svgStroke: '#121212',
+    logoBackground: '#1F1F1F',
+    outline: 'rgba(22, 22, 22, 0.1)',
+    textBord: 'rgba(22, 22, 22, 0.5);',
+    buttonBackground: '#BEDBB0',
+    boardBackground: 'rgba(246, 246, 247, 0.4)',
+    helpBackground: '#f6f6f7',
+    bgActive: '#FBFBFC',
   },
 
   dark: {
@@ -87,6 +99,18 @@ export const theme = Object.freeze({
     userProfileIconBackground: '#1F1F1F',
 
     inputBorder: '#bedbb0',
+    backgroundSidebar: '#121212',
+    logoFill: '#fff',
+    logoOut: '#bedbb0',
+    logoOutHover: '#9DC888',
+    svgStroke: '#121212',
+    logoBackground: '#1F1F1F',
+    textBord: 'rgba(255, 255, 255, 0.5)',
+    outline: 'rgba(255, 255, 255, 0.1)',
+    buttonBackground: '#BEDBB0',
+    boardBackground: 'rgba(31, 31, 31, 0.4)',
+    helpBackground: '#1F1F1F',
+    bgActive: '#171717',
   },
 
   violet: {
@@ -134,5 +158,17 @@ export const theme = Object.freeze({
     userProfileIconBackground: '#ECEDFD',
 
     inputBorder: '#5255bc',
+    backgroundSidebar: '#5255bc',
+    logoFill: '#5255bc',
+    logoOut: '#fff',
+    logoOutHover: '#B8BCFD',
+    svgStroke: '#fff',
+    logoBackground: '#ECEDFD',
+    textBord: 'rgba(255, 255, 255, 0.5)',
+    outline: 'rgba(255, 255, 255, 0.1)',
+    buttonBackground: '#B8BCFD',
+    boardBackground: 'rgba(255, 255, 255, 0.4)',
+    helpBackground: 'rgba(236, 237, 253, 0.4)',
+    bgActive: '#7577C9',
   },
 });

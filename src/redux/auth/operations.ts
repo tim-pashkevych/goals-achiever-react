@@ -9,6 +9,8 @@ import {
   IUpdateAvatarThunkPayload,
   IRegisterUserRequestBody,
   IRefreshCredentials,
+  IIssuesThunkPayload,
+  IIssuesCredentials,
 } from '../../types';
 
 interface IThunkAPI {
@@ -112,6 +114,21 @@ export const refreshThunk = createAsyncThunk<
   try {
     const result = await api.users.refresh(data);
 
+    return result;
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+});
+
+export const issuesThunk = createAsyncThunk<
+  IIssuesThunkPayload,
+  IIssuesCredentials,
+  IThunkAPI
+>('POST /issues', async (data, thunkAPI) => {
+  try {
+    const result = await api.users.issues(data);
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
