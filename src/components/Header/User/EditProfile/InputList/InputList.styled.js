@@ -24,6 +24,7 @@ export const SInput_input = styled.input`
   color: ${({ theme }) => theme.userProfile};
   background-color: ${({ theme }) => theme.modalBackground};
 
+  transition: var(--transition);
   &:active {
     outline: 2px solid ${({ theme }) => theme.inputBorder};
   }
@@ -49,6 +50,7 @@ export const SEyeButton = styled.button`
   z-index: 999;
   border: none;
   outline: none;
+  transition: var(--transition);
   &.active {
     stroke: ${({ theme }) => theme.themeAccent};
   }

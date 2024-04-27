@@ -26,8 +26,8 @@ const ScreensPage = () => {
         <Icon id="filter" size={16} />
         <SFilter_p>Filters</SFilter_p>
       </SFilterWrapper_button>
-      {false && <NothinFound />}
-      {true && <MainDashboard />}
+      {!boardName && <NothinFound />}
+      {boardName && <MainDashboard />}
       {isOpenModal && (
         <Modal toggleModal={closeModal}>
           <Filters />

@@ -59,9 +59,11 @@ const slice = createSlice({
           state.user.avatarURL = avatarURL;
           state.user.name = name;
           state.user.email = email;
+          state.isLoading = false;
         }
       )
       .addCase(updateUserTheme.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
         state.user.theme = payload;
       })
       .addMatcher(
@@ -84,7 +86,7 @@ const slice = createSlice({
           logoutThunk.rejected,
           updateUserInfoThunk.rejected,
           updateUserTheme.rejected,
-          refreshThunk.pending
+          refreshThunk.rejected
         ),
         (state) => {
           state.isLoading = false;

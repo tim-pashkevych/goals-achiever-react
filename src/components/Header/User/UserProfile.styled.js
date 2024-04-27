@@ -8,6 +8,7 @@ export const SWrapper_button = styled.button`
   stroke: ${({ theme }) => theme.userProfileIcon};
   color: ${({ theme }) => theme.userProfile};
 
+  transition: var(--transition);
   &:active {
     fill: ${({ theme }) => theme.themeAccent};
     stroke: ${({ theme }) => theme.themeAccent};

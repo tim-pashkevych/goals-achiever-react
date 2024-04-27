@@ -9,7 +9,7 @@ import {
 } from './ThemeSwitsher.styled';
 import { ThemePopUp } from './ThemePopUp/ThemePopUp';
 
-export const ThemeSwitcher = () => {
+export const ThemeSwitcher = ({ setIsLoading }) => {
   const [isOpenPopUp, setIsOpenPopUp] = useState(false);
   const wrapper = useRef();
 
@@ -26,7 +26,11 @@ export const ThemeSwitcher = () => {
         {isOpenPopUp && <Icon id={'chevron-up'} size={16} />}
       </SWrapper_button>
       {isOpenPopUp && (
-        <ThemePopUp boxRef={wrapper} setIsOpenPopUp={setIsOpenPopUp} />
+        <ThemePopUp
+          boxRef={wrapper}
+          setIsOpenPopUp={setIsOpenPopUp}
+          setIsLoading={setIsLoading}
+        />
       )}
     </SWrapper_div>
   );
