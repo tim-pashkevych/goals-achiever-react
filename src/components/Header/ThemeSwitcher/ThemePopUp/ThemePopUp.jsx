@@ -6,7 +6,7 @@ import { SButton_button, SList_ul, SListItem_li } from './ThemePopUp.styled';
 import { useAppDispatch } from '../../../../hooks';
 import { updateUserTheme } from '../../../../redux';
 
-export const ThemePopUp = ({ setIsOpenPopUp, boxRef }) => {
+export const ThemePopUp = ({ setIsOpenPopUp, boxRef, setIsLoading }) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -35,9 +35,13 @@ export const ThemePopUp = ({ setIsOpenPopUp, boxRef }) => {
   }, [setIsOpenPopUp]);
 
   const click = (str) => {
-    dispatch(updateUserTheme({ theme: str }));
-
-    setIsOpenPopUp(false);
+    setIsLoading(true);
+    dispatch(updateUserTheme({ theme: str }))
+      .unwrap()
+      .finally(() => {
+        setIsOpenPopUp(false);
+        setIsLoading(false);
+      });
   };
 
   return (

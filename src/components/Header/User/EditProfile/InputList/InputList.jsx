@@ -15,10 +15,10 @@ export const InputList = ({ register, current }) => {
   return (
     <SInputWrapper_dev>
       <SLabel_label>
-        <SInput_input {...register('name')} placeholder={current.name} />
+        <SInput_input {...register('name')} defaultValue={current.name} />
       </SLabel_label>
       <SLabel_label>
-        <SInput_input {...register('email')} placeholder={current.email} />
+        <SInput_input {...register('email')} defaultValue={current.email} />
       </SLabel_label>
       <SLabel_label>
         <SInput_input
