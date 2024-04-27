@@ -44,6 +44,7 @@ export const SShowAll_button = styled.button`
   text-decoration-skip-ink: none;
   color: ${({ theme }) => theme.themeSwitsherPopUp};
 
+  transition: var(--transition);
   &:active {
     color: ${({ theme }) => theme.themeAccent};
   }
@@ -69,9 +70,6 @@ export const SItem_li = styled.li`
   color: ${({ theme }) => theme.filterPriority};
 
   & .active {
-    font-weight: 400;
-    font-size: 12px;
-    letter-spacing: -0.02em;
     color: ${({ theme }) => theme.userProfile};
   }
 `;
@@ -81,6 +79,8 @@ export const SRadio_button = styled.button`
   gap: 9px;
   align-items: center;
   text-transform: capitalize;
+
+  transition: var(--transition);
   &:active {
     color: ${({ theme }) => theme.themeAccent};
   }
@@ -96,14 +96,16 @@ export const SRadio_button = styled.button`
 `;
 
 export const Span = styled.span`
-  opacity: 1;
   display: block;
   border-radius: 6px;
   width: 12px;
   height: 12px;
-  outline: 1px solid ${({ $color }) => $color};
+  border: 2px solid ${({ $color }) => $color};
+  box-shadow: 0 0 0 1px ${({ $color }) => $color};
   background-color: ${({ $color }) => $color};
+
+  transition: var(--transition);
   &.active {
-    border: 2px solid ${({ theme }) => theme.mainDashbordBackground};
+    border-color: ${({ theme }) => theme.mainDashbordBackground};
   }
 `;

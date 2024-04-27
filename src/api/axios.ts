@@ -3,7 +3,7 @@ import axios from 'axios';
 const { VITE_BASE_URL } = import.meta.env;
 
 export const api = axios.create({
-  baseURL: 'http://localhost:3000/api/v1',
+  baseURL: 'https://goals-achiever.onrender.com/api/v1',
 });
 
 export const setAxiosToken = (token: string) => {

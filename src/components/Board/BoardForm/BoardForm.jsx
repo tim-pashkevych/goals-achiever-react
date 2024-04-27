@@ -1,7 +1,6 @@
-import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { Button, Icon, Image, ThemeContext } from '../..';
+import { Button, Icon, Image } from '../..';
 import { boardIcons, boardImgIcons } from '../../../constants';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -9,6 +8,7 @@ import { editBoardSchema } from '../../../schemas/editBoardSchema';
 import {
   createBoardThunk,
   selectBoardById,
+  selectTheme,
   updateBoardByIdThunk,
 } from '../../../redux';
 
@@ -27,7 +27,7 @@ import {
 } from './BoardForm.styled';
 
 export const BoardForm = ({ boardId, handleCloseModal }) => {
-  const { theme } = useContext(ThemeContext);
+  const theme = useAppSelector(selectTheme);
   const dispatch = useAppDispatch();
   const board = useAppSelector((state) => selectBoardById(state, boardId));
   const {

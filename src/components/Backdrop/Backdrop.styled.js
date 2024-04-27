@@ -10,4 +10,5 @@ export const SBackdrop = styled.div`
   top: 0;
   left: 0;
   background-color: rgb(0, 0, 0, 0.7);
+  z-index: 9999;
 `;

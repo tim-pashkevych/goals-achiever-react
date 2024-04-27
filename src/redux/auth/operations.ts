@@ -111,7 +111,6 @@ export const refreshThunk = createAsyncThunk<
 >('POST /users/refresh', async (data, thunkAPI) => {
   try {
     const result = await api.users.refresh(data);
-    thunkAPI.dispatch(fetchUserThunk());
 
     return result;
   } catch (error) {

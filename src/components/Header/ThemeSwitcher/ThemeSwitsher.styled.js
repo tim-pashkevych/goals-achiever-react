@@ -15,6 +15,7 @@ export const SWrapper_button = styled.button`
   color: ${({ theme }) => theme.themeSwitcher};
   cursor: pointer;
   outline: none;
+  transition: var(--transition);
   &:active {
     color: ${({ theme }) => theme.themeAccent};
     stroke: ${({ theme }) => theme.themeAccent};
