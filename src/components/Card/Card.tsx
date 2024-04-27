@@ -26,20 +26,19 @@ interface ICardProps {
   boardId: string;
 }
 
+// _id,
+// columnId,
+// boardId,
 const Card = ({
   title = 'The watch spot design',
   description = "Create a visually stunning and eye-catching watch dial design that embodies our brand's...",
   deadline = '12/05/2023',
   priority = 'Low',
-  _id,
-  columnId,
-  boardId,
 }: ICardProps) => {
   // const dispatch = useAppDispatch();
 
   const onDelete = () => {
     // dispatch(deleteCardById);
-    console.log({ _id, columnId, boardId });
   };
 
   const generateRandomColor = () => {

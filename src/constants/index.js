@@ -4,3 +4,5 @@ export const TABLET_DEVICE = 'tablet';
 export const MOBILE_DEVICE = 'mobile';
 export * from './themes.js';
 export * from './priority.js';
+export * from './board-icons.js';
+export * from './images/index.js';
