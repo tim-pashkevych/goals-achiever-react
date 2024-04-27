@@ -80,7 +80,7 @@ const Card = ({
                   }}
                 >
                   <svg width={16} height={16}>
-                    <use href={`${icons}#icon-pencil`}></use>
+                    <use href={`${icons}#icon-pencil-2`}></use>
                   </svg>
                 </S.actionButton_button>
               </S.actionItem_li>
@@ -92,7 +92,7 @@ const Card = ({
                   }}
                 >
                   <svg width={16} height={16}>
-                    <use href={`${icons}#icon-trash`}></use>
+                    <use href={`${icons}#icon-trash-2`}></use>
                   </svg>
                 </S.actionButton_button>
               </S.actionItem_li>

@@ -1,13 +1,18 @@
+//installed libraries
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { nanoid } from '@reduxjs/toolkit';
 
+//global folders
 import { Priorities, PriorityColor } from '../../constants';
 import icons from 'assets/sprite.svg';
 
+//local folder
 import { CardSchema } from './yupSchema';
 import { IFormData, ActionType, ICardPopupProps } from './types';
+import { DatePicker } from './DatePicker/DatePicker';
 
+//styles
 import * as S from './CardPopup.styled';
 
 const CardPopup = ({
@@ -85,11 +90,12 @@ const CardPopup = ({
         </S.propertyWrapper_div>
         <S.propertyWrapper_div $marginBottom="40px">
           Deadline
-          <input
+          {/* <input
             type="date"
             {...register('deadline')}
             style={{ width: '120px' }}
-          />
+          /> */}
+          <DatePicker onChange={(data) => console.log(data)} />
           {errors.deadline && (
             <S.errorMessage_p $position="bottom: -22px">
               {errors.deadline.message}

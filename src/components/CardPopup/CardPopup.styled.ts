@@ -170,13 +170,13 @@ export const customRadioButton_span = styled.span<ICustomRadioButtonProps>`
   width: 14px;
   height: 14px;
 
-  border: 1px solid ${(props) => props.$color};
   border-radius: 50%;
 
   cursor: pointer;
 
-  position: relative;
-  &::before {
+  /* border: 1px solid ${(props) => props.$color}; */
+  /* position: relative; */
+  /* &::before {
     content: '';
 
     position: absolute;
@@ -195,11 +195,20 @@ export const customRadioButton_span = styled.span<ICustomRadioButtonProps>`
     transition:
       width 250ms ease-in-out,
       height 250ms ease-in-out;
-  }
+  } */
 
-  input[type='radio']:checked + &::before {
+  /* input[type='radio']:checked + &::before {
     width: 8px;
     height: 8px;
+  } */
+
+  box-shadow: 0 0 0 1px ${(props) => props.$color};
+  background-color: ${(props) => props.$color};
+  border: 3px solid transparent;
+  transition: border-color 250ms ease-in-out;
+
+  input[type='radio']:checked + & {
+    border-color: #151515;
   }
 `;
 
