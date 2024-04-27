@@ -1,6 +1,5 @@
 import {
   SButtonWrapper,
-  SCardWrapper,
   SCardWrapperScroll,
   SColumnName,
   SColumnWrapper,
@@ -57,13 +56,11 @@ export const Column = ({ title, columnId }) => {
         </SIconsWrapper>
       </SColumnName>
 
-      <SCardWrapper>
-        <SCardWrapperScroll>
-          {cards.map((card) => (
-            <Card key={card._id} {...card} />
-          ))}
-        </SCardWrapperScroll>
-      </SCardWrapper>
+      <SCardWrapperScroll>
+        {cards.map((card) => (
+          <Card key={card._id} {...card} />
+        ))}
+      </SCardWrapperScroll>
 
       <SButtonWrapper>
         <Button title={'Add another card'} icon={true} size={'large'} />

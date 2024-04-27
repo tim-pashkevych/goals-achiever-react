@@ -1,35 +1,24 @@
 import styled from 'styled-components';
 export const SColumnWrapper = styled.div`
-  height: 100%;
-
   width: 350px;
   display: flex;
-  flex-direction: column;
   gap: 14px;
-`;
-
-export const SCardWrapper = styled.div`
-  /* height: 100%; */
-
-  /* max-height: 478px;
-  overflow: hidden;
-  @media (min-width: 768px) and (max-width: 1439px) {
-    max-height: 640px;
-  } */
-  /* flex: 1; // This will make it take up all available space
-  display: flex;
   flex-direction: column;
-  overflow: hidden; */
+  padding-bottom: 10px;
 `;
+export const SCardSuperWrapper = styled.div``;
+
 export const SCardWrapperScroll = styled.div`
   display: flex;
 
   flex-direction: column;
-  gap: 8px;
-  width: 100%;
-
   overflow-y: auto;
   overflow-x: hidden;
+  width: 100%;
+
+  gap: 8px;
+  max-height: 100%;
+
   padding-right: 10px;
 
   &::-webkit-scrollbar {
@@ -50,7 +39,9 @@ export const SCardWrapperScroll = styled.div`
 `;
 export const SColumnName = styled.div`
   width: 335px;
-  height: 56px;
+  min-height: 56px;
+
+  flex-basis: auto;
 
   padding: 0 20px;
 
@@ -74,6 +65,8 @@ export const SIconsWrapper = styled.div`
 
 export const SButtonWrapper = styled.div`
   width: 335px;
+
+  flex-basis: auto;
 `;
 
 export const SIcon = styled.svg`

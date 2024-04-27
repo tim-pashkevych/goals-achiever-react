@@ -13,15 +13,12 @@ export const SWrapper = styled.div`
 
   @media screen and (min-width: 375px) {
     width: 375px;
-    height: 812px;
   }
   @media screen and (min-width: 768px) {
     width: 768px;
-    height: 1024px;
   }
   @media screen and (min-width: 1440px) {
     width: 100%;
-    height: 100vh;
   }
 `;
 
