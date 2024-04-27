@@ -31,6 +31,7 @@ export const theme = Object.freeze({
     scrollBackground: '#E8E8E8',
     icon_Column: 'rgba(22, 22, 22, 0.5);',
     icon_Column_Hover: 'rgba(22, 22, 22, 1);',
+    column_edit_text: 'rgb(22, 22, 22)',
 
     themeSwitcher: 'rgba(22, 22, 22, 0.8)',
     themeSwitsherPopUp: '#161616',
@@ -61,6 +62,8 @@ export const theme = Object.freeze({
     scrollBackground: 'RGB(49, 49, 49)',
     icon_Column: 'rgba(255, 255, 255, 0.5)',
     icon_Column_Hover: 'rgba(255, 255, 255, 1)',
+    column_edit_text: 'rgb(255, 255, 255);',
+
     buttonTextColor: '#161616',
     themeAccent: '#bedbb0',
     mainDashbordBackground: '#1F1F1F',
@@ -106,6 +109,8 @@ export const theme = Object.freeze({
     scrollBackground: '#FFFFFF',
     icon_Column: 'rgba(22, 22, 22, 0.5);',
     icon_Column_Hover: 'rgba(22, 22, 22, 1);',
+    column_edit_text: 'rgb(22, 22, 22)',
+
     buttonTextColor: '#FFFFFF',
     themeAccent: '#5255bc',
     mainDashbordBackground: '#ecedfd',

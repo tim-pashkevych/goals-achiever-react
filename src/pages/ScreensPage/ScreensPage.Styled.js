@@ -3,14 +3,14 @@ import styled from 'styled-components';
 export const SMainDashboard = styled.div`
   position: relative;
   background-color: ${({ theme }) => theme.mainDashbordBackground};
-  height: 100vh;
-  padding: 14px 8px 24px 20px;
+  height: calc(100vh - 68px);
+  padding: 14px 0px 0px 20px;
 
   @media only screen and (min-width: 768px) {
-    padding: 26px 18px 32px 32px;
+    padding: 26px 0px 0px 32px;
   }
   @media only screen and (min-width: 1440px) {
-    padding: 10px 24px 8px 24px;
+    padding: 10px 0px 0px 24px;
   }
 `;
 

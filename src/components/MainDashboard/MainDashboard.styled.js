@@ -10,8 +10,32 @@ export const STitle_h3 = styled.h3`
 `;
 
 export const SColumnWrapper = styled.div`
+  height: 95%;
+  width: 335px;
+  overflow-y: auto;
   display: flex;
   gap: 14px;
+  @media only screen and (min-width: 768px) {
+    width: 688px;
+  }
+  @media only screen and (min-width: 1440px) {
+    width: 1108px;
+  }
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: ${(props) => props.theme.scrollBackground};
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: ${(props) => props.theme.scrollBall};
+    border-radius: 10px;
+  }
 `;
 
 export const SButton_button = styled.button`
@@ -21,7 +45,7 @@ export const SButton_button = styled.button`
   align-items: center;
 
   gap: 8px;
-  width: 335px;
+  min-width: 335px;
   height: 56px;
   background-color: ${({ theme }) => theme.mainDashbordButton};
 
@@ -35,7 +59,7 @@ export const SButton_button = styled.button`
   color: ${({ theme }) => theme.userProfile};
 
   @media only screen and (min-width: 768px) {
-    width: 334px;
+    min-width: 334px;
   }
 `;
 
