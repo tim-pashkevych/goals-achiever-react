@@ -28,10 +28,6 @@ export const RegisterForm = () => {
     data.theme = 'dark';
     dispatch(registerThunk(data))
       .unwrap()
-      .then((response) => {
-        setError('');
-        console.log(response);
-      })
       .catch((error) => {
         setError(error);
       });
