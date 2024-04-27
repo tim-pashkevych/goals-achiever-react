@@ -18,7 +18,6 @@ export const createColumnThunk = createAsyncThunk<
 >('POST /columns', async (data, thunkAPI) => {
   try {
     const result = await api.columns.createColumn(data);
-    console.log('result', result);
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -31,12 +30,9 @@ export const updateColumnByIdThunk = createAsyncThunk<
   IUpdateColumnByIdThunkPayload,
   IUpdateColumnByIdRequest,
   IThunkAPI
->('PATCH /columns/{id}', async (data, thunkAPI) => {
+>('PATCH /columns/{id}', async ({ id, newColumnBody }, thunkAPI) => {
   try {
-    const result = await api.columns.updateColumnById(
-      data.id,
-      data.newColumnBody
-    );
+    const result = await api.columns.updateColumnById(id, newColumnBody);
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -49,12 +45,13 @@ export const deleteColumnByIdThunk = createAsyncThunk<Id, Id, IThunkAPI>(
   'DELETE /columns/{id}',
   async (id, thunkAPI) => {
     try {
-      const result = await api.columns.deleteColumnById(id);
-      return result;
+      await api.columns.deleteColumnById(id);
+      return id;
     } catch (error) {
       if (error instanceof AxiosError) {
         return thunkAPI.rejectWithValue(error.message);
       }
+      throw error;
     }
   }
 );

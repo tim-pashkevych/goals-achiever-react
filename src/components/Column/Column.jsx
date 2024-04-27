@@ -18,7 +18,7 @@ import { useState } from 'react';
 
 import { selectCardsByColumnId } from '../../redux/cards';
 
-export const Column = ({ title, id }) => {
+export const Column = ({ title, columnId }) => {
   const [isOpenModal, toggleModal] = useModal();
 
   const [actionType, setActionType] = useState(null);
@@ -28,9 +28,14 @@ export const Column = ({ title, id }) => {
     toggleModal();
   };
 
-  // const onDeleteClick = () => {};
+  const onDeleteClick = () => {
+    setActionType('delete');
+    toggleModal();
+  };
 
-  const cards = useAppSelector((state) => selectCardsByColumnId(state, id));
+  const cards = useAppSelector((state) =>
+    selectCardsByColumnId(state, columnId)
+  );
 
   return (
     <SColumnWrapper>
@@ -44,7 +49,7 @@ export const Column = ({ title, id }) => {
             </SIcon>
           </button>
 
-          <button>
+          <button onClick={onDeleteClick}>
             <SIcon width={16} height={16}>
               <use href={Icons + '#icon-trash'}></use>
             </SIcon>
@@ -68,7 +73,7 @@ export const Column = ({ title, id }) => {
         <ColumnForm
           actionType={actionType}
           toggleModal={toggleModal}
-          id={id}
+          id={columnId}
           title={title}
         />
       )}

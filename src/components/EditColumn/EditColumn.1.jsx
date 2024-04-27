@@ -44,7 +44,13 @@ export const EditColumn = ({
   return (
     <SContainer>
       <SForm>
-        <STitle>{titleModal.title}</STitle>
+        <STitle>
+          {titleModal.title}{' '}
+          {actionType === 'delete' && (
+            <span style={{ fontWeight: 700 }}>{placeholder}</span>
+          )}{' '}
+          ?
+        </STitle>
         {actionType !== 'delete' && (
           <SInput
             name="title"

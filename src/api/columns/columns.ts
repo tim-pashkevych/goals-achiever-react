@@ -11,7 +11,7 @@ const createColumn = async (data: ICreateColumnRequestBody) => {
 };
 
 const updateColumnById = async (id: Id, data: IUpdateColumnRequestBody) => {
-  const result = await api.patch(`/columns/${id}`, data.title);
+  const result = await api.patch(`/columns/${id}`, { title: data.title });
   return result.data;
 };
 

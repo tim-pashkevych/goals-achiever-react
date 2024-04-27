@@ -4,9 +4,10 @@ export const SContainer = styled.div`
   max-width: 350px;
   border-radius: 8px;
   font-family: 'Poppins', sans-serif;
-  background-color: #1f1f1f;
-  padding: 24px;
+  background-color: ${({ theme }) => theme.modalBackground};
   letter-spacing: -0.02em;
+
+  width: 302px;
 `;
 
 export const SForm = styled.form`
@@ -18,7 +19,8 @@ export const SForm = styled.form`
 export const STitle = styled.p`
   font-weight: 500;
   font-size: 18px;
-  color: #fff;
+  color: ${({ theme }) => theme.column_edit_text};
+
   margin: 0;
 `;
 
@@ -26,13 +28,14 @@ export const SInput = styled.input`
   display: block;
   font-weight: 500;
   font-size: 14px;
-  color: #fff;
+  background-color: ${({ theme }) => theme.modalBackground};
+
   margin: 0;
-  background-color: #1f1f1f;
   outline: none;
   border: 1px solid #bedbb069;
   padding: 14px 18px;
   border-radius: 8px;
+  transition: var(--transition);
   &:focus,
   &:active {
     border: 1px solid #bedbb0;
@@ -56,16 +59,30 @@ export const SButton = styled.button`
   gap: 8px;
   height: 50px;
   border-radius: 8px;
-  background-color: #bedbb0;
+  background-color: ${({ theme }) => theme.secondaryColor};
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #161616;
+  color: ${({ theme }) => theme.buttonTextColor};
   border: none;
 
+  transition: var(--transition);
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: ${({ theme }) => theme.secondaryColorHover};
+
+    outline: none;
+  }
+`;
+
+export const SButtonDelete = styled(SButton)`
+  background-color: #e09cb5;
+  color: white;
   &:active,
   &:hover,
   &:focus {
-    background-color: #9dc888;
+    background-color: #f5226f;
   }
 `;

@@ -1,25 +1,33 @@
 import styled from 'styled-components';
 export const SColumnWrapper = styled.div`
+  height: 100%;
+
   width: 350px;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  box-sizing: border-box;
 `;
 
 export const SCardWrapper = styled.div`
-  max-height: 478px;
+  /* height: 100%; */
+
+  /* max-height: 478px;
   overflow: hidden;
   @media (min-width: 768px) and (max-width: 1439px) {
     max-height: 640px;
-  }
+  } */
+  /* flex: 1; // This will make it take up all available space
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; */
 `;
 export const SCardWrapperScroll = styled.div`
   display: flex;
+
   flex-direction: column;
   gap: 8px;
   width: 100%;
-  height: 100%;
+
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 10px;
