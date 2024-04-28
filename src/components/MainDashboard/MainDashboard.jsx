@@ -13,7 +13,6 @@ import { ColumnForm } from '../Column/ColumnForm/ColumnForm';
 
 export const MainDashboard = ({ filter }) => {
   const board = useAppSelector(selectActiveBoard);
-
   const columns = useAppSelector(selectColumns);
 
   const [isOpenModal, toggleModal] = useModal();
@@ -29,6 +28,7 @@ export const MainDashboard = ({ filter }) => {
               title={column.title}
               key={column._id}
               columnId={column._id}
+              boardId={column.boardId}
               {...column}
               filter={filter}
             />

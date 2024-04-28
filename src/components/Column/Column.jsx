@@ -18,7 +18,7 @@ import { useState } from 'react';
 import { selectCardsByColumnId } from '../../redux/cards';
 import { filterCards } from '../../helpers/filterCards';
 
-export const Column = ({ title, columnId, filter }) => {
+export const Column = ({ title, columnId, filter, boardId }) => {
   const [isOpenModal, toggleModal] = useModal();
 
   const [actionType, setActionType] = useState(null);
@@ -60,7 +60,7 @@ export const Column = ({ title, columnId, filter }) => {
 
       <SCardWrapperScroll>
         {filteredCards.map((card) => (
-          <Card key={card._id} {...card} />
+          <Card key={card._id} {...card} boardId={boardId} />
         ))}
       </SCardWrapperScroll>
 
