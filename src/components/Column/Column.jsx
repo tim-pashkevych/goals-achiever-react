@@ -17,9 +17,11 @@ import { useState } from 'react';
 
 import { selectCardsByColumnId } from '../../redux/cards';
 import { filterCards } from '../../helpers/filterCards';
+import { CardPopup, Modal } from '..';
 
 export const Column = ({ title, columnId, filter }) => {
   const [isOpenModal, toggleModal] = useModal();
+  const [isAddCardOpenModal, toggleAddCardModal] = useModal();
 
   const [actionType, setActionType] = useState(null);
 
@@ -65,7 +67,12 @@ export const Column = ({ title, columnId, filter }) => {
       </SCardWrapperScroll>
 
       <SButtonWrapper>
-        <Button title={'Add another card'} icon={true} size={'large'} />
+        <Button
+          title={'Add another card'}
+          icon={true}
+          size={'large'}
+          onClick={toggleAddCardModal}
+        />
       </SButtonWrapper>
 
       {isOpenModal && (
@@ -75,6 +82,12 @@ export const Column = ({ title, columnId, filter }) => {
           id={columnId}
           title={title}
         />
+      )}
+
+      {isAddCardOpenModal && (
+        <Modal toggleModal={toggleAddCardModal}>
+          <CardPopup handleCloseModal={toggleAddCardModal} />
+        </Modal>
       )}
     </SColumnWrapper>
   );
