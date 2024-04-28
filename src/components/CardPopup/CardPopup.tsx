@@ -9,14 +9,14 @@ import icons from 'assets/sprite.svg';
 
 //local folder
 import { CardSchema } from './yupSchema';
-import { IFormData, ActionType, ICardPopupProps } from './types';
 import { DatePicker } from './DatePicker/DatePicker';
 
 //styles
 import * as S from './CardPopup.styled';
+import { ICardPopupProps, IFormData } from './types';
 
 const CardPopup = ({
-  actionType = ActionType.Add,
+  actionType,
   onSave = () => console.log('You forgot to bring the onSave function'),
   cardData = {
     title: '',
@@ -45,7 +45,7 @@ const CardPopup = ({
   };
 
   return (
-    <S.popupContainer_div>
+    <>
       <S.popupName_p>{actionType} card</S.popupName_p>
       <S.cardDataForm_form
         onSubmit={handleSubmit((data) =>
@@ -128,7 +128,7 @@ const CardPopup = ({
           {actionType}
         </S.onSaveButton_button>
       </S.cardDataForm_form>
-    </S.popupContainer_div>
+    </>
   );
 };
 

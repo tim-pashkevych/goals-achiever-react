@@ -1,16 +1,5 @@
 import styled from 'styled-components';
 
-export const popupContainer_div = styled.div`
-  /* background-color: #151515; //? */
-  background-color: ${({ theme }) => theme.popup_Background};
-
-  border-radius: 8px;
-  /* border: 1px solid #bedbb080; //? */
-  border: 1px solid ${({ theme }) => theme.popup_Border};
-
-  padding: 24px;
-`;
-
 export const popupName_p = styled.p`
   font-size: 18px;
   line-height: 1.5;
