@@ -6,26 +6,27 @@ import 'react-datepicker/dist/react-datepicker.css';
 import s from './DatePicker.module.css';
 import { useEffect, useRef, useState } from 'react';
 
-interface IDatePickerProps {
-  onChange: (date: Date) => void;
-  selected: Date;
-}
+// interface IDatePickerProps {
+//   onChange: (date: Date) => void;
+//   selected: Date;
+// }
 
-export const DatePicker = ({ onChange, selected }: IDatePickerProps) => {
+export const DatePicker = ({ onChange, selected } /* : IDatePickerProps */) => {
   const [isOpen, setIsOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  // const ref = useRef < HTMLDivElement > null;
+  const ref = useRef(null);
 
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown = (event /* : KeyboardEvent */) => {
       if (event.key === 'Escape') {
         setIsOpen(false);
       }
     };
 
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event /* : MouseEvent */) => {
       if (
         ref.current &&
-        !ref.current.contains(event.target as HTMLDivElement)
+        !ref.current.contains(event.target /*  as HTMLDivElement */)
       ) {
         setIsOpen(false);
       }
@@ -47,7 +48,7 @@ export const DatePicker = ({ onChange, selected }: IDatePickerProps) => {
         open={isOpen}
         minDate={new Date()}
         onChange={(date) => {
-          onChange(date!), setIsOpen(false);
+          onChange(/* date! */ date), setIsOpen(false);
         }}
         dayClassName={(date) => {
           return date < new Date() ? 'disabled' : '';
