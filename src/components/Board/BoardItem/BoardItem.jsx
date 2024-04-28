@@ -1,6 +1,11 @@
 import { toast } from 'react-toastify';
 import { BoardForm, Modal } from '../..';
-import { useAppDispatch, useAppSelector, useModal } from '../../../hooks';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useLocalStorage,
+  useModal,
+} from '../../../hooks';
 import {
   deleteBoardByIdThunk,
   getBoardByIdThunk,
@@ -22,9 +27,14 @@ export const BoardItem = ({ id, title, icon }) => {
   const navigate = useNavigate();
   const { boardName } = useParams();
   const activeBoard = useAppSelector(selectActiveBoard);
+  const [activeBoardId, setActiveBoardId] = useLocalStorage('activeBoardId');
   const isActive = activeBoard._id === id;
 
   const handleBoardClick = (name) => {
+    if (activeBoardId !== id) {
+      setActiveBoardId(id);
+    }
+
     navigate(`/home/${name}`);
     dispatch(getBoardByIdThunk(id));
   };

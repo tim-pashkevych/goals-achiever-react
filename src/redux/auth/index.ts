@@ -5,4 +5,5 @@ export {
   selectIsUserLoading,
   selectUser,
   selectTheme,
+  selectRefreshToken,
 } from './slice';

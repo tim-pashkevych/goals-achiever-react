@@ -32,8 +32,12 @@ const info = async (data: FormData) => {
   return result.data.result;
 };
 
-const current = async () => {
-  const result = await api.get('/users');
+const current = async (boardId: string) => {
+  const result = await api.get('/users', {
+    params: {
+      boardId,
+    },
+  });
 
   const { token } = result.data.result.user;
 
