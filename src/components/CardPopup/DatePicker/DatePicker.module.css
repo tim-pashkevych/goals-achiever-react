@@ -123,4 +123,9 @@
 
     color: #ffffff33;
   }
+  :global(.react-datepicker__day--selected) {
+    color: #1f1f1f;
+    background-color: #bedbb0;
+    border-radius: 50%;
+  }
 }

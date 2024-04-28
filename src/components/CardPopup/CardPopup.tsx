@@ -14,16 +14,15 @@ import { DatePicker } from './DatePicker/DatePicker';
 
 //styles
 import * as S from './CardPopup.styled';
-import { useState } from 'react';
 
 const CardPopup = ({
   actionType = ActionType.Add,
   onSave = () => console.log('You forgot to bring the onSave function'),
   cardData = {
     title: '',
-    deadline: Math.floor(Date.now()),
     description: '',
     priority: '',
+    deadline: Math.floor(Date.now()).toString(),
   },
 }: ICardPopupProps) => {
   const {
@@ -39,9 +38,8 @@ const CardPopup = ({
     resolver: yupResolver(CardSchema),
   });
 
-  const [selectedDate, setSelectedDate] = useState(new Date(cardData.deadline));
-
   const onSubmit = (data: IFormData) => {
+    console.log('Form data: ', data);
     onSave(data);
     reset();
   };
@@ -102,11 +100,10 @@ const CardPopup = ({
           <Controller
             control={control}
             name="deadline"
-            render={({ field: { onChange } }) => (
+            render={({ field: { onChange, value } }) => (
               <DatePicker
-                selected={selectedDate}
+                selected={new Date(value)}
                 onChange={(date) => {
-                  setSelectedDate(date);
                   onChange(date);
                 }}
               />
