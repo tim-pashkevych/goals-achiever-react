@@ -47,7 +47,11 @@ const CardPopup = ({
   return (
     <S.popupContainer_div>
       <S.popupName_p>{actionType} card</S.popupName_p>
-      <S.cardDataForm_form onSubmit={handleSubmit(onSubmit)}>
+      <S.cardDataForm_form
+        onSubmit={handleSubmit((data) =>
+          onSubmit({ ...data, deadline: data.deadline as Date })
+        )}
+      >
         <S.formFieldWrapper_label $marginBottom="14px">
           <S.title_input
             {...register('title')}
@@ -102,8 +106,8 @@ const CardPopup = ({
             name="deadline"
             render={({ field: { onChange, value } }) => (
               <DatePicker
-                selected={new Date(value)}
-                onChange={(date) => {
+                selected={new Date(value as string)}
+                onChange={(date: Date) => {
                   onChange(date);
                 }}
               />
