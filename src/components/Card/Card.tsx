@@ -5,6 +5,7 @@ import { Modal, CardPopup } from '../../components';
 import { useModal, useAppDispatch } from '../../hooks';
 import { PriorityColor } from '../../constants';
 import { deleteCardByIdThunk, updateCardByIdThunk } from '../../redux';
+import { formatUnixDate } from '../../helpers';
 import { IUpdateCardRequestBody, Id, Priority } from '../../types';
 import { ActionType, IFormData } from '../CardPopup/types';
 
@@ -17,7 +18,7 @@ interface ICardProps {
   title?: string;
   description?: string;
   priority?: Priority;
-  deadline?: string | number | Date;
+  deadline?: string;
   _id: Id;
   columnId: Id;
   boardId: Id;
@@ -26,7 +27,7 @@ interface ICardProps {
 const Card = ({
   title = 'The watch spot design',
   description = "Create a visually stunning and eye-catching watch dial design that embodies our brand's...",
-  deadline = new Date(),
+  deadline = formatUnixDate(new Date().getTime()),
   priority = Priority.Low,
   _id,
   columnId,
@@ -71,7 +72,7 @@ const Card = ({
             </S.tagItem_li>
             <S.tagItem_li>
               <S.tagLabel_h5>Deadline</S.tagLabel_h5>
-              <S.deadlineValue_p>{deadline.toString()}</S.deadlineValue_p>
+              <S.deadlineValue_p>{deadline}</S.deadlineValue_p>
             </S.tagItem_li>
           </S.tagsList_ul>
           <S.bottomRightPartContainer_div>
