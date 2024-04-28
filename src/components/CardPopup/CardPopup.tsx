@@ -13,6 +13,7 @@ import { DatePicker } from './DatePicker/DatePicker';
 
 //styles
 import * as S from './CardPopup.styled';
+import { ICardPopupProps, IFormData } from './types';
 
 const CardPopup = ({
   actionType,
