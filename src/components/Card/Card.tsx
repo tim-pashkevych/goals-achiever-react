@@ -40,6 +40,7 @@ const Card = ({
       ...updatedCard,
       columnId,
       boardId,
+      deadline: updatedCard.deadline.toString(),
     };
 
     dispatch(updateCardByIdThunk({ id: _id, newCardBody: data }));
