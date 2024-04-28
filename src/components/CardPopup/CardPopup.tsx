@@ -22,7 +22,7 @@ const CardPopup = ({
     title: '',
     description: '',
     priority: '',
-    deadline: Math.floor(Date.now()).toString(),
+    deadline: new Date(),
   },
 }: ICardPopupProps) => {
   const {
@@ -34,13 +34,13 @@ const CardPopup = ({
   } = useForm({
     defaultValues: {
       ...cardData,
+      deadline: new Date(cardData.deadline),
     },
     resolver: yupResolver(CardSchema),
   });
 
   const onSubmit = (data: IFormData) => {
-    console.log('Form data: ', data);
-    onSave(data);
+    onSave({ ...data, deadline: new Date(data.deadline).getTime() });
     reset();
   };
 

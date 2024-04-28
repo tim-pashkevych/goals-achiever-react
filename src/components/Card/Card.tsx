@@ -14,7 +14,7 @@ interface ICardProps {
   title?: string;
   description?: string;
   priority?: Priority;
-  deadline?: string;
+  deadline?: string | number | Date;
   _id: Id;
   columnId: Id;
   boardId: Id;
@@ -23,7 +23,7 @@ interface ICardProps {
 const Card = ({
   title = 'The watch spot design',
   description = "Create a visually stunning and eye-catching watch dial design that embodies our brand's...",
-  deadline = '12/05/2023',
+  deadline = new Date(),
   priority = Priority.Low,
   _id,
   columnId,
@@ -34,6 +34,7 @@ const Card = ({
   const dispatch = useAppDispatch();
 
   const handleOnEdit = (updatedCard: IFormData) => {
+    console.log('updatedCard', updatedCard);
     toggleModal(false);
 
     const data: IUpdateCardRequestBody = {

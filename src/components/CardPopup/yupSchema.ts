@@ -4,7 +4,7 @@ export const CardSchema = yup.object({
   title: yup.string().required('Title is required'),
   description: yup.string().required('Description is required'),
   priority: yup.string().required('You need to choose the label color'),
-  deadline: yup.string().required('Deadline is required'),
+  deadline: yup.mixed().required('Deadline is required'),
 });
 
 // export const AddCardSchema = yup.object({

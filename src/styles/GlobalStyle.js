@@ -96,6 +96,11 @@ export const GlobalStyle = createGlobalStyle`
     
     line-height: 1.29;
     letter-spacing: -0.02em;
+
+    .disabled {
+  color: gray !important;
+
+}
   }
 
   
@@ -108,5 +113,9 @@ export const GlobalStyle = createGlobalStyle`
   button {
     transition: var(--transition);
   }
-  /* Reset End */
+
+  .react-datepicker-popper {
+    top: 2px !important;
+    left: 100px !important;
+  }
 `;
