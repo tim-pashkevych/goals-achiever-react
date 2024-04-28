@@ -1,14 +1,15 @@
-import { Date, Id, Priority } from '../';
+import { Date, Id } from '../';
 
 interface IShortCard {
-  _id: Id;
-  boardId: Id;
-  columnId: Id;
+  _id?: Id;
+  boardId?: Id;
+  columnId?: Id;
 
-  title: string;
-  description: string;
-  priority: Priority;
-  deadline: Date;
+  title?: string;
+  description?: string;
+  priority?: string;
+  deadline?: Date;
+  createdAt?: Date;
 }
 
 export default IShortCard;

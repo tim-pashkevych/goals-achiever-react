@@ -1,7 +1,11 @@
 import { toast } from 'react-toastify';
 import { BoardForm, Modal } from '../..';
-import { useAppDispatch, useModal } from '../../../hooks';
-import { deleteBoardByIdThunk } from '../../../redux';
+import { useAppDispatch, useAppSelector, useModal } from '../../../hooks';
+import {
+  deleteBoardByIdThunk,
+  getBoardByIdThunk,
+  selectActiveBoard,
+} from '../../../redux';
 import {
   SDivButton,
   SDivLi,
@@ -17,11 +21,12 @@ export const BoardItem = ({ id, title, icon }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { boardName } = useParams();
-
-  const isActive = boardName === title;
+  const activeBoard = useAppSelector(selectActiveBoard);
+  const isActive = activeBoard._id === id;
 
   const handleBoardClick = (name) => {
     navigate(`/home/${name}`);
+    dispatch(getBoardByIdThunk(id));
   };
 
   const handleDelete = (id) => {
