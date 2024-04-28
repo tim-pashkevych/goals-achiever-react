@@ -17,7 +17,7 @@ interface ICardProps {
   title?: string;
   description?: string;
   priority?: Priority;
-  deadline?: string;
+  deadline?: string | number | Date;
   _id: Id;
   columnId: Id;
   boardId: Id;
@@ -25,8 +25,8 @@ interface ICardProps {
 
 const Card = ({
   title = 'The watch spot design',
-  description = "Create a visually stunning and eye-catching watch dial design that embodies our something brand's and some other people have to describe, you know",
-  deadline = '12/05/2023',
+  description = "Create a visually stunning and eye-catching watch dial design that embodies our brand's...",
+  deadline = new Date(),
   priority = Priority.Low,
   _id,
   columnId,
@@ -44,6 +44,7 @@ const Card = ({
       ...updatedCard,
       columnId,
       boardId,
+      deadline: updatedCard.deadline.toString(),
     };
 
     dispatch(updateCardByIdThunk({ id: _id, newCardBody: data }));
