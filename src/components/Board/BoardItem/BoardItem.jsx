@@ -33,7 +33,7 @@ export const BoardItem = ({ id, title, icon }) => {
     dispatch(deleteBoardByIdThunk(id))
       .unwrap()
       .then(() => {
-        toast.success(`The board ${boardName} was deleted`);
+        toast.success(`The board "${boardName}" was deleted.`);
       })
       .catch((error) => {
         toast.error(error.message);

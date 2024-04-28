@@ -69,6 +69,15 @@ export const statusButton_button = styled.button`
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: -0.02em;
+
+  color: ${({ theme }) => theme.columnName_Text};
+  stroke: ${({ theme }) => theme.columnName_Text};
+
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.currentColumnName_Text};
+    stroke: ${({ theme }) => theme.currentColumnName_Text};
+  }
 `;
 
 interface IBellIcon {

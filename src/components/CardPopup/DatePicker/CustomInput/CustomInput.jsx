@@ -6,7 +6,7 @@ import icons from 'assets/sprite.svg';
 
 const CustomInput = forwardRef(({ value, onClick }, ref) => (
   <S.toggleDatePicker_button
-    $degree={/* isClicked */ false ? 180 : 0}
+    $degree={0}
     onClick={onClick}
     ref={ref}
     type="button"
