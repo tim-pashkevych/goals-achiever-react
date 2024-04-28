@@ -1,7 +1,9 @@
-import { BoardForm, BoardList } from '..';
-import { useAppDispatch, useModal } from '../../hooks';
-import { logoutThunk } from '../../redux';
+import { useModal } from '../../hooks';
+import { BoardForm } from '../Board/BoardForm/BoardForm';
+import { BoardList } from '../Board/BoardList/BoardList';
+import { Logout } from '../Logout/Logout';
 import { Modal } from '../Modal/Modal';
+import { NeedHelpForm } from '../NeedHelpForm/NeedHelpForm';
 import {
   SDiv,
   SIcon,
@@ -12,7 +14,6 @@ import {
   SbuttonCreate,
   SpHelp,
   SpCreate,
-  // SpNeon,
   SbuttonNeed,
   SDivLogOut,
   SDivNeed,
@@ -20,17 +21,14 @@ import {
   SbuttonLogout,
 } from './Sidebar.styled';
 
-export const Sidebar = () => {
+export const Sidebar = ({ className }) => {
   const [isOpenModal, toggleModal] = useModal();
-  const dispatch = useAppDispatch();
-
-  const handleLogout = () => {
-    dispatch(logoutThunk());
-  };
+  const [isOpenModalIssues, toggleModalIssues] = useModal();
+  const [isOpenLogoutModal, toggleLogoutModal] = useModal();
 
   return (
     <>
-      <SDiv>
+      <SDiv className={className}>
         <SNavLink to="/">
           <SIcon id="logo" size={32} className="logo" />
           <Sp>Task Pro</Sp>
@@ -52,14 +50,14 @@ export const Sidebar = () => {
             If you need help with <span>TaskPro</span>, check out our support
             resources or reach out to our customer support team.
           </SpHelp>
-          <SbuttonNeed>
+          <SbuttonNeed onClick={toggleModalIssues}>
             <SIcon id="help-circle" size={20} className="help-circle" />
             Need help?
           </SbuttonNeed>
         </SDivNeed>
 
         <SDivLogOut>
-          <SbuttonLogout type="button" onClick={handleLogout}>
+          <SbuttonLogout type="button" onClick={toggleLogoutModal}>
             <SIcon id="login" size={32} className="login" />
             Log out
           </SbuttonLogout>
@@ -68,6 +66,16 @@ export const Sidebar = () => {
       {isOpenModal && (
         <Modal toggleModal={toggleModal}>
           <BoardForm handleCloseModal={toggleModal} />
+        </Modal>
+      )}
+      {isOpenModalIssues && (
+        <Modal toggleModal={toggleModalIssues}>
+          <NeedHelpForm toggleModal={toggleModalIssues} />
+        </Modal>
+      )}
+      {isOpenLogoutModal && (
+        <Modal toggleModal={toggleLogoutModal}>
+          <Logout toggleModal={toggleLogoutModal} />
         </Modal>
       )}
     </>

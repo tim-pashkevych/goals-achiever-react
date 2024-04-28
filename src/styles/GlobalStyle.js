@@ -97,6 +97,16 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.29;
     letter-spacing: -0.02em;
   }
+
   
+  input,
+  textarea {
+    background-color: transparent;
+    transition: var(--transition);
+  }
+
+  button {
+    transition: var(--transition);
+  }
   /* Reset End */
 `;

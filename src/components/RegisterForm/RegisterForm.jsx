@@ -25,7 +25,7 @@ export const RegisterForm = () => {
 
   const handleSubmitForm = (data) => {
     setError('');
-    data.theme = 'dark';
+
     dispatch(registerThunk(data))
       .unwrap()
       .catch((error) => {

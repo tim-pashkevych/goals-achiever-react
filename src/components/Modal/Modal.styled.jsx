@@ -10,6 +10,7 @@ export const SWrapper_div = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(22, 22, 22, 0.8);
+  z-index: 1000;
 `;
 
 export const SModalWindow_div = styled.div`
