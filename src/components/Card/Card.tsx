@@ -70,7 +70,11 @@ const Card = ({
           <S.bottomRightPartContainer_div>
             <S.actionButtonsList_ul>
               <S.actionItem_li>
-                <CardStatusPopup />
+                <CardStatusPopup
+                  columnId={columnId}
+                  boardId={boardId}
+                  id={_id}
+                />
               </S.actionItem_li>
               <S.actionItem_li>
                 <S.actionButton_button
