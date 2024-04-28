@@ -5,7 +5,8 @@ interface ICardContainerProps {
 }
 
 export const card_div = styled.div<ICardContainerProps>`
-  background-color: #121212; //?
+  /* background-color: #121212; //? */
+  background-color: ${({ theme }) => theme.card_Background};
 
   display: flex;
   flex-direction: column;
@@ -38,7 +39,8 @@ export const card_div = styled.div<ICardContainerProps>`
     width: 5px;
     height: 100%;
 
-    background-color: #121212; //?
+    /* background-color: #121212; //? */
+    background-color: ${({ theme }) => theme.card_Background};
 
     position: absolute;
     top: 0;
@@ -55,7 +57,8 @@ export const title_h4 = styled.h4`
 
   margin-bottom: 8px;
 
-  color: #ffffff; //?
+  /* color: #ffffff; //? */
+  color: ${({ theme }) => theme.title_Text};
 `;
 
 export const description_p = styled.p`
@@ -65,18 +68,10 @@ export const description_p = styled.p`
   max-width: 290px;
   height: 38px;
 
-  //test
-  /* height: 48px;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3; // Number of lines to show
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis; */
-  //test
-
   margin-bottom: 28px;
 
-  color: rgba(255, 255, 255, 0.5); //?
+  /* color: rgba(255, 255, 255, 0.5); //? */
+  color: ${({ theme }) => theme.description_Text};
 
   position: relative;
   &::after {
@@ -91,7 +86,8 @@ export const description_p = styled.p`
     width: 291px;
     height: 1px;
 
-    background-color: rgba(255, 255, 255, 0.1); //?
+    /* background-color: rgba(255, 255, 255, 0.1); //? */
+    background-color: ${({ theme }) => theme.description_After_Background};
   }
 `;
 
@@ -107,7 +103,8 @@ export const tagsList_ul = styled.ul`
 `;
 
 export const tagItem_li = styled.li`
-  color: #ffffff; //?
+  /* color: #ffffff; //? */
+  color: ${({ theme }) => theme.tagItem_Text};
 
   display: flex;
   flex-direction: column;
@@ -118,7 +115,8 @@ export const tagItem_li = styled.li`
 `;
 
 export const tagLabel_h5 = styled.h5`
-  color: rgba(255, 255, 255, 0.5); //?
+  /* color: rgba(255, 255, 255, 0.5); //? */
+  color: ${({ theme }) => theme.tagLabel_Text};
 
   font-weight: 400;
   font-size: 8px;
@@ -173,12 +171,15 @@ export const actionItem_li = styled.li`
 export const actionButton_button = styled.button`
   display: flex;
 
-  stroke: rgba(255, 255, 255, 0.5); //?
+  /* stroke: rgba(255, 255, 255, 0.5); //? */
+  stroke: ${({ theme }) => theme.actionButton_Stroke};
+  fill: transparent;
 
   transition: stroke 250ms ease-in-out;
 
   &:hover,
   &:focus {
-    stroke: rgba(255, 255, 255, 1); //?
+    /* stroke: rgba(255, 255, 255, 1); //? */
+    stroke: ${({ theme }) => theme.actionButton_Stroke_Hover};
   }
 `;

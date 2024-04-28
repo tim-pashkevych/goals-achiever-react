@@ -1,14 +1,14 @@
 import icons from 'assets/sprite.svg';
 import { Modal, CardPopup } from '../../components';
 import { useModal, useAppDispatch } from '../../hooks';
-import { IUpdateCardRequestBody, Id, Priority } from '../../types';
 import { PriorityColor } from '../../constants';
+import { deleteCardByIdThunk, updateCardByIdThunk } from '../../redux';
+import { IUpdateCardRequestBody, Id, Priority } from '../../types';
 import { ActionType, IFormData } from '../CardPopup/types';
 
 import { CardStatusPopup } from './CardStatusPopup';
 
 import * as S from './Card.styled';
-import { deleteCardByIdThunk, updateCardByIdThunk } from '../../redux';
 
 interface ICardProps {
   title?: string;
@@ -20,9 +20,6 @@ interface ICardProps {
   boardId: Id;
 }
 
-// _id,
-// columnId,
-// boardId,
 const Card = ({
   title = 'The watch spot design',
   description = "Create a visually stunning and eye-catching watch dial design that embodies our brand's...",
