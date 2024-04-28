@@ -16,3 +16,4 @@ export * from './Board/BoardList/BoardList.jsx';
 export * from './Board/BoardItem/BoardItem.jsx';
 export { default as CardPopup } from './CardPopup/CardPopup';
 export { default as Card } from './Card/Card';
+export * from './NeedHelpForm/NeedHelpForm.jsx';

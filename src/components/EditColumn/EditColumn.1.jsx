@@ -36,7 +36,6 @@ export const EditColumn = ({
       toggleModal();
     }
     if (actionType === 'delete') {
-      console.log('id', id);
       dispatch(deleteColumnByIdThunk(id));
       toggleModal();
     }
