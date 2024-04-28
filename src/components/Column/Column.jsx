@@ -1,3 +1,14 @@
+import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { Button } from '../Button/Button';
+import Icons from '../../assets/sprite.svg';
+import { useAppDispatch, useAppSelector, useModal } from '../../hooks';
+import Card from '../Card/Card';
+
+import { ColumnForm } from './ColumnForm/ColumnForm';
+import { createCardThunk, selectCardsByColumnId } from '../../redux/cards';
+import { filterCards } from '../../helpers/filterCards';
+import { CardPopup, Modal } from '..';
 import {
   SButtonWrapper,
   SCardWrapperScroll,
@@ -6,20 +17,11 @@ import {
   SIcon,
   SIconsWrapper,
 } from './Column.styled';
-
-import { Button } from '../Button/Button';
-import Icons from '../../assets/sprite.svg';
-import { useAppSelector, useModal } from '../../hooks';
-import Card from '../Card/Card';
-
-import { ColumnForm } from './ColumnForm/ColumnForm';
-import { useState } from 'react';
-
-import { selectCardsByColumnId } from '../../redux/cards';
-import { filterCards } from '../../helpers/filterCards';
-import { CardPopup, Modal } from '..';
+import { selectActiveBoard } from '../../redux';
 
 export const Column = ({ title, columnId, filter, boardId }) => {
+  const dispatch = useAppDispatch();
+  const activeBoard = useAppSelector(selectActiveBoard);
   const [isOpenModal, toggleModal] = useModal();
   const [isAddCardOpenModal, toggleAddCardModal] = useModal();
 
@@ -36,7 +38,12 @@ export const Column = ({ title, columnId, filter, boardId }) => {
   };
 
   const handleAddAnotherCard = (data) => {
-    console.log(data);
+    dispatch(createCardThunk({ ...data, boardId: activeBoard._id, columnId }))
+      .unwrap()
+      .then(() => {
+        toggleAddCardModal();
+      })
+      .catch((error) => toast.error(error.message));
   };
 
   const cards = useAppSelector((state) =>

@@ -1,8 +1,8 @@
 enum Priority {
   WithoutPriority = 'Without priority',
-  Low = 'Low',
-  Medium = 'Medium',
-  High = 'High',
+  Low = 'low',
+  Medium = 'medium',
+  High = 'high',
 }
 
 export default Priority;
