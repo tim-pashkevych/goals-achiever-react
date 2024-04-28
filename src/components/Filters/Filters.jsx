@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   SForm_ul,
   SItem_li,
@@ -12,17 +11,18 @@ import {
 } from './Filters.styled';
 import { priority } from '../../constants';
 
-export const Filters = () => {
-  const [active, setActive] = useState(null);
-
+export const Filters = ({ filter, setFilter }) => {
   const handleChange = (title) => {
-    if (title === active) return;
+    if (title === filter) return;
 
-    setActive(title);
+    if (title === 'without priority') {
+      title = 'without';
+    }
+    setFilter(title);
   };
 
   const handleShowAll = () => {
-    setActive(null);
+    setFilter(null);
   };
 
   return (
@@ -37,10 +37,10 @@ export const Filters = () => {
           <SItem_li key={id}>
             <SRadio_button
               onClick={() => handleChange(el.title)}
-              className={`${active === el.title ? 'active' : ''}`}
+              className={`${filter === el.title ? 'active' : ''}`}
             >
               <Span
-                className={`${active === el.title ? 'active' : ''}`}
+                className={`${filter === el.title ? 'active' : ''}`}
                 $color={el.color}
               ></Span>
               {el.title}
