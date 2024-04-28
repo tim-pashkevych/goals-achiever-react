@@ -13,7 +13,6 @@ import { ColumnForm } from '../Column/ColumnForm/ColumnForm';
 
 export const MainDashboard = ({ filter }) => {
   const board = useAppSelector(selectActiveBoard);
-  console.log('boards', board);
 
   const columns = useAppSelector(selectColumns);
 
