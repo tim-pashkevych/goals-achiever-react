@@ -1,4 +1,4 @@
-import { Id } from '../..';
+import { Id, Date } from '../..';
 
 interface IUpdateCardRequestBody {
   title?: string;

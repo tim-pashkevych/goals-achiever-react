@@ -33,9 +33,9 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
-  p:last-child {
+  /* p:last-child {
     margin-bottom: 0;
-  }
+  } */
 
   ul,
   ol {
