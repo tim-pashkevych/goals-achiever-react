@@ -731,6 +731,8 @@ attempted value: ${s}
     width: 352px;
   }
 `,k$=ai().shape({email:yt().email("Enter a valid Email").required("Email is required").max(64,"Max length must be less than 64 chars"),message:yt().required("Message is required").min(3,"Your message should be 3 or more characters")}),XE="/goals-achiever-react/assets/flowerpot_1x-60a66a21.png",JE="/goals-achiever-react/assets/flowerpot_2x-7a0264e5.png",_$=k.div`
+  display: flex;
+  flex-direction: column;
   background-color: ${({theme:e})=>e.backgroundSidebar};
   padding: 14px 14px 24px;
   width: 225px;
@@ -807,17 +809,20 @@ attempted value: ${s}
   color: ${({theme:e})=>e.textBord};
   margin-bottom: 8px;
 `,T$=k.div`
-  height: 252px;
+  flex: 1;
+  overflow-y: scroll;
   margin-bottom: 4px;
   margin-inline: -14px;
 
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
   @media (min-width: 768px) {
-    height: 416px;
     margin-inline: -24px;
   }
 
   @media (min-width: 1440px) {
-    height: 161px;
     margin-inline: -13px;
   }
 `,P$=k.div`
@@ -1680,7 +1685,6 @@ attempted value: ${s}
   letter-spacing: -0.02em;
   color: ${({theme:e})=>e.textBord};
   padding: 20px 0;
-  margin-bottom: 116px;
 `,G5=k.div`
   display: flex;
   align-items: flex-end;
@@ -1710,7 +1714,7 @@ attempted value: ${s}
         background-color: ${({theme:t})=>t.logoOut};
         position: absolute;
         top: 0;
-        right: 0;
+        right: -1px;
       }
 
       & p {
@@ -1970,4 +1974,4 @@ attempted value: ${s}
   position: absolute;
   ${e=>`${e.$position};`}
   left: 0;
-`,Vl=({children:e})=>{const t=Eo(jf),n=Nn();return t?e:I.jsx(gf,{state:{from:n},to:"/welcome"})},hh=({children:e})=>{var r;const t=Eo(jf),n=Nn();return t?I.jsx(gf,{to:((r=n.state)==null?void 0:r.from)||"/"}):e},oC=$.lazy(()=>si(()=>import("./WelcomePage-4f64de6a.js"),["assets/WelcomePage-4f64de6a.js","assets/Image-3a821682.js"])),iC=$.lazy(()=>si(()=>import("./AuthPage-81fc66eb.js"),["assets/AuthPage-81fc66eb.js","assets/yup-31b5f1e0.js"])),sC=$.lazy(()=>si(()=>import("./HomePage-5bc53777.js"),["assets/HomePage-5bc53777.js","assets/useModal-5fe5e1cc.js","assets/yup-31b5f1e0.js","assets/Image-3a821682.js"])),mh=$.lazy(()=>si(()=>import("./ScreensPage-0e18ea03.js"),["assets/ScreensPage-0e18ea03.js","assets/useModal-5fe5e1cc.js","assets/yup-31b5f1e0.js"])),aC=$.lazy(()=>si(()=>import("./NotFoundPage-4293b12a.js"),[]));function lC(){return I.jsx(zx,{children:I.jsxs(jt,{path:"/",element:I.jsx(zb,{}),children:[I.jsx(jt,{index:!0,element:I.jsx(Vl,{children:I.jsx(gf,{to:"/home"})})}),I.jsx(jt,{path:"/welcome",element:I.jsx(hh,{children:I.jsx(oC,{})})}),I.jsx(jt,{path:"/auth/:id",element:I.jsx(hh,{children:I.jsx(iC,{})})}),I.jsxs(jt,{path:"/home",element:I.jsx(sC,{}),children:[I.jsx(jt,{index:!0,element:I.jsx(Vl,{children:I.jsx(mh,{})})}),I.jsx(jt,{path:"/home/:boardName",element:I.jsx(Vl,{children:I.jsx(mh,{})})})]}),I.jsx(jt,{path:"*",element:I.jsx(aC,{})})]})})}Ql.createRoot(document.getElementById("root")).render(I.jsx(qx,{basename:"/goals-achiever-react",children:I.jsx(_w,{store:z0,children:I.jsxs(Vg,{loading:null,persistor:E_,children:[I.jsx(lC,{}),I.jsx(Uw,{theme:"dark",style:{zIndex:99999},autoClose:2e3})]})})}));export{k$ as $,s$ as A,a$ as B,l$ as C,JC as D,Pl as E,$l as F,y_ as G,u$ as H,Qf as I,Lg as J,c$ as K,Xx as L,f$ as M,Jx as N,d$ as O,p$ as P,bl as Q,K as R,QC as S,h$ as T,m$ as U,g$ as V,y$ as W,v$ as X,w$ as Y,x$ as Z,S$ as _,yt as a,w5 as a$,PC as a0,_$ as a1,E$ as a2,b$ as a3,C$ as a4,$$ as a5,P$ as a6,O$ as a7,R$ as a8,T$ as a9,Z$ as aA,Yb as aB,X5 as aC,J5 as aD,Q5 as aE,q5 as aF,G5 as aG,Y5 as aH,Ol as aI,jx as aJ,AC as aK,a5 as aL,l5 as aM,dy as aN,u5 as aO,c5 as aP,f5 as aQ,Bl as aR,d5 as aS,YC as aT,p5 as aU,h5 as aV,m5 as aW,g5 as aX,y5 as aY,v5 as aZ,x5 as a_,N$ as aa,F$ as ab,I$ as ac,A$ as ad,L$ as ae,zC as af,FC as ag,j$ as ah,D$ as ai,z$ as aj,M$ as ak,B$ as al,H$ as am,V$ as an,K$ as ao,Q$ as ap,RC as aq,q$ as ar,U$ as as,W$ as at,El as au,G$ as av,Y$ as aw,X$ as ax,J$ as ay,e5 as az,Db as b,MC as b$,S5 as b0,k5 as b1,_5 as b2,b5 as b3,Ht as b4,Al as b5,Ll as b6,E5 as b7,C5 as b8,$5 as b9,U5 as bA,W5 as bB,H5 as bC,V5 as bD,K5 as bE,pf as bF,Kl as bG,j as bH,hn as bI,cC as bJ,eT as bK,nC as bL,Z5 as bM,tT as bN,nT as bO,rT as bP,oT as bQ,iT as bR,dT as bS,sT as bT,aT as bU,lT as bV,XC as bW,uT as bX,c0 as bY,cT as bZ,fT as b_,T5 as ba,eC as bb,P5 as bc,O5 as bd,Rl as be,Fl as bf,Nl as bg,DC as bh,t5 as bi,r5 as bj,o5 as bk,s5 as bl,n5 as bm,i5 as bn,IC as bo,R5 as bp,F5 as bq,N5 as br,I5 as bs,A5 as bt,L5 as bu,B5 as bv,j5 as bw,D5 as bx,z5 as by,M5 as bz,ai as c,Kb as c0,Ul as c1,UC as c2,WC as c3,kl as d,fC as e,qC as f,GC as g,Cl as h,HC as i,I as j,VC as k,_l as l,KC as m,Eo as n,jC as o,ZC as p,r$ as q,$ as r,p_ as s,Bb as t,k as u,o$ as v,i$ as w,t$ as x,n$ as y,e$ as z};
+`,Vl=({children:e})=>{const t=Eo(jf),n=Nn();return t?e:I.jsx(gf,{state:{from:n},to:"/welcome"})},hh=({children:e})=>{var r;const t=Eo(jf),n=Nn();return t?I.jsx(gf,{to:((r=n.state)==null?void 0:r.from)||"/"}):e},oC=$.lazy(()=>si(()=>import("./WelcomePage-646ea63d.js"),["assets/WelcomePage-646ea63d.js","assets/Image-4ef40164.js"])),iC=$.lazy(()=>si(()=>import("./AuthPage-2b5aa0af.js"),["assets/AuthPage-2b5aa0af.js","assets/yup-2b319cb3.js"])),sC=$.lazy(()=>si(()=>import("./HomePage-20dadfa6.js"),["assets/HomePage-20dadfa6.js","assets/useModal-a922680f.js","assets/yup-2b319cb3.js","assets/Image-4ef40164.js"])),mh=$.lazy(()=>si(()=>import("./ScreensPage-3436212e.js"),["assets/ScreensPage-3436212e.js","assets/useModal-a922680f.js","assets/yup-2b319cb3.js"])),aC=$.lazy(()=>si(()=>import("./NotFoundPage-af129379.js"),[]));function lC(){return I.jsx(zx,{children:I.jsxs(jt,{path:"/",element:I.jsx(zb,{}),children:[I.jsx(jt,{index:!0,element:I.jsx(Vl,{children:I.jsx(gf,{to:"/home"})})}),I.jsx(jt,{path:"/welcome",element:I.jsx(hh,{children:I.jsx(oC,{})})}),I.jsx(jt,{path:"/auth/:id",element:I.jsx(hh,{children:I.jsx(iC,{})})}),I.jsxs(jt,{path:"/home",element:I.jsx(sC,{}),children:[I.jsx(jt,{index:!0,element:I.jsx(Vl,{children:I.jsx(mh,{})})}),I.jsx(jt,{path:"/home/:boardName",element:I.jsx(Vl,{children:I.jsx(mh,{})})})]}),I.jsx(jt,{path:"*",element:I.jsx(aC,{})})]})})}Ql.createRoot(document.getElementById("root")).render(I.jsx(qx,{basename:"/goals-achiever-react",children:I.jsx(_w,{store:z0,children:I.jsxs(Vg,{loading:null,persistor:E_,children:[I.jsx(lC,{}),I.jsx(Uw,{theme:"dark",style:{zIndex:99999},autoClose:2e3})]})})}));export{k$ as $,s$ as A,K as B,a$ as C,l$ as D,JC as E,Pl as F,$l as G,y_ as H,Qf as I,u$ as J,Lg as K,Xx as L,c$ as M,Jx as N,f$ as O,d$ as P,p$ as Q,bl as R,QC as S,h$ as T,m$ as U,g$ as V,y$ as W,v$ as X,w$ as Y,x$ as Z,S$ as _,yt as a,w5 as a$,PC as a0,_$ as a1,E$ as a2,b$ as a3,C$ as a4,$$ as a5,P$ as a6,O$ as a7,R$ as a8,T$ as a9,Z$ as aA,Yb as aB,X5 as aC,J5 as aD,Q5 as aE,q5 as aF,G5 as aG,Y5 as aH,Ol as aI,jx as aJ,AC as aK,a5 as aL,l5 as aM,dy as aN,u5 as aO,c5 as aP,f5 as aQ,Bl as aR,d5 as aS,YC as aT,p5 as aU,h5 as aV,m5 as aW,g5 as aX,y5 as aY,v5 as aZ,x5 as a_,N$ as aa,F$ as ab,I$ as ac,A$ as ad,L$ as ae,zC as af,FC as ag,j$ as ah,D$ as ai,z$ as aj,M$ as ak,B$ as al,H$ as am,V$ as an,K$ as ao,Q$ as ap,RC as aq,q$ as ar,U$ as as,W$ as at,El as au,G$ as av,Y$ as aw,X$ as ax,J$ as ay,e5 as az,Db as b,MC as b$,S5 as b0,k5 as b1,_5 as b2,b5 as b3,Ht as b4,Al as b5,Ll as b6,E5 as b7,C5 as b8,$5 as b9,U5 as bA,W5 as bB,H5 as bC,V5 as bD,K5 as bE,pf as bF,Kl as bG,j as bH,hn as bI,cC as bJ,eT as bK,nC as bL,Z5 as bM,tT as bN,nT as bO,rT as bP,oT as bQ,iT as bR,dT as bS,sT as bT,aT as bU,lT as bV,XC as bW,uT as bX,c0 as bY,cT as bZ,fT as b_,T5 as ba,eC as bb,P5 as bc,O5 as bd,Rl as be,Fl as bf,Nl as bg,DC as bh,t5 as bi,r5 as bj,o5 as bk,s5 as bl,n5 as bm,i5 as bn,IC as bo,R5 as bp,F5 as bq,N5 as br,I5 as bs,A5 as bt,L5 as bu,B5 as bv,j5 as bw,D5 as bx,z5 as by,M5 as bz,ai as c,Kb as c0,Ul as c1,UC as c2,WC as c3,kl as d,fC as e,qC as f,GC as g,Cl as h,HC as i,I as j,VC as k,_l as l,KC as m,Eo as n,jC as o,ZC as p,r$ as q,$ as r,p_ as s,Bb as t,k as u,o$ as v,i$ as w,t$ as x,n$ as y,e$ as z};
