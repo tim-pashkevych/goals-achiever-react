@@ -12,10 +12,12 @@ import {
   SFilter_p,
   SMainDashboard,
 } from './ScreensPage.Styled';
+import { useState } from 'react';
 
 const ScreensPage = () => {
   const [isOpenModal, setIsOpenModal] = useModal();
   const { boardName } = useParams('boardName');
+  const [filter, setFilter] = useState(null);
 
   const closeModal = () => {
     setIsOpenModal(false);
@@ -27,10 +29,10 @@ const ScreensPage = () => {
         <SFilter_p>Filters</SFilter_p>
       </SFilterWrapper_button>
       {!boardName && <NothinFound />}
-      {boardName && <MainDashboard />}
+      {boardName && <MainDashboard filter={filter} />}
       {isOpenModal && (
         <Modal toggleModal={closeModal}>
-          <Filters />
+          <Filters filter={filter} setFilter={setFilter} />
         </Modal>
       )}
     </SMainDashboard>

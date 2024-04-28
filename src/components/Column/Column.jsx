@@ -16,8 +16,9 @@ import { ColumnForm } from './ColumnForm/ColumnForm';
 import { useState } from 'react';
 
 import { selectCardsByColumnId } from '../../redux/cards';
+import { filterCards } from '../../helpers/filterCards';
 
-export const Column = ({ title, columnId }) => {
+export const Column = ({ title, columnId, filter }) => {
   const [isOpenModal, toggleModal] = useModal();
 
   const [actionType, setActionType] = useState(null);
@@ -35,6 +36,7 @@ export const Column = ({ title, columnId }) => {
   const cards = useAppSelector((state) =>
     selectCardsByColumnId(state, columnId)
   );
+  const filteredCards = filterCards(cards, filter);
 
   return (
     <SColumnWrapper>
@@ -57,7 +59,7 @@ export const Column = ({ title, columnId }) => {
       </SColumnName>
 
       <SCardWrapperScroll>
-        {cards.map((card) => (
+        {filteredCards.map((card) => (
           <Card key={card._id} {...card} />
         ))}
       </SCardWrapperScroll>

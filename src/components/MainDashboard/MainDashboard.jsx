@@ -11,7 +11,7 @@ import {
 } from './MainDashboard.styled';
 import { ColumnForm } from '../Column/ColumnForm/ColumnForm';
 
-export const MainDashboard = () => {
+export const MainDashboard = ({ filter }) => {
   const board = useAppSelector(selectActiveBoard);
   console.log('boards', board);
 
@@ -31,6 +31,7 @@ export const MainDashboard = () => {
               key={column._id}
               columnId={column._id}
               {...column}
+              filter={filter}
             />
           ))}
         <SButton_button onClick={toggleModal}>
