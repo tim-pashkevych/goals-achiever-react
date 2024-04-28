@@ -1,7 +1,13 @@
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+
 import { BoardForm, Modal } from '../..';
-import { useAppDispatch, useModal } from '../../../hooks';
-import { deleteBoardByIdThunk } from '../../../redux';
+import { useAppDispatch, useAppSelector, useModal } from '../../../hooks';
+import {
+  deleteBoardByIdThunk,
+  getBoardByIdThunk,
+  selectActiveBoard,
+} from '../../../redux';
 import {
   SDivButton,
   SDivLi,
@@ -10,25 +16,30 @@ import {
   SbuttonProject,
   SpProject,
 } from './BoardItem.styled';
-import { useNavigate, useParams } from 'react-router-dom';
 
-export const BoardItem = ({ id, title, icon }) => {
+export const BoardItem = ({ id, title, icon, setActiveBoardId }) => {
   const [isOpenModal, toggleModal] = useModal();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { boardName } = useParams();
-
-  const isActive = boardName === title;
+  const activeBoard = useAppSelector(selectActiveBoard);
+  const isActive = activeBoard._id === id;
 
   const handleBoardClick = (name) => {
-    navigate(`/home/${name}`);
+    dispatch(getBoardByIdThunk(id))
+      .unwrap()
+      .then(() => {
+        setActiveBoardId(id);
+        navigate(`/home/${name}`);
+      })
+      .catch((error) => toast.error(error.message));
   };
 
   const handleDelete = (id) => {
     dispatch(deleteBoardByIdThunk(id))
       .unwrap()
       .then(() => {
-        toast.success(`The board ${boardName} was deleted`);
+        toast.success(`The board "${boardName}" was deleted.`);
       })
       .catch((error) => {
         toast.error(error.message);

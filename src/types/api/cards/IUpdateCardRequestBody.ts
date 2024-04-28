@@ -4,7 +4,7 @@ interface IUpdateCardRequestBody {
   title?: string;
   description?: string;
   priority?: string;
-  deadline?: Date;
+  deadline?: string | number | Date;
   boardId?: Id;
   columnId?: Id;
 }

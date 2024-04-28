@@ -17,30 +17,40 @@ import * as S from './CardPopup.styled';
 const CardPopup = ({
   actionType,
   onSave = () => console.log('You forgot to bring the onSave function'),
-  cardData = { title: '', deadline: '', description: '', priority: '' },
-}) => {
+  cardData = {
+    title: '',
+    description: '',
+    priority: '',
+    deadline: new Date(),
+  },
+}: ICardPopupProps) => {
   const {
-    control,
     register,
+    control,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
       ...cardData,
+      deadline: new Date(cardData.deadline),
     },
     resolver: yupResolver(CardSchema),
   });
 
-  const onSubmit = (data) => {
-    onSave(data);
+  const onSubmit = (data: IFormData) => {
+    onSave({ ...data, deadline: new Date(data.deadline).getTime() });
     reset();
   };
 
   return (
     <>
       <S.popupName_p>{actionType} card</S.popupName_p>
-      <S.cardDataForm_form onSubmit={handleSubmit(onSubmit)}>
+      <S.cardDataForm_form
+        onSubmit={handleSubmit((data) =>
+          onSubmit({ ...data, deadline: data.deadline as Date })
+        )}
+      >
         <S.formFieldWrapper_label $marginBottom="14px">
           <S.title_input
             {...register('title')}
@@ -90,29 +100,23 @@ const CardPopup = ({
         </S.propertyWrapper_div>
         <S.propertyWrapper_div $marginBottom="40px">
           Deadline
-          {/* <input
-            type="date"
-            {...register('deadline')}
-            style={{ width: '120px' }}
-          /> */}
           <Controller
             control={control}
-            name="ReactDatepicker"
-            defaultValue={Date()}
-            render={({ field }) => (
-              <>
-                <DatePicker
-                  field={field}
-                  onChange={(data) => console.log(data)}
-                />
-                {errors.deadline && (
-                  <S.errorMessage_p $position="bottom: -22px">
-                    {errors.deadline.message}
-                  </S.errorMessage_p>
-                )}
-              </>
+            name="deadline"
+            render={({ field: { onChange, value } }) => (
+              <DatePicker
+                selected={new Date(value as string)}
+                onChange={(date: Date) => {
+                  onChange(date);
+                }}
+              />
             )}
           />
+          {errors.deadline && (
+            <S.errorMessage_p $position="bottom: -22px">
+              {errors.deadline.message}
+            </S.errorMessage_p>
+          )}
         </S.propertyWrapper_div>
         <S.onSaveButton_button type="submit">
           <S.plusIconContainer_span>

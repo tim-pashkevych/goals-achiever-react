@@ -1,4 +1,5 @@
-import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+
 import {
   Filters,
   Icon,
@@ -6,17 +7,17 @@ import {
   Modal,
   NothinFound,
 } from '../../components';
-import { useModal } from '../../hooks';
+import { useAppSelector, useModal } from '../../hooks';
 import {
   SFilterWrapper_button,
   SFilter_p,
   SMainDashboard,
 } from './ScreensPage.Styled';
-import { useState } from 'react';
+import { selectActiveBoard } from '../../redux';
 
 const ScreensPage = () => {
+  const activeBoard = useAppSelector(selectActiveBoard);
   const [isOpenModal, setIsOpenModal] = useModal();
-  const { boardName } = useParams('boardName');
   const [filter, setFilter] = useState(null);
 
   const closeModal = () => {
@@ -28,8 +29,8 @@ const ScreensPage = () => {
         <Icon id="filter" size={16} />
         <SFilter_p>Filters</SFilter_p>
       </SFilterWrapper_button>
-      {!boardName && <NothinFound />}
-      {boardName && <MainDashboard filter={filter} />}
+      {!activeBoard && <NothinFound />}
+      {activeBoard && <MainDashboard filter={filter} />}
       {isOpenModal && (
         <Modal toggleModal={closeModal}>
           <Filters filter={filter} setFilter={setFilter} />

@@ -11,7 +11,9 @@ import {
   IRefreshCredentials,
   IIssuesThunkPayload,
   IIssuesCredentials,
+  IFetchUserThunkPayload,
 } from '../../types';
+import { AppDispatch, RootState } from '../store';
 
 interface IThunkAPI {
   rejectValue: string;
@@ -35,11 +37,11 @@ export const registerThunk = createAsyncThunk<
 export const loginThunk = createAsyncThunk<
   ILoginThunkPayload,
   IUserCredentials,
-  IThunkAPI
+  { dispatch: AppDispatch }
 >('POST /users/login', async (credentials, thunkAPI) => {
   try {
     const result = await api.users.login(credentials);
-    thunkAPI.dispatch(fetchUserThunk());
+    thunkAPI.dispatch(fetchUserThunk({ boardId: '' }));
 
     return result;
   } catch (error) {
@@ -78,19 +80,20 @@ export const updateUserInfoThunk = createAsyncThunk<
   }
 });
 
-export const fetchUserThunk = createAsyncThunk(
-  'GET users',
-  async (_, thunkAPI) => {
-    try {
-      const result = await api.users.current();
-      return result;
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
+export const fetchUserThunk = createAsyncThunk<
+  IFetchUserThunkPayload,
+  { boardId: string },
+  { state: RootState }
+>('GET users', async ({ boardId }, thunkAPI) => {
+  try {
+    const result = await api.users.current(boardId);
+    return result;
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
-);
+});
 
 export const updateUserTheme = createAsyncThunk(
   'PATCH /users/theme',
