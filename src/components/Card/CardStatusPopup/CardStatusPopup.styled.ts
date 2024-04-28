@@ -70,14 +70,14 @@ export const statusButton_button = styled.button`
   line-height: 1.5;
   letter-spacing: -0.02em;
 
-  color: ${(props) =>
-    props.$isActive
-      ? ({ theme }) => theme.currentColumnName_Text
-      : ({ theme }) => theme.columnName_Text};
-  stroke: ${(props) =>
-    props.$isActive
-      ? ({ theme }) => theme.currentColumnName_Text
-      : ({ theme }) => theme.columnName_Text};
+  color: ${({ theme }) => theme.columnName_Text};
+  stroke: ${({ theme }) => theme.columnName_Text};
+
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.currentColumnName_Text};
+    stroke: ${({ theme }) => theme.currentColumnName_Text};
+  }
 `;
 
 interface IBellIcon {
