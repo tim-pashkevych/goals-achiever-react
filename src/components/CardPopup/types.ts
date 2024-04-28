@@ -13,5 +13,5 @@ export interface IFormData {
   title: string;
   description: string;
   priority: string;
-  deadline: string;
+  deadline: string | number | Date;
 }

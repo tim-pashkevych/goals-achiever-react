@@ -110,17 +110,22 @@
     background-color: #bedbb0;
     border-radius: 50%;
   }
-  :global(.react-datepicker__day--keyboard-selected) {
+  /* :global(.react-datepicker__day--keyboard-selected) {
     color: #1f1f1f;
-    background-color: #bedbb0;
-    border-radius: 50%;
+    background-color: #6b8b5a;
+    border-radius: 50%; */
 
-    /* outline-color: red; */
-  }
+  /* outline-color: red; */
+  /* } 
   :global(.react-datepicker__day--outside-month) {
     /* color: transparent;
     pointer-events: none; */
-
+  /* 
     color: #ffffff33;
+  } */
+  :global(.react-datepicker__day--selected) {
+    color: #1f1f1f;
+    background-color: #bedbb0;
+    border-radius: 50%;
   }
 }

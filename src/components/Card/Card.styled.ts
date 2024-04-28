@@ -70,6 +70,8 @@ export const description_p = styled.p`
 
   margin-bottom: 28px;
 
+  cursor: pointer;
+
   /* color: rgba(255, 255, 255, 0.5); //? */
   color: ${({ theme }) => theme.description_Text};
 
