@@ -7,25 +7,20 @@ import s from './DatePicker.module.css';
 
 interface IDatePickerProps {
   onChange: (date: Date) => void;
+  selected: Date;
 }
 
-export const DatePicker = ({ onChange }: IDatePickerProps) => {
+export const DatePicker = ({ onChange, selected }: IDatePickerProps) => {
   return (
     <>
-      {/* <Controller
-        control={control}
-        name="ReactDatepicker"
-        defaultValue={value}
-        render={({ field }) => ( */}
       <ReactDatePicker
+        selected={selected}
         calendarClassName={s.datapicker}
         calendarStartDay={1}
         minDate={new Date()}
         onChange={(date) => onChange(date!)}
-        customInput={<CustomInput />}
+        customInput={<CustomInput value={selected} onClick={onChange} />}
       />
-      {/* )}
-      /> */}
     </>
   );
 };

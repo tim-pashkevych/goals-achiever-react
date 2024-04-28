@@ -1,5 +1,5 @@
 //installed libraries
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { nanoid } from '@reduxjs/toolkit';
 
@@ -14,14 +14,21 @@ import { DatePicker } from './DatePicker/DatePicker';
 
 //styles
 import * as S from './CardPopup.styled';
+import { useState } from 'react';
 
 const CardPopup = ({
   actionType = ActionType.Add,
   onSave = () => console.log('You forgot to bring the onSave function'),
-  cardData = { title: '', deadline: '', description: '', priority: '' },
+  cardData = {
+    title: '',
+    deadline: Math.floor(Date.now()),
+    description: '',
+    priority: '',
+  },
 }: ICardPopupProps) => {
   const {
     register,
+    control,
     handleSubmit,
     reset,
     formState: { errors },
@@ -31,6 +38,8 @@ const CardPopup = ({
     },
     resolver: yupResolver(CardSchema),
   });
+
+  const [selectedDate, setSelectedDate] = useState(new Date(cardData.deadline));
 
   const onSubmit = (data: IFormData) => {
     onSave(data);
@@ -90,12 +99,19 @@ const CardPopup = ({
         </S.propertyWrapper_div>
         <S.propertyWrapper_div $marginBottom="40px">
           Deadline
-          {/* <input
-            type="date"
-            {...register('deadline')}
-            style={{ width: '120px' }}
-          /> */}
-          <DatePicker onChange={(data) => console.log(data)} />
+          <Controller
+            control={control}
+            name="deadline"
+            render={({ field: { onChange } }) => (
+              <DatePicker
+                selected={selectedDate}
+                onChange={(date) => {
+                  setSelectedDate(date);
+                  onChange(date);
+                }}
+              />
+            )}
+          />
           {errors.deadline && (
             <S.errorMessage_p $position="bottom: -22px">
               {errors.deadline.message}
