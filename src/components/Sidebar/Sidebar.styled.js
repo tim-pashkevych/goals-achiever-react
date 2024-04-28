@@ -6,6 +6,8 @@ import flowerpot_1x from '../../assets/images/sidebar/flowerpot_1x.png';
 import flowerpot_2x from '../../assets/images/sidebar/flowerpot_2x.png';
 
 export const SDiv = styled.div`
+  display: flex;
+  flex-direction: column;
   background-color: ${({ theme }) => theme.backgroundSidebar};
   padding: 14px 14px 24px;
   width: 225px;
@@ -92,17 +94,20 @@ export const Sh2 = styled.h2`
 `;
 
 export const SDivProject = styled.div`
-  height: 252px;
+  flex: 1;
+  overflow-y: scroll;
   margin-bottom: 4px;
   margin-inline: -14px;
 
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
   @media (min-width: 768px) {
-    height: 416px;
     margin-inline: -24px;
   }
 
   @media (min-width: 1440px) {
-    height: 161px;
     margin-inline: -13px;
   }
 `;
