@@ -1,6 +1,6 @@
 import ReactDatePicker from 'react-datepicker';
 
-import CustomInput from './CustomInput/CustomInput';
+import CustomInput from './CustomInput/CustomInput.jsx';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import s from './DatePicker.module.css';
