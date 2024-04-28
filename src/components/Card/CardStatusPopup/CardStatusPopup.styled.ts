@@ -24,7 +24,8 @@ interface ISContainerProps {
 
 export const container_div = styled.div<ISContainerProps>`
   position: absolute;
-  top: 0;
+  top: 0px;
+  z-index: 55;
   right: 50%;
 
   width: 135px;
@@ -55,11 +56,7 @@ export const container_div = styled.div<ISContainerProps>`
     transform 250ms ease-in-out;
 `;
 
-interface IStatusButton {
-  $isActive: boolean;
-}
-
-export const statusButton_button = styled.button<IStatusButton>`
+export const statusButton_button = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,10 +67,7 @@ export const statusButton_button = styled.button<IStatusButton>`
   line-height: 1.5;
   letter-spacing: -0.02em;
 
-  color: ${(props) =>
-    props.$isActive ? '#BEDBB0' : 'rgba(255, 255, 255, 0.5)'};
-  stroke: ${(props) =>
-    props.$isActive ? '#BEDBB0' : 'rgba(255, 255, 255, 0.5)'};
+  color: white;
 `;
 
 interface IBellIcon {
