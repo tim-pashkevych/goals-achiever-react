@@ -6,8 +6,8 @@ import {
   deleteCardByIdThunk,
   moveCardByIdThunk,
 } from './operations';
-import { ICardsState, IShortCard } from '../../types';
-import { fetchUserThunk } from '..';
+import { ICardsState, IShortCard, Priority } from '../../types';
+import { fetchUserThunk, getBoardByIdThunk } from '..';
 
 const initialState: ICardsState = {
   items: [],
@@ -31,9 +31,8 @@ const slice = createSlice({
             columnId: card.columnId,
             title: card.title,
             description: card.description,
-            priority: card.priority,
+            priority: card.priority as Priority,
             deadline: card.deadline,
-            createdAt: card.createdAt,
           };
 
           state.items.push(newCard);
@@ -43,9 +42,10 @@ const slice = createSlice({
         updateCardByIdThunk.fulfilled,
         (state, { payload: { result: newCard } }) => {
           state.isLoading = false;
-
           state.items = state.items.map((card) =>
-            card._id === newCard._id ? { ...card, ...newCard } : card
+            card._id === newCard._id
+              ? { ...card, ...newCard, priority: newCard.priority as Priority }
+              : card
           );
         }
       )
@@ -65,6 +65,12 @@ const slice = createSlice({
       .addCase(fetchUserThunk.fulfilled, (state, { payload: { result } }) => {
         state.isLoading = false;
         state.items = result.cards;
+      })
+      .addCase(getBoardByIdThunk.fulfilled, (state, { payload }) => {
+        state.items = payload.result.columns.reduce(
+          (acc, el: { cards: [] }) => acc.concat(el.cards),
+          []
+        );
       })
       .addMatcher(
         isAnyOf(

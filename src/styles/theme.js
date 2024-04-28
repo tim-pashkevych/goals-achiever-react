@@ -56,6 +56,38 @@ export const theme = Object.freeze({
     boardBackground: 'rgba(246, 246, 247, 0.4)',
     helpBackground: '#f6f6f7',
     bgActive: '#FBFBFC',
+
+    /*Card component*/
+    card_Background: '#ffffff',
+    title_Text: '#161616',
+    description_Text: '#161616b2',
+    description_After_Background: '#1616161a',
+    tagLabel_Text: '#16161680',
+    tagItem_Text: '#161616',
+    actionButton_Stroke: '#16161680',
+    actionButton_Stroke_Hover: '#161616',
+
+    /*Card status popup component */
+    container_Background: '#fcfcfc',
+    currentColumnName_Text: '#bedbb0',
+    columnName_Text: '#161616',
+    //Andrew needs to delete color from those names
+
+    /*Card Edit/Add popup*/
+    popup_Background: '#fcfcfc',
+    popup_Border: 'transparent',
+    popupName_Text: '#161616',
+    textField_Border: '#bedbb080',
+    textField_Border_Hover: '#bedbb0',
+    textField_Placeholder: '#1616164d',
+    textField_Text: '#161616',
+    textArea_ScrollBar: '#bedbb0',
+    propertyWrapper_Text: '#16161680',
+    onSaveButton_Background: '#bedbb0',
+    onSaveButton_Background_Hover: '#9dc888',
+    plusIconContainer_Background: '#161616',
+    onSaveButton_Text: '#161616',
+    plusIconContainer_Stroke: '#ffffff',
   },
 
   dark: {
@@ -111,6 +143,37 @@ export const theme = Object.freeze({
     boardBackground: 'rgba(31, 31, 31, 0.4)',
     helpBackground: '#1F1F1F',
     bgActive: '#171717',
+
+    /*Card component*/
+    card_Background: '#121212',
+    title_Text: '#ffffff',
+    description_Text: '#ffffff80',
+    description_After_Background: '#ffffff1a',
+    tagLabel_Text: '#ffffff80',
+    tagItem_Text: '#ffffff',
+    actionButton_Stroke: '#ffffff80',
+    actionButton_Stroke_Hover: '#ffffff',
+
+    /*Card status popup component */
+    container_Background: '#1f1f1f',
+    currentColumnName_Text: '#bedbb0',
+    columnName_Text: '#ffffff80',
+
+    /*Card Edit/Add popup*/
+    popup_Background: '#151515',
+    popup_Border: '#bedbb080',
+    popupName_Text: '#ffffff',
+    textField_Border: '#bedbb04d',
+    textField_Border_Hover: '#bedbb0',
+    textField_Placeholder: '#ffffff4d',
+    textField_Text: '#ffffff',
+    textArea_ScrollBar: '#bedbb0',
+    propertyWrapper_Text: '#ffffff80',
+    onSaveButton_Background: '#bedbb0',
+    onSaveButton_Background_Hover: '#9dc888',
+    plusIconContainer_Background: '#161616',
+    onSaveButton_Text: '#161616',
+    plusIconContainer_Stroke: '#ffffff',
   },
 
   violet: {
@@ -170,5 +233,37 @@ export const theme = Object.freeze({
     boardBackground: 'rgba(255, 255, 255, 0.4)',
     helpBackground: 'rgba(236, 237, 253, 0.4)',
     bgActive: '#7577C9',
+
+    /*Card component*/
+    card_Background: '#ffffff',
+    title_Text: '#161616',
+    description_Text: '#161616b2',
+    description_After_Background: '#1616161a',
+    tagLabel_Text: '#16161680',
+    tagItem_Text: '#161616',
+    actionButton_Stroke: '#16161680',
+    actionButton_Stroke_Hover: '#5255bc',
+    // dark purple color(just in case) '#871F78',
+
+    /*Card status popup component */
+    container_Background: '#fcfcfc',
+    currentColumnName_Text: '#5255bc',
+    columnName_Text: '#161616',
+
+    /*Card Edit/Add popup*/
+    popup_Background: '#fcfcfc',
+    popup_Border: 'transparent',
+    popupName_Text: '#161616',
+    textField_Border: '#5255bc4d',
+    textField_Border_Hover: '#5255bc',
+    textField_Placeholder: '#1616164d',
+    textField_Text: '#161616',
+    textArea_ScrollBar: '#5255bc',
+    propertyWrapper_Text: '#16161680',
+    onSaveButton_Background: '#5255bc',
+    onSaveButton_Background_Hover: '#7b7ede',
+    plusIconContainer_Background: '#ffffff',
+    onSaveButton_Text: '#ffffff',
+    plusIconContainer_Stroke: '#161616',
   },
 });

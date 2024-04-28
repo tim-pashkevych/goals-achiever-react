@@ -6,7 +6,7 @@ import {
   deleteColumnByIdThunk,
 } from './operations';
 import { IColumnsState, IShortColumn } from '../../types';
-import { fetchUserThunk } from '..';
+import { fetchUserThunk, getBoardByIdThunk } from '..';
 
 const initialState: IColumnsState = {
   items: [],
@@ -50,6 +50,16 @@ const slice = createSlice({
       .addCase(fetchUserThunk.fulfilled, (state, { payload: { result } }) => {
         state.isLoading = false;
         state.items = result.columns;
+      })
+      .addCase(getBoardByIdThunk.fulfilled, (state, { payload }) => {
+        state.items = payload.result.columns.map(
+          (el: { _id: string; title: string }) => {
+            return {
+              _id: el._id,
+              title: el.title,
+            };
+          }
+        );
       })
       .addMatcher(
         isAnyOf(

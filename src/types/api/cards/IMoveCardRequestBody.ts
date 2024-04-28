@@ -1,7 +1,7 @@
-import { Id } from '../..';
-
 interface IMoveCardRequestBody {
-  columnId: Id;
+  columnId: string;
+  boardId: string;
+  newColumnId: string;
 }
 
 export default IMoveCardRequestBody;

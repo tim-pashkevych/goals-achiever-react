@@ -1,9 +1,9 @@
 import icons from 'assets/sprite.svg';
 import { Modal, CardPopup } from '../../components';
 import { useModal, useAppDispatch } from '../../hooks';
-import { IUpdateCardRequestBody, Id, Priority } from '../../types';
-import { deleteCardByIdThunk, updateCardByIdThunk } from '../../redux';
 import { PriorityColor } from '../../constants';
+import { deleteCardByIdThunk, updateCardByIdThunk } from '../../redux';
+import { IUpdateCardRequestBody, Id, Priority } from '../../types';
 import { ActionType, IFormData } from '../CardPopup/types';
 
 import { CardStatusPopup } from './CardStatusPopup';
@@ -34,7 +34,6 @@ const Card = ({
   const dispatch = useAppDispatch();
 
   const handleOnEdit = (updatedCard: IFormData) => {
-    console.log('updatedCard', updatedCard);
     toggleModal(false);
 
     const data: IUpdateCardRequestBody = {
@@ -71,7 +70,11 @@ const Card = ({
           <S.bottomRightPartContainer_div>
             <S.actionButtonsList_ul>
               <S.actionItem_li>
-                <CardStatusPopup />
+                <CardStatusPopup
+                  columnId={columnId}
+                  boardId={boardId}
+                  id={_id}
+                />
               </S.actionItem_li>
               <S.actionItem_li>
                 <S.actionButton_button

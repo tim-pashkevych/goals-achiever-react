@@ -4,7 +4,8 @@ export const toggleButton_div = styled.div`
   position: relative;
 
   fill: transparent;
-  stroke: rgba(255, 255, 255, 0.5); //?
+  /* stroke: rgba(255, 255, 255, 0.5); //? */
+  stroke: ${({ theme }) => theme.actionButton_Stroke};
 `;
 
 export const popupIcon_svg = styled.svg`
@@ -14,7 +15,8 @@ export const popupIcon_svg = styled.svg`
 
   &:hover,
   &:focus {
-    stroke: rgba(255, 255, 255, 1); //?
+    /* stroke: rgba(255, 255, 255, 1); //? */
+    stroke: ${({ theme }) => theme.actionButton_Stroke_Hover};
   }
 `;
 
@@ -24,7 +26,8 @@ interface ISContainerProps {
 
 export const container_div = styled.div<ISContainerProps>`
   position: absolute;
-  top: 0;
+  top: 0px;
+  z-index: 55;
   right: 50%;
 
   width: 135px;
@@ -36,7 +39,8 @@ export const container_div = styled.div<ISContainerProps>`
   row-gap: 10px;
   flex-direction: column;
 
-  background-color: #1f1f1f; //?
+  /* background-color: #1f1f1f; //? */
+  background-color: ${({ theme }) => theme.container_Background};
 
   border-radius: 8px;
 
@@ -55,11 +59,7 @@ export const container_div = styled.div<ISContainerProps>`
     transform 250ms ease-in-out;
 `;
 
-interface IStatusButton {
-  $isActive: boolean;
-}
-
-export const statusButton_button = styled.button<IStatusButton>`
+export const statusButton_button = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,10 +70,14 @@ export const statusButton_button = styled.button<IStatusButton>`
   line-height: 1.5;
   letter-spacing: -0.02em;
 
-  color: ${(props) =>
-    props.$isActive ? '#BEDBB0' : 'rgba(255, 255, 255, 0.5)'};
-  stroke: ${(props) =>
-    props.$isActive ? '#BEDBB0' : 'rgba(255, 255, 255, 0.5)'};
+  color: ${({ theme }) => theme.columnName_Text};
+  stroke: ${({ theme }) => theme.columnName_Text};
+
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.currentColumnName_Text};
+    stroke: ${({ theme }) => theme.currentColumnName_Text};
+  }
 `;
 
 interface IBellIcon {

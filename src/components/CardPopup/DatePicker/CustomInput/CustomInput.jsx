@@ -4,14 +4,8 @@ import * as S from './CustomInput.styled';
 
 import icons from 'assets/sprite.svg';
 
-interface CustomInputProps {
-  value: Date;
-  isOpen: boolean;
-  setClose: (isOpen: boolean) => void;
-}
-
 const CustomInput = forwardRef(
-  ({ value = new Date(), isOpen, setClose }: CustomInputProps, ref) => {
+  ({ value = new Date(), isOpen, setClose }, ref) => {
     const initialDate = new Date(value);
 
     const [selectedDate, setSelectedDate] = useState(initialDate);
@@ -27,7 +21,7 @@ const CustomInput = forwardRef(
     return (
       <S.toggleDatePicker_button
         $degree={isOpen ? 180 : 0}
-        ref={ref as React.RefObject<HTMLButtonElement>}
+        ref={ref}
         onMouseDown={(event) => {
           event.preventDefault();
           setClose(!isOpen);

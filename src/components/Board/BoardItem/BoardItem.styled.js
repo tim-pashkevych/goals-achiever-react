@@ -28,7 +28,6 @@ export const SpProject = styled.p`
   letter-spacing: -0.02em;
   color: ${({ theme }) => theme.textBord};
   padding: 20px 0;
-  margin-bottom: 116px;
 `;
 
 export const SDivButton = styled.div`
@@ -68,7 +67,7 @@ export const SLi = styled.li`
         background-color: ${({ theme }) => theme.logoOut};
         position: absolute;
         top: 0;
-        right: 0;
+        right: -1px;
       }
 
       & p {

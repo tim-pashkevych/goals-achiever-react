@@ -7,6 +7,7 @@ import { SLogin_form, SLogin_input } from './LoginForm.styled';
 import { loginSchema } from '../../schemas/loginSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 export const LoginForm = () => {
   const dispatch = useAppDispatch();
@@ -29,6 +30,12 @@ export const LoginForm = () => {
       .unwrap()
       .catch((error) => {
         setError(error);
+
+        if (error.includes('401')) {
+          toast.error('Email or password is wrong.');
+        } else {
+          toast.error('Sorry, something went wrong. Please try again later.');
+        }
       });
   };
   return (
