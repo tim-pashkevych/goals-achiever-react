@@ -7,7 +7,8 @@ export const popupName_p = styled.p`
 
   margin-bottom: 24px;
 
-  color: #ffffff; //?
+  /* color: #ffffff; //? */
+  color: ${({ theme }) => theme.popupName_Text};
 `;
 
 export const cardDataForm_form = styled.form`
@@ -40,10 +41,12 @@ export const title_input = styled.input`
   letter-spacing: -0.02em;
 
   background-color: transparent;
-  color: #ffffff; //?
+  /* color: #ffffff; //? */
+  color: ${({ theme }) => theme.textField_Text};
 
   border-radius: 8px;
-  border: 1px solid rgba(190, 219, 176, 0.3); //?
+  /* border: 1px solid rgba(190, 219, 176, 0.3); //? */
+  border: 1px solid ${({ theme }) => theme.textField_Border};
 
   box-shadow: 0px 4px 16px 0px #16161614;
 
@@ -53,12 +56,14 @@ export const title_input = styled.input`
 
   &:hover,
   &:focus {
-    border-color: rgba(190, 219, 176, 1); //?
+    /* border-color: rgba(190, 219, 176, 1); //? */
+    border-color: ${({ theme }) => theme.textField_Border_Hover};
     outline: none;
   }
 
   &::placeholder {
-    color: rgba(255, 255, 255, 0.3);
+    /* color: rgba(255, 255, 255, 0.3); //? */
+    color: ${({ theme }) => theme.textField_Placeholder};
   }
 `;
 
@@ -73,12 +78,14 @@ export const description_textarea = styled.textarea`
   letter-spacing: -0.02em;
 
   background-color: transparent;
-  color: #ffffff; //?
+  /* color: #ffffff; //? */
+  color: ${({ theme }) => theme.textField_Text};
 
   resize: none;
 
   border-radius: 8px;
-  border: 1px solid rgba(190, 219, 176, 0.3); //?
+  /* border: 1px solid rgba(190, 219, 176, 0.3); //? */
+  border: 1px solid ${({ theme }) => theme.textField_Border};
 
   box-shadow: 0px 4px 16px 0px #16161614;
 
@@ -88,17 +95,19 @@ export const description_textarea = styled.textarea`
 
   &:hover,
   &:focus {
-    border-color: rgba(190, 219, 176, 1); //?
+    /* border-color: rgba(190, 219, 176, 1); //? */
+    border-color: ${({ theme }) => theme.textField_Border_Hover};
     outline: none;
   }
 
   &::placeholder {
-    color: rgba(255, 255, 255, 0.3);
+    /* color: rgba(255, 255, 255, 0.3); //? */
+    color: ${({ theme }) => theme.textField_Placeholder};
   }
 
   //scroll bar
   --sb-track-color: transparent;
-  --sb-thumb-color: #bedbb0;
+  --sb-thumb-color: ${({ theme }) => theme.textArea_ScrollBar};
   --sb-size: 6px;
 
   &::-webkit-scrollbar {
@@ -132,7 +141,8 @@ export const propertyWrapper_div = styled.div<IPropertyNameLabelProps>`
   line-height: 1.5;
   letter-spacing: -0.02em;
 
-  color: rgba(255, 255, 255, 0.5); //?
+  /* color: rgba(255, 255, 255, 0.5); //? */
+  color: ${({ theme }) => theme.propertyWrapper_Text};
 
   position: relative;
   width: 100%;
@@ -165,41 +175,15 @@ export const customRadioButton_span = styled.span<ICustomRadioButtonProps>`
 
   cursor: pointer;
 
-  /* border: 1px solid ${(props) => props.$color}; */
-  /* position: relative; */
-  /* &::before {
-    content: '';
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    width: 14px;
-    height: 14px;
-
-    border-radius: 50%;
-
-    background-color: ${(props) => props.$color};
-
-    transition:
-      width 250ms ease-in-out,
-      height 250ms ease-in-out;
-  } */
-
-  /* input[type='radio']:checked + &::before {
-    width: 8px;
-    height: 8px;
-  } */
-
   box-shadow: 0 0 0 1px ${(props) => props.$color};
   background-color: ${(props) => props.$color};
   border: 3px solid transparent;
+
   transition: border-color 250ms ease-in-out;
 
   input[type='radio']:checked + & {
-    border-color: #151515;
+    /* border-color: #151515; //? */
+    border-color: ${({ theme }) => theme.popup_Background};
   }
 `;
 
@@ -215,7 +199,10 @@ export const onSaveButton_button = styled.button`
 
   border-radius: 8px;
 
-  background-color: #bedbb0;
+  /* background-color: #bedbb0; //? */
+  background-color: ${({ theme }) => theme.onSaveButton_Background};
+  /* color: #161616; //? */
+  color: ${({ theme }) => theme.onSaveButton_Text};
 
   font-weight: 500;
   line-height: 1.5;
@@ -224,12 +211,14 @@ export const onSaveButton_button = styled.button`
 
   &:hover,
   &:focus {
-    background-color: #9dc888;
+    /* background-color: #9dc888; //? */
+    background-color: ${({ theme }) => theme.onSaveButton_Background_Hover};
   }
 `;
 
 export const plusIconContainer_span = styled.span`
-  background-color: black;
+  /* background-color: black; //? */
+  background-color: ${({ theme }) => theme.plusIconContainer_Background};
 
   display: flex;
   justify-content: center;
@@ -240,7 +229,8 @@ export const plusIconContainer_span = styled.span`
 
   border-radius: 8px;
 
-  stroke: white;
+  /* stroke: white; //? */
+  stroke: ${({ theme }) => theme.plusIconContainer_Stroke};
 `;
 
 interface IErrorMessageProps {

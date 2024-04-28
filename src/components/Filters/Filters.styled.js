@@ -78,7 +78,6 @@ export const SRadio_button = styled.button`
   display: flex;
   gap: 9px;
   align-items: center;
-  text-transform: capitalize;
 
   transition: var(--transition);
   &:active {

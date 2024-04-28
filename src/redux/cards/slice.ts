@@ -6,7 +6,7 @@ import {
   deleteCardByIdThunk,
   moveCardByIdThunk,
 } from './operations';
-import { ICardsState, IShortCard } from '../../types';
+import { ICardsState, IShortCard, Priority } from '../../types';
 import { fetchUserThunk } from '..';
 
 const initialState: ICardsState = {
@@ -31,9 +31,8 @@ const slice = createSlice({
             columnId: card.columnId,
             title: card.title,
             description: card.description,
-            priority: card.priority,
+            priority: card.priority as Priority,
             deadline: card.deadline,
-            createdAt: card.createdAt,
           };
 
           state.items.push(newCard);
@@ -45,7 +44,9 @@ const slice = createSlice({
           state.isLoading = false;
 
           state.items = state.items.map((card) =>
-            card._id === newCard._id ? { ...card, ...newCard } : card
+            card._id === newCard._id
+              ? { ...card, ...newCard, priority: newCard.priority as Priority }
+              : card
           );
         }
       )

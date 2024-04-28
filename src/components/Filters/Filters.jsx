@@ -10,14 +10,11 @@ import {
   Span,
 } from './Filters.styled';
 import { priority } from '../../constants';
+import { firstLetterToUpperCase } from '../../helpers/firstLetterToUpperCase';
 
 export const Filters = ({ filter, setFilter }) => {
   const handleChange = (title) => {
     if (title === filter) return;
-
-    if (title === 'without priority') {
-      title = 'without';
-    }
     setFilter(title);
   };
 
@@ -30,7 +27,7 @@ export const Filters = ({ filter, setFilter }) => {
       <STitle_h3>Filters</STitle_h3>
       <SLabelWrapper_div>
         <SLabelTitle_p>Label color</SLabelTitle_p>
-        <SShowAll_button onClick={handleShowAll}>show all</SShowAll_button>
+        <SShowAll_button onClick={handleShowAll}>Show all</SShowAll_button>
       </SLabelWrapper_div>
       <SForm_ul>
         {priority.map((el, id) => (
@@ -43,7 +40,9 @@ export const Filters = ({ filter, setFilter }) => {
                 className={`${filter === el.title ? 'active' : ''}`}
                 $color={el.color}
               ></Span>
-              {el.title}
+              {el.title === 'without'
+                ? firstLetterToUpperCase(`${el.title} priority`)
+                : firstLetterToUpperCase(el.title)}
             </SRadio_button>
           </SItem_li>
         ))}
