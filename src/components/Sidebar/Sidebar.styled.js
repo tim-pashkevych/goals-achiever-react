@@ -6,30 +6,44 @@ import flowerpot_1x from '../../assets/images/sidebar/flowerpot_1x.png';
 import flowerpot_2x from '../../assets/images/sidebar/flowerpot_2x.png';
 
 export const SDiv = styled.div`
-  background-color: ${({ theme }) => theme.secondBackground};
-  display: flex;
-  flex-direction: column;
+  background-color: ${({ theme }) => theme.backgroundSidebar};
   padding: 14px 14px 24px;
   width: 225px;
-  height: 100%;
+  height: 100vh;
 
-  @media (min-width: 768px) {
-    padding: 24px;
-    width: 260px;
+  &.sidebarHome {
+    display: none;
+
+    @media (min-width: 1440px) {
+      display: flex;
+      flex-direction: column;
+      width: 260px;
+    }
+  }
+
+  &.sidebarHeader {
+    @media only screen and (min-width: 1439.99px) {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      padding: 24px;
+      width: 260px;
+    }
   }
 `;
 
 export const SIcon = styled(Icon)`
   &.logo {
     border-radius: 8px;
-    background-color: ${({ theme }) => theme.mainDashbordBackground};
-    fill: ${({ theme }) => theme.textOne};
+    background-color: ${({ theme }) => theme.logoBackground};
+    fill: ${({ theme }) => theme.logoFill};
     padding: 6px 8px;
     margin-right: 8px;
   }
 
   &.plus {
-    stroke: ${({ theme }) => theme.secondBackground};
+    stroke: ${({ theme }) => theme.svgStroke};
     fill: none;
   }
 
@@ -40,39 +54,14 @@ export const SIcon = styled(Icon)`
   }
 
   &.login {
-    stroke: ${({ theme }) => theme.secondaryColor};
+    stroke: ${({ theme }) => theme.logoOut};
     fill: none;
     margin-right: 14px;
+    transition: var(--transition);
 
     &:hover,
     &:focus {
-      stroke: ${({ theme }) => theme.secondaryColorHover};
-    }
-  }
-
-  &.project,
-  &.puzzle-piece {
-    stroke: ${({ theme }) => theme.textOne};
-    fill: none;
-    opacity: 0.5;
-
-    /* &:hover,
-    &:focus {
-      opacity: 1;
-    } */
-  }
-
-  &.pencil,
-  &.trash {
-    stroke: ${({ theme }) => theme.textOne};
-    fill: none;
-    opacity: 0.5;
-
-    &:hover,
-    &:focus {
-      stroke-width: 1.3px;
-      stroke: ${({ theme }) => theme.secondaryColor};
-      /* box-shadow: 0 0 5px 1px #bedbb0; */
+      stroke: ${({ theme }) => theme.logoOutHover};
     }
   }
 `;
@@ -98,7 +87,7 @@ export const Sh2 = styled.h2`
   font-weight: 400;
   font-size: 12px;
   letter-spacing: -0.02em;
-  color: ${({ theme }) => theme.icon_Column};
+  color: ${({ theme }) => theme.textBord};
   margin-bottom: 8px;
 `;
 
@@ -114,6 +103,7 @@ export const SDivProject = styled.div`
 
   @media (min-width: 1440px) {
     height: 161px;
+    margin-inline: -13px;
   }
 `;
 
@@ -121,7 +111,7 @@ export const SDivCreate = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-block: 2px solid ${({ theme }) => theme.filterOutline};
+  border-block: 2px solid ${({ theme }) => theme.outline};
   margin-bottom: 40px;
   padding: 14px 0;
 `;
@@ -142,7 +132,7 @@ export const SbuttonCreate = styled.button`
   width: 40px;
   height: 36px;
   border-radius: 6px;
-  background-color: ${({ theme }) => theme.secondaryColor};
+  background-color: ${({ theme }) => theme.buttonBackground};
 
   &:hover,
   &:focus {
@@ -173,14 +163,14 @@ export const SDivNeed = styled.div`
   display: flex;
   flex-direction: column;
 
-  background-color: ${({ theme }) => theme.background};
+  background-color: ${({ theme }) => theme.helpBackground};
   background-image: url(${flowerpot_1x});
   background-position: top 14px left 14px;
   background-size: 54px 78px;
   background-repeat: no-repeat;
 
   border-radius: 8px;
-  padding: 106px 14px 0;
+  padding: 106px 14px 15px 15px;
   margin: auto 0 24px 0;
   width: 197px;
   height: 238px;
@@ -194,7 +184,7 @@ export const SDivNeed = styled.div`
     width: 212px;
     height: 272px;
 
-    padding: 112px 20px 0;
+    padding: 112px 20px 20px 20px;
   }
 `;
 

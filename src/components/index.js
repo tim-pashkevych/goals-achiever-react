@@ -14,3 +14,4 @@ export * from './Sidebar/Sidebar.jsx';
 export * from './Board/BoardForm/BoardForm.jsx';
 export * from './Board/BoardList/BoardList.jsx';
 export * from './Board/BoardItem/BoardItem.jsx';
+export * from './NeedHelpForm/NeedHelpForm.jsx';
