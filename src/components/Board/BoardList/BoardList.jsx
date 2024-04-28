@@ -1,10 +1,16 @@
 import { BoardItem } from '../..';
-import { useAppSelector } from '../../../hooks';
-import { selectBoards } from '../../../redux';
+import { useAppSelector, useLocalStorage } from '../../../hooks';
+import { selectActiveBoard, selectBoards } from '../../../redux';
 import { SUl } from './BoardList.styled';
 
 export const BoardList = () => {
   const boards = useAppSelector(selectBoards);
+  const activeBoard = useAppSelector(selectActiveBoard);
+  const [, setActiveBoardId] = useLocalStorage(
+    'activeBoardId',
+    activeBoard?._id
+  );
+
   return (
     <SUl>
       {boards.map((board) => (
@@ -13,6 +19,7 @@ export const BoardList = () => {
           icon={board.icon}
           title={board.title}
           id={board._id}
+          setActiveBoardId={setActiveBoardId}
         />
       ))}
     </SUl>

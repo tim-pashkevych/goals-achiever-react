@@ -1,11 +1,8 @@
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+
 import { BoardForm, Modal } from '../..';
-import {
-  useAppDispatch,
-  useAppSelector,
-  useLocalStorage,
-  useModal,
-} from '../../../hooks';
+import { useAppDispatch, useAppSelector, useModal } from '../../../hooks';
 import {
   deleteBoardByIdThunk,
   getBoardByIdThunk,
@@ -19,24 +16,23 @@ import {
   SbuttonProject,
   SpProject,
 } from './BoardItem.styled';
-import { useNavigate, useParams } from 'react-router-dom';
 
-export const BoardItem = ({ id, title, icon }) => {
+export const BoardItem = ({ id, title, icon, setActiveBoardId }) => {
   const [isOpenModal, toggleModal] = useModal();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { boardName } = useParams();
   const activeBoard = useAppSelector(selectActiveBoard);
-  const [activeBoardId, setActiveBoardId] = useLocalStorage('activeBoardId');
   const isActive = activeBoard._id === id;
 
   const handleBoardClick = (name) => {
-    if (activeBoardId !== id) {
-      setActiveBoardId(id);
-    }
-
-    navigate(`/home/${name}`);
-    dispatch(getBoardByIdThunk(id));
+    dispatch(getBoardByIdThunk(id))
+      .unwrap()
+      .then(() => {
+        setActiveBoardId(id);
+        navigate(`/home/${name}`);
+      })
+      .catch((error) => toast.error(error.message));
   };
 
   const handleDelete = (id) => {
