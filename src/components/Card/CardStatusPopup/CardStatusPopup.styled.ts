@@ -4,7 +4,8 @@ export const toggleButton_div = styled.div`
   position: relative;
 
   fill: transparent;
-  stroke: rgba(255, 255, 255, 0.5); //?
+  /* stroke: rgba(255, 255, 255, 0.5); //? */
+  stroke: ${({ theme }) => theme.actionButton_Stroke};
 `;
 
 export const popupIcon_svg = styled.svg`
@@ -14,7 +15,8 @@ export const popupIcon_svg = styled.svg`
 
   &:hover,
   &:focus {
-    stroke: rgba(255, 255, 255, 1); //?
+    /* stroke: rgba(255, 255, 255, 1); //? */
+    stroke: ${({ theme }) => theme.actionButton_Stroke_Hover};
   }
 `;
 
@@ -37,7 +39,8 @@ export const container_div = styled.div<ISContainerProps>`
   row-gap: 10px;
   flex-direction: column;
 
-  background-color: #1f1f1f; //?
+  /* background-color: #1f1f1f; //? */
+  background-color: ${({ theme }) => theme.container_Background};
 
   border-radius: 8px;
 
@@ -67,7 +70,14 @@ export const statusButton_button = styled.button`
   line-height: 1.5;
   letter-spacing: -0.02em;
 
-  color: white;
+  color: ${(props) =>
+    props.$isActive
+      ? ({ theme }) => theme.currentColumnName_Text
+      : ({ theme }) => theme.columnName_Text};
+  stroke: ${(props) =>
+    props.$isActive
+      ? ({ theme }) => theme.currentColumnName_Text
+      : ({ theme }) => theme.columnName_Text};
 `;
 
 interface IBellIcon {
