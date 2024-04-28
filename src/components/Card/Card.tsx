@@ -1,3 +1,5 @@
+import EllipsisText from 'react-ellipsis-text';
+
 import icons from 'assets/sprite.svg';
 import { Modal, CardPopup } from '../../components';
 import { useModal, useAppDispatch } from '../../hooks';
@@ -7,6 +9,7 @@ import { IUpdateCardRequestBody, Id, Priority } from '../../types';
 import { ActionType, IFormData } from '../CardPopup/types';
 
 import { CardStatusPopup } from './CardStatusPopup';
+import { FullCardInfo } from './FullCardInfo';
 
 import * as S from './Card.styled';
 
@@ -22,7 +25,7 @@ interface ICardProps {
 
 const Card = ({
   title = 'The watch spot design',
-  description = "Create a visually stunning and eye-catching watch dial design that embodies our brand's...",
+  description = "Create a visually stunning and eye-catching watch dial design that embodies our something brand's and some other people have to describe, you know",
   deadline = '12/05/2023',
   priority = Priority.Low,
   _id,
@@ -30,6 +33,7 @@ const Card = ({
   boardId,
 }: ICardProps) => {
   const [isOpenedModal, toggleModal] = useModal();
+  const [isInfoModalOpened, toggleInfoModal] = useModal();
 
   const dispatch = useAppDispatch();
 
@@ -53,7 +57,9 @@ const Card = ({
     <>
       <S.card_div $stickerColor={PriorityColor[priority]}>
         <S.title_h4>{title}</S.title_h4>
-        <S.description_p>{description}</S.description_p>
+        <S.description_p onClick={() => toggleInfoModal(true)}>
+          <EllipsisText text={description} length={90} />
+        </S.description_p>
         <S.bottomPartContainer_div>
           <S.tagsList_ul>
             <S.tagItem_li>
@@ -107,6 +113,11 @@ const Card = ({
       {isOpenedModal && (
         <Modal toggleModal={toggleModal} padding="0">
           <CardPopup actionType={ActionType.Edit} onSave={handleOnEdit} />
+        </Modal>
+      )}
+      {isInfoModalOpened && (
+        <Modal toggleModal={toggleInfoModal} padding="0">
+          <FullCardInfo title={title} description={description} />
         </Modal>
       )}
     </>
