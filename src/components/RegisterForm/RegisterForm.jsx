@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { useAppDispatch } from '../../hooks';
-import { registerThunk } from '../../redux';
+import { loginThunk, registerThunk } from '../../redux';
 import { Button } from '..';
 import { SRegister_form, SRegister_input } from './RegisterForm.styled';
 import { registerSchema } from '../../schemas/registerSchema';
@@ -29,6 +29,9 @@ export const RegisterForm = () => {
 
     dispatch(registerThunk(data))
       .unwrap()
+      .then(() => {
+        dispatch(loginThunk({ email: data.email, password: data.password }));
+      })
       .catch((error) => {
         setError(error);
         if (error === 'Email in use') {
