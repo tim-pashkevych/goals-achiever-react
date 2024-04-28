@@ -35,6 +35,10 @@ export const Column = ({ title, columnId, filter }) => {
     toggleModal();
   };
 
+  const handleAddAnotherCard = (data) => {
+    console.log(data);
+  };
+
   const cards = useAppSelector((state) =>
     selectCardsByColumnId(state, columnId)
   );
@@ -86,7 +90,11 @@ export const Column = ({ title, columnId, filter }) => {
 
       {isAddCardOpenModal && (
         <Modal toggleModal={toggleAddCardModal}>
-          <CardPopup handleCloseModal={toggleAddCardModal} />
+          <CardPopup
+            actionType="Add"
+            onSave={handleAddAnotherCard}
+            handleCloseModal={toggleAddCardModal}
+          />
         </Modal>
       )}
     </SColumnWrapper>

@@ -1,5 +1,5 @@
 //installed libraries
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { nanoid } from '@reduxjs/toolkit';
 
@@ -9,18 +9,18 @@ import icons from 'assets/sprite.svg';
 
 //local folder
 import { CardSchema } from './yupSchema';
-import { IFormData, ActionType, ICardPopupProps } from './types';
 import { DatePicker } from './DatePicker/DatePicker';
 
 //styles
 import * as S from './CardPopup.styled';
 
 const CardPopup = ({
-  actionType = ActionType.Add,
+  actionType,
   onSave = () => console.log('You forgot to bring the onSave function'),
   cardData = { title: '', deadline: '', description: '', priority: '' },
-}: ICardPopupProps) => {
+}) => {
   const {
+    control,
     register,
     handleSubmit,
     reset,
@@ -32,13 +32,13 @@ const CardPopup = ({
     resolver: yupResolver(CardSchema),
   });
 
-  const onSubmit = (data: IFormData) => {
+  const onSubmit = (data) => {
     onSave(data);
     reset();
   };
 
   return (
-    <S.popupContainer_div>
+    <>
       <S.popupName_p>{actionType} card</S.popupName_p>
       <S.cardDataForm_form onSubmit={handleSubmit(onSubmit)}>
         <S.formFieldWrapper_label $marginBottom="14px">
@@ -95,12 +95,24 @@ const CardPopup = ({
             {...register('deadline')}
             style={{ width: '120px' }}
           /> */}
-          <DatePicker onChange={(data) => console.log(data)} />
-          {errors.deadline && (
-            <S.errorMessage_p $position="bottom: -22px">
-              {errors.deadline.message}
-            </S.errorMessage_p>
-          )}
+          <Controller
+            control={control}
+            name="ReactDatepicker"
+            defaultValue={Date()}
+            render={({ field }) => (
+              <>
+                <DatePicker
+                  field={field}
+                  onChange={(data) => console.log(data)}
+                />
+                {errors.deadline && (
+                  <S.errorMessage_p $position="bottom: -22px">
+                    {errors.deadline.message}
+                  </S.errorMessage_p>
+                )}
+              </>
+            )}
+          />
         </S.propertyWrapper_div>
         <S.onSaveButton_button type="submit">
           <S.plusIconContainer_span>
@@ -111,7 +123,7 @@ const CardPopup = ({
           {actionType}
         </S.onSaveButton_button>
       </S.cardDataForm_form>
-    </S.popupContainer_div>
+    </>
   );
 };
 
