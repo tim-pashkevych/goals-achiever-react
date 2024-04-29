@@ -1290,6 +1290,9 @@ object-assign
     }
   }
 `,PO=E.div`
+  @media only screen and (min-width: 320px) {
+    width: 100%;
+  }
   /* background-color: #121212; //? */
   background-color: ${({theme:e})=>e.card_Background};
 
@@ -1569,18 +1572,25 @@ object-assign
     background-color: #f5226f;
   }
 `,pP=Ao().shape({title:Wt().required("Title name is required")}),qO=({titleModal:e,placeholder:t,actionType:n,id:r,toggleModal:o})=>{const i=Vv(),{register:s,handleSubmit:a,formState:{errors:l}}=R$({resolver:N$(pP),defaultValues:{title:n==="edit"?t:""}}),u=({title:c})=>{switch(n){case"add":i(qs({boardId:r,title:c}));break;case"edit":i(Ks({id:r,newColumnBody:{title:c}}));break;case"delete":i(Qs(r));break}o()};return V.jsx(aP,{children:V.jsxs(lP,{onSubmit:a(u),children:[V.jsxs(uP,{children:[e.title,n==="delete"&&V.jsx("span",{style:{fontWeight:700},children:t})]}),n!=="delete"&&V.jsxs(V.Fragment,{children:[V.jsx(cP,{name:"title",type:"text",placeholder:t,...s("title"),style:l.title?{borderColor:"red"}:{borderColor:"#bedbb069"}}),l.title&&V.jsx("span",{style:{color:"red"},children:l.title.message})]}),n!=="delete"?V.jsxs(I1,{type:"submit",children:[V.jsx(fP,{children:V.jsx(Dl,{id:"plus",size:14,color:"white"})}),e.buttonText]}):V.jsx(dP,{onClick:u,type:"submit",children:e.buttonText})]})})},KO=E.div`
+  @media only screen and (min-width: 320px) {
+    /* min-width: 240px; */
+    width: 100%;
+  }
   width: 350px;
   display: flex;
   gap: 14px;
   flex-direction: column;
   padding-bottom: 10px;
 `;E.div``;const QO=E.div`
+  @media only screen and (min-width: 320px) {
+    width: calc(100%);
+  }
   display: flex;
 
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
-  width: 100%;
+  /* width: 100%; */
 
   gap: 8px;
   max-height: 100%;
@@ -1603,6 +1613,10 @@ object-assign
     border-radius: 10px;
   }
 `,GO=E.div`
+  @media only screen and (min-width: 320px) and (max-width: 767.99px) {
+    min-width: 240px;
+    width: 100%;
+  }
   width: 335px;
   min-height: 56px;
 
@@ -1626,6 +1640,9 @@ object-assign
     fill: blue;
   }
 `,XO=E.div`
+  @media only screen and (min-width: 320px) {
+    width: 100%;
+  }
   width: 335px;
 
   flex-basis: auto;
@@ -1643,6 +1660,10 @@ object-assign
 
   margin-bottom: 10px;
 `,e4=E.div`
+  @media only screen and (min-width: 320px) {
+    min-width: 240px;
+    width: calc(100%);
+  }
   height: 95%;
   width: 335px;
   overflow-y: auto;
@@ -2124,4 +2145,4 @@ object-assign
   position: absolute;
   ${e=>`${e.$position};`}
   left: 0;
-`,qu=({children:e})=>{const t=eo(Vd),n=ar();return t?e:V.jsx(Sd,{state:{from:n},to:"/welcome"})},Km=({children:e})=>{var r;const t=eo(Vd),n=ar();return t?V.jsx(Sd,{to:((r=n.state)==null?void 0:r.from)||"/"}):e},vP=P.lazy(()=>Ki(()=>import("./WelcomePage-132d3b0c.js"),["assets/WelcomePage-132d3b0c.js","assets/Image-084d4d3f.js","assets/index-0e05dea9.js"])),xP=P.lazy(()=>Ki(()=>import("./AuthPage-ebef5017.js"),["assets/AuthPage-ebef5017.js","assets/Button-f721018f.js"])),wP=P.lazy(()=>Ki(()=>import("./HomePage-93a63522.js"),["assets/HomePage-93a63522.js","assets/ConfirmationPopup-17630f57.js","assets/Button-f721018f.js","assets/Image-084d4d3f.js","assets/index-0e05dea9.js"])),Qm=P.lazy(()=>Ki(()=>import("./ScreensPage-c4f117a8.js"),["assets/ScreensPage-c4f117a8.js","assets/index-0e05dea9.js","assets/ConfirmationPopup-17630f57.js","assets/Button-f721018f.js"])),SP=P.lazy(()=>Ki(()=>import("./NotFoundPage-b89c106f.js"),[]));function bP(){return V.jsx(n2,{children:V.jsxs(dn,{path:"/",element:V.jsx(e$,{}),children:[V.jsx(dn,{index:!0,element:V.jsx(qu,{children:V.jsx(Sd,{to:"/home"})})}),V.jsx(dn,{path:"/welcome",element:V.jsx(Km,{children:V.jsx(vP,{})})}),V.jsx(dn,{path:"/auth/:id",element:V.jsx(Km,{children:V.jsx(xP,{})})}),V.jsxs(dn,{path:"/home",element:V.jsx(wP,{}),children:[V.jsx(dn,{index:!0,element:V.jsx(qu,{children:V.jsx(Qm,{})})}),V.jsx(dn,{path:"/home/:boardName",element:V.jsx(qu,{children:V.jsx(Qm,{})})})]}),V.jsx(dn,{path:"*",element:V.jsx(SP,{})})]})})}Qu.createRoot(document.getElementById("root")).render(V.jsx(c2,{basename:"/goals-achiever-react",children:V.jsx(B2,{store:yv,children:V.jsxs(_0,{loading:null,persistor:BE,children:[V.jsx(bP,{}),V.jsx(ob,{theme:"dark",style:{zIndex:99999},autoClose:2e3})]})})}));export{B5 as $,x5 as A,ae as B,b5 as C,_5 as D,k5 as E,E5 as F,$5 as G,C5 as H,Dl as I,T5 as J,w5 as K,p2 as L,S5 as M,h2 as N,Tu as O,P5 as P,O5 as Q,m5 as R,f5 as S,R5 as T,o5 as U,PE as V,n5 as W,j5 as X,M5 as Y,U5 as Z,V5 as _,eo as a,$O as a$,z5 as a0,L5 as a1,H5 as a2,W5 as a3,q5 as a4,D5 as a5,Ou as a6,li as a7,AE as a8,XP as a9,mO as aA,yO as aB,vO as aC,xO as aD,wO as aE,F5 as aF,A5 as aG,x4 as aH,w4 as aI,m4 as aJ,g4 as aK,y4 as aL,v4 as aM,JP as aN,ci as aO,e2 as aP,Ga as aQ,IT as aR,ZP as aS,SO as aT,bO as aU,Hv as aV,_O as aW,kO as aX,EO as aY,Iu as aZ,CO as a_,ZC as aa,K5 as ab,Q5 as ac,G5 as ad,Y5 as ae,X5 as af,uo as ag,J5 as ah,Z5 as ai,eO as aj,tO as ak,rO as al,nO as am,oO as an,iO as ao,qP as ap,sO as aq,lO as ar,aO as as,uO as at,cO as au,dO as av,pO as aw,hO as ax,fO as ay,gO as az,Wt as b,R4 as b$,TO as b0,PO as b1,I5 as b2,OO as b3,RO as b4,FO as b5,AO as b6,IO as b7,NO as b8,DO as b9,a4 as bA,l4 as bB,u4 as bC,c4 as bD,f4 as bE,d4 as bF,p4 as bG,h4 as bH,yd as bI,Ku as bJ,z as bK,Mn as bL,$P as bM,b4 as bN,gP as bO,_4 as bP,k4 as bQ,E4 as bR,C4 as bS,A4 as bT,$4 as bU,T4 as bV,P4 as bW,N5 as bX,O4 as bY,U0 as bZ,h5 as b_,jO as ba,LO as bb,BO as bc,zO as bd,MO as be,vn as bf,Fu as bg,Au as bh,qO as bi,r5 as bj,KO as bk,GO as bl,YO as bm,JO as bn,QO as bo,XO as bp,Ru as bq,ui as br,ZO as bs,e4 as bt,t4 as bu,n4 as bv,r4 as bw,o4 as bx,i4 as by,s4 as bz,Ao as c,F4 as c0,S4 as c1,UO as c2,VO as c3,HO as c4,WO as c5,i5 as c6,s$ as c7,Bu as c8,s5 as c9,a5 as ca,Vv as d,wd as e,R$ as f,Tm as g,Cu as h,TP as i,V as j,d5 as k,$u as l,p5 as m,Pu as n,N$ as o,l5 as p,u5 as q,P as r,QP as s,XC as t,E as u,c5 as v,GP as w,g5 as x,y5 as y,v5 as z};
+`,qu=({children:e})=>{const t=eo(Vd),n=ar();return t?e:V.jsx(Sd,{state:{from:n},to:"/welcome"})},Km=({children:e})=>{var r;const t=eo(Vd),n=ar();return t?V.jsx(Sd,{to:((r=n.state)==null?void 0:r.from)||"/"}):e},vP=P.lazy(()=>Ki(()=>import("./WelcomePage-fb195cda.js"),["assets/WelcomePage-fb195cda.js","assets/Image-708471d0.js","assets/index-0e05dea9.js"])),xP=P.lazy(()=>Ki(()=>import("./AuthPage-ae005204.js"),["assets/AuthPage-ae005204.js","assets/Button-eacee3be.js"])),wP=P.lazy(()=>Ki(()=>import("./HomePage-97bfac3e.js"),["assets/HomePage-97bfac3e.js","assets/ConfirmationPopup-371ff3d4.js","assets/Button-eacee3be.js","assets/Image-708471d0.js","assets/index-0e05dea9.js"])),Qm=P.lazy(()=>Ki(()=>import("./ScreensPage-bb0ef0b4.js"),["assets/ScreensPage-bb0ef0b4.js","assets/index-0e05dea9.js","assets/ConfirmationPopup-371ff3d4.js","assets/Button-eacee3be.js"])),SP=P.lazy(()=>Ki(()=>import("./NotFoundPage-78d22d50.js"),[]));function bP(){return V.jsx(n2,{children:V.jsxs(dn,{path:"/",element:V.jsx(e$,{}),children:[V.jsx(dn,{index:!0,element:V.jsx(qu,{children:V.jsx(Sd,{to:"/home"})})}),V.jsx(dn,{path:"/welcome",element:V.jsx(Km,{children:V.jsx(vP,{})})}),V.jsx(dn,{path:"/auth/:id",element:V.jsx(Km,{children:V.jsx(xP,{})})}),V.jsxs(dn,{path:"/home",element:V.jsx(wP,{}),children:[V.jsx(dn,{index:!0,element:V.jsx(qu,{children:V.jsx(Qm,{})})}),V.jsx(dn,{path:"/home/:boardName",element:V.jsx(qu,{children:V.jsx(Qm,{})})})]}),V.jsx(dn,{path:"*",element:V.jsx(SP,{})})]})})}Qu.createRoot(document.getElementById("root")).render(V.jsx(c2,{basename:"/goals-achiever-react",children:V.jsx(B2,{store:yv,children:V.jsxs(_0,{loading:null,persistor:BE,children:[V.jsx(bP,{}),V.jsx(ob,{theme:"dark",style:{zIndex:99999},autoClose:2e3})]})})}));export{B5 as $,x5 as A,ae as B,b5 as C,_5 as D,k5 as E,E5 as F,$5 as G,C5 as H,Dl as I,T5 as J,w5 as K,p2 as L,S5 as M,h2 as N,Tu as O,P5 as P,O5 as Q,m5 as R,f5 as S,R5 as T,o5 as U,PE as V,n5 as W,j5 as X,M5 as Y,U5 as Z,V5 as _,eo as a,$O as a$,z5 as a0,L5 as a1,H5 as a2,W5 as a3,q5 as a4,D5 as a5,Ou as a6,li as a7,AE as a8,XP as a9,mO as aA,yO as aB,vO as aC,xO as aD,wO as aE,F5 as aF,A5 as aG,x4 as aH,w4 as aI,m4 as aJ,g4 as aK,y4 as aL,v4 as aM,JP as aN,ci as aO,e2 as aP,Ga as aQ,IT as aR,ZP as aS,SO as aT,bO as aU,Hv as aV,_O as aW,kO as aX,EO as aY,Iu as aZ,CO as a_,ZC as aa,K5 as ab,Q5 as ac,G5 as ad,Y5 as ae,X5 as af,uo as ag,J5 as ah,Z5 as ai,eO as aj,tO as ak,rO as al,nO as am,oO as an,iO as ao,qP as ap,sO as aq,lO as ar,aO as as,uO as at,cO as au,dO as av,pO as aw,hO as ax,fO as ay,gO as az,Wt as b,R4 as b$,TO as b0,PO as b1,I5 as b2,OO as b3,RO as b4,FO as b5,AO as b6,IO as b7,NO as b8,DO as b9,a4 as bA,l4 as bB,u4 as bC,c4 as bD,f4 as bE,d4 as bF,p4 as bG,h4 as bH,yd as bI,Ku as bJ,z as bK,Mn as bL,$P as bM,b4 as bN,gP as bO,_4 as bP,k4 as bQ,E4 as bR,C4 as bS,A4 as bT,$4 as bU,T4 as bV,P4 as bW,N5 as bX,O4 as bY,U0 as bZ,h5 as b_,jO as ba,LO as bb,BO as bc,zO as bd,MO as be,vn as bf,Fu as bg,Au as bh,qO as bi,r5 as bj,KO as bk,GO as bl,YO as bm,JO as bn,QO as bo,XO as bp,Ru as bq,ui as br,ZO as bs,e4 as bt,t4 as bu,n4 as bv,r4 as bw,o4 as bx,i4 as by,s4 as bz,Ao as c,F4 as c0,S4 as c1,UO as c2,VO as c3,HO as c4,WO as c5,i5 as c6,s$ as c7,Bu as c8,s5 as c9,a5 as ca,Vv as d,wd as e,R$ as f,Tm as g,Cu as h,TP as i,V as j,d5 as k,$u as l,p5 as m,Pu as n,N$ as o,l5 as p,u5 as q,P as r,QP as s,XC as t,E as u,c5 as v,GP as w,g5 as x,y5 as y,v5 as z};
