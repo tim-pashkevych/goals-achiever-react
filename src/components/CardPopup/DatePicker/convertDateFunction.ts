@@ -1,3 +1,5 @@
+import { isToday, isTomorrow, getDay } from 'date-fns';
+
 enum DayOfWeek {
   Sunday,
   Monday,
@@ -24,17 +26,13 @@ enum Month {
 }
 
 function formatDate(date: Date): string {
-  const currentDate: Date = new Date();
-
   const formattedDate = (date: Date): string => {
-    const dayDiff: number = Math.round(
-      (date.getTime() - currentDate.getTime()) / (1000 * 60 * 60 * 24)
-    );
+    const isDateToday = isToday(date);
+    const isDateTomorrow = isTomorrow(date);
 
-    if (dayDiff === 0 || dayDiff < 0) return 'Today';
-    else if (dayDiff === 1) return 'Tomorrow';
-    else if (dayDiff > 1) return DayOfWeek[date.getDay()];
-    else return 'Unknown Date';
+    if (isDateToday) return 'Today';
+    else if (isDateTomorrow) return 'Tomorrow';
+    else return DayOfWeek[getDay(date)];
   };
 
   return (
