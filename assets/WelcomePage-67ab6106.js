@@ -1,4 +1,4 @@
-import{u as e,L as n,j as t,I as a}from"./index-b5e1d124.js";import{I as r}from"./Image-47e48c58.js";const s=e.div`
+import{u as e,L as n,j as t,I as a}from"./index-78fa5a38.js";import{I as r}from"./Image-8eda69fa.js";import"./index-0e05dea9.js";const s=e.div`
   height: 100vh;
   margin: 0 auto;
 
@@ -60,4 +60,4 @@ import{u as e,L as n,j as t,I as a}from"./index-b5e1d124.js";import{I as r}from"
   @media only screen and (min-width: 768px) {
     width: 344px;
   }
-`,c=()=>{const i={width:162,height:162},o={width:124,height:124};return t.jsxs(s,{children:[t.jsx(r,{desktop:i,tablet:i,mobile:o,type:"image/png",pathKey:"hero",alt:"Boy working on laptop"}),t.jsxs("h1",{children:[t.jsx(a,{id:"logo",size:48})," Task Pro"]}),t.jsx("p",{children:"Supercharge your productivity and take control of your tasks with Task Pro - Don't wait, start achieving your goals now!"}),t.jsxs("ul",{children:[t.jsx("li",{children:t.jsx(l,{to:"/auth/register","aria-label":"Link to register",children:"Registration"})}),t.jsx("li",{children:t.jsx(n,{to:"/auth/login","aria-label":"Link to login",children:"Log in"})})]})]})};export{c as default};
+`,h=()=>{const i={width:162,height:162},o={width:124,height:124};return t.jsxs(s,{children:[t.jsx(r,{desktop:i,tablet:i,mobile:o,type:"image/png",pathKey:"hero",alt:"Boy working on laptop"}),t.jsxs("h1",{children:[t.jsx(a,{id:"logo",size:48})," Task Pro"]}),t.jsx("p",{children:"Supercharge your productivity and take control of your tasks with Task Pro - Don't wait, start achieving your goals now!"}),t.jsxs("ul",{children:[t.jsx("li",{children:t.jsx(l,{to:"/auth/register","aria-label":"Link to register",children:"Registration"})}),t.jsx("li",{children:t.jsx(n,{to:"/auth/login","aria-label":"Link to login",children:"Log in"})})]})]})};export{h as default};
