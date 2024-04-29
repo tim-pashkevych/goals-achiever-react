@@ -7,7 +7,6 @@ import {
   deleteColumnByIdThunk,
   updateColumnByIdThunk,
 } from '../../redux';
-import { Icon } from '..';
 
 import {
   SButton,
@@ -18,6 +17,7 @@ import {
   STitle,
   SpError,
   SDiv,
+  SIcon,
 } from './EditColumn.styled';
 
 const schema = yup.object().shape({
@@ -75,7 +75,7 @@ export const EditColumn = ({
               {...register('title')}
               $hasError={!!errors.title}
             />
-            {errors.title?.message && dirtyFields && (
+            {errors.title && dirtyFields && (
               <SpError>{errors.title.message}</SpError>
             )}
           </SDiv>
@@ -83,7 +83,7 @@ export const EditColumn = ({
         {actionType !== 'delete' ? (
           <SButton type="submit">
             <SImgContainer>
-              <Icon id={'plus'} size={14} color="white" />
+              <SIcon id="plus" size={14} />
             </SImgContainer>
             {titleModal.buttonText}
           </SButton>

@@ -16,6 +16,10 @@ export const cardDataForm_form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: start;
+
+  @media only screen and (max-width: 374.99px) {
+    width: 250px;
+  }
 `;
 
 interface IFormFieldWrapperProps {
@@ -31,7 +35,11 @@ export const formFieldWrapper_label = styled.label<IFormFieldWrapperProps>`
   margin-bottom: ${(props) => props.$marginBottom};
 `;
 
-export const title_input = styled.input`
+interface ITitleProps {
+  $hasError: boolean;
+}
+
+export const title_input = styled.input<ITitleProps>`
   width: 100%;
 
   padding: 14px 18px;
@@ -46,9 +54,9 @@ export const title_input = styled.input`
 
   border-radius: 8px;
   /* border: 1px solid rgba(190, 219, 176, 0.3); //? */
-  border: 1px solid ${({ theme }) => theme.textField_Border};
-
-  box-shadow: 0px 4px 16px 0px #16161614;
+  border: 1px solid
+    ${({ theme, $hasError }) => ($hasError ? '#f16b6b' : theme.secondaryColor)};
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
 
   transition:
     border-color 250ms ease-in-out,
@@ -57,7 +65,8 @@ export const title_input = styled.input`
   &:hover,
   &:focus {
     /* border-color: rgba(190, 219, 176, 1); //? */
-    border-color: ${({ theme }) => theme.textField_Border_Hover};
+    border-color: ${({ theme, $hasError }) =>
+      $hasError ? '#f16b6b' : theme.textField_Border_Hover};
     outline: none;
   }
 
@@ -67,7 +76,11 @@ export const title_input = styled.input`
   }
 `;
 
-export const description_textarea = styled.textarea`
+interface IDescriptionProps {
+  $hasError: boolean;
+}
+
+export const description_textarea = styled.textarea<IDescriptionProps>`
   width: 100%;
   height: 154px;
 
@@ -85,9 +98,9 @@ export const description_textarea = styled.textarea`
 
   border-radius: 8px;
   /* border: 1px solid rgba(190, 219, 176, 0.3); //? */
-  border: 1px solid ${({ theme }) => theme.textField_Border};
-
-  box-shadow: 0px 4px 16px 0px #16161614;
+  border: 1px solid
+    ${({ theme, $hasError }) => ($hasError ? '#f16b6b' : theme.secondaryColor)};
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
 
   transition:
     border-color 250ms ease-in-out,
@@ -96,7 +109,8 @@ export const description_textarea = styled.textarea`
   &:hover,
   &:focus {
     /* border-color: rgba(190, 219, 176, 1); //? */
-    border-color: ${({ theme }) => theme.textField_Border_Hover};
+    border-color: ${({ theme, $hasError }) =>
+      $hasError ? '#f16b6b' : theme.textField_Border_Hover};
     outline: none;
   }
 
@@ -238,8 +252,23 @@ interface IErrorMessageProps {
 }
 
 export const errorMessage_p = styled.p<IErrorMessageProps>`
-  color: red;
+  /* color: red;
   position: absolute;
   ${(props) => `${props.$position};`}
-  left: 0;
+  left: 0; */
+
+  position: absolute;
+  bottom: -8px;
+  left: 9px;
+  color: #f16b6b;
+  background-color: ${({ theme }) => theme.modalBackground};
+  text-align: left;
+  font-size: 14px;
+  padding: 0 8px;
+
+  @media only screen and (max-width: 374.99px) {
+    bottom: -6px;
+    font-size: 9px;
+    padding: 0 5px;
+  }
 `;

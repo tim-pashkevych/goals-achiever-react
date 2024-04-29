@@ -31,12 +31,13 @@ const CardPopup = ({
     control,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, dirtyFields },
   } = useForm({
     defaultValues: {
       ...cardData,
       deadline: new Date(Number(cardData.deadline)),
     },
+    mode: 'onChange',
     resolver: yupResolver(CardSchema),
   });
 
@@ -62,8 +63,9 @@ const CardPopup = ({
             {...register('title')}
             placeholder="Title"
             autoFocus={true}
+            $hasError={!!errors.title}
           ></S.title_input>
-          {errors.title && (
+          {errors.title && dirtyFields && (
             <S.errorMessage_p $position="top : -20px">
               {errors.title.message}
             </S.errorMessage_p>
@@ -73,8 +75,9 @@ const CardPopup = ({
           <S.description_textarea
             {...register('description')}
             placeholder="Description"
+            $hasError={!!errors.description}
           ></S.description_textarea>
-          {errors.description && (
+          {errors.description && dirtyFields && (
             <S.errorMessage_p $position="bottom: -21px">
               {errors.description.message}
             </S.errorMessage_p>
