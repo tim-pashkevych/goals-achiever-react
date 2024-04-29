@@ -14,6 +14,7 @@ import {
   SInput,
   STitle,
 } from './EditColumn.styled';
+import { Icon } from '..';
 
 export const EditColumn = ({
   titleModal,
@@ -64,7 +65,7 @@ export const EditColumn = ({
         {actionType !== 'delete' ? (
           <SButton onClick={(e) => onClick(e)}>
             <SImgContainer>
-              <img src="/svgs/plus.svg" alt="" width={14} height={14} />
+              <Icon id={'plus'} size={14} color="white" />
             </SImgContainer>
             {titleModal.buttonText}
           </SButton>
