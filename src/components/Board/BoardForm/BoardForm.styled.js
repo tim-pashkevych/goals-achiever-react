@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
 export const SContainer = styled.div`
-  max-width: 335px;
   border-radius: 8px;
   font-family: 'Poppins', sans-serif;
   background-color: ${({ theme }) => theme.modalBackground};
   letter-spacing: -0.02em;
+  width: 100%;
+  margin-inline: auto;
 
-  @media only screen and (min-width: 768px) {
-    max-width: 350px;
+  @media only screen and (max-width: 374.99px) {
+    width: 90%;
   }
 `;
 
@@ -17,6 +18,10 @@ export const SRadioContainer = styled.div`
   flex-wrap: wrap;
   gap: ${(props) => (props.$gap ? props.$gap : 0)};
   width: ${(props) => (props.$width ? props.$width : '287px')};
+
+  @media only screen and (max-width: 374.99px) {
+    width: 90%;
+  }
 `;
 
 export const SFieldWrapp = styled.div``;
@@ -43,20 +48,35 @@ export const STitle = styled.h3`
   margin: 0;
 `;
 
+export const SDiv = styled.div`
+  position: relative;
+  margin-bottom: 14px;
+`;
+
 export const SInput = styled.input`
   display: block;
-  font-weight: 500;
+  width: 100%;
+  font-weight: 400;
   font-size: 14px;
-  color: ${({ theme }) => theme.textField_Text};
   margin: 0;
-  background-color: ${({ theme }) => theme.popup_Background};
   outline: none;
-  border: 1px solid #bedbb069;
+  color: ${({ theme }) => theme.column_edit_text};
+  border: 1px solid
+    ${({ theme, $hasError }) =>
+      $hasError ? '#f16b6b' : theme.secondaryColorHover};
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  opacity: 0.4;
   padding: 14px 18px;
   border-radius: 8px;
+
+  &:hover,
   &:focus,
   &:active {
-    border: 1px solid #bedbb0;
+    opacity: 1;
+  }
+
+  @media only screen and (max-width: 374.99px) {
+    width: 90%;
   }
 `;
 export const SLabel = styled.label`
@@ -67,7 +87,7 @@ export const SLabel = styled.label`
 
   svg {
     stroke: ${({ theme }) => theme.icon_Column};
-    fill: rgba(0, 0, 0, 0);
+    fill: none;
   }
 
   svg:hover {
@@ -127,5 +147,26 @@ export const SButton = styled.div`
 
   @media only screen and (min-width: 768px) {
     width: 302px;
+  }
+
+  @media only screen and (max-width: 374.99px) {
+    width: 90%;
+  }
+`;
+
+export const SpError = styled.p`
+  position: absolute;
+  bottom: -8px;
+  left: 9px;
+  color: #f16b6b;
+  background-color: ${({ theme }) => theme.modalBackground};
+  text-align: left;
+  font-size: 14px;
+  padding: 0 8px;
+
+  @media only screen and (max-width: 374.99px) {
+    bottom: -6px;
+    font-size: 9px;
+    padding: 0 5px;
   }
 `;

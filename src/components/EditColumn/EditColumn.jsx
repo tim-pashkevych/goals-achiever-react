@@ -1,22 +1,24 @@
 import { useAppDispatch } from '../../hooks';
 import * as yup from 'yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import {
   createColumnThunk,
   deleteColumnByIdThunk,
   updateColumnByIdThunk,
 } from '../../redux';
+import { Icon } from '..';
+
 import {
   SButton,
   SButtonDelete,
-  SContainer,
   SForm,
   SImgContainer,
   SInput,
   STitle,
+  SpError,
+  SDiv,
 } from './EditColumn.styled';
-import { Icon } from '..';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 
 const schema = yup.object().shape({
   title: yup.string().required('Title name is required'),
@@ -34,13 +36,8 @@ export const EditColumn = ({
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-    defaultValues: {
-      title: actionType === 'edit' ? placeholder : '',
-    },
-  });
+    formState: { errors, dirtyFields },
+  } = useForm({ mode: 'onChange', resolver: yupResolver(schema) });
 
   const onSubmit = ({ title }) => {
     switch (actionType) {
@@ -61,7 +58,7 @@ export const EditColumn = ({
     toggleModal();
   };
   return (
-    <SContainer>
+    <>
       <SForm onSubmit={handleSubmit(onSubmit)}>
         <STitle>
           {titleModal.title}
@@ -70,22 +67,18 @@ export const EditColumn = ({
           )}
         </STitle>
         {actionType !== 'delete' && (
-          <>
+          <SDiv>
             <SInput
               name="title"
               type="text"
               placeholder={placeholder}
               {...register('title')}
-              style={
-                errors.title
-                  ? { borderColor: 'red' }
-                  : { borderColor: '#bedbb069' }
-              }
+              $hasError={!!errors.title}
             />
-            {errors.title && (
-              <span style={{ color: 'red' }}>{errors.title.message}</span>
+            {errors.title?.message && dirtyFields && (
+              <SpError>{errors.title.message}</SpError>
             )}
-          </>
+          </SDiv>
         )}
         {actionType !== 'delete' ? (
           <SButton type="submit">
@@ -100,6 +93,6 @@ export const EditColumn = ({
           </SButtonDelete>
         )}
       </SForm>
-    </SContainer>
+    </>
   );
 };
