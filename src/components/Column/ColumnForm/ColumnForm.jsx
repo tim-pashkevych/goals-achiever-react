@@ -1,4 +1,4 @@
-import { EditColumn } from '../../EditColumn/EditColumn.1';
+import { EditColumn } from '../../EditColumn/EditColumn';
 import { Modal } from '../../Modal/Modal';
 
 const infoModal = (actionType) => {
