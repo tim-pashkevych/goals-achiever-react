@@ -1,5 +1,5 @@
 import EllipsisText from 'react-ellipsis-text';
-import { format } from 'date-fns';
+import { format, isPast, isEqual } from 'date-fns';
 
 import icons from 'assets/sprite.svg';
 import { Modal, CardPopup } from '../../components';
@@ -43,6 +43,12 @@ const Card = ({
   const [isLoading, setIsLoading] = useState(false);
 
   const dispatch = useAppDispatch();
+  const isOverdue =
+    isPast(new Date(Number(deadline))) ||
+    isEqual(
+      format(new Date(Number(deadline)), 'MM/dd/yyyy'),
+      format(new Date(), 'MM/dd/yyyy')
+    );
 
   const handleOnEdit = (updatedCard: IFormData) => {
     toggleModal(false);
@@ -94,13 +100,15 @@ const Card = ({
           </S.tagsList_ul>
           <S.bottomRightPartContainer_div>
             <S.actionButtonsList_ul>
-              <S.actionItem_li>
-                <CardStatusPopup
-                  columnId={columnId}
-                  boardId={boardId}
-                  id={_id}
-                />
-              </S.actionItem_li>
+              {isOverdue && (
+                <S.actionItem_li>
+                  <CardStatusPopup
+                    columnId={columnId}
+                    boardId={boardId}
+                    id={_id}
+                  />
+                </S.actionItem_li>
+              )}
               <S.actionItem_li>
                 <S.actionButton_button
                   onClick={(event) => {
