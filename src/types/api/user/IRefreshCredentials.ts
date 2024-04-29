@@ -1,5 +1,10 @@
+import { GenericAbortSignal } from 'axios';
+
 interface IRefreshCredentials {
-  refreshToken: string;
+  data: {
+    refreshToken: string;
+  };
+  signal: GenericAbortSignal;
 }
 
 export default IRefreshCredentials;

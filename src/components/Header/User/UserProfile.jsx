@@ -32,8 +32,8 @@ export const UserProfile = () => {
       <STitle_p>{name}</STitle_p>
 
       <SImageWrapper_div>
-        {true && <img src={avatarURL} alt="avatar" />}
-        {false && <Icon id={'user'} size={32} />}
+        {avatarURL && <img src={avatarURL} alt="avatar" />}
+        {!avatarURL && <Icon id={'user'} size={32} />}
       </SImageWrapper_div>
       {isOpenModal && (
         <Modal toggleModal={handleCloseModal}>

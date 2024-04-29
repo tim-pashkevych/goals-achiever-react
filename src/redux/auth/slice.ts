@@ -21,6 +21,7 @@ const initialState: IUserState = {
   },
   isLoggedIn: false,
   isLoading: false,
+  firstLoad: false,
 };
 
 const slice = createSlice({
@@ -42,16 +43,6 @@ const slice = createSlice({
           state.isLoggedIn = true;
         }
       )
-      .addCase(
-        refreshThunk.fulfilled,
-        (state, { payload: { token, user, refreshToken } }) => {
-          state.isLoading = false;
-          state.token = token;
-          state.user = user;
-          state.refreshToken = refreshToken;
-          state.isLoggedIn = true;
-        }
-      )
       .addCase(logoutThunk.fulfilled, () => initialState)
       .addCase(
         updateUserInfoThunk.fulfilled,
@@ -65,6 +56,23 @@ const slice = createSlice({
       .addCase(updateUserTheme.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.user.theme = payload;
+      })
+      .addCase(
+        refreshThunk.fulfilled,
+        (state, { payload: { token, user, refreshToken } }) => {
+          state.isLoading = false;
+          state.token = token;
+          state.user = user;
+          state.refreshToken = refreshToken;
+          state.isLoggedIn = true;
+          state.firstLoad = false;
+        }
+      )
+      .addCase(refreshThunk.pending, (state) => {
+        state.firstLoad = true;
+      })
+      .addCase(refreshThunk.rejected, (state) => {
+        state.firstLoad = false;
       })
       .addMatcher(
         isAnyOf(
@@ -100,6 +108,7 @@ const slice = createSlice({
     selectIsUserLoading: (state) => state.isLoading,
     selectUser: (state) => state.user,
     selectTheme: (state) => state.user.theme,
+    selectFirstLoad: (state) => state.firstLoad,
   },
 });
 
@@ -112,4 +121,5 @@ export const {
   selectUser,
   selectTheme,
   selectRefreshToken,
+  selectFirstLoad,
 } = slice.selectors;

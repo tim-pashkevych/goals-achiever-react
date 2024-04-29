@@ -17,7 +17,13 @@ import {
   SpProject,
 } from './BoardItem.styled';
 
-export const BoardItem = ({ id, title, icon, setActiveBoardId }) => {
+export const BoardItem = ({
+  id,
+  title,
+  icon,
+  setActiveBoardId,
+  toggleSidebar = false,
+}) => {
   const [isOpenModal, toggleModal] = useModal();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -31,6 +37,7 @@ export const BoardItem = ({ id, title, icon, setActiveBoardId }) => {
       .then(() => {
         setActiveBoardId(id);
         navigate(`/home/${name}`);
+        if (toggleSidebar) toggleSidebar();
       })
       .catch((error) => toast.error(error.message));
   };
@@ -40,6 +47,7 @@ export const BoardItem = ({ id, title, icon, setActiveBoardId }) => {
       .unwrap()
       .then(() => {
         toast.success(`The board "${boardName}" was deleted.`);
+        if (toggleSidebar) toggleSidebar();
       })
       .catch((error) => {
         toast.error(error.message);

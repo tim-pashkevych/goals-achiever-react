@@ -6,6 +6,7 @@ interface IUserState {
   isLoggedIn: boolean;
   isLoading: boolean;
   user: IUser;
+  firstLoad: boolean;
 }
 
 export default IUserState;

@@ -3,7 +3,7 @@ import { useAppSelector, useLocalStorage } from '../../../hooks';
 import { selectActiveBoard, selectBoards } from '../../../redux';
 import { SUl } from './BoardList.styled';
 
-export const BoardList = () => {
+export const BoardList = ({ toggleSidebar }) => {
   const boards = useAppSelector(selectBoards);
   const activeBoard = useAppSelector(selectActiveBoard);
   const [, setActiveBoardId] = useLocalStorage(
@@ -20,6 +20,7 @@ export const BoardList = () => {
           title={board.title}
           id={board._id}
           setActiveBoardId={setActiveBoardId}
+          toggleSidebar={toggleSidebar}
         />
       ))}
     </SUl>
