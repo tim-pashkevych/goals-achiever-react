@@ -10,6 +10,10 @@ export const STitle_h3 = styled.h3`
 `;
 
 export const SColumnWrapper = styled.div`
+  @media only screen and (min-width: 320px) {
+    min-width: 240px;
+    width: calc(100%);
+  }
   height: 95%;
   width: 335px;
   overflow-y: auto;

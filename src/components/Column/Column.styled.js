@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 export const SColumnWrapper = styled.div`
+  @media only screen and (min-width: 320px) {
+    /* min-width: 240px; */
+    width: 100%;
+  }
   width: 350px;
   display: flex;
   gap: 14px;
@@ -9,12 +13,15 @@ export const SColumnWrapper = styled.div`
 export const SCardSuperWrapper = styled.div``;
 
 export const SCardWrapperScroll = styled.div`
+  @media only screen and (min-width: 320px) {
+    width: calc(100%);
+  }
   display: flex;
 
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
-  width: 100%;
+  /* width: 100%; */
 
   gap: 8px;
   max-height: 100%;
@@ -38,6 +45,10 @@ export const SCardWrapperScroll = styled.div`
   }
 `;
 export const SColumnName = styled.div`
+  @media only screen and (min-width: 320px) and (max-width: 767.99px) {
+    min-width: 240px;
+    width: 100%;
+  }
   width: 335px;
   min-height: 56px;
 
@@ -64,6 +75,9 @@ export const SIconsWrapper = styled.div`
 `;
 
 export const SButtonWrapper = styled.div`
+  @media only screen and (min-width: 320px) {
+    width: 100%;
+  }
   width: 335px;
 
   flex-basis: auto;

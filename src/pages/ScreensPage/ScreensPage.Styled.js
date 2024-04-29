@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const SMainDashboard = styled.div`
+  @media only screen and (min-width: 320px) {
+    padding: 14px 20px 0px 20px;
+  }
   position: relative;
   background-color: ${({ theme }) => theme.mainDashbordBackground};
   height: calc(100vh - 68px);
