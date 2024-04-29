@@ -1,4 +1,5 @@
 import EllipsisText from 'react-ellipsis-text';
+import { format } from 'date-fns';
 
 import icons from 'assets/sprite.svg';
 import { Modal, CardPopup } from '../../components';
@@ -72,7 +73,9 @@ const Card = ({
             </S.tagItem_li>
             <S.tagItem_li>
               <S.tagLabel_h5>Deadline</S.tagLabel_h5>
-              <S.deadlineValue_p>{deadline}</S.deadlineValue_p>
+              <S.deadlineValue_p>
+                {format(new Date(Number(deadline)), 'MM/dd/yyyy')}
+              </S.deadlineValue_p>
             </S.tagItem_li>
           </S.tagsList_ul>
           <S.bottomRightPartContainer_div>
