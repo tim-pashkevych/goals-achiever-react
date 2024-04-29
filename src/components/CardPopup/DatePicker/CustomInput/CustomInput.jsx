@@ -3,16 +3,14 @@ import { forwardRef, useEffect, useState } from 'react';
 import * as S from './CustomInput.styled';
 
 import icons from 'assets/sprite.svg';
+import { formatDate } from '../convertDateFunction';
 
 const CustomInput = forwardRef(
   ({ value = new Date(), isOpen, setClose }, ref) => {
     const initialDate = new Date(value);
 
     const [selectedDate, setSelectedDate] = useState(initialDate);
-
-    const formattedDate = `${selectedDate.getDate()}-${
-      selectedDate.getMonth() + 1
-    }-${selectedDate.getFullYear()}`;
+    const formattedDate = formatDate(selectedDate);
 
     useEffect(() => {
       setSelectedDate(new Date(value));

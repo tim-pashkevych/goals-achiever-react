@@ -38,7 +38,7 @@ export const MainDashboard = ({ filter }) => {
               title={column.title}
               key={column._id}
               columnId={column._id}
-              boardId={column.boardId}
+              boardId={board?._id}
               {...column}
               filter={filter}
             />
