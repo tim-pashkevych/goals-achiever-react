@@ -21,7 +21,7 @@ import {
   SbuttonLogout,
 } from './Sidebar.styled';
 
-export const Sidebar = ({ className }) => {
+export const Sidebar = ({ className, toggleSidebar }) => {
   const [isOpenModal, toggleModal] = useModal();
   const [isOpenModalIssues, toggleModalIssues] = useModal();
   const [isOpenLogoutModal, toggleLogoutModal] = useModal();
@@ -42,7 +42,7 @@ export const Sidebar = ({ className }) => {
         </SDivCreate>
 
         <SDivProject>
-          <BoardList />
+          <BoardList toggleSidebar={toggleSidebar} />
         </SDivProject>
 
         <SDivNeed>
