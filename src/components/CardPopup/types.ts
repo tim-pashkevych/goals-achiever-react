@@ -1,3 +1,5 @@
+import { Priority } from '../../types';
+
 export enum ActionType {
   Edit = 'Edit',
   Add = 'Add',
@@ -12,6 +14,6 @@ export interface ICardPopupProps {
 export interface IFormData {
   title: string;
   description: string;
-  priority: string;
+  priority: Priority;
   deadline: string | number | Date;
 }

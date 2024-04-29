@@ -1,5 +1,5 @@
 enum Priority {
-  WithoutPriority = 'Without priority',
+  Without = 'without',
   Low = 'low',
   Medium = 'medium',
   High = 'high',
