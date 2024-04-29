@@ -1,4 +1,4 @@
-import{u as e,L as n,j as t,I as a}from"./index-4c5f1c7f.js";import{I as r}from"./Image-f5cf43a8.js";import"./index-0e05dea9.js";const s=e.div`
+import{u as e,L as n,a as r,s,j as t,I as l}from"./index-71102969.js";import{I as d}from"./Image-bfaed1f1.js";import"./index-0e05dea9.js";const p=e.div`
   height: 100vh;
   margin: 0 auto;
 
@@ -48,7 +48,7 @@ import{u as e,L as n,j as t,I as a}from"./index-4c5f1c7f.js";import{I as r}from"
     font-weight: 500;
     text-align: center;
   }
-`,l=e(n)`
+`,c=e(n)`
   width: 335px;
   color: white;
   text-align: center;
@@ -60,4 +60,4 @@ import{u as e,L as n,j as t,I as a}from"./index-4c5f1c7f.js";import{I as r}from"
   @media only screen and (min-width: 768px) {
     width: 344px;
   }
-`,h=()=>{const i={width:162,height:162},o={width:124,height:124};return t.jsxs(s,{children:[t.jsx(r,{desktop:i,tablet:i,mobile:o,type:"image/png",pathKey:"hero",alt:"Boy working on laptop"}),t.jsxs("h1",{children:[t.jsx(a,{id:"logo",size:48})," Task Pro"]}),t.jsx("p",{children:"Supercharge your productivity and take control of your tasks with Task Pro - Don't wait, start achieving your goals now!"}),t.jsxs("ul",{children:[t.jsx("li",{children:t.jsx(l,{to:"/auth/register","aria-label":"Link to register",children:"Registration"})}),t.jsx("li",{children:t.jsx(n,{to:"/auth/login","aria-label":"Link to login",children:"Log in"})})]})]})};export{h as default};
+`,m=()=>{const o=r(s),i={width:162,height:162},a={width:124,height:124};return!o&&t.jsxs(p,{children:[t.jsx(d,{desktop:i,tablet:i,mobile:a,type:"image/png",pathKey:"hero",alt:"Boy working on laptop"}),t.jsxs("h1",{children:[t.jsx(l,{id:"logo",size:48})," Task Pro"]}),t.jsx("p",{children:"Supercharge your productivity and take control of your tasks with Task Pro - Don't wait, start achieving your goals now!"}),t.jsxs("ul",{children:[t.jsx("li",{children:t.jsx(c,{to:"/auth/register","aria-label":"Link to register",children:"Registration"})}),t.jsx("li",{children:t.jsx(n,{to:"/auth/login","aria-label":"Link to login",children:"Log in"})})]})]})};export{m as default};
