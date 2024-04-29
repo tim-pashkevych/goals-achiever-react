@@ -59,5 +59,10 @@ export const IconWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: black;
+  background-color: ${({ theme }) => theme.buttonIconBackground};
+
+  svg {
+    fill: ${({ theme }) => theme.buttonIconColor};
+    stroke: ${({ theme }) => theme.buttonIconColor};
+  }
 `;

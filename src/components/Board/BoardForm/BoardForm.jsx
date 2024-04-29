@@ -17,7 +17,6 @@ import {
   SContainer,
   SFieldWrapp,
   SForm,
-  SImgContainer,
   SInput,
   SLabel,
   SPLabel,
@@ -25,11 +24,16 @@ import {
   SRadioContainer,
   STitle,
 } from './BoardForm.styled';
+import { useNavigate } from 'react-router-dom';
 
 export const BoardForm = ({ boardId, handleCloseModal }) => {
+  const navigate = useNavigate();
   const theme = useAppSelector(selectTheme);
   const dispatch = useAppDispatch();
   const board = useAppSelector((state) => selectBoardById(state, boardId));
+  const boardImageIcons = boardImgIcons.filter((image) =>
+    image.themes.includes(theme)
+  );
   const {
     register,
     handleSubmit,
@@ -38,14 +42,11 @@ export const BoardForm = ({ boardId, handleCloseModal }) => {
     resolver: yupResolver(editBoardSchema),
     defaultValues: {
       title: board?.title,
-      icon: board?.icon,
-      backgroundImage: board?.backgroundImage,
+      icon: board?.icon || boardIcons[0],
+      backgroundImage: board?.backgroundImage || boardImageIcons[0].key,
     },
     mode: 'onChange',
   });
-  const boardImageIcons = boardImgIcons.filter((image) =>
-    image.themes.includes(theme)
-  );
   const imageSize = {
     width: 28,
     height: 28,
@@ -56,12 +57,14 @@ export const BoardForm = ({ boardId, handleCloseModal }) => {
       dispatch(updateBoardByIdThunk({ newBoardBody: data, id: boardId }))
         .unwrap()
         .then(() => {
+          navigate(`/home/${data.title}`);
           handleCloseModal();
         });
     } else {
       dispatch(createBoardThunk(data))
         .unwrap()
         .then(() => {
+          navigate(`/home/${data.title}`);
           handleCloseModal();
         });
     }
@@ -71,19 +74,20 @@ export const BoardForm = ({ boardId, handleCloseModal }) => {
     <SContainer>
       <SForm onSubmit={handleSubmit(onSubmit)}>
         <STitle>{board ? 'Edit board' : 'New board'}</STitle>
-        <SInput type="text" autoFocus={true} {...register('title')} />
+        <SInput
+          type="text"
+          autoFocus={true}
+          {...register('title')}
+          placeholder="Title"
+        />
+        {errors.title?.message && <div>{errors.title.message}</div>}
         <SFieldWrapp>
           <SPLabel>Icons</SPLabel>
-          <SRadioContainer $gap={'3px'}>
+          <SRadioContainer $gap={'11px'}>
             {boardIcons.map((iconId) => (
               <SLabel key={iconId}>
                 <SRadio type="radio" {...register('icon')} value={iconId} />
-                <Icon
-                  id={iconId}
-                  size={24}
-                  stroke="rgba(255, 255, 255, 0.5)"
-                  fill="rgba(0, 0, 0, 0)"
-                />
+                <Icon id={iconId} size={15} />
               </SLabel>
             ))}
           </SRadioContainer>

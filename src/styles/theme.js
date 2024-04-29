@@ -12,6 +12,8 @@ export const theme = Object.freeze({
     textFour: 'rgba(22, 22, 22, 0.5)',
     textFive: 'rgba(22, 22, 22, 0.1)',
     buttonTextColor: '#161616',
+    buttonIconBackground: 'rgb(22, 22, 22)',
+    buttonIconColor: '#fff',
 
     themeAccent: '#bedbb0',
 
@@ -109,6 +111,9 @@ export const theme = Object.freeze({
     column_edit_text: 'rgb(255, 255, 255);',
 
     buttonTextColor: '#161616',
+    buttonIconBackground: 'rgb(22, 22, 22)',
+    buttonIconColor: '#fff',
+
     themeAccent: '#bedbb0',
     mainDashbordBackground: '#1F1F1F',
     mainDashbordText: 'rgba(255, 255, 255, 0.5)',
@@ -199,6 +204,9 @@ export const theme = Object.freeze({
     column_edit_text: 'rgb(22, 22, 22)',
 
     buttonTextColor: '#FFFFFF',
+    buttonIconBackground: 'rgb(255, 255, 255)',
+    buttonIconColor: 'rgb(22, 22, 22)',
+
     themeAccent: '#5255bc',
     mainDashbordBackground: '#ecedfd',
     mainDashbordText: 'rgba(22, 22, 22, 0.7)',

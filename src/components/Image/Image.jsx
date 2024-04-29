@@ -3,6 +3,8 @@ import {
   boardBackgoundImgs,
   boardImgIcons,
 } from '../../constants/images/';
+import { useAppSelector } from '../../hooks';
+import { selectTheme } from '../../redux';
 
 export const Image = ({
   desktop,
@@ -13,6 +15,7 @@ export const Image = ({
   type,
   imageCategory = 'images',
 }) => {
+  const theme = useAppSelector(selectTheme);
   const { width: desktopWidth, height: desktopHeight } = desktop;
   const { width: tabletWidth, height: tabletHeight } = tablet;
   const { width: mobileWidth, height: mobileHeight } = mobile;
@@ -24,7 +27,9 @@ export const Image = ({
   } else if (imageCategory === 'boardBackgroundImages') {
     image = boardBackgoundImgs.find((img) => img.key === pathKey);
   } else if (imageCategory === 'boardIcons') {
-    image = boardImgIcons.find((img) => img.key === pathKey);
+    image = boardImgIcons.find(
+      (img) => img.themes.includes(theme) && img.key === pathKey
+    );
   }
 
   if (!image) return null;
