@@ -14,6 +14,8 @@ import { CardStatusPopup } from './CardStatusPopup';
 import { FullCardInfo } from './FullCardInfo';
 
 import * as S from './Card.styled';
+import { useState } from 'react';
+import { ConfirmationPopup } from '../ConfirmationPopup/ConfirmationPopup';
 
 interface ICardProps {
   title?: string;
@@ -36,6 +38,9 @@ const Card = ({
 }: ICardProps) => {
   const [isOpenedModal, toggleModal] = useModal();
   const [isInfoModalOpened, toggleInfoModal] = useModal();
+  const [isOpenDeleteModal, toggleDeleteModal] = useModal();
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const dispatch = useAppDispatch();
 
@@ -53,7 +58,16 @@ const Card = ({
   };
 
   const handleOnDelete = () => {
-    dispatch(deleteCardByIdThunk(_id));
+    setIsLoading(true);
+
+    dispatch(deleteCardByIdThunk(_id))
+      .unwrap()
+      .then(() => {})
+      .catch(() => {})
+      .finally(() => {
+        setIsLoading(false);
+        toggleDeleteModal();
+      });
   };
 
   return (
@@ -103,7 +117,7 @@ const Card = ({
                 <S.actionButton_button
                   onClick={(event) => {
                     event.currentTarget.blur();
-                    handleOnDelete();
+                    toggleDeleteModal();
                   }}
                 >
                   <svg width={16} height={16}>
@@ -127,6 +141,16 @@ const Card = ({
       {isInfoModalOpened && (
         <Modal toggleModal={toggleInfoModal} padding="0">
           <FullCardInfo title={title} description={description} />
+        </Modal>
+      )}
+      {isOpenDeleteModal && (
+        <Modal toggleModal={toggleDeleteModal}>
+          <ConfirmationPopup
+            closeModal={toggleDeleteModal}
+            approveModal={handleOnDelete}
+            isLoading={isLoading}
+            action={`remove ${title} card`}
+          />
         </Modal>
       )}
     </>
