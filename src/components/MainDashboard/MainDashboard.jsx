@@ -1,6 +1,10 @@
 import { Icon } from '..';
-import { useAppSelector, useModal } from '../../hooks';
-import { selectActiveBoard, selectColumns } from '../../redux';
+import { useAppDispatch, useAppSelector, useModal } from '../../hooks';
+import {
+  getBoardByIdThunk,
+  selectActiveBoard,
+  selectColumns,
+} from '../../redux';
 import { Column } from '../Column/Column';
 
 import {
@@ -10,10 +14,16 @@ import {
   STitle_h3,
 } from './MainDashboard.styled';
 import { ColumnForm } from '../Column/ColumnForm/ColumnForm';
+import { useEffect } from 'react';
 
 export const MainDashboard = ({ filter }) => {
   const board = useAppSelector(selectActiveBoard);
   const columns = useAppSelector(selectColumns);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getBoardByIdThunk(board._id));
+  }, [board, dispatch]);
 
   const [isOpenModal, toggleModal] = useModal();
 
