@@ -13,6 +13,15 @@ export const buttonSizes = {
 };
 
 export const SButton = styled.button`
+  @media only screen and (min-width: 320px) {
+    width: 100%;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 334px;
+  }
+  @media only screen and (min-width: 1440px) {
+    width: 334px;
+  }
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -24,7 +33,7 @@ export const SButton = styled.button`
 
   background-color: ${(props) => props.theme.secondaryColor};
 
-  width: 100%;
+  /* width: 100%; */
   height: 49px;
 
   border: none;
