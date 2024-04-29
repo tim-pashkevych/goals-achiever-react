@@ -3,40 +3,49 @@ import styled from 'styled-components';
 export const SInputWrapper_dev = styled.div`
   display: flex;
   flex-direction: column;
+  margin-inline: auto;
   gap: 14px;
   margin-bottom: 24px;
-`;
-export const SLabel_label = styled.label`
   width: 100%;
+`;
+
+export const SDiv_Input = styled.div`
   position: relative;
+  width: 100%;
+`;
+
+export const SLabel_label = styled.label`
+  position: relative;
+  width: 100%;
 `;
 
 export const SInput_input = styled.input`
-  outline: 1px solid ${({ theme }) => theme.inputBorder};
-  border: none;
+  margin-inline: auto;
+  outline: none;
+  border: 1px solid
+    ${({ theme, $hasError }) => ($hasError ? '#f16b6b' : theme.secondaryColor)};
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
   border-radius: 8px;
+  opacity: 0.4;
   width: 287px;
   height: 49px;
   padding: 14px 18px;
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: ${({ theme }) => theme.userProfile};
-  background-color: ${({ theme }) => theme.modalBackground};
+  color: ${({ theme }) => theme.columnName};
 
-  transition: var(--transition);
-  &:active {
-    outline: 2px solid ${({ theme }) => theme.inputBorder};
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+
+  @media only screen and (max-width: 374.99px) {
+    width: 200px;
   }
 
   @media only screen and (min-width: 768px) {
     width: 352px;
-  }
-  @media only screen and (min-width: 1440px) {
-    &:focus,
-    &:hover {
-      outline: 2px solid ${({ theme }) => theme.inputBorder};
-    }
   }
 `;
 
@@ -63,5 +72,26 @@ export const SEyeButton = styled.button`
     &:focus {
       stroke: ${({ theme }) => theme.themeAccent};
     }
+
+    @media only screen and (max-width: 374.99px) {
+      right: 10px;
+    }
+  }
+`;
+
+export const SError_Message = styled.p`
+  position: absolute;
+  bottom: -8px;
+  left: 9px;
+  color: #f16b6b;
+  background-color: ${({ theme }) => theme.modalBackground};
+  text-align: left;
+  font-size: 14px;
+  padding: 0 8px;
+
+  @media only screen and (max-width: 374.99px) {
+    bottom: -6px;
+    font-size: 9px;
+    padding: 0 5px;
   }
 `;
