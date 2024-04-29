@@ -46,6 +46,7 @@ export const BoardItem = ({
     dispatch(deleteBoardByIdThunk(id))
       .unwrap()
       .then(() => {
+        setActiveBoardId('');
         toast.success(`The board "${boardName}" was deleted.`);
         if (toggleSidebar) toggleSidebar();
       })
