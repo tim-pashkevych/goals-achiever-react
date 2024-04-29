@@ -15,7 +15,6 @@ import { DatePicker } from './DatePicker';
 
 //styles
 import * as S from './CardPopup.styled';
-import { formatUnixDate } from '../../helpers';
 
 const CardPopup = ({
   actionType,
@@ -24,7 +23,7 @@ const CardPopup = ({
     title: '',
     description: '',
     priority: Priority.Without,
-    deadline: formatUnixDate(new Date().getTime()),
+    deadline: new Date().getTime(),
   },
 }: ICardPopupProps) => {
   const {

@@ -30,7 +30,8 @@ function formatDate(date: Date): string {
     const dayDiff: number = Math.round(
       (date.getTime() - currentDate.getTime()) / (1000 * 60 * 60 * 24)
     );
-    if (dayDiff === 0) return 'Today';
+
+    if (dayDiff === 0 || dayDiff < 0) return 'Today';
     else if (dayDiff === 1) return 'Tomorrow';
     else if (dayDiff > 1) return DayOfWeek[date.getDay()];
     else return 'Unknown Date';
