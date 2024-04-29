@@ -5,6 +5,9 @@ interface ICardContainerProps {
 }
 
 export const card_div = styled.div<ICardContainerProps>`
+  @media only screen and (min-width: 320px) {
+    width: 100%;
+  }
   /* background-color: #121212; //? */
   background-color: ${({ theme }) => theme.card_Background};
 
