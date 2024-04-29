@@ -62,10 +62,8 @@ function App() {
         toast.error(error.message);
       });
     setTimeout(() => {
-      console.log('abort');
       controller.abort();
     }, 5000);
-    //It is important not to add dependencies. It should work only  once
   }, [dispatch, navigate, isLoggedIn, rToken, activeBoardId]);
 
   return (
