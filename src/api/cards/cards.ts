@@ -12,7 +12,7 @@ const createCard = async (data: ICreateCardRequestBody) => {
 };
 
 const updateCardById = async (id: Id, data: IUpdateCardRequestBody) => {
-  const result = await api.patch(`/cards/${id}`, data.title);
+  const result = await api.patch(`/cards/${id}`, data);
   return result.data;
 };
 
