@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Icon } from '../Icon/Icon';
 
 // export const SContainer = styled.div`
 //   max-width: 350px;
@@ -122,7 +123,7 @@ export const SpError = styled.p`
   bottom: -8px;
   left: 9px;
   color: #f16b6b;
-  background-color: #151515;
+  background-color: ${({ theme }) => theme.modalBackground};
   text-align: left;
   font-size: 14px;
   padding: 0 8px;
@@ -132,4 +133,9 @@ export const SpError = styled.p`
     font-size: 9px;
     padding: 0 5px;
   }
+`;
+
+export const SIcon = styled(Icon)`
+  fill: none;
+  stroke: ${({ theme }) => theme.buttonIconColor};
 `;
