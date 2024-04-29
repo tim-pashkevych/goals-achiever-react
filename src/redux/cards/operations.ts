@@ -51,7 +51,8 @@ export const deleteCardByIdThunk = createAsyncThunk<Id, Id, IThunkAPI>(
   'DELETE /cards/{id}',
   async (id, thunkAPI) => {
     try {
-      const result = await api.cards.deleteCardById(id);
+      let result = await api.cards.deleteCardById(id);
+      result = id;
       return result;
     } catch (error) {
       if (error instanceof AxiosError) {

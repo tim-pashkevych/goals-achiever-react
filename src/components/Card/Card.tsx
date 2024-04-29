@@ -1,4 +1,5 @@
 import EllipsisText from 'react-ellipsis-text';
+import { format, isPast, isEqual } from 'date-fns';
 
 import icons from 'assets/sprite.svg';
 import { Modal, CardPopup } from '../../components';
@@ -13,6 +14,8 @@ import { CardStatusPopup } from './CardStatusPopup';
 import { FullCardInfo } from './FullCardInfo';
 
 import * as S from './Card.styled';
+import { useState } from 'react';
+import { ConfirmationPopup } from '../ConfirmationPopup/ConfirmationPopup';
 
 interface ICardProps {
   title?: string;
@@ -35,8 +38,17 @@ const Card = ({
 }: ICardProps) => {
   const [isOpenedModal, toggleModal] = useModal();
   const [isInfoModalOpened, toggleInfoModal] = useModal();
+  const [isOpenDeleteModal, toggleDeleteModal] = useModal();
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const dispatch = useAppDispatch();
+  const isOverdue =
+    isPast(new Date(Number(deadline))) ||
+    isEqual(
+      format(new Date(Number(deadline)), 'MM/dd/yyyy'),
+      format(new Date(), 'MM/dd/yyyy')
+    );
 
   const handleOnEdit = (updatedCard: IFormData) => {
     toggleModal(false);
@@ -52,7 +64,16 @@ const Card = ({
   };
 
   const handleOnDelete = () => {
-    dispatch(deleteCardByIdThunk(_id));
+    setIsLoading(true);
+
+    dispatch(deleteCardByIdThunk(_id))
+      .unwrap()
+      .then(() => {})
+      .catch(() => {})
+      .finally(() => {
+        setIsLoading(false);
+        toggleDeleteModal();
+      });
   };
 
   return (
@@ -72,18 +93,22 @@ const Card = ({
             </S.tagItem_li>
             <S.tagItem_li>
               <S.tagLabel_h5>Deadline</S.tagLabel_h5>
-              <S.deadlineValue_p>{deadline}</S.deadlineValue_p>
+              <S.deadlineValue_p>
+                {format(new Date(Number(deadline)), 'MM/dd/yyyy')}
+              </S.deadlineValue_p>
             </S.tagItem_li>
           </S.tagsList_ul>
           <S.bottomRightPartContainer_div>
             <S.actionButtonsList_ul>
-              <S.actionItem_li>
-                <CardStatusPopup
-                  columnId={columnId}
-                  boardId={boardId}
-                  id={_id}
-                />
-              </S.actionItem_li>
+              {isOverdue && (
+                <S.actionItem_li>
+                  <CardStatusPopup
+                    columnId={columnId}
+                    boardId={boardId}
+                    id={_id}
+                  />
+                </S.actionItem_li>
+              )}
               <S.actionItem_li>
                 <S.actionButton_button
                   onClick={(event) => {
@@ -100,7 +125,7 @@ const Card = ({
                 <S.actionButton_button
                   onClick={(event) => {
                     event.currentTarget.blur();
-                    handleOnDelete();
+                    toggleDeleteModal();
                   }}
                 >
                   <svg width={16} height={16}>
@@ -113,13 +138,27 @@ const Card = ({
         </S.bottomPartContainer_div>
       </S.card_div>
       {isOpenedModal && (
-        <Modal toggleModal={toggleModal} padding="0">
-          <CardPopup actionType={ActionType.Edit} onSave={handleOnEdit} />
+        <Modal toggleModal={toggleModal}>
+          <CardPopup
+            actionType={ActionType.Edit}
+            onSave={handleOnEdit}
+            cardData={{ title, description, priority, deadline }}
+          />
         </Modal>
       )}
       {isInfoModalOpened && (
         <Modal toggleModal={toggleInfoModal} padding="0">
           <FullCardInfo title={title} description={description} />
+        </Modal>
+      )}
+      {isOpenDeleteModal && (
+        <Modal toggleModal={toggleDeleteModal}>
+          <ConfirmationPopup
+            closeModal={toggleDeleteModal}
+            approveModal={handleOnDelete}
+            isLoading={isLoading}
+            action={`remove ${title} card`}
+          />
         </Modal>
       )}
     </>

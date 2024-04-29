@@ -1,31 +1,27 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import { useAppDispatch } from '../../hooks';
-import { logoutThunk } from '../../redux';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { logoutThunk, selectIsUserLoading } from '../../redux';
+import { Loader } from '../Loader/Loader';
 
 import { SDiv, Sp, SDiv_Button, SButton } from './Logout.styled';
 
 export const Logout = ({ toggleModal }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
+  const isLoading = useAppSelector(selectIsUserLoading);
 
   const handleLogout = () => {
-    setIsLoading(true);
     dispatch(logoutThunk())
       .unwrap()
       .then(() => {
         navigate('/');
         toggleModal();
-        toast.warning('In order to use the application you must log in');
+        toast.warning('In order to use the application you must log in.');
       })
       .catch(() => {
-        toast.error('Oops... Something went wrong');
-      })
-      .finally(() => {
-        setIsLoading(false);
+        toast.error('Sorry, something went wrong. Please try again later.');
       });
   };
 
@@ -40,6 +36,7 @@ export const Logout = ({ toggleModal }) => {
           Cancel
         </SButton>
       </SDiv_Button>
+      {isLoading && <Loader />}
     </SDiv>
   );
 };

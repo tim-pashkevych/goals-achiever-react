@@ -17,11 +17,9 @@ import {
   SIcon,
   SIconsWrapper,
 } from './Column.styled';
-import { selectActiveBoard } from '../../redux';
 
 export const Column = ({ title, columnId, filter, boardId }) => {
   const dispatch = useAppDispatch();
-  const activeBoard = useAppSelector(selectActiveBoard);
   const [isOpenModal, toggleModal] = useModal();
   const [isAddCardOpenModal, toggleAddCardModal] = useModal();
 
@@ -38,7 +36,7 @@ export const Column = ({ title, columnId, filter, boardId }) => {
   };
 
   const handleAddAnotherCard = (data) => {
-    dispatch(createCardThunk({ ...data, boardId: activeBoard._id, columnId }))
+    dispatch(createCardThunk({ ...data, boardId, columnId }))
       .unwrap()
       .then(() => {
         toggleAddCardModal();
@@ -73,7 +71,12 @@ export const Column = ({ title, columnId, filter, boardId }) => {
 
       <SCardWrapperScroll>
         {filteredCards.map((card) => (
-          <Card key={card._id} {...card} boardId={boardId} />
+          <Card
+            key={card._id}
+            {...card}
+            boardId={boardId}
+            columnId={columnId}
+          />
         ))}
       </SCardWrapperScroll>
 

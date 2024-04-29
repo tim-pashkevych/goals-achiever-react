@@ -5,15 +5,16 @@ import { nanoid } from '@reduxjs/toolkit';
 
 //global folders
 import { Priorities, PriorityColor } from '../../constants';
+import { Priority } from '../../types';
 import icons from 'assets/sprite.svg';
 
 //local folder
+import { ICardPopupProps, IFormData } from './types';
 import { CardSchema } from './yupSchema';
-import { DatePicker } from './DatePicker/DatePicker';
+import { DatePicker } from './DatePicker';
 
 //styles
 import * as S from './CardPopup.styled';
-import { ICardPopupProps, IFormData } from './types';
 
 const CardPopup = ({
   actionType,
@@ -21,8 +22,8 @@ const CardPopup = ({
   cardData = {
     title: '',
     description: '',
-    priority: '',
-    deadline: new Date(),
+    priority: Priority.Without,
+    deadline: new Date().getTime(),
   },
 }: ICardPopupProps) => {
   const {
@@ -34,7 +35,7 @@ const CardPopup = ({
   } = useForm({
     defaultValues: {
       ...cardData,
-      deadline: new Date(cardData.deadline),
+      deadline: new Date(Number(cardData.deadline)),
     },
     resolver: yupResolver(CardSchema),
   });
@@ -49,7 +50,11 @@ const CardPopup = ({
       <S.popupName_p>{actionType} card</S.popupName_p>
       <S.cardDataForm_form
         onSubmit={handleSubmit((data) =>
-          onSubmit({ ...data, deadline: data.deadline as Date })
+          onSubmit({
+            ...data,
+            deadline: data.deadline as Date,
+            priority: data.priority as Priority,
+          })
         )}
       >
         <S.formFieldWrapper_label $marginBottom="14px">
@@ -88,7 +93,7 @@ const CardPopup = ({
                     hidden
                   />
                   <S.customRadioButton_span
-                    $color={PriorityColor[priority]}
+                    $color={PriorityColor[priority as Priority]}
                   ></S.customRadioButton_span>
                 </label>
               </li>

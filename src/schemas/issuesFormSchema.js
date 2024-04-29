@@ -1,9 +1,9 @@
 import * as yup from 'yup';
 
-export const NeedHelpFormSchema = yup.object().shape({
+export const IssuesFormSchema = yup.object().shape({
   email: yup
     .string()
-    .email('Enter a valid Email')
+    .email('Enter a valid email')
     .required('Email is required')
     .max(64, 'Max length must be less than 64 chars'),
   message: yup
