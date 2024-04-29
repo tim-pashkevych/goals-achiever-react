@@ -10,10 +10,9 @@ import {
   Sp,
   STextarea,
   SpError,
-  SDivForm,
 } from './NeedHelpForm.styled';
 import { useAppDispatch } from '../../hooks';
-import { NeedHelpFormSchema } from '../../schemas/NeedHelpFormSchema';
+import { IssuesFormSchema } from '../../schemas/issuesFormSchema';
 import { issuesThunk } from '../../redux';
 
 export const NeedHelpForm = ({ toggleModal }) => {
@@ -23,7 +22,7 @@ export const NeedHelpForm = ({ toggleModal }) => {
     formState: { errors, dirtyFields },
   } = useForm({
     mode: 'onChange',
-    resolver: yupResolver(NeedHelpFormSchema),
+    resolver: yupResolver(IssuesFormSchema),
   });
 
   const dispatch = useAppDispatch();
@@ -43,7 +42,7 @@ export const NeedHelpForm = ({ toggleModal }) => {
   };
 
   return (
-    <SDivForm>
+    <>
       <SForm onSubmit={handleSubmit(onSubmit)}>
         <Sp>Need help</Sp>
         <SDiv>
@@ -55,7 +54,7 @@ export const NeedHelpForm = ({ toggleModal }) => {
             $hasError={!!errors.email}
           />
           {errors.email?.message && dirtyFields && (
-            <SpError>{errors.email.message}</SpError>
+            <SpError>{errors.email.message} </SpError>
           )}
         </SDiv>
 
@@ -74,6 +73,6 @@ export const NeedHelpForm = ({ toggleModal }) => {
 
         <SButton type="submit">Send</SButton>
       </SForm>
-    </SDivForm>
+    </>
   );
 };

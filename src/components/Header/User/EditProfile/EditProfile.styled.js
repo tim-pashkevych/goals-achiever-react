@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const SForm_form = styled.form``;
+export const SForm_form = styled.form`
+  width: 100%;
+`;
 
 export const STitle_h2 = styled.h2`
   font-weight: 500;

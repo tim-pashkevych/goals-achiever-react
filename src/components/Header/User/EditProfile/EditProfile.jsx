@@ -22,8 +22,12 @@ export const EditProfile = ({ handleCloseModal }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm({ mode: 'onChange', resolver: yupResolver(editProfileSchema) });
+    formState: { errors, dirtyFields },
+  } = useForm({
+    mode: 'onChange',
+    resolver: yupResolver(editProfileSchema),
+    shouldUnregister: true,
+  });
 
   const onSubmit = (data) => {
     const { name, email, password } = data;
@@ -54,7 +58,12 @@ export const EditProfile = ({ handleCloseModal }) => {
     <SForm_form onSubmit={handleSubmit(onSubmit)}>
       <STitle_h2>Edit profile</STitle_h2>
       <Card setAvatar={setAvatar} />
-      <InputList register={register} errors={errors} current={curentValues} />
+      <InputList
+        register={register}
+        errors={errors}
+        current={curentValues}
+        dirtyFields={dirtyFields}
+      />
       <Button title={'Send'} icon={false} isLoading={isLoading} />
     </SForm_form>
   );

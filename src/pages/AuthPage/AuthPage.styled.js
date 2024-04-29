@@ -15,11 +15,6 @@ export const SFormWrapper = styled.div`
   border-radius: 8px;
   background: rgb(21, 21, 21);
 
-  @media only screen and (min-width: 768px) {
-    width: 424px;
-    padding: 40px;
-  }
-
   ul {
     display: flex;
     gap: 14px;
@@ -34,5 +29,14 @@ export const SFormWrapper = styled.div`
   }
   a.active {
     color: rgb(255, 255, 255);
+  }
+
+  @media only screen and (max-width: 374.99px) {
+    width: 90%;
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 424px;
+    padding: 40px;
   }
 `;
