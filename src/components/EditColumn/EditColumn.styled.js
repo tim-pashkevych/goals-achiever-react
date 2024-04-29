@@ -47,10 +47,16 @@ export const SImgContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #161616;
   width: 28px;
   height: 28px;
   border-radius: 8px;
+
+  background-color: ${({ theme }) => theme.buttonIconBackground};
+
+  svg {
+    fill: ${({ theme }) => theme.buttonIconColor};
+    stroke: ${({ theme }) => theme.buttonIconColor};
+  }
 `;
 
 export const SButton = styled.button`
