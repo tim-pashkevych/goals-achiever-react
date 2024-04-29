@@ -67,7 +67,7 @@ export const SFilterWrapper_button = styled.button`
   color: ${({ theme }) => theme.themeSwitcher};
 
   stroke: ${({ theme }) => theme.themeSwitcher};
-  fill: ${({ theme }) => theme.mainDashbordBackground};
+  fill: transparent;
   &:active {
     stroke: ${({ theme }) => theme.themeAccent};
     color: ${({ theme }) => theme.themeAccent};
