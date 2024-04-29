@@ -52,7 +52,9 @@ const theme = async (data: object) => {
 };
 
 const refresh = async (credentials: IRefreshCredentials) => {
-  const result = await api.post('/users/refresh', credentials);
+  const result = await api.post('/users/refresh', credentials.data, {
+    signal: credentials.signal,
+  });
   const { token } = result.data.result;
 
   setAxiosToken(token);

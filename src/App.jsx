@@ -32,8 +32,14 @@ function App() {
 
   useEffect(() => {
     if (isLoggedIn) return;
+    const controller = new AbortController();
 
-    dispatch(refreshThunk({ refreshToken: rToken }))
+    dispatch(
+      refreshThunk({
+        data: { refreshToken: rToken },
+        signal: controller.signal,
+      })
+    )
       .unwrap()
       .then(() => {
         dispatch(fetchUserThunk({ boardId: activeBoardId }))
@@ -49,9 +55,16 @@ function App() {
           });
       })
       .catch((error) => {
+        if (error === 'canceled')
+          toast.warn(
+            'Please wait, we use free servers for the back end and they need time to wake up'
+          );
         toast.error(error.message);
       });
-
+    setTimeout(() => {
+      console.log('abort');
+      controller.abort();
+    }, 5000);
     //It is important not to add dependencies. It should work only  once
   }, [dispatch, navigate, isLoggedIn, rToken, activeBoardId]);
 

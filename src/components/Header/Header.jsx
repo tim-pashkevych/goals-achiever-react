@@ -6,7 +6,7 @@ import { ThemeSwitcher } from './ThemeSwitcher/ThemeSwitcher';
 import { UserProfile } from './User/UserProfile';
 
 import { SButton_button, SHeader_header } from './Header.styled';
-import { SidebarModal } from './SidebarModal/sidebarModal';
+import { SidebarModal } from './SidebarModal/SidebarModal.jsx';
 
 export const Header = () => {
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
