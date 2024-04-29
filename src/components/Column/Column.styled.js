@@ -4,6 +4,10 @@ export const SColumnWrapper = styled.div`
     /* min-width: 240px; */
     width: 100%;
   }
+  @media only screen and (min-width: 748px) {
+    /* min-width: 240px; */
+    width: 350px;
+  }
   width: 350px;
   display: flex;
   gap: 14px;
@@ -78,7 +82,9 @@ export const SButtonWrapper = styled.div`
   @media only screen and (min-width: 320px) {
     width: 100%;
   }
-  width: 335px;
+  @media only screen and (min-width: 748px) {
+    width: 335px;
+  }
 
   flex-basis: auto;
 `;

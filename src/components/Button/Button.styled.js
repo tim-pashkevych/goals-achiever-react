@@ -17,10 +17,10 @@ export const SButton = styled.button`
     width: 100%;
   }
   @media only screen and (min-width: 768px) {
-    width: 334px;
+    width: 100%;
   }
   @media only screen and (min-width: 1440px) {
-    width: 334px;
+    width: 100%;
   }
   display: flex;
   flex-direction: row;

@@ -20,7 +20,7 @@ export const SMainDashboard = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    padding: 26px 0px 0px 32px;
+    padding: 26px 32px 0px 32px;
 
     background-image: ${(props) =>
       props.$bgTablet1x ? `url("${props.$bgTablet1x}")` : 'none'};
