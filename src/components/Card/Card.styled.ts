@@ -129,10 +129,12 @@ interface IPriorityValueProps {
 }
 
 export const priorityValue_p = styled.p<IPriorityValueProps>`
-  padding-left: 14px;
+  padding-left: 16px;
   min-width: 35px;
 
   letter-spacing: -0.02em;
+
+  text-transform: capitalize;
 
   position: relative;
   &::before {
