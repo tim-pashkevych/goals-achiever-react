@@ -23,6 +23,8 @@ import {
   SRadio,
   SRadioContainer,
   STitle,
+  SpError,
+  SDiv,
 } from './BoardForm.styled';
 import { useNavigate } from 'react-router-dom';
 
@@ -37,7 +39,7 @@ export const BoardForm = ({ boardId, handleCloseModal }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, dirtyFields },
   } = useForm({
     resolver: yupResolver(editBoardSchema),
     defaultValues: {
@@ -74,20 +76,26 @@ export const BoardForm = ({ boardId, handleCloseModal }) => {
     <SContainer>
       <SForm onSubmit={handleSubmit(onSubmit)}>
         <STitle>{board ? 'Edit board' : 'New board'}</STitle>
-        <SInput
-          type="text"
-          autoFocus={true}
-          {...register('title')}
-          placeholder="Title"
-        />
-        {errors.title?.message && <div>{errors.title.message}</div>}
+        <SDiv>
+          <SInput
+            type="text"
+            autoFocus={true}
+            {...register('title')}
+            placeholder="Title"
+            $hasError={!!errors.title}
+          />
+          {errors.title?.message && dirtyFields && (
+            <SpError>{errors.title.message}</SpError>
+          )}
+        </SDiv>
+
         <SFieldWrapp>
           <SPLabel>Icons</SPLabel>
           <SRadioContainer $gap={'11px'}>
             {boardIcons.map((iconId) => (
               <SLabel key={iconId}>
                 <SRadio type="radio" {...register('icon')} value={iconId} />
-                <Icon id={iconId} size={15} />
+                <Icon id={iconId} size={18} />
               </SLabel>
             ))}
           </SRadioContainer>
