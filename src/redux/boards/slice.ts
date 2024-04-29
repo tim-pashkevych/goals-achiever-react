@@ -7,7 +7,7 @@ import {
   deleteBoardByIdThunk,
 } from './operations';
 import { IBoardsState, IShortBoard } from '../../types';
-import { fetchUserThunk } from '..';
+import { fetchUserThunk, logoutThunk } from '..';
 
 const initialState: IBoardsState = {
   items: [],
@@ -73,6 +73,7 @@ const slice = createSlice({
         state.isLoading = false;
         state.items = result.boards;
       })
+      .addCase(logoutThunk.fulfilled, () => initialState)
       .addMatcher(
         isAnyOf(
           createBoardThunk.pending,

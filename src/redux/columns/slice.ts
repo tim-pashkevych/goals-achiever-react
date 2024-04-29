@@ -6,7 +6,7 @@ import {
   deleteColumnByIdThunk,
 } from './operations';
 import { IColumnsState, IShortColumn } from '../../types';
-import { fetchUserThunk, getBoardByIdThunk } from '..';
+import { fetchUserThunk, getBoardByIdThunk, logoutThunk } from '..';
 
 const initialState: IColumnsState = {
   items: [],
@@ -61,6 +61,7 @@ const slice = createSlice({
           }
         );
       })
+      .addCase(logoutThunk.fulfilled, () => initialState)
       .addMatcher(
         isAnyOf(
           createColumnThunk.pending,

@@ -23,7 +23,9 @@ export const createCardThunk = createAsyncThunk<
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data.message || error.message
+      );
     }
   }
 });
@@ -38,7 +40,9 @@ export const updateCardByIdThunk = createAsyncThunk<
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data.message || error.message
+      );
     }
   }
 });
@@ -51,7 +55,9 @@ export const deleteCardByIdThunk = createAsyncThunk<Id, Id, IThunkAPI>(
       return result;
     } catch (error) {
       if (error instanceof AxiosError) {
-        return thunkAPI.rejectWithValue(error.message);
+        return thunkAPI.rejectWithValue(
+          error.response?.data.message || error.message
+        );
       }
     }
   }
@@ -67,7 +73,9 @@ export const moveCardByIdThunk = createAsyncThunk<
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data.message || error.message
+      );
     }
   }
 });
