@@ -15,8 +15,14 @@ export interface StandardComponentProps {
   boardId: string;
   columnId: string;
   id: string;
+  isOverdue: boolean;
 }
-const CardStatusPopup = ({ columnId, boardId, id }: StandardComponentProps) => {
+const CardStatusPopup = ({
+  columnId,
+  boardId,
+  id,
+  isOverdue,
+}: StandardComponentProps) => {
   const [isOpened, setIsOpened] = useState(false);
   const columns = useAppSelector(selectColumns);
   const filteredColumns = filterColumns(columns, columnId);
@@ -78,9 +84,11 @@ const CardStatusPopup = ({ columnId, boardId, id }: StandardComponentProps) => {
         ))}
       </S.container_div>
 
-      <S.iconBell_svg width={16} height={16} $color="lightgreen">
-        <use href={`${icons}#icon-bell`}></use>
-      </S.iconBell_svg>
+      {isOverdue && (
+        <S.iconBell_svg width={16} height={16} $color="lightgreen">
+          <use href={`${icons}#icon-bell`}></use>
+        </S.iconBell_svg>
+      )}
     </S.toggleButton_div>
   );
 };

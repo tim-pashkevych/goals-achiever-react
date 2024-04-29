@@ -100,15 +100,14 @@ const Card = ({
           </S.tagsList_ul>
           <S.bottomRightPartContainer_div>
             <S.actionButtonsList_ul>
-              {isOverdue && (
-                <S.actionItem_li>
-                  <CardStatusPopup
-                    columnId={columnId}
-                    boardId={boardId}
-                    id={_id}
-                  />
-                </S.actionItem_li>
-              )}
+              <S.actionItem_li>
+                <CardStatusPopup
+                  columnId={columnId}
+                  boardId={boardId}
+                  id={_id}
+                  isOverdue={isOverdue}
+                />
+              </S.actionItem_li>
               <S.actionItem_li>
                 <S.actionButton_button
                   onClick={(event) => {
