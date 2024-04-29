@@ -24,6 +24,7 @@ export const SColumnWrapper = styled.div`
   }
   @media only screen and (min-width: 1440px) {
     width: 1108px;
+    /* width: 100%; */
   }
   &::-webkit-scrollbar {
     width: 10px;
