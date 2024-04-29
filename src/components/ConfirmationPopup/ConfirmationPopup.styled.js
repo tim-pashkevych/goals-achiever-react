@@ -11,7 +11,7 @@ export const Sp = styled.p`
   letter-spacing: -0.02em;
   color: ${({ theme }) => theme.columnName};
   margin-bottom: 40px;
-
+  max-width: 290px;
   @media (min-width: 768px) {
     font-size: 18px;
   }
