@@ -17,7 +17,15 @@ const initialState: IBoardsState = {
 const slice = createSlice({
   name: 'boards',
   initialState,
-  reducers: {},
+  reducers: {
+    updateActiveBoard: (state, { payload }) => {
+      state.items = state.items.map((board) =>
+        board._id === payload
+          ? { ...board, active: true }
+          : { ...board, active: false }
+      );
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(
@@ -40,18 +48,9 @@ const slice = createSlice({
           );
         }
       )
-      .addCase(
-        getBoardByIdThunk.fulfilled,
-        (state, { payload: { result: board } }) => {
-          state.isLoading = false;
-
-          state.items = state.items.map((item) =>
-            item._id === board._id
-              ? { ...item, active: true }
-              : { ...item, active: false }
-          );
-        }
-      )
+      .addCase(getBoardByIdThunk.fulfilled, (state) => {
+        state.isLoading = false;
+      })
       .addCase(
         updateBoardByIdThunk.fulfilled,
         (state, { payload: { result: newBoard } }) => {
@@ -110,3 +109,5 @@ export const boardsReducer = slice.reducer;
 
 export const { selectBoards, selectIsBoardLoading, selectActiveBoard } =
   slice.selectors;
+
+export const { updateActiveBoard } = slice.actions;

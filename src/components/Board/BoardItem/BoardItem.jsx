@@ -3,11 +3,7 @@ import { toast } from 'react-toastify';
 
 import { BoardForm, Modal } from '../..';
 import { useAppDispatch, useAppSelector, useModal } from '../../../hooks';
-import {
-  deleteBoardByIdThunk,
-  getBoardByIdThunk,
-  selectActiveBoard,
-} from '../../../redux';
+import { deleteBoardByIdThunk, selectActiveBoard } from '../../../redux';
 import {
   SDivButton,
   SDivLi,
@@ -16,14 +12,9 @@ import {
   SbuttonProject,
   SpProject,
 } from './BoardItem.styled';
+import { updateActiveBoard } from '../../../redux/boards/slice';
 
-export const BoardItem = ({
-  id,
-  title,
-  icon,
-  setActiveBoardId,
-  toggleSidebar = false,
-}) => {
+export const BoardItem = ({ id, title, icon, toggleSidebar = false }) => {
   const [isOpenModal, toggleModal] = useModal();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -32,22 +23,20 @@ export const BoardItem = ({
   const isActive = activeBoard._id === id;
 
   const handleBoardClick = (name) => {
-    dispatch(getBoardByIdThunk(id))
-      .unwrap()
-      .then(() => {
-        setActiveBoardId(id);
-        navigate(`/home/${name}`);
-        if (toggleSidebar) toggleSidebar();
-      })
-      .catch((error) => toast.error(error.message));
+    if (name === boardName) return;
+    navigate(`/home/${name}`);
+    dispatch(updateActiveBoard(id));
+    if (toggleSidebar) toggleSidebar();
+    localStorage.setItem('activeBoardId', JSON.stringify(id));
   };
 
   const handleDelete = (id) => {
     dispatch(deleteBoardByIdThunk(id))
       .unwrap()
       .then(() => {
-        setActiveBoardId('');
+        localStorage.removeItem('activeBoardId');
         toast.success(`The board "${boardName}" was deleted.`);
+        navigate(`/home`);
         if (toggleSidebar) toggleSidebar();
       })
       .catch((error) => {

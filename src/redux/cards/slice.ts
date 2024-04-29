@@ -7,7 +7,13 @@ import {
   moveCardByIdThunk,
 } from './operations';
 import { ICardsState, IShortCard, Priority } from '../../types';
-import { fetchUserThunk, getBoardByIdThunk, logoutThunk } from '..';
+import {
+  createBoardThunk,
+  deleteBoardByIdThunk,
+  fetchUserThunk,
+  getBoardByIdThunk,
+  logoutThunk,
+} from '..';
 
 const initialState: ICardsState = {
   items: [],
@@ -73,6 +79,8 @@ const slice = createSlice({
         );
       })
       .addCase(logoutThunk.fulfilled, () => initialState)
+      .addCase(deleteBoardByIdThunk.fulfilled, () => initialState)
+      .addCase(createBoardThunk.fulfilled, () => initialState)
       .addMatcher(
         isAnyOf(
           createCardThunk.pending,
