@@ -29,7 +29,9 @@ export const registerThunk = createAsyncThunk<
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error.response?.data.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data.message || error.message
+      );
     }
   }
 });
@@ -46,7 +48,9 @@ export const loginThunk = createAsyncThunk<
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data.message || error.message
+      );
     }
   }
 });
@@ -59,7 +63,9 @@ export const logoutThunk = createAsyncThunk(
       return result;
     } catch (error) {
       if (error instanceof AxiosError) {
-        return thunkAPI.rejectWithValue(error.message);
+        return thunkAPI.rejectWithValue(
+          error.response?.data.message || error.message
+        );
       }
     }
   }
@@ -75,7 +81,9 @@ export const updateUserInfoThunk = createAsyncThunk<
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data.message || error.message
+      );
     }
   }
 });
@@ -90,7 +98,9 @@ export const fetchUserThunk = createAsyncThunk<
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data.message || error.message
+      );
     }
   }
 });
@@ -103,7 +113,9 @@ export const updateUserTheme = createAsyncThunk(
       return result;
     } catch (error) {
       if (error instanceof AxiosError) {
-        return thunkAPI.rejectWithValue(error.message);
+        return thunkAPI.rejectWithValue(
+          error.response?.data.message || error.message
+        );
       }
     }
   }
@@ -120,7 +132,9 @@ export const refreshThunk = createAsyncThunk<
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data.message || error.message
+      );
     }
   }
 });
@@ -135,7 +149,9 @@ export const issuesThunk = createAsyncThunk<
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data.message || error.message
+      );
     }
   }
 });

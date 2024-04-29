@@ -22,7 +22,9 @@ export const createBoardThunk = createAsyncThunk<
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data.message || error.message
+      );
     }
   }
 });
@@ -37,7 +39,9 @@ export const getBoardByIdThunk = createAsyncThunk<
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data.message || error.message
+      );
     }
   }
 });
@@ -52,7 +56,9 @@ export const updateBoardByIdThunk = createAsyncThunk<
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data.message || error.message
+      );
     }
   }
 });
@@ -65,7 +71,9 @@ export const deleteBoardByIdThunk = createAsyncThunk<Id, Id, IThunkAPI>(
       return id;
     } catch (error) {
       if (error instanceof AxiosError) {
-        return thunkAPI.rejectWithValue(error.message);
+        return thunkAPI.rejectWithValue(
+          error.response?.data.message || error.message
+        );
       } else {
         throw error;
       }

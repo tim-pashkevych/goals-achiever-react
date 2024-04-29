@@ -30,12 +30,7 @@ export const LoginForm = () => {
       .unwrap()
       .catch((error) => {
         setError(error);
-
-        if (error.includes('401')) {
-          toast.error('Email or password is wrong.');
-        } else {
-          toast.error('Sorry, something went wrong. Please try again later.');
-        }
+        toast.error(error);
       });
   };
   return (

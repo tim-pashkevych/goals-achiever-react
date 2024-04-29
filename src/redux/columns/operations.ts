@@ -21,7 +21,9 @@ export const createColumnThunk = createAsyncThunk<
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data.message || error.message
+      );
     }
   }
 });
@@ -36,7 +38,9 @@ export const updateColumnByIdThunk = createAsyncThunk<
     return result;
   } catch (error) {
     if (error instanceof AxiosError) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data.message || error.message
+      );
     }
   }
 });
@@ -49,7 +53,9 @@ export const deleteColumnByIdThunk = createAsyncThunk<Id, Id, IThunkAPI>(
       return id;
     } catch (error) {
       if (error instanceof AxiosError) {
-        return thunkAPI.rejectWithValue(error.message);
+        return thunkAPI.rejectWithValue(
+          error.response?.data.message || error.message
+        );
       }
       throw error;
     }
