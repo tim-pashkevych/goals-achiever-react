@@ -56,6 +56,7 @@ const CardPopup = ({
           <S.title_input
             {...register('title')}
             placeholder="Title"
+            autoFocus={true}
           ></S.title_input>
           {errors.title && (
             <S.errorMessage_p $position="top : -20px">

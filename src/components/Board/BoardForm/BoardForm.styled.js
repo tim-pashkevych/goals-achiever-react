@@ -39,7 +39,7 @@ export const SForm = styled.form`
 export const STitle = styled.h3`
   font-weight: 500;
   font-size: 18px;
-  color: ${({ theme }) => theme.textOne};
+  color: ${({ theme }) => theme.columnName};
   margin: 0;
 `;
 
@@ -47,9 +47,9 @@ export const SInput = styled.input`
   display: block;
   font-weight: 500;
   font-size: 14px;
-  color: #fff;
+  color: ${({ theme }) => theme.textField_Text};
   margin: 0;
-  background-color: #1f1f1f;
+  background-color: ${({ theme }) => theme.popup_Background};
   outline: none;
   border: 1px solid #bedbb069;
   padding: 14px 18px;
@@ -65,23 +65,29 @@ export const SLabel = styled.label`
   border-radius: 6px;
   overflow: hidden;
 
+  svg {
+    stroke: ${({ theme }) => theme.icon_Column};
+    fill: rgba(0, 0, 0, 0);
+  }
+
   svg:hover {
-    stroke: white;
+    stroke: ${({ theme }) => theme.icon_Column_Hover};
     cursor: pointer;
   }
 
   input[type='radio']:checked + svg {
-    stroke: white;
+    stroke: ${({ theme }) => theme.icon_Column_Hover};
   }
 
-  picture img:hover {
-    border: 2px solid white;
+  picture img:hover,
+  picture img:active {
+    border: 2px solid ${({ theme }) => theme.icon_Column_Hover};
     border-radius: 6px;
     cursor: pointer;
   }
 
   input[type='radio']:checked + picture img {
-    border: 2px solid white;
+    border: 2px solid ${({ theme }) => theme.icon_Column_Hover};
     border-radius: 6px;
   }
 `;
@@ -115,25 +121,11 @@ export const SImgContainer = styled.div`
   border-radius: 8px;
 `;
 
-export const SButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  height: 50px;
-  border-radius: 8px;
-  background-color: #bedbb0;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: -0.02em;
-  color: #161616;
-  border: none;
+export const SButton = styled.div`
+  width: 287px;
+  flex-basis: auto;
 
-  margin-top: 16px;
-
-  &:active,
-  &:hover,
-  &:focus {
-    background-color: #9dc888;
+  @media only screen and (min-width: 768px) {
+    width: 302px;
   }
 `;
