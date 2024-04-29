@@ -21,9 +21,9 @@ const ScreensPage = () => {
   const [isOpenModal, setIsOpenModal] = useModal();
   const [filter, setFilter] = useState(null);
   const backgoroundImage =
-    activeBoard.backgroundImage !== 'default'
+    activeBoard?.backgroundImage !== 'default'
       ? boardBackgoundImgs.find(
-          (img) => img.key === activeBoard.backgroundImage
+          (img) => img.key === activeBoard?.backgroundImage
         )
       : null;
 
