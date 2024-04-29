@@ -1,16 +1,12 @@
 import styled from 'styled-components';
 
-export const SDivForm = styled.div`
-  background-color: ${({ theme }) => theme.modalBackground};
-  display: flex;
-  flex-direction: column;
-`;
-
 export const SForm = styled.form`
+  background-color: ${({ theme }) => theme.modalBackground};
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-bottom: 24px;
+  margin-inline: auto;
 `;
 
 export const Sp = styled.p`
@@ -77,12 +73,13 @@ export const STextarea = styled.textarea`
 
 export const SpError = styled.p`
   position: absolute;
-  bottom: -13px;
-  left: 5px;
+  bottom: -8px;
+  left: 9px;
   color: #f16b6b;
+  background-color: ${({ theme }) => theme.modalBackground};
   text-align: left;
-  font-size: 10px;
-  padding-left: 10px;
+  font-size: 14px;
+  padding: 0 8px;
 `;
 
 export const SButton = styled.button`

@@ -4,5 +4,5 @@ export const Priorities = [
   Priority.Low,
   Priority.Medium,
   Priority.High,
-  Priority.WithoutPriority,
+  Priority.Without,
 ];

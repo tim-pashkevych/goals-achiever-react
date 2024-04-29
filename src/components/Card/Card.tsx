@@ -116,8 +116,12 @@ const Card = ({
         </S.bottomPartContainer_div>
       </S.card_div>
       {isOpenedModal && (
-        <Modal toggleModal={toggleModal} padding="0">
-          <CardPopup actionType={ActionType.Edit} onSave={handleOnEdit} />
+        <Modal toggleModal={toggleModal}>
+          <CardPopup
+            actionType={ActionType.Edit}
+            onSave={handleOnEdit}
+            cardData={{ title, description, priority, deadline }}
+          />
         </Modal>
       )}
       {isInfoModalOpened && (
