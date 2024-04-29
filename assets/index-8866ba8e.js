@@ -358,10 +358,10 @@ to {
     width: 100%;
   }
   @media only screen and (min-width: 768px) {
-    width: 334px;
+    width: 100%;
   }
   @media only screen and (min-width: 1440px) {
-    width: 334px;
+    width: 100%;
   }
   display: flex;
   flex-direction: row;
@@ -1652,6 +1652,10 @@ object-assign
     /* min-width: 240px; */
     width: 100%;
   }
+  @media only screen and (min-width: 748px) {
+    /* min-width: 240px; */
+    width: 350px;
+  }
   width: 350px;
   display: flex;
   gap: 14px;
@@ -1719,7 +1723,9 @@ object-assign
   @media only screen and (min-width: 320px) {
     width: 100%;
   }
-  width: 335px;
+  @media only screen and (min-width: 748px) {
+    width: 335px;
+  }
 
   flex-basis: auto;
 `,f4=k.svg`
@@ -1750,6 +1756,7 @@ object-assign
   }
   @media only screen and (min-width: 1440px) {
     width: 1108px;
+    /* width: 100%; */
   }
   &::-webkit-scrollbar {
     width: 10px;
@@ -2240,4 +2247,4 @@ object-assign
     font-size: 9px;
     padding: 0 5px;
   }
-`,qu=({children:e})=>{const t=eo(Vd),n=ar();return t?e:V.jsx(Sd,{state:{from:n},to:"/welcome"})},Gm=({children:e})=>{var r;const t=eo(Vd),n=ar();return t?V.jsx(Sd,{to:((r=n.state)==null?void 0:r.from)||"/"}):e},PP=P.lazy(()=>Ki(()=>import("./WelcomePage-5383ee67.js"),["assets/WelcomePage-5383ee67.js","assets/Image-fcb1469d.js","assets/index-0e05dea9.js"])),OP=P.lazy(()=>Ki(()=>import("./AuthPage-21f68df8.js"),["assets/AuthPage-21f68df8.js","assets/Button-cbba58f3.js"])),RP=P.lazy(()=>Ki(()=>import("./HomePage-0d4f74c9.js"),["assets/HomePage-0d4f74c9.js","assets/ConfirmationPopup-bbbbc085.js","assets/Button-cbba58f3.js","assets/Image-fcb1469d.js","assets/index-0e05dea9.js"])),Ym=P.lazy(()=>Ki(()=>import("./ScreensPage-48ccf431.js"),["assets/ScreensPage-48ccf431.js","assets/index-0e05dea9.js","assets/ConfirmationPopup-bbbbc085.js","assets/Button-cbba58f3.js"])),FP=P.lazy(()=>Ki(()=>import("./NotFoundPage-a3736f74.js"),[]));function AP(){return V.jsx(a2,{children:V.jsxs(dn,{path:"/",element:V.jsx(i$,{}),children:[V.jsx(dn,{index:!0,element:V.jsx(qu,{children:V.jsx(Sd,{to:"/home"})})}),V.jsx(dn,{path:"/welcome",element:V.jsx(Gm,{children:V.jsx(PP,{})})}),V.jsx(dn,{path:"/auth/:id",element:V.jsx(Gm,{children:V.jsx(OP,{})})}),V.jsxs(dn,{path:"/home",element:V.jsx(RP,{}),children:[V.jsx(dn,{index:!0,element:V.jsx(qu,{children:V.jsx(Ym,{})})}),V.jsx(dn,{path:"/home/:boardName",element:V.jsx(qu,{children:V.jsx(Ym,{})})})]}),V.jsx(dn,{path:"*",element:V.jsx(FP,{})})]})})}Qu.createRoot(document.getElementById("root")).render(V.jsx(m2,{basename:"/goals-achiever-react",children:V.jsx(H2,{store:xv,children:V.jsxs(E0,{loading:null,persistor:HE,children:[V.jsx(AP,{}),V.jsx(ub,{theme:"dark",style:{zIndex:99999},autoClose:2e3})]})})}));export{t5 as $,OO as A,ae as B,AO as C,NO as D,IO as E,DO as F,LO as G,jO as H,Dl as I,BO as J,RO as K,v2 as L,FO as M,x2 as N,Tu as O,zO as P,MO as Q,CO as R,bO as S,UO as T,mO as U,NE as V,pO as W,QO as X,JO as Y,ZO as Z,e5 as _,eo as a,qv as a$,i5 as a0,YO as a1,XO as a2,GO as a3,n5 as a4,r5 as a5,o5 as a6,KO as a7,Ou as a8,li as a9,k5 as aA,P5 as aB,T5 as aC,O5 as aD,R5 as aE,F5 as aF,A5 as aG,VO as aH,HO as aI,F4 as aJ,A4 as aK,T4 as aL,P4 as aM,O4 as aN,R4 as aO,uO as aP,ci as aQ,i2 as aR,Ga as aS,BT as aT,mp as aU,D1 as aV,Qm as aW,dP as aX,cO as aY,N5 as aZ,I5 as a_,LE as aa,lO as ab,o$ as ac,s5 as ad,a5 as ae,l5 as af,u5 as ag,c5 as ah,uo as ai,f5 as aj,d5 as ak,p5 as al,h5 as am,g5 as an,m5 as ao,y5 as ap,v5 as aq,rO as ar,x5 as as,S5 as at,w5 as au,b5 as av,_5 as aw,E5 as ax,C5 as ay,$5 as az,Wt as b,q4 as b$,D5 as b0,j5 as b1,L5 as b2,Nu as b3,B5 as b4,z5 as b5,M5 as b6,U5 as b7,WO as b8,V5 as b9,h4 as bA,m4 as bB,g4 as bC,y4 as bD,v4 as bE,x4 as bF,w4 as bG,S4 as bH,b4 as bI,_4 as bJ,k4 as bK,E4 as bL,C4 as bM,$4 as bN,yd as bO,Ku as bP,z as bQ,Mn as bR,LP as bS,L1 as bT,pP as bU,I4 as bV,$P as bW,D4 as bX,j4 as bY,L4 as bZ,B4 as b_,H5 as ba,W5 as bb,q5 as bc,K5 as bd,Q5 as be,G5 as bf,Y5 as bg,X5 as bh,J5 as bi,Z5 as bj,e4 as bk,vn as bl,Fu as bm,Au as bn,i4 as bo,hO as bp,s4 as bq,l4 as br,u4 as bs,f4 as bt,a4 as bu,c4 as bv,Ru as bw,ui as bx,d4 as by,p4 as bz,Ao as c,z4 as c0,M4 as c1,U4 as c2,qO as c3,V4 as c4,H0 as c5,EO as c6,H4 as c7,W4 as c8,N4 as c9,t4 as ca,n4 as cb,r4 as cc,o4 as cd,gO as ce,f$ as cf,Bu as cg,yO as ch,vO as ci,Wv as d,wd as e,D$ as f,Pm as g,Cu as h,BP as i,V as j,_O as k,$u as l,kO as m,Pu as n,z$ as o,xO as p,wO as q,P as r,iO as s,n$ as t,k as u,SO as v,sO as w,$O as x,TO as y,PO as z};
+`,qu=({children:e})=>{const t=eo(Vd),n=ar();return t?e:V.jsx(Sd,{state:{from:n},to:"/welcome"})},Gm=({children:e})=>{var r;const t=eo(Vd),n=ar();return t?V.jsx(Sd,{to:((r=n.state)==null?void 0:r.from)||"/"}):e},PP=P.lazy(()=>Ki(()=>import("./WelcomePage-df695a17.js"),["assets/WelcomePage-df695a17.js","assets/Image-54de2d14.js","assets/index-0e05dea9.js"])),OP=P.lazy(()=>Ki(()=>import("./AuthPage-0711f6a6.js"),["assets/AuthPage-0711f6a6.js","assets/Button-03cc4e71.js"])),RP=P.lazy(()=>Ki(()=>import("./HomePage-c6e2eb5e.js"),["assets/HomePage-c6e2eb5e.js","assets/ConfirmationPopup-2d4fa875.js","assets/Button-03cc4e71.js","assets/Image-54de2d14.js","assets/index-0e05dea9.js"])),Ym=P.lazy(()=>Ki(()=>import("./ScreensPage-3e7a61cd.js"),["assets/ScreensPage-3e7a61cd.js","assets/index-0e05dea9.js","assets/ConfirmationPopup-2d4fa875.js","assets/Button-03cc4e71.js"])),FP=P.lazy(()=>Ki(()=>import("./NotFoundPage-2970c384.js"),[]));function AP(){return V.jsx(a2,{children:V.jsxs(dn,{path:"/",element:V.jsx(i$,{}),children:[V.jsx(dn,{index:!0,element:V.jsx(qu,{children:V.jsx(Sd,{to:"/home"})})}),V.jsx(dn,{path:"/welcome",element:V.jsx(Gm,{children:V.jsx(PP,{})})}),V.jsx(dn,{path:"/auth/:id",element:V.jsx(Gm,{children:V.jsx(OP,{})})}),V.jsxs(dn,{path:"/home",element:V.jsx(RP,{}),children:[V.jsx(dn,{index:!0,element:V.jsx(qu,{children:V.jsx(Ym,{})})}),V.jsx(dn,{path:"/home/:boardName",element:V.jsx(qu,{children:V.jsx(Ym,{})})})]}),V.jsx(dn,{path:"*",element:V.jsx(FP,{})})]})})}Qu.createRoot(document.getElementById("root")).render(V.jsx(m2,{basename:"/goals-achiever-react",children:V.jsx(H2,{store:xv,children:V.jsxs(E0,{loading:null,persistor:HE,children:[V.jsx(AP,{}),V.jsx(ub,{theme:"dark",style:{zIndex:99999},autoClose:2e3})]})})}));export{t5 as $,OO as A,ae as B,AO as C,NO as D,IO as E,DO as F,LO as G,jO as H,Dl as I,BO as J,RO as K,v2 as L,FO as M,x2 as N,Tu as O,zO as P,MO as Q,CO as R,bO as S,UO as T,mO as U,NE as V,pO as W,QO as X,JO as Y,ZO as Z,e5 as _,eo as a,qv as a$,i5 as a0,YO as a1,XO as a2,GO as a3,n5 as a4,r5 as a5,o5 as a6,KO as a7,Ou as a8,li as a9,k5 as aA,P5 as aB,T5 as aC,O5 as aD,R5 as aE,F5 as aF,A5 as aG,VO as aH,HO as aI,F4 as aJ,A4 as aK,T4 as aL,P4 as aM,O4 as aN,R4 as aO,uO as aP,ci as aQ,i2 as aR,Ga as aS,BT as aT,mp as aU,D1 as aV,Qm as aW,dP as aX,cO as aY,N5 as aZ,I5 as a_,LE as aa,lO as ab,o$ as ac,s5 as ad,a5 as ae,l5 as af,u5 as ag,c5 as ah,uo as ai,f5 as aj,d5 as ak,p5 as al,h5 as am,g5 as an,m5 as ao,y5 as ap,v5 as aq,rO as ar,x5 as as,S5 as at,w5 as au,b5 as av,_5 as aw,E5 as ax,C5 as ay,$5 as az,Wt as b,q4 as b$,D5 as b0,j5 as b1,L5 as b2,Nu as b3,B5 as b4,z5 as b5,M5 as b6,U5 as b7,WO as b8,V5 as b9,h4 as bA,m4 as bB,g4 as bC,y4 as bD,v4 as bE,x4 as bF,w4 as bG,S4 as bH,b4 as bI,_4 as bJ,k4 as bK,E4 as bL,C4 as bM,$4 as bN,yd as bO,Ku as bP,z as bQ,Mn as bR,LP as bS,L1 as bT,pP as bU,I4 as bV,$P as bW,D4 as bX,j4 as bY,L4 as bZ,B4 as b_,H5 as ba,W5 as bb,q5 as bc,K5 as bd,Q5 as be,G5 as bf,Y5 as bg,X5 as bh,J5 as bi,Z5 as bj,e4 as bk,vn as bl,Fu as bm,Au as bn,i4 as bo,hO as bp,s4 as bq,l4 as br,u4 as bs,f4 as bt,a4 as bu,c4 as bv,Ru as bw,ui as bx,d4 as by,p4 as bz,Ao as c,z4 as c0,M4 as c1,U4 as c2,qO as c3,V4 as c4,H0 as c5,EO as c6,H4 as c7,W4 as c8,N4 as c9,t4 as ca,n4 as cb,r4 as cc,o4 as cd,gO as ce,f$ as cf,Bu as cg,yO as ch,vO as ci,Wv as d,wd as e,D$ as f,Pm as g,Cu as h,BP as i,V as j,_O as k,$u as l,kO as m,Pu as n,z$ as o,xO as p,wO as q,P as r,iO as s,n$ as t,k as u,SO as v,sO as w,$O as x,TO as y,PO as z};
