@@ -4,9 +4,9 @@ import { Icon } from '../Icon/Icon';
 import { Loader } from '../Loader/Loader';
 import { ThemeSwitcher } from './ThemeSwitcher/ThemeSwitcher';
 import { UserProfile } from './User/UserProfile';
+import { SidebarModal } from './SidebarModal/SidebarModal.jsx';
 
 import { SButton_button, SHeader_header } from './Header.styled';
-import { SidebarModal } from './SidebarModal/SidebarModal.jsx';
 
 export const Header = () => {
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);

@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 
 import { themes } from '../../../../constants/themes';
+import { useAppDispatch, useAppSelector } from '../../../../hooks';
+import { selectTheme, updateUserTheme } from '../../../../redux';
 
 import {
   SButton_button,
@@ -8,8 +10,6 @@ import {
   SListItem_li,
   Sspan_span,
 } from './ThemePopUp.styled';
-import { useAppDispatch, useAppSelector } from '../../../../hooks';
-import { selectTheme, updateUserTheme } from '../../../../redux';
 
 export const ThemePopUp = ({ setIsOpenPopUp, boxRef, setIsLoading }) => {
   const dispatch = useAppDispatch();
@@ -54,7 +54,7 @@ export const ThemePopUp = ({ setIsOpenPopUp, boxRef, setIsLoading }) => {
     <SList_ul>
       {themes.map((el) => (
         <SListItem_li key={el}>
-          <SButton_button onClick={() => click(el)}>
+          <SButton_button type="button" onClick={() => click(el)}>
             <Sspan_span className={theme === el && 'active'}>{el}</Sspan_span>
           </SButton_button>
         </SListItem_li>

@@ -1,10 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 
 import icons from 'assets/sprite.svg';
-import * as S from './CardStatusPopup.styled';
+import { Loader } from '../../Loader/Loader';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
-import { moveCardByIdThunk, selectColumns } from '../../../redux';
+import {
+  moveCardByIdThunk,
+  selectColumns,
+  selectIsCardLoading,
+} from '../../../redux';
 import { filterColumns } from '../../../helpers/FilterColumns';
+
+import * as S from './CardStatusPopup.styled';
 
 interface IcolumnList {
   _id: string;
@@ -24,6 +30,7 @@ const CardStatusPopup = ({
   isOverdue,
 }: StandardComponentProps) => {
   const [isOpened, setIsOpened] = useState(false);
+  const isLoading = useAppSelector(selectIsCardLoading);
   const columns = useAppSelector(selectColumns);
   const filteredColumns = filterColumns(columns, columnId);
   const dispatch = useAppDispatch();
@@ -89,6 +96,7 @@ const CardStatusPopup = ({
           <use href={`${icons}#icon-bell`}></use>
         </S.iconBell_svg>
       )}
+      {isLoading && <Loader />}
     </S.toggleButton_div>
   );
 };

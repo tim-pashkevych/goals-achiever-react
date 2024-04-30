@@ -2,20 +2,22 @@ import EllipsisText from 'react-ellipsis-text';
 import { format, isPast, isEqual } from 'date-fns';
 
 import icons from 'assets/sprite.svg';
-import { Modal, CardPopup } from '../../components';
-import { useModal, useAppDispatch } from '../../hooks';
+import { Modal, CardPopup, Loader } from '../../components';
 import { PriorityColor } from '../../constants';
-import { deleteCardByIdThunk, updateCardByIdThunk } from '../../redux';
-import { formatUnixDate } from '../../helpers';
 import { IUpdateCardRequestBody, Id, Priority } from '../../types';
 import { ActionType, IFormData } from '../CardPopup/types';
-
 import { CardStatusPopup } from './CardStatusPopup';
 import { FullCardInfo } from './FullCardInfo';
+import { ConfirmationPopup } from '../ConfirmationPopup/ConfirmationPopup';
+import { useModal, useAppDispatch, useAppSelector } from '../../hooks';
+import {
+  deleteCardByIdThunk,
+  selectIsCardLoading,
+  updateCardByIdThunk,
+} from '../../redux';
+import { formatUnixDate } from '../../helpers';
 
 import * as S from './Card.styled';
-import { useState } from 'react';
-import { ConfirmationPopup } from '../ConfirmationPopup/ConfirmationPopup';
 
 interface ICardProps {
   title?: string;
@@ -40,7 +42,7 @@ const Card = ({
   const [isInfoModalOpened, toggleInfoModal] = useModal();
   const [isOpenDeleteModal, toggleDeleteModal] = useModal();
 
-  const [isLoading, setIsLoading] = useState(false);
+  const isLoading = useAppSelector(selectIsCardLoading);
 
   const dispatch = useAppDispatch();
   const isOverdue =
@@ -64,14 +66,11 @@ const Card = ({
   };
 
   const handleOnDelete = () => {
-    setIsLoading(true);
-
     dispatch(deleteCardByIdThunk(_id))
       .unwrap()
       .then(() => {})
       .catch(() => {})
       .finally(() => {
-        setIsLoading(false);
         toggleDeleteModal();
       });
   };
@@ -110,6 +109,7 @@ const Card = ({
               </S.actionItem_li>
               <S.actionItem_li>
                 <S.actionButton_button
+                  type="button"
                   onClick={(event) => {
                     event.currentTarget.blur();
                     toggleModal(true);
@@ -122,6 +122,7 @@ const Card = ({
               </S.actionItem_li>
               <S.actionItem_li>
                 <S.actionButton_button
+                  type="button"
                   onClick={(event) => {
                     event.currentTarget.blur();
                     toggleDeleteModal();
@@ -155,11 +156,11 @@ const Card = ({
           <ConfirmationPopup
             closeModal={toggleDeleteModal}
             approveModal={handleOnDelete}
-            isLoading={isLoading}
             action={`remove ${title} card`}
           />
         </Modal>
       )}
+      {isLoading && <Loader />}
     </>
   );
 };

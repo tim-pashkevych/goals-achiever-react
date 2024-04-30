@@ -1,11 +1,15 @@
-import { Icon } from '..';
+import { useEffect } from 'react';
+
+import { Icon, Loader } from '..';
+import { Column } from '../Column/Column';
+import { ColumnForm } from '../Column/ColumnForm/ColumnForm';
 import { useAppDispatch, useAppSelector, useModal } from '../../hooks';
 import {
   getBoardByIdThunk,
   selectActiveBoard,
   selectColumns,
+  selectIsBoardLoading,
 } from '../../redux';
-import { Column } from '../Column/Column';
 
 import {
   SButton_button,
@@ -13,12 +17,11 @@ import {
   SIconWrapper_div,
   STitle_h3,
 } from './MainDashboard.styled';
-import { ColumnForm } from '../Column/ColumnForm/ColumnForm';
-import { useEffect } from 'react';
 
 export const MainDashboard = ({ filter }) => {
   const board = useAppSelector(selectActiveBoard);
   const columns = useAppSelector(selectColumns);
+  const isLoading = useAppSelector(selectIsBoardLoading);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -58,6 +61,7 @@ export const MainDashboard = ({ filter }) => {
           title={'Column title'}
         />
       )}
+      {isLoading && <Loader />}
     </>
   );
 };
