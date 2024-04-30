@@ -47,6 +47,8 @@ export const theme = Object.freeze({
 
     inputBorder: '#bedbb0',
     backgroundSidebar: '#fff',
+    backgroundSidebar_Hover: '#e6e6e6',
+    sideBarIcon_Hover: '#7b8e72',
     logoFill: '#fff',
     logoOut: '#bedbb0',
     logoOutHover: '#9DC888',
@@ -137,6 +139,8 @@ export const theme = Object.freeze({
 
     inputBorder: '#bedbb0',
     backgroundSidebar: '#121212',
+    backgroundSidebar_Hover: '#6b6b6b',
+    sideBarIcon_Hover: '#bedbb0',
     logoFill: '#fff',
     logoOut: '#bedbb0',
     logoOutHover: '#9DC888',
@@ -230,6 +234,8 @@ export const theme = Object.freeze({
 
     inputBorder: '#5255bc',
     backgroundSidebar: '#5255bc',
+    backgroundSidebar_Hover: '#8f92d6',
+    sideBarIcon_Hover: 'black',
     logoFill: '#5255bc',
     logoOut: '#fff',
     logoOutHover: '#B8BCFD',

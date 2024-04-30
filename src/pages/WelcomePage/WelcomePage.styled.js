@@ -42,10 +42,6 @@ export const SContainer = styled.div`
     }
   }
 
-  ul > li:first-child {
-    padding: 14px;
-  }
-
   a {
     display: block;
     font-weight: 500;
@@ -53,14 +49,41 @@ export const SContainer = styled.div`
   }
 `;
 
+export const SbuttonsList_ul = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  row-gap: 0;
+
+  & > li:first-child > a {
+    border: 1px solid white;
+  }
+
+  & > li:first-child > a:hover {
+    border-color: transparent;
+  }
+`;
+
 export const SLinkButton = styled(Link)`
   width: 335px;
-  color: white;
   text-align: center;
   padding: 14px 0;
   border-radius: 8px;
 
-  background: rgb(22, 22, 22);
+  color: black;
+  background-color: transparent;
+
+  transition:
+    background-color 500ms ease-in-out,
+    color 500ms ease-in-out,
+    border-color 250ms ease-in-out;
+
+  &:hover {
+    background-color: rgb(22, 22, 22);
+    color: white;
+  }
 
   @media only screen and (min-width: 768px) {
     width: 344px;
