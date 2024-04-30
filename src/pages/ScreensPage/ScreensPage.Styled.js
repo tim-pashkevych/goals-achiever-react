@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const SMainDashboard = styled.div`
   @media only screen and (min-width: 320px) {
     padding: 14px 20px 0px 20px;
+    height: calc(100vh - 60px);
   }
   position: relative;
   background-color: ${({ theme }) => theme.mainDashbordBackground};
-  height: calc(100vh - 68px);
   padding: 14px 0px 0px 20px;
 
   background-image: ${(props) =>
@@ -33,7 +33,8 @@ export const SMainDashboard = styled.div`
   }
   @media only screen and (min-width: 1440px) {
     padding: 10px 0px 0px 24px;
-
+    width: calc(100vw - 260px);
+    height: calc(100vh - 68px);
     background-image: ${(props) =>
       props.$bgDesktop1x ? `url("${props.$bgDesktop1x}")` : 'none'};
     @media (min-device-pixel-ratio: 2),

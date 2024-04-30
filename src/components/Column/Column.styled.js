@@ -3,16 +3,22 @@ export const SColumnWrapper = styled.div`
   @media only screen and (min-width: 320px) {
     /* min-width: 240px; */
     width: 100%;
+    padding-bottom: 24px;
   }
   @media only screen and (min-width: 748px) {
     /* min-width: 240px; */
     width: 350px;
+    padding-bottom: 52px;
+  }
+  @media only screen and (min-width: 1440px) {
+    /* min-width: 240px; */
+    width: 350px;
+    padding-bottom: 16px;
   }
   /* width: 350px; */
   display: flex;
   gap: 14px;
   flex-direction: column;
-  padding-bottom: 10px;
 `;
 export const SCardSuperWrapper = styled.div``;
 
@@ -82,6 +88,7 @@ export const SIconsWrapper = styled.div`
 `;
 
 export const SButtonWrapper = styled.div`
+  margin-top: ${({ $emptyList }) => ($emptyList ? '0px' : 'auto')};
   @media only screen and (min-width: 320px) {
     width: 100%;
   }
