@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+import { Button, Loader } from '..';
+import { registerSchema } from '../../schemas/registerSchema';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { loginThunk, registerThunk, selectIsUserLoading } from '../../redux';
-import { Button, Loader } from '..';
+
 import {
   SRegister_form,
   SRegister_input,
@@ -14,8 +17,6 @@ import {
   SIcon,
   SDivPass,
 } from './RegisterForm.styled';
-import { registerSchema } from '../../schemas/registerSchema';
-import { useNavigate } from 'react-router-dom';
 
 export const RegisterForm = () => {
   const dispatch = useAppDispatch();

@@ -1,6 +1,7 @@
 import { BoardItem } from '../..';
 import { useAppSelector, useLocalStorage } from '../../../hooks';
 import { selectActiveBoard, selectBoards } from '../../../redux';
+
 import { SUl } from './BoardList.styled';
 
 export const BoardList = ({ toggleSidebar }) => {

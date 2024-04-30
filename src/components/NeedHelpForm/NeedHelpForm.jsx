@@ -2,6 +2,11 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from 'react-toastify';
 
+import { Loader } from '../Loader/Loader';
+import { IssuesFormSchema } from '../../schemas/issuesFormSchema';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { issuesThunk, selectIsUserLoading } from '../../redux';
+
 import {
   SDiv,
   SForm,
@@ -11,11 +16,11 @@ import {
   STextarea,
   SpError,
 } from './NeedHelpForm.styled';
-import { useAppDispatch } from '../../hooks';
-import { IssuesFormSchema } from '../../schemas/issuesFormSchema';
-import { issuesThunk } from '../../redux';
 
 export const NeedHelpForm = ({ toggleModal }) => {
+  const dispatch = useAppDispatch();
+  const isLoading = useAppSelector(selectIsUserLoading);
+
   const {
     register,
     handleSubmit,
@@ -24,8 +29,6 @@ export const NeedHelpForm = ({ toggleModal }) => {
     mode: 'onChange',
     resolver: yupResolver(IssuesFormSchema),
   });
-
-  const dispatch = useAppDispatch();
 
   const onSubmit = (userData) => {
     dispatch(issuesThunk(userData))
@@ -73,6 +76,7 @@ export const NeedHelpForm = ({ toggleModal }) => {
 
         <SButton type="submit">Send</SButton>
       </SForm>
+      {isLoading && <Loader />}
     </>
   );
 };

@@ -20,6 +20,10 @@ export const cardDataForm_form = styled.form`
   @media only screen and (max-width: 374.99px) {
     width: 250px;
   }
+
+  @media only screen and (min-width: 768px) {
+    width: 302px;
+  }
 `;
 
 interface IFormFieldWrapperProps {
@@ -51,8 +55,9 @@ export const title_input = styled.input<ITitleProps>`
   background-color: transparent;
   /* color: #ffffff; //? */
   color: ${({ theme }) => theme.textField_Text};
-
+  opacity: 0.4;
   border-radius: 8px;
+  outline: none;
   /* border: 1px solid rgba(190, 219, 176, 0.3); //? */
   border: 1px solid
     ${({ theme, $hasError }) => ($hasError ? '#f16b6b' : theme.secondaryColor)};
@@ -65,9 +70,7 @@ export const title_input = styled.input<ITitleProps>`
   &:hover,
   &:focus {
     /* border-color: rgba(190, 219, 176, 1); //? */
-    border-color: ${({ theme, $hasError }) =>
-      $hasError ? '#f16b6b' : theme.textField_Border_Hover};
-    outline: none;
+    opacity: 1;
   }
 
   &::placeholder {
@@ -93,6 +96,8 @@ export const description_textarea = styled.textarea<IDescriptionProps>`
   background-color: transparent;
   /* color: #ffffff; //? */
   color: ${({ theme }) => theme.textField_Text};
+  opacity: 0.4;
+  outline: none;
 
   resize: none;
 
@@ -109,9 +114,7 @@ export const description_textarea = styled.textarea<IDescriptionProps>`
   &:hover,
   &:focus {
     /* border-color: rgba(190, 219, 176, 1); //? */
-    border-color: ${({ theme, $hasError }) =>
-      $hasError ? '#f16b6b' : theme.textField_Border_Hover};
-    outline: none;
+    opacity: 1;
   }
 
   &::placeholder {

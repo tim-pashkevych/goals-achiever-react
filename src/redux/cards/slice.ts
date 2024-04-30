@@ -67,6 +67,7 @@ const slice = createSlice({
       )
       .addCase(deleteCardByIdThunk.fulfilled, (state, { payload: id }) => {
         state.items = state.items.filter((card) => card._id !== id);
+        state.isLoading = false;
       })
       .addCase(fetchUserThunk.fulfilled, (state, { payload: { result } }) => {
         state.isLoading = false;

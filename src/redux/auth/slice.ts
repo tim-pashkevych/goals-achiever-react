@@ -7,6 +7,7 @@ import {
   updateUserInfoThunk,
   updateUserTheme,
   refreshThunk,
+  issuesThunk,
 } from './operations';
 import { IUserState } from '../../types';
 
@@ -74,6 +75,9 @@ const slice = createSlice({
       .addCase(refreshThunk.rejected, (state) => {
         state.firstLoad = false;
       })
+      .addCase(issuesThunk.fulfilled, (state) => {
+        state.isLoading = false;
+      })
       .addMatcher(
         isAnyOf(
           registerThunk.pending,
@@ -81,7 +85,8 @@ const slice = createSlice({
           logoutThunk.pending,
           updateUserInfoThunk.pending,
           updateUserTheme.pending,
-          refreshThunk.pending
+          refreshThunk.pending,
+          issuesThunk.pending
         ),
         (state) => {
           state.isLoading = true;
@@ -94,7 +99,8 @@ const slice = createSlice({
           logoutThunk.rejected,
           updateUserInfoThunk.rejected,
           updateUserTheme.rejected,
-          refreshThunk.rejected
+          refreshThunk.rejected,
+          issuesThunk.rejected
         ),
         (state) => {
           state.isLoading = false;

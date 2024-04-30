@@ -3,10 +3,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-import { useAppDispatch, useAppSelector } from '../../hooks';
-import { loginThunk, selectIsUserLoading } from '../../redux';
 import { Button, Loader } from '..';
 import { loginSchema } from '../../schemas/loginSchema';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { loginThunk, selectIsUserLoading } from '../../redux';
 import {
   SLogin_form,
   SLogin_input,

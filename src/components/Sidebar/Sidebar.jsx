@@ -1,11 +1,14 @@
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelector, useModal } from '../../hooks';
-import { logoutThunk, selectIsUserLoading } from '../../redux';
+import { toast } from 'react-toastify';
+
 import { BoardForm } from '../Board/BoardForm/BoardForm';
 import { BoardList } from '../Board/BoardList/BoardList';
 import { ConfirmationPopup } from '../ConfirmationPopup/ConfirmationPopup';
 import { Modal } from '../Modal/Modal';
 import { NeedHelpForm } from '../NeedHelpForm/NeedHelpForm';
+import { useAppDispatch, useModal } from '../../hooks';
+import { logoutThunk } from '../../redux';
+
 import {
   SDiv,
   SIcon,
@@ -22,13 +25,11 @@ import {
   SDivProject,
   SbuttonLogout,
 } from './Sidebar.styled';
-import { toast } from 'react-toastify';
 
 export const Sidebar = ({ className, toggleSidebar }) => {
   const [isOpenModal, toggleModal] = useModal();
   const [isOpenModalIssues, toggleModalIssues] = useModal();
   const [isOpenLogoutModal, toggleLogoutModal] = useModal();
-  const isLoading = useAppSelector(selectIsUserLoading);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -99,7 +100,6 @@ export const Sidebar = ({ className, toggleSidebar }) => {
             approveModal={handleLogout}
             logout={true}
             action="log out"
-            isLoading={isLoading}
           />
         </Modal>
       )}
