@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../hooks';
 import { Icon, Image } from '../../components';
 import { selectIsUserLoading } from '../../redux';
-import { SContainer, SLinkButton } from './WelcomePage.styled';
+import { SContainer, SLinkButton, SbuttonsList_ul } from './WelcomePage.styled';
 
 const WelcomePage = () => {
   const isLoading = useAppSelector(selectIsUserLoading);
@@ -35,18 +34,18 @@ const WelcomePage = () => {
             "Supercharge your productivity and take control of your tasks with Task Pro - Don't wait, start achieving your goals now!"
           }
         </p>
-        <ul>
+        <SbuttonsList_ul>
           <li>
             <SLinkButton to="/auth/register" aria-label="Link to register">
               Registration
             </SLinkButton>
           </li>
           <li>
-            <Link to="/auth/login" aria-label="Link to login">
+            <SLinkButton to="/auth/login" aria-label="Link to login">
               Log in
-            </Link>
+            </SLinkButton>
           </li>
-        </ul>
+        </SbuttonsList_ul>
       </SContainer>
     )
   );
