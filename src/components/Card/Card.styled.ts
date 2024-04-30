@@ -8,6 +8,9 @@ export const card_div = styled.div<ICardContainerProps>`
   @media only screen and (min-width: 320px) {
     width: 100%;
   }
+  @media only screen and (min-width: 375px) and (max-width: 747.99px) {
+    width: 335px;
+  }
   /* background-color: #121212; //? */
   background-color: ${({ theme }) => theme.card_Background};
 
