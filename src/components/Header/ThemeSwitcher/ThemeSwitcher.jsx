@@ -22,8 +22,12 @@ export const ThemeSwitcher = ({ setIsLoading }) => {
     <SWrapper_div>
       <SWrapper_button onClick={handleOpen} ref={wrapper}>
         <STitle_p>Theme</STitle_p>
-        {!isOpenPopUp && <Icon id={'chevron-down'} size={16} />}
-        {isOpenPopUp && <Icon id={'chevron-up'} size={16} />}
+        {!isOpenPopUp && (
+          <Icon id={'chevron-down'} size={16} pointerEvents="none" />
+        )}
+        {isOpenPopUp && (
+          <Icon id={'chevron-up'} size={16} pointerEvents="none" />
+        )}
       </SWrapper_button>
       {isOpenPopUp && (
         <ThemePopUp

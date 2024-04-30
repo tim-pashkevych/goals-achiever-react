@@ -81,7 +81,7 @@ export const Column = ({ title, columnId, filter, boardId }) => {
         ))}
       </SCardWrapperScroll>
 
-      <SButtonWrapper>
+      <SButtonWrapper $emptyList={filteredCards.length === 0}>
         <Button
           title={'Add another card'}
           icon={true}
