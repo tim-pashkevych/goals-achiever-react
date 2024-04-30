@@ -10,34 +10,40 @@ export const STitle_h3 = styled.h3`
 `;
 
 export const SColumnWrapper = styled.div`
-  @media only screen and (min-width: 320px) {
-    min-width: 240px;
-    width: calc(100%);
-  }
-  height: 95%;
-  width: 335px;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 60px - 72px);
   overflow-y: auto;
   display: flex;
   gap: 14px;
   @media only screen and (min-width: 768px) {
-    width: 688px;
+    height: calc(100vh - 68px - 92px);
   }
   @media only screen and (min-width: 1440px) {
-    width: 1108px;
-    /* width: 100%; */
+    height: calc(100vh - 68px - 52px);
   }
+
   &::-webkit-scrollbar {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 10px;
   }
 
   /* Track */
   &::-webkit-scrollbar-track {
+    position: absolute;
+    top: 0;
+    left: 0;
     background: ${(props) => props.theme.scrollBackground};
     border-radius: 10px;
   }
 
   /* Handle */
   &::-webkit-scrollbar-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
     background: ${(props) => props.theme.scrollBall};
     border-radius: 10px;
   }
