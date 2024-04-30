@@ -5,13 +5,15 @@
 </h1>
 <p align="center">Supercharge your productivity and take control of your tasks with Task Pro.<br/> Don't wait, start achieving your goals now!</p>
 
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-![Context-API](https://img.shields.io/badge/Context--Api-000000?style=for-the-badge&logo=react)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-%23EC5990.svg?style=for-the-badge&logo=reacthookform&logoColor=white)
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
-![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
 <p align="center"><img src="./src/assets/images/readme/welcome-desktop.png" width=800></p>
 
@@ -21,17 +23,36 @@ This tool supercharges your productivity and takes control of your tasks.
 Before starting your project, it is essential to create a board to visualize and track all the necessary tasks and milestones.
 This board serves as a powerful tool to organize the workflow and ensure effective collaboration among team members.
 
-## Features
+Using this tool you can create a list of dashboards.
+Every dashboard has a list of columns and each column contains a list of tasks.
+The dashboard might have its own icon and background image.
+Every task has a title, description, priority, and deadline field.
+There is an easy way to filter tasks by priority and move tasks between columns.
+Of course, you can easily delete the data which is not actual anymore.
 
-<p align="center"><img src="./src/assets/images/readme/dark-theme-home.png" width=800></p>
-<p align="center"><img src="./src/assets/images/readme/light-theme-home.png" width=800></p>
-<p align="center"><img src="./src/assets/images/readme/violet-theme-home.png" width=800></p>
+## Under the hood
+- **React**: powerful open-source front-end JavaScript library for building user interfaces based on components.
+- **Redux**: for managing and centralizing application state.
+- **React Hook Form**: performant, flexible and extensible forms with easy-to-use validation.
+- **Styled Components**: CSS-in-JS tool that bridges the gap between components and styling.
+- **Adaptive design**: user's interface adapts to different screen sizes.
+- **Semantic HTML**: using HTML elements to structure content based on each element's meaning.
+- **Dark/Light/Violet mode**: choose the mode which feets best your needs.
 
-## Installation
+## Screenshots
+<img src="./src/assets/images/readme/dark-theme-home.png" width=800>
+<img src="./src/assets/images/readme/light-theme-home.png" width=800>
+<img src="./src/assets/images/readme/violet-theme-home.png" width=800>
 
-## Env variables
+## Demo
+This project is deployed on Github pages. Check it out:
+[**TaskPro**](https://tim-pashkevych.github.io/goals-achiever-react/welcome)
 
 ## Contributors
+This project was crafted by a team of developers.
+Guys, I am very appreciative of every your commit and your hard work. 
+Let's dream and make dreams come true.
+
 <a href="https://github.com/tim-pashkevych" class="" data-hovercard-type="user" data-hovercard-url="/users/tim-pashkevych/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self"><img src="https://avatars.githubusercontent.com/u/6910823?s=64&amp;v=4" alt="@tim-pashkevych" size="32" height="32" width="32" data-view-component="true" class="avatar circle"></a>
 <a href="https://github.com/BornBeBat" class="" data-hovercard-type="user" data-hovercard-url="/users/BornBeBat/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self"><img src="https://avatars.githubusercontent.com/u/62301874?s=64&amp;v=4" alt="@BornBeBat" size="32" height="32" width="32" data-view-component="true" class="avatar circle"></a>
 <a href="https://github.com/YellowFlash1040" class="" data-hovercard-type="user" data-hovercard-url="/users/YellowFlash1040/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self"><img src="https://avatars.githubusercontent.com/u/73052390?s=64&amp;v=4" alt="@YellowFlash1040" size="32" height="32" width="32" data-view-component="true" class="avatar circle"></a>
