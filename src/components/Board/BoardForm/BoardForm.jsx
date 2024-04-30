@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 
-import { Button, Icon, Image } from '../..';
+import { Button, Icon, Image, Loader } from '../..';
 import { boardIcons, boardImgIcons } from '../../../constants';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -8,6 +8,7 @@ import { editBoardSchema } from '../../../schemas/editBoardSchema';
 import {
   createBoardThunk,
   selectBoardById,
+  selectIsBoardLoading,
   selectTheme,
   updateBoardByIdThunk,
 } from '../../../redux';
@@ -33,6 +34,7 @@ export const BoardForm = ({ boardId, handleCloseModal }) => {
   const theme = useAppSelector(selectTheme);
   const dispatch = useAppDispatch();
   const board = useAppSelector((state) => selectBoardById(state, boardId));
+  const isLoading = useAppSelector(selectIsBoardLoading);
   const boardImageIcons = boardImgIcons.filter((image) =>
     image.themes.includes(theme)
   );
@@ -127,6 +129,7 @@ export const BoardForm = ({ boardId, handleCloseModal }) => {
         </SFieldWrapp>
         <SButton>
           <Button
+            type="submit"
             title={board ? 'Edit' : 'Create'}
             icon={true}
             size={'large'}
@@ -134,6 +137,7 @@ export const BoardForm = ({ boardId, handleCloseModal }) => {
           />
         </SButton>
       </SForm>
+      {isLoading && <Loader />}
     </SContainer>
   );
 };

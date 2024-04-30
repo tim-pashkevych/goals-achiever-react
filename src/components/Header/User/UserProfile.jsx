@@ -1,16 +1,17 @@
 import { useRef } from 'react';
 
-import { useModal } from '../../../hooks/modal/useModal';
 import { Icon } from '../../Icon/Icon';
 import { Modal } from '../../Modal/Modal';
 import { EditProfile } from './EditProfile/EditProfile';
+import { useModal } from '../../../hooks/modal/useModal';
+import { selectUser } from '../../../redux';
+import { useAppSelector } from '../../../hooks';
+
 import {
   SImageWrapper_div,
   STitle_p,
   SWrapper_button,
 } from './UserProfile.styled';
-import { selectUser } from '../../../redux';
-import { useAppSelector } from '../../../hooks';
 
 export const UserProfile = () => {
   const { name, avatarURL } = useAppSelector(selectUser);
@@ -28,7 +29,7 @@ export const UserProfile = () => {
     setIsOpenModal(false);
   };
   return (
-    <SWrapper_button onClick={handleOpenModal} ref={wrapper}>
+    <SWrapper_button type="button" onClick={handleOpenModal} ref={wrapper}>
       <STitle_p>{name}</STitle_p>
 
       <SImageWrapper_div>

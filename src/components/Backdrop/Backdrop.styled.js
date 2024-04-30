@@ -9,6 +9,6 @@ export const SBackdrop = styled.div`
   align-items: center;
   top: 0;
   left: 0;
-  background-color: rgb(0, 0, 0, 0.7);
+  background-color: rgb(0, 0, 0, 0.4);
   z-index: 9999;
 `;

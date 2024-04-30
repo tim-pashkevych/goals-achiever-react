@@ -9,12 +9,13 @@ import {
   NothinFound,
 } from '../../components';
 import { useAppSelector, useModal } from '../../hooks';
+import { selectActiveBoard } from '../../redux';
+
 import {
   SFilterWrapper_button,
   SFilter_p,
   SMainDashboard,
 } from './ScreensPage.Styled';
-import { selectActiveBoard } from '../../redux';
 
 const ScreensPage = () => {
   const activeBoard = useAppSelector(selectActiveBoard);
@@ -39,7 +40,7 @@ const ScreensPage = () => {
       $bgDesktop1x={backgoroundImage?.desktop.x1}
       $bgDesktop2x={backgoroundImage?.desktop.x1}
     >
-      <SFilterWrapper_button onClick={() => setIsOpenModal()}>
+      <SFilterWrapper_button type="button" onClick={() => setIsOpenModal()}>
         <Icon id="filter" size={16} />
         <SFilter_p>Filters</SFilter_p>
       </SFilterWrapper_button>

@@ -1,11 +1,11 @@
-import { Outlet, useNavigate } from 'react-router-dom';
 import { Suspense, useEffect, useState } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { ThemeProvider } from 'styled-components';
 
 import { GlobalStyle } from '../.././styles/GlobalStyle.js';
 import { theme } from '../.././styles/theme';
 import { Container, Loader } from '../index';
-import { SLayout } from './Layout.styled';
 import { useAppDispatch, useAppSelector, useLocalStorage } from '../../hooks';
 import { fetchUserThunk, refreshThunk, selectIsLoggedIn } from '../../redux';
 import {
@@ -13,7 +13,8 @@ import {
   selectRefreshToken,
   selectTheme,
 } from '../../redux/auth/slice';
-import { toast } from 'react-toastify';
+
+import { SLayout } from './Layout.styled';
 
 export const Layout = () => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);

@@ -67,6 +67,7 @@ const slice = createSlice({
         state.items = state.items.map((board, index) =>
           index === 0 ? { ...board, active: true } : { ...board, active: false }
         );
+        state.isLoading = false;
       })
       .addCase(fetchUserThunk.fulfilled, (state, { payload: { result } }) => {
         state.isLoading = false;

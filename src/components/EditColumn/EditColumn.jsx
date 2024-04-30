@@ -1,8 +1,13 @@
-import { useAppDispatch } from '../../hooks';
-import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { createColumnThunk, updateColumnByIdThunk } from '../../redux';
+import { Loader } from '../Loader/Loader';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import {
+  createColumnThunk,
+  selectIsColumnLoading,
+  updateColumnByIdThunk,
+} from '../../redux';
 
 import {
   SButton,
@@ -27,6 +32,7 @@ export const EditColumn = ({
   toggleModal,
 }) => {
   const dispatch = useAppDispatch();
+  const isLoading = useAppSelector(selectIsColumnLoading);
 
   const {
     register,
@@ -73,6 +79,7 @@ export const EditColumn = ({
           {titleModal.buttonText}
         </SButton>
       </SForm>
+      {isLoading && <Loader />}
     </>
   );
 };

@@ -2,8 +2,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { BoardForm, Modal } from '../..';
+import { ConfirmationPopup } from '../../ConfirmationPopup/ConfirmationPopup';
 import { useAppDispatch, useAppSelector, useModal } from '../../../hooks';
 import { deleteBoardByIdThunk, selectActiveBoard } from '../../../redux';
+import { updateActiveBoard } from '../../../redux/boards/slice';
+
 import {
   SDivButton,
   SDivLi,
@@ -12,19 +15,14 @@ import {
   SbuttonProject,
   SpProject,
 } from './BoardItem.styled';
-import { updateActiveBoard } from '../../../redux/boards/slice';
-import { ConfirmationPopup } from '../../ConfirmationPopup/ConfirmationPopup';
-import { useState } from 'react';
 
 export const BoardItem = ({ id, title, icon, toggleSidebar = false }) => {
   const [isOpenModal, toggleModal] = useModal();
   const [isOpenDeleteModal, toggleDeleteModal] = useModal();
 
-  const [isLoading, setIsLoading] = useState(false);
-
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { boardName } = useParams();
+  const dispatch = useAppDispatch();
   const activeBoard = useAppSelector(selectActiveBoard);
   const isActive = activeBoard._id === id;
 
@@ -37,7 +35,6 @@ export const BoardItem = ({ id, title, icon, toggleSidebar = false }) => {
   };
 
   const handleDelete = () => {
-    setIsLoading(true);
     dispatch(deleteBoardByIdThunk(id))
       .unwrap()
       .then(() => {
@@ -48,9 +45,6 @@ export const BoardItem = ({ id, title, icon, toggleSidebar = false }) => {
       })
       .catch((error) => {
         toast.error(error.message);
-      })
-      .finally(() => {
-        setIsLoading(false);
       });
   };
 
@@ -91,7 +85,6 @@ export const BoardItem = ({ id, title, icon, toggleSidebar = false }) => {
           <ConfirmationPopup
             closeModal={toggleDeleteModal}
             approveModal={handleDelete}
-            isLoading={isLoading}
             action={`remove ${title} board`}
           />
         </Modal>
