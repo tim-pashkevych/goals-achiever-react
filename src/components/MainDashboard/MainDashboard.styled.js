@@ -5,22 +5,28 @@ export const STitle_h3 = styled.h3`
   font-size: 18px;
   letter-spacing: -0.02em;
   color: ${({ theme }) => theme.userProfile};
+  margin-bottom: 39px;
 
-  margin-bottom: 10px;
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 26px;
+  }
+  @media only screen and (min-width: 1440px) {
+    margin-bottom: 10px;
+  }
 `;
 
 export const SColumnWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: calc(100vh - 60px - 72px);
+  height: calc(100vh - 60px - 74px - 24px);
   overflow-y: auto;
   display: flex;
-  gap: 14px;
+  gap: 18px;
   @media only screen and (min-width: 768px) {
-    height: calc(100vh - 68px - 92px);
+    height: calc(100vh - 68px - 80px - 32px);
   }
   @media only screen and (min-width: 1440px) {
-    height: calc(100vh - 68px - 52px);
+    height: calc(100vh - 68px - 48px - 8px);
   }
 
   &::-webkit-scrollbar {

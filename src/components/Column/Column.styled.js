@@ -1,21 +1,17 @@
 import styled from 'styled-components';
 export const SColumnWrapper = styled.div`
-  @media only screen and (min-width: 320px) {
-    /* min-width: 240px; */
-    width: 100%;
-    padding-bottom: 24px;
+  width: 89vw;
+  padding-bottom: 24px;
+  @media only screen and (min-width: 375px) {
+    width: 347px;
   }
-  @media only screen and (min-width: 748px) {
-    /* min-width: 240px; */
-    width: 350px;
+  @media only screen and (min-width: 768px) {
+    width: 351px;
     padding-bottom: 52px;
   }
   @media only screen and (min-width: 1440px) {
-    /* min-width: 240px; */
-    width: 350px;
     padding-bottom: 16px;
   }
-  /* width: 350px; */
   display: flex;
   gap: 14px;
   flex-direction: column;
@@ -23,8 +19,17 @@ export const SColumnWrapper = styled.div`
 export const SCardSuperWrapper = styled.div``;
 
 export const SCardWrapperScroll = styled.div`
-  @media only screen and (min-width: 320px) {
-    width: calc(100%);
+  width: 92.5vw;
+  padding-bottom: 24px;
+  @media only screen and (min-width: 375px) {
+    width: 347px;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 351px;
+    padding-bottom: 52px;
+  }
+  @media only screen and (min-width: 1440px) {
+    padding-bottom: 16px;
   }
   display: flex;
 
@@ -55,14 +60,14 @@ export const SCardWrapperScroll = styled.div`
   }
 `;
 export const SColumnName = styled.div`
-  @media only screen and (min-width: 320px) and (max-width: 767.99px) {
-    /* min-width: 240px; */
-    width: 100%;
-  }
-  @media only screen and (min-width: 768px) {
+  width: 89vw;
+  @media only screen and (min-width: 375px) {
     width: 335px;
   }
-  width: 335px;
+  @media only screen and (min-width: 768px) {
+    width: 334px;
+  }
+
   min-height: 56px;
 
   flex-basis: auto;
@@ -89,11 +94,12 @@ export const SIconsWrapper = styled.div`
 
 export const SButtonWrapper = styled.div`
   margin-top: ${({ $emptyList }) => ($emptyList ? '0px' : 'auto')};
-  @media only screen and (min-width: 320px) {
-    width: 100%;
-  }
-  @media only screen and (min-width: 748px) {
+  width: 89vw;
+  @media only screen and (min-width: 375px) {
     width: 335px;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 334px;
   }
 
   flex-basis: auto;
