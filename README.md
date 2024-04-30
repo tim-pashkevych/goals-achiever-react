@@ -5,6 +5,8 @@
 </h1>
 <p align="center">Supercharge your productivity and take control of your tasks with Task Pro.<br/> Don't wait, start achieving your goals now!</p>
 
+<div align="center">
+  
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-%23EC5990.svg?style=for-the-badge&logo=reacthookform&logoColor=white)
@@ -24,6 +26,7 @@
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 ![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)
 
+</div>
 <p align="center"><img src="./src/assets/images/readme/welcome-desktop.png" width=800></p>
 
 ## Introduction
