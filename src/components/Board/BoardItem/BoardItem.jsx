@@ -69,14 +69,14 @@ export const BoardItem = ({ id, title, icon, toggleSidebar = false }) => {
               onClick={toggleModal}
               aria-label="edit"
             >
-              <SIcon id="pencil" size={16} className="pencil" />
+              <SIcon id="pencil-2" size={16} className="pencil" />
             </SbuttonProject>
             <SbuttonProject
               type="button"
               onClick={toggleDeleteModal}
               aria-label="delete"
             >
-              <SIcon id="trash" size={16} className="trash" />
+              <SIcon id="trash-2" size={16} className="trash" />
             </SbuttonProject>
           </SDivButton>
         )}

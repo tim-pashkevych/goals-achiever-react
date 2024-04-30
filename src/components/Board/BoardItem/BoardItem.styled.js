@@ -38,6 +38,11 @@ export const SDivButton = styled.div`
 
 export const SbuttonProject = styled.button`
   color: ${({ theme }) => theme.textOne};
+
+  &:hover .pencil,
+  &:hover .trash {
+    stroke: ${({ theme }) => theme.sideBarIcon_Hover};
+  }
 `;
 
 export const SUl = styled.ul`
@@ -53,6 +58,27 @@ export const SLi = styled.li`
   background-color: ${({ theme }) => theme.backgroundSidebar};
   padding: 0 18px 0 14px;
   position: relative;
+
+  cursor: pointer;
+
+  transition: background-color 250ms ease-in-out;
+
+  p {
+    transition: color 250ms ease-in-out;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.backgroundSidebar_Hover};
+
+    p {
+      color: ${({ theme }) => theme.textOne};
+    }
+
+    svg {
+      stroke: ${({ theme }) => theme.textOne};
+    }
+  }
 
   ${({ $isActive }) =>
     $isActive &&
