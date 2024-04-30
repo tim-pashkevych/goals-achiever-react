@@ -17,12 +17,15 @@ import {
   SIcon,
   SIconsWrapper,
 } from './Column.styled';
+import { ConfirmationPopup } from '../ConfirmationPopup/ConfirmationPopup';
+import { deleteColumnByIdThunk, selectIsColumnLoading } from '../../redux';
 
 export const Column = ({ title, columnId, filter, boardId }) => {
   const dispatch = useAppDispatch();
   const [isOpenModal, toggleModal] = useModal();
   const [isAddCardOpenModal, toggleAddCardModal] = useModal();
-
+  const [isOpenDeleteModal, toggleDeleteModal] = useModal();
+  const isLoading = useAppSelector(selectIsColumnLoading);
   const [actionType, setActionType] = useState(null);
 
   const onEditClick = () => {
@@ -30,11 +33,9 @@ export const Column = ({ title, columnId, filter, boardId }) => {
     toggleModal();
   };
 
-  const onDeleteClick = () => {
-    setActionType('delete');
-    toggleModal();
+  const handleDeleteColumn = () => {
+    dispatch(deleteColumnByIdThunk(columnId));
   };
-
   const handleAddAnotherCard = (data) => {
     dispatch(createCardThunk({ ...data, boardId, columnId }))
       .unwrap()
@@ -61,7 +62,7 @@ export const Column = ({ title, columnId, filter, boardId }) => {
             </SIcon>
           </button>
 
-          <button onClick={onDeleteClick}>
+          <button onClick={toggleDeleteModal}>
             <SIcon width={16} height={16}>
               <use href={Icons + '#icon-trash'}></use>
             </SIcon>
@@ -104,6 +105,16 @@ export const Column = ({ title, columnId, filter, boardId }) => {
             actionType="Add"
             onSave={handleAddAnotherCard}
             handleCloseModal={toggleAddCardModal}
+          />
+        </Modal>
+      )}
+      {isOpenDeleteModal && (
+        <Modal toggleModal={toggleDeleteModal}>
+          <ConfirmationPopup
+            closeModal={toggleDeleteModal}
+            approveModal={handleDeleteColumn}
+            action={`delete column ${title}`}
+            isLoading={isLoading}
           />
         </Modal>
       )}
