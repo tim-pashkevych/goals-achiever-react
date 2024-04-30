@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+import { email_regx } from '../constants/email_regx';
 
 export const editProfileSchema = yup.object().shape({
   name: yup
@@ -7,7 +8,7 @@ export const editProfileSchema = yup.object().shape({
     .required('Name is required'),
   email: yup
     .string()
-    .email('Enter a valid email')
+    .matches(email_regx, 'Enter a valid email')
     .max(30, 'Max length must be less than 30 chars')
     .required('Email is required'),
   password: yup

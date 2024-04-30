@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+import { email_regx } from '../constants/email_regx';
 
 export const registerSchema = yup.object({
   name: yup
@@ -8,7 +9,7 @@ export const registerSchema = yup.object({
   email: yup
     .string()
     .required('Email is required')
-    .email('Enter a valid email')
+    .matches(email_regx, 'Enter a valid email')
     .max(30, 'Max length must be less than 30 chars'),
   password: yup
     .string()
