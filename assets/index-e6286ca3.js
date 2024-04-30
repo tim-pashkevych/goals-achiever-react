@@ -1329,11 +1329,12 @@ object-assign
     }
   }
 `,U5=E.div`
-  @media only screen and (min-width: 320px) {
-    width: 100%;
-  }
-  @media only screen and (min-width: 375px) and (max-width: 747.99px) {
+  width: 89vw;
+  @media only screen and (min-width: 375px) {
     width: 335px;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 334px;
   }
   /* background-color: #121212; //? */
   background-color: ${({theme:e})=>e.card_Background};
@@ -1600,28 +1601,33 @@ object-assign
   fill: none;
   stroke: ${({theme:e})=>e.buttonIconColor};
 `,_P=Ao().shape({title:Wt().required("Title name is required")}),t4=({titleModal:e,placeholder:t,actionType:n,id:r,toggleModal:o})=>{const i=Wv(),{register:s,handleSubmit:a,formState:{errors:l,dirtyFields:u}}=D$({mode:"onChange",resolver:z$(_P)}),c=({title:f})=>{switch(n){case"add":i(qs({boardId:r,title:f}));break;case"edit":i(Ks({id:r,newColumnBody:{title:f}}));break}o()};return V.jsx(V.Fragment,{children:V.jsxs(gP,{onSubmit:a(c),children:[V.jsx(yP,{children:e.title}),V.jsxs(vP,{children:[V.jsx(xP,{name:"title",type:"text",placeholder:t,...s("title"),$hasError:!!l.title}),l.title&&u&&V.jsx(SP,{children:l.title.message})]}),V.jsxs(B1,{type:"submit",children:[V.jsx(wP,{children:V.jsx(bP,{id:"plus",size:14})}),e.buttonText]})]})})},n4=E.div`
-  @media only screen and (min-width: 320px) {
-    /* min-width: 240px; */
-    width: 100%;
-    padding-bottom: 24px;
+  width: 89vw;
+  padding-bottom: 24px;
+  @media only screen and (min-width: 375px) {
+    width: 347px;
   }
-  @media only screen and (min-width: 748px) {
-    /* min-width: 240px; */
-    width: 350px;
+  @media only screen and (min-width: 768px) {
+    width: 351px;
     padding-bottom: 52px;
   }
   @media only screen and (min-width: 1440px) {
-    /* min-width: 240px; */
-    width: 350px;
     padding-bottom: 16px;
   }
-  /* width: 350px; */
   display: flex;
   gap: 14px;
   flex-direction: column;
 `;E.div``;const r4=E.div`
-  @media only screen and (min-width: 320px) {
-    width: calc(100%);
+  width: 92.5vw;
+  padding-bottom: 24px;
+  @media only screen and (min-width: 375px) {
+    width: 347px;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 351px;
+    padding-bottom: 52px;
+  }
+  @media only screen and (min-width: 1440px) {
+    padding-bottom: 16px;
   }
   display: flex;
 
@@ -1651,14 +1657,14 @@ object-assign
     border-radius: 10px;
   }
 `,o4=E.div`
-  @media only screen and (min-width: 320px) and (max-width: 767.99px) {
-    /* min-width: 240px; */
-    width: 100%;
-  }
-  @media only screen and (min-width: 768px) {
+  width: 89vw;
+  @media only screen and (min-width: 375px) {
     width: 335px;
   }
-  width: 335px;
+  @media only screen and (min-width: 768px) {
+    width: 334px;
+  }
+
   min-height: 56px;
 
   flex-basis: auto;
@@ -1682,11 +1688,12 @@ object-assign
   }
 `,s4=E.div`
   margin-top: ${({$emptyList:e})=>e?"0px":"auto"};
-  @media only screen and (min-width: 320px) {
-    width: 100%;
-  }
-  @media only screen and (min-width: 748px) {
+  width: 89vw;
+  @media only screen and (min-width: 375px) {
     width: 335px;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 334px;
   }
 
   flex-basis: auto;
@@ -1701,20 +1708,26 @@ object-assign
   font-size: 18px;
   letter-spacing: -0.02em;
   color: ${({theme:e})=>e.userProfile};
+  margin-bottom: 39px;
 
-  margin-bottom: 10px;
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 26px;
+  }
+  @media only screen and (min-width: 1440px) {
+    margin-bottom: 10px;
+  }
 `,u4=E.div`
   position: relative;
   width: 100%;
-  height: calc(100vh - 60px - 72px);
+  height: calc(100vh - 60px - 74px - 24px);
   overflow-y: auto;
   display: flex;
-  gap: 14px;
+  gap: 18px;
   @media only screen and (min-width: 768px) {
-    height: calc(100vh - 68px - 92px);
+    height: calc(100vh - 68px - 80px - 32px);
   }
   @media only screen and (min-width: 1440px) {
-    height: calc(100vh - 68px - 52px);
+    height: calc(100vh - 68px - 48px - 8px);
   }
 
   &::-webkit-scrollbar {
@@ -2215,4 +2228,4 @@ object-assign
     font-size: 9px;
     padding: 0 5px;
   }
-`,qu=({children:e})=>{const t=eo(Vd),n=ar();return t?e:V.jsx(Sd,{state:{from:n},to:"/welcome"})},Gm=({children:e})=>{var r;const t=eo(Vd),n=ar();return t?V.jsx(Sd,{to:((r=n.state)==null?void 0:r.from)||"/"}):e},TP=P.lazy(()=>Ki(()=>import("./WelcomePage-7dce564b.js"),["assets/WelcomePage-7dce564b.js","assets/Image-deea6f8f.js"])),PP=P.lazy(()=>Ki(()=>import("./AuthPage-87962c63.js"),["assets/AuthPage-87962c63.js","assets/Button-aa9a3f8d.js"])),OP=P.lazy(()=>Ki(()=>import("./HomePage-fd0a8d66.js"),["assets/HomePage-fd0a8d66.js","assets/ConfirmationPopup-406344c7.js","assets/Image-deea6f8f.js","assets/Button-aa9a3f8d.js"])),Ym=P.lazy(()=>Ki(()=>import("./ScreensPage-a9c2bda3.js"),["assets/ScreensPage-a9c2bda3.js","assets/Image-deea6f8f.js","assets/ConfirmationPopup-406344c7.js","assets/Button-aa9a3f8d.js"])),RP=P.lazy(()=>Ki(()=>import("./NotFoundPage-6321ba20.js"),[]));function FP(){return V.jsx(a2,{children:V.jsxs(dn,{path:"/",element:V.jsx(i$,{}),children:[V.jsx(dn,{index:!0,element:V.jsx(qu,{children:V.jsx(Sd,{to:"/home"})})}),V.jsx(dn,{path:"/welcome",element:V.jsx(Gm,{children:V.jsx(TP,{})})}),V.jsx(dn,{path:"/auth/:id",element:V.jsx(Gm,{children:V.jsx(PP,{})})}),V.jsxs(dn,{path:"/home",element:V.jsx(OP,{}),children:[V.jsx(dn,{index:!0,element:V.jsx(qu,{children:V.jsx(Ym,{})})}),V.jsx(dn,{path:"/home/:boardName",element:V.jsx(qu,{children:V.jsx(Ym,{})})})]}),V.jsx(dn,{path:"*",element:V.jsx(RP,{})})]})})}Qu.createRoot(document.getElementById("root")).render(V.jsx(m2,{basename:"/goals-achiever-react",children:V.jsx(H2,{store:xv,children:V.jsxs(E0,{loading:null,persistor:HE,children:[V.jsx(FP,{}),V.jsx(ub,{theme:"dark",style:{zIndex:99999},autoClose:2e3})]})})}));export{f5 as $,TO as A,ae as B,PO as C,OO as D,AO as E,NO as F,IO as G,DO as H,Il as I,LO as J,jO as K,v2 as L,BO as M,x2 as N,RO as O,FO as P,$u as Q,CO as R,SO as S,zO as T,MO as U,UO as V,hO as W,LE as X,aO as Y,o$ as Z,s5 as _,eo as a,J5 as a$,d5 as a0,p5 as a1,h5 as a2,g5 as a3,m5 as a4,y5 as a5,v5 as a6,nO as a7,x5 as a8,S5 as a9,BT as aA,mp as aB,D1 as aC,Qm as aD,dP as aE,uO as aF,N5 as aG,I5 as aH,qv as aI,D5 as aJ,j5 as aK,L5 as aL,Nu as aM,B5 as aN,z5 as aO,M5 as aP,U5 as aQ,WO as aR,V5 as aS,H5 as aT,W5 as aU,q5 as aV,K5 as aW,Q5 as aX,G5 as aY,Y5 as aZ,X5 as a_,w5 as aa,b5 as ab,_5 as ac,E5 as ad,C5 as ae,$5 as af,k5 as ag,P5 as ah,T5 as ai,O5 as aj,R5 as ak,F5 as al,uo as am,A5 as an,VO as ao,HO as ap,T4 as aq,P4 as ar,k4 as as,E4 as at,C4 as au,$4 as av,lO as aw,ci as ax,i2 as ay,Qa as az,Wt as b,i5 as b$,Z5 as b0,e4 as b1,vn as b2,Fu as b3,Au as b4,t4 as b5,cO as b6,pO as b7,n4 as b8,o4 as b9,Mn as bA,jP as bB,L1 as bC,pP as bD,R4 as bE,CP as bF,F4 as bG,A4 as bH,N4 as bI,I4 as bJ,U4 as bK,D4 as bL,j4 as bM,L4 as bN,qO as bO,B4 as bP,H0 as bQ,EO as bR,z4 as bS,M4 as bT,O4 as bU,dO as bV,QO as bW,JO as bX,ZO as bY,e5 as bZ,t5 as b_,i4 as ba,a4 as bb,r4 as bc,s4 as bd,Ou as be,Ru as bf,ui as bg,l4 as bh,u4 as bi,c4 as bj,f4 as bk,d4 as bl,p4 as bm,h4 as bn,m4 as bo,g4 as bp,y4 as bq,v4 as br,x4 as bs,w4 as bt,S4 as bu,b4 as bv,_4 as bw,yd as bx,Ku as by,z as bz,Ao as c,YO as c0,XO as c1,GO as c2,n5 as c3,r5 as c4,o5 as c5,KO as c6,Pu as c7,li as c8,a5 as c9,l5 as ca,u5 as cb,c5 as cc,mO as cd,f$ as ce,Bu as cf,gO as cg,yO as ch,Wv as d,wd as e,D$ as f,Pm as g,Eu as h,LP as i,V as j,NE as k,Cu as l,bO as m,kO as n,z$ as o,_O as p,Tu as q,P as r,oO as s,n$ as t,E as u,vO as v,xO as w,wO as x,iO as y,$O as z};
+`,qu=({children:e})=>{const t=eo(Vd),n=ar();return t?e:V.jsx(Sd,{state:{from:n},to:"/welcome"})},Gm=({children:e})=>{var r;const t=eo(Vd),n=ar();return t?V.jsx(Sd,{to:((r=n.state)==null?void 0:r.from)||"/"}):e},TP=P.lazy(()=>Ki(()=>import("./WelcomePage-5d2a3090.js"),["assets/WelcomePage-5d2a3090.js","assets/Image-a3853cff.js"])),PP=P.lazy(()=>Ki(()=>import("./AuthPage-88098ea8.js"),["assets/AuthPage-88098ea8.js","assets/Button-9fcf54ba.js"])),OP=P.lazy(()=>Ki(()=>import("./HomePage-bda9d0fa.js"),["assets/HomePage-bda9d0fa.js","assets/ConfirmationPopup-4b69b098.js","assets/Image-a3853cff.js","assets/Button-9fcf54ba.js"])),Ym=P.lazy(()=>Ki(()=>import("./ScreensPage-1749bfea.js"),["assets/ScreensPage-1749bfea.js","assets/Image-a3853cff.js","assets/ConfirmationPopup-4b69b098.js","assets/Button-9fcf54ba.js"])),RP=P.lazy(()=>Ki(()=>import("./NotFoundPage-825af833.js"),[]));function FP(){return V.jsx(a2,{children:V.jsxs(dn,{path:"/",element:V.jsx(i$,{}),children:[V.jsx(dn,{index:!0,element:V.jsx(qu,{children:V.jsx(Sd,{to:"/home"})})}),V.jsx(dn,{path:"/welcome",element:V.jsx(Gm,{children:V.jsx(TP,{})})}),V.jsx(dn,{path:"/auth/:id",element:V.jsx(Gm,{children:V.jsx(PP,{})})}),V.jsxs(dn,{path:"/home",element:V.jsx(OP,{}),children:[V.jsx(dn,{index:!0,element:V.jsx(qu,{children:V.jsx(Ym,{})})}),V.jsx(dn,{path:"/home/:boardName",element:V.jsx(qu,{children:V.jsx(Ym,{})})})]}),V.jsx(dn,{path:"*",element:V.jsx(RP,{})})]})})}Qu.createRoot(document.getElementById("root")).render(V.jsx(m2,{basename:"/goals-achiever-react",children:V.jsx(H2,{store:xv,children:V.jsxs(E0,{loading:null,persistor:HE,children:[V.jsx(FP,{}),V.jsx(ub,{theme:"dark",style:{zIndex:99999},autoClose:2e3})]})})}));export{f5 as $,TO as A,ae as B,PO as C,OO as D,AO as E,NO as F,IO as G,DO as H,Il as I,LO as J,jO as K,v2 as L,BO as M,x2 as N,RO as O,FO as P,$u as Q,CO as R,SO as S,zO as T,MO as U,UO as V,hO as W,LE as X,aO as Y,o$ as Z,s5 as _,eo as a,J5 as a$,d5 as a0,p5 as a1,h5 as a2,g5 as a3,m5 as a4,y5 as a5,v5 as a6,nO as a7,x5 as a8,S5 as a9,BT as aA,mp as aB,D1 as aC,Qm as aD,dP as aE,uO as aF,N5 as aG,I5 as aH,qv as aI,D5 as aJ,j5 as aK,L5 as aL,Nu as aM,B5 as aN,z5 as aO,M5 as aP,U5 as aQ,WO as aR,V5 as aS,H5 as aT,W5 as aU,q5 as aV,K5 as aW,Q5 as aX,G5 as aY,Y5 as aZ,X5 as a_,w5 as aa,b5 as ab,_5 as ac,E5 as ad,C5 as ae,$5 as af,k5 as ag,P5 as ah,T5 as ai,O5 as aj,R5 as ak,F5 as al,uo as am,A5 as an,VO as ao,HO as ap,T4 as aq,P4 as ar,k4 as as,E4 as at,C4 as au,$4 as av,lO as aw,ci as ax,i2 as ay,Qa as az,Wt as b,i5 as b$,Z5 as b0,e4 as b1,vn as b2,Fu as b3,Au as b4,t4 as b5,cO as b6,pO as b7,n4 as b8,o4 as b9,Mn as bA,jP as bB,L1 as bC,pP as bD,R4 as bE,CP as bF,F4 as bG,A4 as bH,N4 as bI,I4 as bJ,U4 as bK,D4 as bL,j4 as bM,L4 as bN,qO as bO,B4 as bP,H0 as bQ,EO as bR,z4 as bS,M4 as bT,O4 as bU,dO as bV,QO as bW,JO as bX,ZO as bY,e5 as bZ,t5 as b_,i4 as ba,a4 as bb,r4 as bc,s4 as bd,Ou as be,Ru as bf,ui as bg,l4 as bh,u4 as bi,c4 as bj,f4 as bk,d4 as bl,p4 as bm,h4 as bn,m4 as bo,g4 as bp,y4 as bq,v4 as br,x4 as bs,w4 as bt,S4 as bu,b4 as bv,_4 as bw,yd as bx,Ku as by,z as bz,Ao as c,YO as c0,XO as c1,GO as c2,n5 as c3,r5 as c4,o5 as c5,KO as c6,Pu as c7,li as c8,a5 as c9,l5 as ca,u5 as cb,c5 as cc,mO as cd,f$ as ce,Bu as cf,gO as cg,yO as ch,Wv as d,wd as e,D$ as f,Pm as g,Eu as h,LP as i,V as j,NE as k,Cu as l,bO as m,kO as n,z$ as o,_O as p,Tu as q,P as r,oO as s,n$ as t,E as u,vO as v,xO as w,wO as x,iO as y,$O as z};
