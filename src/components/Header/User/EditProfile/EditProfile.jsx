@@ -56,7 +56,7 @@ export const EditProfile = ({ handleCloseModal }) => {
   };
   return (
     <SForm_form onSubmit={handleSubmit(onSubmit)}>
-      <STitle_h2>Edit profile</STitle_h2>
+      <STitle_h2>Edit&nbsp;&nbsp;profile</STitle_h2>
       <Card setAvatar={setAvatar} />
       <InputList
         register={register}
