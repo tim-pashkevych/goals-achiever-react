@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { BoardForm, Modal } from '../..';
@@ -21,14 +21,13 @@ export const BoardItem = ({ id, title, icon, toggleSidebar = false }) => {
   const [isOpenDeleteModal, toggleDeleteModal] = useModal();
 
   const navigate = useNavigate();
-  const { boardName } = useParams();
   const dispatch = useAppDispatch();
   const activeBoard = useAppSelector(selectActiveBoard);
   const isActive = activeBoard._id === id;
 
-  const handleBoardClick = (name) => {
-    if (name === boardName) return;
-    navigate(`/home/${name}`);
+  const handleBoardClick = () => {
+    if (id === activeBoard._id) return;
+    navigate(`/home/${title}`);
     dispatch(updateActiveBoard(id));
     if (toggleSidebar) toggleSidebar();
     localStorage.setItem('activeBoardId', JSON.stringify(id));
@@ -39,7 +38,7 @@ export const BoardItem = ({ id, title, icon, toggleSidebar = false }) => {
       .unwrap()
       .then(() => {
         localStorage.removeItem('activeBoardId');
-        toast.success(`The board "${boardName}" was deleted.`);
+        toast.success(`The board "${id}" was deleted.`);
         navigate(`/home`);
         if (toggleSidebar) toggleSidebar();
       })
@@ -50,7 +49,7 @@ export const BoardItem = ({ id, title, icon, toggleSidebar = false }) => {
 
   return (
     <>
-      <SLi onClick={() => handleBoardClick(title)} $isActive={isActive}>
+      <SLi onClick={() => handleBoardClick()} $isActive={isActive}>
         <SDivLi>
           <SIcon id={icon} size={18} className="project" />
           <SpProject>{title}</SpProject>
