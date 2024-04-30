@@ -8,7 +8,7 @@ export const SColumnWrapper = styled.div`
     /* min-width: 240px; */
     width: 350px;
   }
-  width: 350px;
+  /* width: 350px; */
   display: flex;
   gap: 14px;
   flex-direction: column;
@@ -30,7 +30,7 @@ export const SCardWrapperScroll = styled.div`
   gap: 8px;
   max-height: 100%;
 
-  padding-right: 10px;
+  /* padding-right: 10px; */
 
   &::-webkit-scrollbar {
     width: 10px;
@@ -50,8 +50,11 @@ export const SCardWrapperScroll = styled.div`
 `;
 export const SColumnName = styled.div`
   @media only screen and (min-width: 320px) and (max-width: 767.99px) {
-    min-width: 240px;
+    /* min-width: 240px; */
     width: 100%;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 335px;
   }
   width: 335px;
   min-height: 56px;
