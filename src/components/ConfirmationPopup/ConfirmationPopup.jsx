@@ -6,16 +6,17 @@ export const ConfirmationPopup = ({
   approveModal,
   isLoading,
   action,
+  logout = false,
 }) => {
   return (
     <SDiv>
       <Sp>Are you sure you want to {action}?</Sp>
       <SDiv_Button>
         <SButton type="button" onClick={approveModal} disabled={isLoading}>
-          Yes
+          {logout ? 'Log out' : 'Yes'}
         </SButton>
         <SButton type="button" onClick={() => closeModal()}>
-          No
+          Cancel
         </SButton>
       </SDiv_Button>
       {isLoading && <Loader />}
