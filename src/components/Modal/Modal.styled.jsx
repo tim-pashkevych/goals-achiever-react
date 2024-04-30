@@ -30,8 +30,8 @@ export const SModalButton_button = styled.button`
   align-items: center;
   position: absolute;
   padding: 4.5px;
-  top: 14px;
-  right: 14px;
+  top: 10px;
+  right: 13px;
   border: none;
   outline: none;
   stroke: ${({ theme }) => theme.userProfile};
