@@ -5,11 +5,12 @@ interface ICardContainerProps {
 }
 
 export const card_div = styled.div<ICardContainerProps>`
-  @media only screen and (min-width: 320px) {
-    width: 100%;
-  }
-  @media only screen and (min-width: 375px) and (max-width: 747.99px) {
+  width: 89vw;
+  @media only screen and (min-width: 375px) {
     width: 335px;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 334px;
   }
   /* background-color: #121212; //? */
   background-color: ${({ theme }) => theme.card_Background};
