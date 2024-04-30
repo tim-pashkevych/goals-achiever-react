@@ -52,6 +52,7 @@ const slice = createSlice({
       )
       .addCase(deleteColumnByIdThunk.fulfilled, (state, { payload: id }) => {
         state.items = state.items.filter((column) => column._id !== id);
+        state.isLoading = false;
       })
       .addCase(deleteBoardByIdThunk.fulfilled, () => initialState)
       .addCase(fetchUserThunk.fulfilled, (state, { payload: { result } }) => {

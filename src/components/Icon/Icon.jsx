@@ -12,6 +12,7 @@ export const Icon = ({ id, size, color, stroke, fill, className }) => {
       stroke={stroke}
       fill={fill}
       className={className}
+      pointerEvents="none"
     >
       <use href={Icons + '#icon-' + id}></use>
     </SIcon>

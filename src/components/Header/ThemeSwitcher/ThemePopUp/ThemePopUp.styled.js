@@ -22,10 +22,6 @@ export const SList_ul = styled.ul`
 `;
 
 export const SListItem_li = styled.li`
-  text-transform: capitalize;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: -0.02em;
   width: 100%;
 
   color: ${({ theme }) => theme.themeSwitsherPopUp};
@@ -40,7 +36,16 @@ export const SListItem_li = styled.li`
     }
   }
 `;
+export const Sspan_span = styled.span`
+  text-transform: capitalize;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.02em;
 
+  &.active {
+    color: ${({ theme }) => theme.themeAccent};
+  }
+`;
 export const SButton_button = styled.button`
   width: 100%;
   text-align: start;

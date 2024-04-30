@@ -2,15 +2,10 @@ import { useAppDispatch } from '../../hooks';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import {
-  createColumnThunk,
-  deleteColumnByIdThunk,
-  updateColumnByIdThunk,
-} from '../../redux';
+import { createColumnThunk, updateColumnByIdThunk } from '../../redux';
 
 import {
   SButton,
-  SButtonDelete,
   SForm,
   SImgContainer,
   SInput,
@@ -49,9 +44,6 @@ export const EditColumn = ({
           updateColumnByIdThunk({ id, newColumnBody: { title: title } })
         );
         break;
-      case 'delete':
-        dispatch(deleteColumnByIdThunk(id));
-        break;
       default:
         break;
     }
@@ -60,38 +52,26 @@ export const EditColumn = ({
   return (
     <>
       <SForm onSubmit={handleSubmit(onSubmit)}>
-        <STitle>
-          {titleModal.title}
-          {actionType === 'delete' && (
-            <span style={{ fontWeight: 700 }}>{placeholder}</span>
+        <STitle>{titleModal.title}</STitle>
+
+        <SDiv>
+          <SInput
+            name="title"
+            type="text"
+            placeholder={placeholder}
+            {...register('title')}
+            $hasError={!!errors.title}
+          />
+          {errors.title && dirtyFields && (
+            <SpError>{errors.title.message}</SpError>
           )}
-        </STitle>
-        {actionType !== 'delete' && (
-          <SDiv>
-            <SInput
-              name="title"
-              type="text"
-              placeholder={placeholder}
-              {...register('title')}
-              $hasError={!!errors.title}
-            />
-            {errors.title && dirtyFields && (
-              <SpError>{errors.title.message}</SpError>
-            )}
-          </SDiv>
-        )}
-        {actionType !== 'delete' ? (
-          <SButton type="submit">
-            <SImgContainer>
-              <SIcon id="plus" size={14} />
-            </SImgContainer>
-            {titleModal.buttonText}
-          </SButton>
-        ) : (
-          <SButtonDelete onClick={onSubmit} type="submit">
-            {titleModal.buttonText}
-          </SButtonDelete>
-        )}
+        </SDiv>
+        <SButton type="submit">
+          <SImgContainer>
+            <SIcon id="plus" size={14} />
+          </SImgContainer>
+          {titleModal.buttonText}
+        </SButton>
       </SForm>
     </>
   );
