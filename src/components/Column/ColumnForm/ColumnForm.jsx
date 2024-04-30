@@ -7,8 +7,6 @@ const infoModal = (actionType) => {
       return { title: 'Add column', buttonText: 'Add' };
     case 'edit':
       return { title: 'Edit column', buttonText: 'Edit' };
-    case 'delete':
-      return { title: 'Delete column', buttonText: 'Delete' };
     default:
       return { title: 'Column', buttonText: 'Add' };
   }

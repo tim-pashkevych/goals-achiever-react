@@ -1,7 +1,9 @@
-import { useModal } from '../../hooks';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector, useModal } from '../../hooks';
+import { logoutThunk, selectIsUserLoading } from '../../redux';
 import { BoardForm } from '../Board/BoardForm/BoardForm';
 import { BoardList } from '../Board/BoardList/BoardList';
-import { Logout } from '../Logout/Logout';
+import { ConfirmationPopup } from '../ConfirmationPopup/ConfirmationPopup';
 import { Modal } from '../Modal/Modal';
 import { NeedHelpForm } from '../NeedHelpForm/NeedHelpForm';
 import {
@@ -20,11 +22,28 @@ import {
   SDivProject,
   SbuttonLogout,
 } from './Sidebar.styled';
+import { toast } from 'react-toastify';
 
 export const Sidebar = ({ className, toggleSidebar }) => {
   const [isOpenModal, toggleModal] = useModal();
   const [isOpenModalIssues, toggleModalIssues] = useModal();
   const [isOpenLogoutModal, toggleLogoutModal] = useModal();
+  const isLoading = useAppSelector(selectIsUserLoading);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logoutThunk())
+      .unwrap()
+      .then(() => {
+        navigate('/');
+        toggleModal();
+        toast.warning('In order to use the application you must log in.');
+      })
+      .catch(() => {
+        toast.error('Sorry, something went wrong. Please try again later.');
+      });
+  };
 
   return (
     <>
@@ -75,7 +94,13 @@ export const Sidebar = ({ className, toggleSidebar }) => {
       )}
       {isOpenLogoutModal && (
         <Modal toggleModal={toggleLogoutModal}>
-          <Logout toggleModal={toggleLogoutModal} />
+          <ConfirmationPopup
+            closeModal={toggleLogoutModal}
+            approveModal={handleLogout}
+            logout={true}
+            action="log out"
+            isLoading={isLoading}
+          />
         </Modal>
       )}
     </>

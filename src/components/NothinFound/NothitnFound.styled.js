@@ -24,6 +24,6 @@ export const SNothingFoundP = styled.p`
   }
 `;
 
-export const SAccentedLink = styled.a`
+export const SAccentedButton = styled.button`
   color: ${({ theme }) => theme.themeAccent};
 `;

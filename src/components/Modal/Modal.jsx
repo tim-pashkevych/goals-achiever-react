@@ -41,7 +41,7 @@ export const Modal = ({
     <SWrapper_div onClick={handleClick}>
       <SModalWindow_div $padding={padding}>
         <SModalButton_button onClick={() => toggleModal()}>
-          <Icon id={'close'} size={9} />
+          <Icon id={'close'} size={12} />
         </SModalButton_button>
         {children}
       </SModalWindow_div>

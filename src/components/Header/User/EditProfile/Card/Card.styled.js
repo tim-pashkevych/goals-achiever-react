@@ -30,6 +30,8 @@ export const SButtonWraper_div = styled.div`
   position: absolute;
   bottom: 0;
   transform: translateY(50%);
+  width: 24px;
+  height: 24px;
 `;
 
 export const SHideInput_input = styled.input`
